@@ -1,6 +1,7 @@
+// 🕌 روابط الأقسام الرئيسية للموقع
 export const categoriesLinks = [
     {
-        name: "امساكية شهر رمضان",
+        name: "إمساكية شهر رمضان",
         path: "/calendar",
         img: "/categories/mosque.webp",
         new: true,
@@ -14,35 +15,35 @@ export const categoriesLinks = [
         ramadan: true,
     },
     {
-        name: "اسئلة دينية",
+        name: "أسئلة دينية",
         path: "/quiz",
         img: "/categories/quiz.webp",
         new: true,
         ramadan: false,
     },
     {
-        name: "اداه الباحث في الحديث",
-        path: `/search/-`,
+        name: "أداة الباحث في الحديث",
+        path: "/search/-",
         img: "/categories/search.webp",
         new: true,
         ramadan: false,
     },
     {
-        name: "اسماء الله الحسني",
+        name: "أسماء الله الحسنى",
         path: "/names",
         img: "/categories/allah.webp",
         new: true,
         ramadan: false,
     },
     {
-        name: "قسم القران الكريم",
+        name: "قسم القرآن الكريم",
         path: "/qaran",
         img: "/categories/qaran.webp",
         new: false,
         ramadan: false,
     },
     {
-        name: "قسم تفسير القران",
+        name: "قسم تفسير القرآن",
         path: "/tafsir",
         img: "/categories/unnamed.webp",
         new: false,
@@ -56,14 +57,14 @@ export const categoriesLinks = [
         ramadan: false,
     },
     {
-        name: "اوقات الصلاة والمناسبات الاسلامية",
+        name: "أوقات الصلاة والمناسبات الإسلامية",
         path: "/salah",
         img: "/categories/Salah.webp",
         new: false,
         ramadan: false,
     },
     {
-        name: "قسم الادعية والاذكار",
+        name: "قسم الأدعية والأذكار",
         path: "/azekar",
         img: "/categories/azekar.webp",
         new: false,
@@ -105,35 +106,35 @@ export const categoriesLinks = [
         ramadan: false,
     },
     {
-        name: "قسم الفتاوي",
+        name: "قسم الفتاوى",
         path: "/fatwa/1",
         img: "/categories/fatwa.webp",
         new: false,
         ramadan: false,
     },
     {
-        name: "قسم المحاضرات الصوتيه",
+        name: "قسم المحاضرات الصوتية",
         path: "/audios/1",
         img: "/categories/audios.webp",
         new: false,
         ramadan: false,
     },
     {
-        name: "قسم المحاضرات الفيديو",
+        name: "قسم المحاضرات المرئية",
         path: "/videos/1",
         img: "/categories/videos.webp",
         new: false,
         ramadan: false,
     },
     {
-        name: "ما لا يسع اطفال المسلمين جهله",
+        name: "ما لا يسع أطفال المسلمين جهله",
         path: "/children",
         img: "/categories/children.webp",
         new: true,
         ramadan: false,
     },
     {
-        name: "ذكاه المال",
+        name: "زكاة المال",
         path: "/zakat",
         img: "/categories/zakat.webp",
         new: true,
@@ -141,45 +142,46 @@ export const categoriesLinks = [
     },
 ];
 
-
+// 🏠 روابط التصفّح العامة (القائمة الرئيسية)
 export const links = [
     {
-        name: "الصفحة الرائيسية",
+        name: "الصفحة الرئيسية",
         path: "/",
     },
     {
-        name: "قران كريم",
+        name: "القرآن الكريم",
         path: "/qaran",
     },
     {
-        name: "تفسير القران",
+        name: "تفسير القرآن",
         path: "/tafsir",
     },
     {
-        name: "حديث",
+        name: "الحديث الشريف",
         path: "/adiths",
     },
     {
-        name: "ادعيه والأذكار",
+        name: "الأدعية والأذكار",
         path: "/azekar",
     },
     {
-        name: "اقتباسات",
+        name: "الاقتباسات",
         path: "/quotes",
     },
 ];
 
+// 📚 روابط الأقسام القرآنية والإيمانية
 export const links1 = [
     {
-        name: "قسم القران الكريم",
+        name: "قسم القرآن الكريم",
         path: "/qaran",
     },
     {
-        name: "قسم تفسير القران",
+        name: "قسم تفسير القرآن",
         path: "/tafsir",
     },
     {
-        name: "اسماء الله الحسني",
+        name: "أسماء الله الحسنى",
         path: "/names",
     },
     {
@@ -187,7 +189,7 @@ export const links1 = [
         path: "/adiths",
     },
     {
-        name: "قسم الادعية والأذكار",
+        name: "قسم الأدعية والأذكار",
         path: "/azekar",
     },
     {
@@ -196,6 +198,7 @@ export const links1 = [
     },
 ];
 
+// 📖 روابط المحتوى العلمي والثقافي
 export const links2 = [
     {
         name: "قسم الكتب",
@@ -210,34 +213,35 @@ export const links2 = [
         path: "/khotab/1",
     },
     {
-        name: "قسم الفتاوي",
+        name: "قسم الفتاوى",
         path: "/fatwa/1",
     },
     {
-        name: "قسم المحاضرات الصوتيه",
+        name: "قسم المحاضرات الصوتية",
         path: "/audios/1",
     },
     {
-        name: "محاضرات فديو",
+        name: "قسم المحاضرات المرئية",
         path: "/videos/1",
     },
 ];
 
+// 🕋 روابط الأدوات والخدمات الإضافية
 export const links3 = [
     {
         name: "قسم التسبيح",
         path: "/tasbih",
     },
     {
-        name: "اوقات الصلاه",
+        name: "أوقات الصلاة",
         path: "/salah",
     },
     {
-        name: "اداه الباحث في الحديث",
+        name: "أداة الباحث في الحديث",
         path: "/search",
     },
     {
-        name: "ما لا يسع اطفال المسلمين جهله",
+        name: "ما لا يسع أطفال المسلمين جهله",
         path: "/children",
     },
 ];

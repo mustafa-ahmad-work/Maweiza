@@ -6,7 +6,7 @@ export default async function _({ params }) {
 
     return (
         <>
-            <Landing title="قسم الحديث" text="" />
+            {/* <Landing title="قسم الحديث" text="" /> */}
             <CategoryAdith category={category} />
         </>
     );

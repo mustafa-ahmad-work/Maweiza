@@ -1,0 +1,44 @@
+{
+    "authors": [
+        {
+            "author": "محمد الغزالي",
+            "authorId": 1,
+            "isFamous": true
+        },
+        {
+            "author": "محمد متولي الشعراوي",
+            "authorId": 2,
+            "isFamous": true
+        },
+        {
+            "author": "عمر بن الخطاب",
+            "authorId": 3,
+            "isFamous": true
+        },
+        {
+            "author": "ابن القيم",
+            "authorId": 4,
+            "isFamous": true
+        },
+        {
+            "author": "الامام الشافعي",
+            "authorId": 5,
+            "isFamous": true
+        },
+        {
+            "author": "علي ابن أبي طالب",
+            "authorId": 6,
+            "isFamous": true
+        },
+        {
+            "author": "الحسن البصري",
+            "authorId": 6,
+            "isFamous": true
+        },
+        {
+            "author": "مصعب صابر",
+            "authorId": 7,
+            "isFamous": false
+        }
+    ]
+}

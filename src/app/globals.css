@@ -846,6 +846,21 @@ footer .box .links li a {
     }
 }
 
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.animate-shine {
+    background-size: 200% 100%;
+    animation: shine 3s linear infinite;
+    opacity: 0.5;
+}
+
 @-webkit-keyframes check-02-11 {
     0% {
         width: 4px;

@@ -36,21 +36,82 @@ const cairo = localFont({
 
 export const metadata = {
     metadataBase: new URL("https://maweiza.com"),
-    title: "موقع موعظه",
-    description: "اكتشف عالمًا من المعرفة والعلم مع موقعنا المخصص لتقديم محتوى إسلامي شامل ومتنوع. نقدم لك مجموعة واسعة من الأقسام التي تلبي احتياجاتك المختلفة، استمتع بمكتبة غنية من الكتب والمقالات، وابقَ على اطلاع بأوقات الصلاة والأحاديث النبوية. والمزيد ...",
+
+    title: {
+        default: "موعظة | موقع إسلامي شامل",
+        template: "%s | موعظة"
+    },
+
+    description:
+        "موقع موعظة الإسلامي يقدم محتوى شامل من القرآن الكريم وتفسيره، الأحاديث النبوية، الأدعية والأذكار، الخطب، الفتاوى، الكتب والمقالات، والمحاضرات الصوتية والمرئية — لتجربة معرفية وروحية متكاملة.",
+
     manifest: "/manifest.webmanifest",
-    keywords: "اذكار , أدعيه ,اوقات الصلاه , قران , حديث ,الاقتباسات",
-    author: "مصطفي احمد",
-    icon: "favicon.ico",
+
+    keywords: [
+        "موعظة",
+        "القرآن الكريم",
+        "تفسير القرآن",
+        "أحاديث نبوية",
+        "أذكار",
+        "أدعية",
+        "كتب إسلامية",
+        "فتاوى",
+        "خطب",
+        "محاضرات إسلامية",
+        "اقتباسات إسلامية",
+        "مكتبة إسلامية",
+        "Maweiza"
+    ],
+
+    authors: [{ name: "مصطفى أحمد", url: "https://maweiza.com" }],
+
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon.ico",
+        apple: "/apple-touch-icon.png"
+    },
+
     openGraph: {
-        siteName: "Maweiza",
+        type: "website",
+        locale: "ar_EG",
+        url: "https://maweiza.com",
+        siteName: "موعظة | Maweiza",
+        title: "موعظة | موقع إسلامي شامل للقرآن والأحاديث والأدعية",
+        description:
+            "اكتشف كنوز العلم والإيمان في موقع موعظة — القرآن الكريم، التفسير، الأحاديث، الأدعية، الخطب، الكتب والمزيد.",
+        images: [
+            {
+                url: "/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "موعظة | موقع إسلامي شامل"
+            }
+        ]
     },
+
+    twitter: {
+        card: "summary_large_image",
+        site: "@maweiza",
+        creator: "@mostafaahmed",
+        title: "موعظة | موقع إسلامي شامل",
+        description:
+            "منصة موعظة — مرجعك الكامل للقرآن الكريم، الأحاديث، الأدعية، الفتاوى، الكتب والمحاضرات الإسلامية.",
+        images: ["/og-image.jpg"]
+    },
+
     verification: {
-        google: "google",
-        yahoo: "yahoo",
-        me: ["zn327855@gmail.com"],
+        google: "google-site-verification-code",
+        yahoo: "yahoo-verification-code",
+        me: ["mailto:zn327855@gmail.com"]
     },
+
+    alternates: {
+        canonical: "https://maweiza.com"
+    },
+
+    category: "Islamic"
 };
+
 
 export default function RootLayout({ children }) {
     return (
@@ -66,7 +127,7 @@ export default function RootLayout({ children }) {
             </head>
             <SWRProvider>
                 <RamadanProvider>
-                    <body cz-shortcut-listen="true" className="bg-[rgb(250,250,250)] text-sm header dark:bg-[#000000f2] dark:text-white transition-colors selection:bg-lime-600 selection:text-white">
+                    <body cz-shortcut-listen="true" className="bg-[rgb(250,250,250)] text-sm header dark:bg-gray-950 dark:text-white transition-colors selection:bg-lime-600 selection:text-white">
                         <iframe
                             src="https://www.googletagmanager.com/ns.html?id=GTM-WBZJG335"
                             height="0"

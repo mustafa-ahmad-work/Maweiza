@@ -58,16 +58,16 @@ export default function Azekar() {
     };
 
     const showData = azekar[0].array.map((item, index) => (
-        <div key={index} className="relative px-6 py-6 mb-3 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-stone-900 dark:border dark:border-stone-600 flex flex-col justify-between items-center">
+        <div key={index} className="relative px-6 py-6 mb-3 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-gray-900 dark:border dark:border-gray-600 flex flex-col justify-between items-center">
             <p className={expanded[index] ? "" : "line-clamp-3"}>
                 {item.text}
             </p>
             <div className="flex justify-between gap-2 mt-3 w-full">
-                <div className="whitespace-nowrap bg-zinc-600 text-white p-2 rounded-xl">
+                <div className="whitespace-nowrap bg-gray-600 text-white p-2 rounded-xl">
                     <span className="font-sans ml-1">{item.count}</span>
                     مرات
                 </div>
-                <div className="w-full whitespace-nowrap bg-zinc-600 text-white rounded-xl flex justify-between items-center">
+                <div className="w-full whitespace-nowrap bg-gray-600 text-white rounded-xl flex justify-between items-center">
                     <span onClick={() => incrementCount(index)} className="p-3 bg-lime-600 flex cursor-pointer items-center rounded-xl">
                         <FontAwesomeIcon className="text-ml" icon={faPlus} />
                     </span>
@@ -105,7 +105,7 @@ export default function Azekar() {
                             </button>
                             <button
                                 onClick={() => handleCopy(item.text)}
-                                className="p-3 bg-green-500 text-white rounded-md flex items-center">
+                                className="p-3 bg-emerald-500 text-white rounded-md flex items-center">
                                 <FontAwesomeIcon icon={faCopy} className="ml-2" />
                                 نسخ
                             </button>

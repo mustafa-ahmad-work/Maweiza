@@ -245,14 +245,11 @@ export default function Salah() {
                 ) : (
                     <>
                         <div className="prayer-times-section">
-                            <h2 className="text-white text-2xl text-center mb-5">
-                                أوقات الصلاة
-                            </h2>
                             <div className="container px-5 m-auto mb-10 text-white md:grid lg:grid-cols-5 md:grid-cols-3 gap-5 justify-center items-center">
                                 {prayersArray.map((prayer, index) => (
                                     <div
                                         key={prayer.key}
-                                        className={`p-5 w-full ${prayer.css} time rounded-md mb-5 md:mb-0 bg-gradient-to-r from-green-600 to-lime-500 flex flex-col justify-center text-xl ${nextPrayerIndex === index
+                                        className={`p-5 w-full ${prayer.css} time rounded-md mb-5 md:mb-0 bg-gradient-to-r from-emerald-600 to-lime-500 flex flex-col justify-center text-xl ${nextPrayerIndex === index
                                             ? "md:scale-110 sm:scale-105"
                                             : "text-gray-300 py-8"
                                             }`}>

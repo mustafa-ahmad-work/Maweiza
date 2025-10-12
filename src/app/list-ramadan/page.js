@@ -132,11 +132,11 @@ export default function Page() {
         <>
             <Landing title={`يومي في رمضان (${moment().iYear()} هـ - ${moment().year()} م)`} />
             <div className="container mx-auto mb-5 px-2">
-                <div className="bg-green-50 dark:bg-zinc-700 p-4 rounded-lg mb-4">
-                    <h3 className="text-xl font-bold text-green-800 dark:text-white">
+                <div className="bg-emerald-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                    <h3 className="text-xl font-bold text-emerald-800 dark:text-white">
                         معلومات رمضان الحالية:
                     </h3>
-                    <p className="text-green-700 dark:text-white">
+                    <p className="text-emerald-700 dark:text-white">
                         البدء: {ramadanInfo.start ? moment(ramadanInfo.start).format("YYYY/MM/DD") : "غير معروف"}
                         <br />
                         الانتهاء: {ramadanInfo.end ? moment(ramadanInfo.end).format("YYYY/MM/DD") : "غير معروف"}
@@ -149,7 +149,7 @@ export default function Page() {
                         <select
                             value={selectedDay}
                             onChange={(e) => setSelectedDay(e.target.value)}
-                            className="p-2 rounded border dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"
+                            className="p-2 rounded border dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                         >
                             <option value="all">كل الأيام</option>
                             {[...Array(ramadanInfo.totalDays)].map((_, i) => (
@@ -160,26 +160,26 @@ export default function Page() {
                         </select>
                         <button
                             onClick={() => setSelectedDay(getCurrentRamadanDay().toString())}
-                            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                            className="px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700">
                             انتقل لليوم الحالي
                         </button>
                     </div>
 
-                    <div className="overflow-x-auto rounded-sm shadow-sm border border-green-50 dark:border-zinc-700">
+                    <div className="overflow-x-auto rounded-sm shadow-sm border border-emerald-50 dark:border-gray-700">
                         <table className="w-full border-collapse text-sm md:text-base bg-white dark:bg-black whitespace-nowrap">
                             <thead className="sticky top-0">
-                                <tr className="bg-green-600 text-white text-center">
+                                <tr className="bg-emerald-600 text-white text-center">
                                     <span></span>
-                                    <th className="p-3 font-semibold border-b border-green-500">اليوم</th>
-                                    <th className="p-3 font-semibold border-b border-green-500">العبادات اليومية</th>
-                                    <th className="p-3 font-semibold border-b border-green-500">النوافل</th>
-                                    <th className="p-3 font-semibold border-b border-green-500">الأذكار</th>
-                                    <th className="p-3 font-semibold border-b border-green-500">القرآن</th>
-                                    <th className="p-3 font-semibold border-b border-green-500">الأعمال الصالحة</th>
+                                    <th className="p-3 font-semibold border-b border-emerald-500">اليوم</th>
+                                    <th className="p-3 font-semibold border-b border-emerald-500">العبادات اليومية</th>
+                                    <th className="p-3 font-semibold border-b border-emerald-500">النوافل</th>
+                                    <th className="p-3 font-semibold border-b border-emerald-500">الأذكار</th>
+                                    <th className="p-3 font-semibold border-b border-emerald-500">القرآن</th>
+                                    <th className="p-3 font-semibold border-b border-emerald-500">الأعمال الصالحة</th>
                                 </tr>
                             </thead>
 
-                            <tbody className="divide-y divide-green-100 dark:divide-zinc-500 whitespace-nowrap">
+                            <tbody className="divide-y divide-emerald-100 dark:divide-gray-500 whitespace-nowrap">
                                 {[...Array(ramadanInfo.totalDays)].map((_, i) => {
                                     const dayNumber = i + 1;
                                     if (selectedDay !== "all" && dayNumber !== Number(selectedDay)) return null;
@@ -188,7 +188,7 @@ export default function Page() {
                                     return (
                                         <tr
                                             key={i}
-                                            className={`hover:bg-green-50 relative ${i % 2 === 0 ? "bg-green-50/30 dark:bg-zinc-800" : "bg-white dark:bg-black"}`}
+                                            className={`hover:bg-emerald-50 relative ${i % 2 === 0 ? "bg-emerald-50/30 dark:bg-gray-800" : "bg-white dark:bg-black"}`}
                                         >
                                             {
                                                 dayNumber > currentRamadanDay ?
@@ -197,13 +197,13 @@ export default function Page() {
                                                         <FontAwesomeIcon icon={faLock} />
                                                     </span> : <span></span>
                                             }
-                                            <td className="p-3 text-center font-medium text-green-600 border-r dark:border-zinc-500">
+                                            <td className="p-3 text-center font-medium text-emerald-600 border-r dark:border-gray-500">
                                                 {dayNumber} رمضان
                                             </td>
 
 
                                             {/* الصلوات المفروضة */}
-                                            <td className="p-3 border-r dark:border-zinc-500">
+                                            <td className="p-3 border-r dark:border-gray-500">
                                                 <div className="grid gap-2">
                                                     {["الفجر", "الظهر", "العصر", "المغرب", "العشاء"].map((prayer) => (
                                                         <div key={prayer} className="checkbox-wrapper-11 pe-5">
@@ -225,10 +225,10 @@ export default function Page() {
                                             </td>
 
                                             {/* النوافل */}
-                                            <td className="p-3 border-r dark:border-zinc-500">
+                                            <td className="p-3 border-r dark:border-gray-500">
                                                 <div className="grid gap-2">
                                                     <div className="flex flex-col gap-1">
-                                                        <span className="text-xs text-green-600 font-medium">رواتب اليوم</span>
+                                                        <span className="text-xs text-emerald-600 font-medium">رواتب اليوم</span>
                                                         {["2 قبل الفجر", "4 قبل الظهر", "2 بعد الظهر", "2 بعد المغرب", "2 بعد العشاء", "الوتر"].map((n) => (
                                                             <div key={n} className="checkbox-wrapper-11 pe-5">
                                                                 <input
@@ -246,7 +246,7 @@ export default function Page() {
                                                             </div>
                                                         ))}
                                                     </div>
-                                                    <div className="mt-2 pt-2 border-t dark:border-zinc-500">
+                                                    <div className="mt-2 pt-2 border-t dark:border-gray-500">
                                                         <div className="checkbox-wrapper-11 pe-5">
                                                             <input
                                                                 id={`tarawih-${dayNumber}`}
@@ -282,7 +282,7 @@ export default function Page() {
                                             </td>
 
                                             {/* الأذكار */}
-                                            <td className="p-3 border-r dark:border-zinc-500">
+                                            <td className="p-3 border-r dark:border-gray-500">
                                                 <div className="grid gap-2">
                                                     {["أذكار الصباح", "أذكار المساء", "أذكار بعد الصلاة", "دعاء الإفطار"].map((dhikr) => (
                                                         <div key={dhikr} className="checkbox-wrapper-11 pe-5">
@@ -300,7 +300,7 @@ export default function Page() {
                                                             <label htmlFor={`dhikr-${dhikr}-${dayNumber}`}>{dhikr}</label>
                                                         </div>
                                                     ))}
-                                                    <div className="mt-2 pt-2 border-t dark:border-zinc-500">
+                                                    <div className="mt-2 pt-2 border-t dark:border-gray-500">
                                                         {["استغفار (100x)", "تسبيح (100x)", "صلاة على النبي (100x)"].map((dhikr) => (
                                                             <div key={dhikr} className="checkbox-wrapper-11 pe-5">
                                                                 <input
@@ -322,7 +322,7 @@ export default function Page() {
                                             </td>
 
                                             {/* القرآن */}
-                                            <td className="p-3 border-r dark:border-zinc-500">
+                                            <td className="p-3 border-r dark:border-gray-500">
                                                 <div className="grid gap-2">
                                                     <div className="checkbox-wrapper-11 pe-5">
                                                         <input
@@ -365,7 +365,7 @@ export default function Page() {
                                                                     }))
                                                                 }
                                                             />
-                                                            <label htmlFor={`quran-khatm-${dayNumber}`} className="text-green-700">
+                                                            <label htmlFor={`quran-khatm-${dayNumber}`} className="text-emerald-700">
                                                                 ختم القرآن
                                                             </label>
                                                         </div>
@@ -374,7 +374,7 @@ export default function Page() {
                                             </td>
 
                                             {/* الأعمال الصالحة */}
-                                            <td className="p-3 border-r dark:border-zinc-500">
+                                            <td className="p-3 border-r dark:border-gray-500">
                                                 <div className="grid gap-2">
                                                     {["إفطار صائم", "صدقة يومية", "بر الوالدين", "صلة الرحم"].map((deed) => (
                                                         <div key={deed} className="checkbox-wrapper-11 pe-5">
@@ -392,7 +392,7 @@ export default function Page() {
                                                             <label htmlFor={`deed-${deed}-${dayNumber}`}>{deed}</label>
                                                         </div>
                                                     ))}
-                                                    <div className="mt-2 pt-2 border-t dark:border-zinc-500">
+                                                    <div className="mt-2 pt-2 border-t dark:border-gray-500">
                                                         {dayNumber >= 20 && (
                                                             <>
                                                                 <div className="checkbox-wrapper-11 pe-5">
@@ -407,7 +407,7 @@ export default function Page() {
                                                                             }))
                                                                         }
                                                                     />
-                                                                    <label htmlFor={`deed-itikaf-${dayNumber}`} className="text-green-700">
+                                                                    <label htmlFor={`deed-itikaf-${dayNumber}`} className="text-emerald-700">
                                                                         اعتكاف
                                                                     </label>
                                                                 </div>
@@ -423,7 +423,7 @@ export default function Page() {
                                                                             }))
                                                                         }
                                                                     />
-                                                                    <label htmlFor={`deed-zakat-${dayNumber}`} className="text-green-700">
+                                                                    <label htmlFor={`deed-zakat-${dayNumber}`} className="text-emerald-700">
                                                                         زكاة الفطر
                                                                     </label>
                                                                 </div>
@@ -453,7 +453,7 @@ export default function Page() {
                         </table>
                     </div>
 
-                    <div className="mt-8 p-4 bg-green-50 text-green-600 dark:bg-zinc-700 dark:text-white rounded-sm">
+                    <div className="mt-8 p-4 bg-emerald-50 text-emerald-600 dark:bg-gray-700 dark:text-white rounded-sm">
                         <h3 className="text-xl font-bold mb-3">ملاحظات هامة:</h3>
                         <ul className="list-disc pr-4 space-y-2">
                             <li>في العشر الأواخر: إحياء الليل - كثرة الدعاء - الاعتكاف</li>

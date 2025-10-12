@@ -9,7 +9,7 @@ export default function _({ params }) {
             <Landing title={filterData.name} text="" />
             <section className="py-5 relative px-4">
                 <div className="container m-auto">{filterData.data.map((item, index) => (
-                    <div key={index} className="px-6 py-6 mb-3 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-stone-900 dark:border dark:border-stone-600">
+                    <div key={index} className="px-6 py-6 mb-3 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-gray-900 dark:border dark:border-gray-600">
                         <span className="text-lime-600 text-xl block mb-2">
                             {item.title} :
                         </span>
