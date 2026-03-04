@@ -8,11 +8,9 @@
 
   [![Website](https://img.shields.io/badge/Website-Live-brightgreen?style=for-the-badge&logo=google-chrome)](https://www.maweiza.com/)
   [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
-  [![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20Desktop-lightgrey?style=for-the-badge)]()
 
-  <br/>
-
-  [English](#english-version) | [العربية](#النسخة-العربية)
+  <!-- <br/>
+  [English](#english-version) | [العربية](#النسخة-العربية) -->
 
 </div>
 
