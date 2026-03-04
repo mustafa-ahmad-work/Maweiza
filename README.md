@@ -2,7 +2,7 @@
 # Maweiza | موعظة
 
 <div align="center">
-  <img src="https://github.com/Mostafa7Ahmad/Maweiza/blob/master/public/logo.png?raw=true" alt="Maweiza Logo" width="150" />
+  <img src="https://github.com/mustafa-ahmad-work/Maweiza/blob/master/public/logo.png?raw=true" alt="Maweiza Logo" width="150" />
 
   **Your Gateway to Authentic Islamic Knowledge**
 
@@ -35,7 +35,7 @@
 Experience the platform live: **[https://www.maweiza.com/](https://www.maweiza.com/)**
 
 ### 📸 Screenshots
-<img src="https://github.com/Mostafa7Ahmad/Maweiza/blob/master/screenshots/1.jpg?raw=true" alt="App Screenshot" width="600" />
+<img src="https://github.com/mustafa-ahmad-work/Maweiza/blob/master/screenshots/1.jpg?raw=true" alt="App Screenshot" width="600" />
 
 ### 🛠️ Built With
 This project utilizes modern web technologies to ensure speed and reliability.
@@ -54,7 +54,7 @@ npm install npm@latest -g
 #### Installation
 1. **Clone the repo**
    ```bash
-   git clone git@github.com:Mostafa7Ahmad/Maweiza.git
+   git clone git@github.com:mustafa-ahmad-work/Maweiza.git
    ```
 2. **Navigate to the project directory**
    ```bash
@@ -83,7 +83,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ### 📧 Contact & Support
 For support, inquiries, or feedback:
-*   **Email**: [zn327855@gmail.com](mailto:zn327855@gmail.com)
+*   **Email**: [mustafa.ahmad.work@gmail.com](mailto:mustafa.ahmad.work@gmail.com)
 *   **Slack**: Join our channel for updates.
 
 ---
@@ -103,7 +103,7 @@ For support, inquiries, or feedback:
 جرب المنصة مباشرة من خلال الرابط: **[https://www.maweiza.com/](https://www.maweiza.com/)**
 
 ### 📸 لقطات من الموقع
-<img src="https://github.com/Mostafa7Ahmad/Maweiza/blob/master/screenshots/1.jpg?raw=true" alt="لقطة شاشة للموقع" width="600" />
+<img src="https://github.com/mustafa-ahmad-work/Maweiza/blob/master/screenshots/1.jpg?raw=true" alt="لقطة شاشة للموقع" width="600" />
 
 ### 🛠️ التقنيات المستخدمة
 يعتمد المشروع على تقنيات ويب حديثة لضمان السرعة والموثوقية.
@@ -122,7 +122,7 @@ npm install npm@latest -g
 #### خطوات التثبيت
 1. **استنساخ المستودع**
    ```bash
-   git clone git@github.com:Mostafa7Ahmad/Maweiza.git
+   git clone git@github.com:mustafa-ahmad-work/Maweiza.git
    ```
 2. **الدخول إلى مجلد المشروع**
    ```bash
@@ -151,11 +151,11 @@ npm install npm@latest -g
 
 ### 📧 الدعم والتواصل
 للدعم أو الاستفسارات أو الملاحظات:
-*   **البريد الإلكتروني**: [zn327855@gmail.com](mailto:zn327855@gmail.com)
+*   **البريد الإلكتروني**: [mustafa.ahmad.work@gmail.com](mailto:mustafa.ahmad.work@gmail.com)
 *   **Slack**: انضم إلى قناتنا للحصول على التحديثات.
 
 ---
 
 <div align="center">
-  Made with ❤️ by <a href="https://github.com/Mostafa7Ahmad">Mostafa Ahmad</a>
+  Made with ❤️ by <a href="https://github.com/mustafa-ahmad-work">Mostafa Ahmad</a>
 </div>
