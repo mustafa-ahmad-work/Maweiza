@@ -19,10 +19,8 @@ function Footer() {
 
     const socialLinks = [
         { icon: faFacebook, href: "https://www.facebook.com/profile.php?id=100074054749083", label: "فيسبوك" },
-        { icon: faGithub, href: "https://github.com/Mostafa7Ahmad/", label: "جيت هب" },
-        // { icon: faTwitter, href: "#", label: "تويتر" },
-        // { icon: faInstagram, href: "#", label: "انستغرام" },
-        { icon: faYoutube, href: "#", label: "يوتيوب" }
+        { icon: faGithub, href: "https://github.com/mustafa-ahmad-work", label: "جيت هب" },
+        { icon: faYoutube, href: "https://www.youtube.com/@MofoCode", label: "يوتيوب" }
     ];
 
     const contactInfo = [
