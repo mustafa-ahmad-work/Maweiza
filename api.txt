@@ -1,8 +1,8 @@
-مواقيت الصلاه 
+مواقيت الصلاه
 https://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt&method=8
 
 
-القرأن الكريم 
+القرأن الكريم
 http://api.alquran.cloud/v1/surah/114
 
 
