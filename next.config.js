@@ -1,5 +1,3 @@
-// next.config.js
-
 const runtimeCaching = require('next-pwa/cache');
 const withPWA = require('next-pwa')({
     dest: 'public',
@@ -9,22 +7,18 @@ const withPWA = require('next-pwa')({
     runtimeCaching,
 });
 
-module.exports = {
-    ...withPWA,
+module.exports = withPWA({
     reactStrictMode: false,
-    // webpack: (config) => {
-    //   config.module.rules.push({ '@next/next/no-async-client-component': 'off' })
-    //   return config
-    // },
     images: {
-        // هنا بتحط كل الدومينات اللي بتسمح بتحميل الصور منها
         domains: [
             'd1.islamhouse.com',
             'via.placeholder.com',
         ],
+        formats: ['image/avif', 'image/webp'], // هنا بس
     },
-    experimental: {
-        browsersListForSwc: true,
-    },
-    formats: ["image/avif", "image/webp"],
-};
+    // لو عندك إعدادات Webpack خاصة، فك التعليق على الجزء ده
+    // webpack: (config) => {
+    //   config.module.rules.push({ '@next/next/no-async-client-component': 'off' })
+    //   return config
+    // },
+});

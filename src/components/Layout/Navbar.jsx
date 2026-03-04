@@ -171,20 +171,21 @@ export default function Navbar() {
 
                         {/* تذييل القائمة الجانبية */}
                         <div className="p-6 border-t border-gray-200 dark:border-gray-800">
-                            <div className="flex flex-col space-y-3">
+                            {/* <div className="flex flex-col space-y-3">
                                 <button className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-lime-500 to-emerald-600 text-white font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
                                     تسجيل الدخول
                                 </button>
                                 <button className="w-full py-3 px-4 rounded-xl border border-lime-500 text-lime-600 dark:text-lime-400 font-medium hover:bg-lime-50 dark:hover:bg-gray-800 transition-all duration-300">
                                     إنشاء حساب
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* زينة رمضان */}
+            {/*
             {ramadan && (
                 <div className="fixed top-16 right-2 z-40 animate-pulse md:right-4">
                     <div className="relative">
@@ -199,6 +200,7 @@ export default function Navbar() {
                     </div>
                 </div>
             )}
+            */}
         </>
     );
 }

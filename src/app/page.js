@@ -66,13 +66,11 @@ export default function Home() {
             setIsInstalled(true);
         });
 
-        // مراقب التمرير لإظهار الإحصائيات والاقتباسات
         const handleScroll = () => {
             if (window.scrollY > 1000 && !statsVisible) {
                 setStatsVisible(true);
             }
 
-            // مراقبة ظهور قسم الاقتباسات
             if (quotesRef.current && !quotesVisible) {
                 const rect = quotesRef.current.getBoundingClientRect();
                 if (rect.top < window.innerHeight * 0.75) {

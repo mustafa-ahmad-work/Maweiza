@@ -5,9 +5,15 @@ import Navbar from "@/components/Layout/Navbar";
 import Footer from "@/components/Layout/Footer";
 import Buttons from "@/components/Layout/Buttons";
 import localFont from "next/font/local";
+
 import Script from "next/script";
+
 import { SWRProvider } from "@/components/Layout/SWRProvider";
 import { RamadanProvider } from "@/context/ramadanContext";
+
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 
 const cairo = localFont({
     src: [

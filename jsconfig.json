@@ -1,33 +1,31 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src", // تحديد المجلد الرئيسي للمشروع
+    "baseUrl": "./src",
     "paths": {
       "@/*": [
         "./*"
-      ] // استخدام @ للإشارة إلى الملفات داخل مجلد src
+      ]
     },
-    "checkJs": true, // تفعيل التحقق من صحة ملفات JavaScript
-    "jsx": "preserve", // الحفاظ على بناء الجملة JSX (Next.js يتعامل مع JSX تلقائيًا)
-    "resolveJsonModule": true, // السماح باستيراد ملفات JSON
-    // "strict": true, // تفعيل الوضع الصارم للتحقق من الأخطاء
-    "esModuleInterop": true, // تسهيل استيراد الوحدات المشتركة
-    "moduleResolution": "node", // استخدام نظام حل الوحدات الخاص بـ Node.js
-    // "target": "es5", // تحديد إصدار ECMAScript الهدف
+    "checkJs": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ], // تضمين المكتبات اللازمة لتطوير Next.js
-    "allowJs": true, // السماح بتحويل ملفات JavaScript
-    "skipLibCheck": true, // تخطي التحقق من ملفات تعريف المكتبات
-    "forceConsistentCasingInFileNames": true, // فرض توحيد حالة الأحرف في أسماء الملفات
-    "noEmit": true // عدم إنشاء ملفات إخراج (لأن Next.js يتعامل مع البناء)
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
   },
   "include": [
     "src/**/*"
-  ], // تضمين جميع الملفات داخل مجلد src
+  ],
   "exclude": [
     "node_modules",
     "build"
-  ] // استبعاد مجلدات node_modules و build
+  ]
 }
