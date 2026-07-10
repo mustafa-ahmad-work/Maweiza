@@ -41,7 +41,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
-
 export default function Home() {
     const [deferredPrompt, setDeferredPrompt] = useState(null);
     const [isInstalled, setIsInstalled] = useState(false);
@@ -67,13 +66,13 @@ export default function Home() {
         });
 
         const handleScroll = () => {
-            if (window.scrollY > 1000 && !statsVisible) {
+            if (window.scrollY > 300 && !statsVisible) {
                 setStatsVisible(true);
             }
 
             if (quotesRef.current && !quotesVisible) {
                 const rect = quotesRef.current.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.75) {
+                if (rect.top < window.innerHeight * 0.85) {
                     setQuotesVisible(true);
                 }
             }
@@ -99,26 +98,26 @@ export default function Home() {
         {
             icon: faQuran,
             title: "القرآن الكريم وعلومه",
-            description: "يشمل جميع سور القرآن الكريم بتلاوات متعددة في وضعي الاستماع والحفظ، مع تفسير شامل لكل آية ومعلومات السور من معاني وأسباب النزول والفضل والمقاصد."
+            description: "سور القرآن بتلاوات متعددة، مع تفسير شامل لكل آية ومعلومات السور مقاصدها وفضائلها."
         },
         {
             icon: faMicrophoneAlt,
             title: "الحديث والأذكار",
-            description: "يضم أكثر من 3500 حديث شريف بشرحٍ وتوضيحٍ مفصل، مع أكثر من 140 قسمًا للأدعية والأذكار اليومية والأوقات والأحوال المختلفة."
+            description: "أكثر من 3500 حديث شريف مشروح، و140 قسماً للأدعية والأذكار اليومية الصحيحة."
         },
         {
             icon: faBook,
-            title: "المكتبة والمعارف الإسلامية",
-            description: "أكثر من 4900 كتاب و1690 مقال و520 فتوى و280 خطبة في مختلف مجالات العقيدة والفقه والسيرة والأخلاق."
+            title: "المكتبة والمعارف",
+            description: "ما يزيد عن 4900 كتاب و1690 مقالاً و520 فتوى شرعية و280 خطبة قيمة."
         },
         {
             icon: faVideo,
-            title: "الوسائط والمحتوى التفاعلي",
-            description: "يحتوي على أكثر من 1000 محاضرة فيديو و3900 محاضرة صوتية و100 اقتباس إسلامي قابل للمشاركة، لتجربة تعليمية متكاملة وتفاعلية."
+            title: "الوسائط التفاعلية",
+            description: "أكثر من 1000 محاضرة مرئية و3900 محاضرة صوتية واقتباسات إسلامية متجددة."
         }
     ];
 
-    // إحصائيات الموقع
+    // إحصائيات الموقع الـ 12 الأصلية
     const stats = [
         { icon: faChartLine, value: "50,000+", label: "زيارة صفحات" },
         { icon: faGlobe, value: "45+", label: "دولة حول العالم" },
@@ -132,28 +131,6 @@ export default function Home() {
         { icon: faQuoteRight, value: "100+", label: "اقتباس إسلامي" },
         { icon: faScroll, value: "280+", label: "خطبة إسلامية" },
         { icon: faQuestionCircle, value: "520+", label: "فتوى شرعية" },
-    ];
-
-    // محتوى مميز
-    const featuredContent = [
-        {
-            title: "تفسير سورة الفاتحة",
-            description: "شرح مفصل لأعظم سورة في القرآن الكريم",
-            category: "تفسير القرآن",
-            image: "/quran.jpg"
-        },
-        {
-            title: "أدعية مستجابة",
-            description: "مجموعة مختارة من الأدعية النبوية الصحيحة",
-            category: "الأدعية والأذكار",
-            image: "/dua.jpg"
-        },
-        {
-            title: "فقه الصلاة",
-            description: "تعلم أحكام الصلاة وشروطها وأركانها",
-            category: "العقيدة والعبادات",
-            image: "/prayer.jpg"
-        }
     ];
 
     // اقتباسات إسلامية
@@ -182,89 +159,89 @@ export default function Home() {
 
     return (
         <>
-            <section className="relative overflow-hidden min-h-screen pt-20 flex items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-                {/* خلفية زخرفية متحركة */}
+            {/* قسم الهيرو الرئيسي - خلفية بيضاء نقية ونمط مينيمال حديث بنقاط شبكية */}
+            <section className="relative overflow-hidden min-h-screen pt-28 pb-12 flex items-center justify-center bg-white dark:bg-gray-950 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:32px_32px] dark:bg-[radial-gradient(#1e293b_1.5px,transparent_1.5px)]">
+                {/* خلفية زخرفية متحركة بسيطة */}
                 <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.15 }}
+                    animate={{ opacity: 0.08 }}
                     transition={{ duration: 2 }}
                     className="absolute inset-0 pointer-events-none"
                 >
                     <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-                        className="absolute top-1/4 left-1/4 w-56 h-56 border-[6px] border-emerald-400/40 rounded-full"
+                        transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+                        className="absolute top-1/4 left-1/4 w-72 h-72 border border-lime-500/10 rounded-full"
                     ></motion.div>
                     <motion.div
                         animate={{ rotate: -360 }}
-                        transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
-                        className="absolute bottom-1/4 right-1/4 w-80 h-80 border-[6px] border-teal-400/30 rounded-full"
+                        transition={{ repeat: Infinity, duration: 70, ease: "linear" }}
+                        className="absolute bottom-1/4 right-1/4 w-96 h-96 border border-lime-650/10 rounded-full"
                     ></motion.div>
                 </motion.div>
 
                 {/* المحتوى */}
-                <div className="relative z-10 mb-10 container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 rtl">
-                    {/* النص */}
+                <div className="relative z-10 w-full container mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 items-center gap-12 rtl">
+                    {/* النص - يشغل 7 أعمدة من أصل 12 لتوازن بصري رائع */}
                     <motion.div
-                        initial={{ x: -60, opacity: 0 }}
+                        initial={{ x: -40, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1 }}
-                        className="space-y-6"
+                        transition={{ duration: 0.8 }}
+                        className="lg:col-span-7 space-y-6 text-right"
                     >
-                        <div className="inline-block px-4 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 rounded-full text-sm font-medium">
-                            مرحباً بك في
+                        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-450 rounded-full text-xs font-black tracking-wide border border-lime-100/40 dark:border-lime-900/20">
+                            مرحباً بك في منصة موعظة
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-gray-800 dark:text-white leading-snug">
-                            موقع <span className="text-emerald-600 dark:text-emerald-400">موعظة</span> الإسلامي
+                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-black text-gray-900 dark:text-white leading-tight">
+                            موقع <span className="text-primary dark:text-lime-400">موعظة</span>
                         </h1>
 
-                        <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl">
-                            اكتشف عالمًا من المعرفة الإسلامية عبر مكتبة شاملة تضم القرآن الكريم، الأحاديث النبوية، المقالات،
-                            والكتب التعليمية في مختلف مجالات الدين.
+                        <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
+                            منصة إسلامية متكاملة تهدف لنشر العلم الشرعي وتقريب الدين إلى القلوب بأسلوب سهل وميسر.
                         </p>
 
-                        {/* المميزات */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                        {/* المميزات - التقسيمة الثنائية الكلاسيكية كما كانت في الشكل القديم ولكن بلمسة عصرية */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 max-w-2xl">
                             {features.map((f, i) => (
                                 <motion.div
                                     key={i}
-                                    initial={{ y: 30, opacity: 0 }}
+                                    initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: i * 0.2 + 0.5, duration: 0.6 }}
-                                    className="flex items-center space-x-3 rtl:space-x-reverse"
+                                    transition={{ delay: i * 0.15 + 0.3, duration: 0.6 }}
+                                    className="group flex items-start gap-3.5 p-4 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-100 dark:border-gray-800/80 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 transform hover:-translate-y-0.5"
                                 >
-                                    <div className="flex items-center justify-center w-10 h-10 text-emerald-600 dark:text-emerald-400 shadow-sm">
-                                        <FontAwesomeIcon icon={f.icon} />
+                                    <div className="flex items-center justify-center w-11 h-11 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 rounded-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                                        <FontAwesomeIcon icon={f.icon} className="text-base" />
                                     </div>
-                                    <div>
-                                        <h3 className="text-base font-semibold text-gray-800 dark:text-white">{f.title}</h3>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">{f.description}</p>
+                                    <div className="text-right">
+                                        <h3 className="text-sm font-black text-gray-900 dark:text-white mb-1 leading-tight group-hover:text-primary dark:group-hover:text-lime-400 transition-colors duration-200">{f.title}</h3>
+                                        <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-bold">{f.description}</p>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
 
-                        {/* الأزرار */}
-                        <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                        {/* الأزرار التفاعلية */}
+                        <div className="flex flex-col sm:flex-row gap-4 mt-8">
                             <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium shadow-lg transition-all ${isInstalled
-                                    ? "bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed"
-                                    : "bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:shadow-xl"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold shadow-sm transition-all text-sm ${isInstalled
+                                    ? "bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200/50 dark:border-gray-800"
+                                    : "bg-primary hover:bg-primary-alt text-white hover:shadow-md"
                                     }`}
                                 onClick={installPWA}
                                 disabled={isInstalled}
                             >
                                 <FontAwesomeIcon icon={faDownload} />
-                                {isInstalled ? "مثبت بالفعل" : "تحميل كتطبيق"}
+                                {isInstalled ? "مثبت بالفعل" : "تحميل كتطبيق للجوال"}
                             </motion.button>
 
                             <motion.a
                                 href="#categories"
-                                whileHover={{ y: -3 }}
-                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium border border-emerald-300 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 bg-white dark:bg-gray-900 hover:bg-emerald-50 dark:hover:bg-emerald-900/40 shadow-sm"
+                                whileHover={{ y: -2 }}
+                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold border border-lime-100 dark:border-lime-900/30 text-primary dark:text-lime-400 bg-primary/5 dark:bg-lime-950/10 hover:bg-lime-50 dark:hover:bg-lime-950/20 shadow-sm text-sm"
                             >
                                 استكشف المحتوى
                                 <FontAwesomeIcon icon={faAngleDoubleDown} />
@@ -272,49 +249,46 @@ export default function Home() {
                         </div>
                     </motion.div>
 
-                    {/* الصورة */}
+                    {/* الصورة - مسجد شفاف بحجم أكبر ودوائر خلفية هندسية */}
                     <motion.div
-                        initial={{ x: 80, opacity: 0 }}
+                        initial={{ x: 40, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.3 }}
-                        className="relative bg-white dark:bg-transparent"
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="lg:col-span-5 relative flex justify-center lg:justify-end"
                     >
-                        <motion.div
-                            initial={{ scale: 0.9 }}
-                            animate={{ scale: 1 }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}
-                            className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700"
-                        >
-                            <Image
-                                src="/images/muslim.webp"
-                                alt="موعظة - موقع إسلامي"
-                                width={520}
-                                height={420}
-                                priority
-                                className="object-cover w-full h-auto mb-20"
+                        <div className="relative w-full max-w-[560px] flex items-center justify-center mb-12 lg:mb-0">
+                            {/* هالات إضاءة ليمونية وتفاحية فاخرة خلف المسجد */}
+                            {/* <div className="absolute w-[460px] h-[460px] rounded-full bg-lime-500/10 dark:bg-lime-500/5 blur-3xl -z-10 animate-pulse"></div> */}
+                            {/* <div className="absolute w-[320px] h-[320px] rounded-full bg-primary/10 dark:bg-primary/5 blur-2xl -z-10" style={{ animationDelay: "2s" }}></div> */}
+
+                            {/* خطوط هندسية إسلامية تدور ببطء لتعطي انطباعاً بالفخامة والتميز */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ repeat: Infinity, duration: 45, ease: "linear" }}
+                                className="absolute w-[420px] h-[420px] border border-dashed border-primary/15 dark:border-primary/5 rounded-full -z-10 pointer-events-none"
                             />
                             <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 1 }}
-                                className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white dark:from-gray-800 to-transparent p-6 flex items-center justify-between"
+                                animate={{ rotate: -360 }}
+                                transition={{ repeat: Infinity, duration: 65, ease: "linear" }}
+                                className="absolute w-[350px] h-[350px] border border-double border-lime-500/10 dark:border-lime-500/5 rounded-full -z-10 pointer-events-none"
+                            />
+
+                            {/* صورة المسجد الشفافة العائمة */}
+                            <motion.div
+                                animate={{ y: [0, -12, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                className="relative z-10 w-full"
                             >
-                                <div className="flex -space-x-2 rtl:space-x-reverse">
-                                    <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white">
-                                        <FontAwesomeIcon icon={faBook} />
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white">
-                                        <FontAwesomeIcon icon={faQuran} />
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white">
-                                        <FontAwesomeIcon icon={faPray} />
-                                    </div>
-                                </div>
-                                <div className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                                    +1000 محتوى مميز
-                                </div>
+                                <Image
+                                    src="/images/muslim.png"
+                                    alt="موقع موعظة"
+                                    width={640}
+                                    height={640}
+                                    priority
+                                    className="object-contain w-full h-auto transition-transform duration-500 hover:scale-[1.02]"
+                                />
                             </motion.div>
-                        </motion.div>
+                        </div>
                     </motion.div>
                 </div>
 
@@ -322,147 +296,102 @@ export default function Home() {
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute bottom-10 text-emerald-600 dark:text-emerald-400"
+                    className="absolute bottom-6 text-primary dark:text-lime-400"
                 >
                     <a
                         href="#categories"
-                        className="flex flex-col items-center text-sm font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+                        className="flex flex-col items-center text-xs font-bold hover:text-primary-alt dark:hover:text-lime-300 transition-colors tracking-wide"
                     >
-                        <span className="mb-1">استكشف المزيد</span>
+                        <span className="mb-1.5">استكشف المزيد</span>
                         <FontAwesomeIcon icon={faAngleDoubleDown} />
                     </a>
                 </motion.div>
             </section>
 
-            {/* قسم الإحصائيات */}
-            <div className="py-16 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">موقع موعظة بالأرقام</h2>
-                        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
+            {/* قسم الإحصائيات الـ 12 - بخلفية بيضاء ونمط مينيمال ناصع */}
+            <div className="py-20 bg-white dark:bg-gray-950 border-t border-gray-50 dark:border-gray-900">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-black text-gray-950 dark:text-white mb-3">موقع موعظة بالأرقام</h2>
+                        <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
                         <div className="flex justify-center items-center mt-6">
-                            <div className="h-px bg-gray-300 dark:bg-gray-700 w-16"></div>
-                            <div className="mx-3 w-2 h-2 rounded-full bg-emerald-500"></div>
-                            <div className="h-px bg-gray-300 dark:bg-gray-700 w-16"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                            <div className="mx-3 w-1.5 h-1.5 rounded-full bg-primary"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
                         </div>
                     </div>
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className={`relative group overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 dark:border-gray-700 text-center transform transition-all duration-700 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] ${statsVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 text-center transform transition-all duration-500 hover:shadow-md hover:border-primary/20 ${statsVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                     }`}
-                                style={{ transitionDelay: `${index * 150}ms` }}
+                                style={{ transitionDelay: `${index * 50}ms` }}
                             >
-                                {/* خلفية متدرجة */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-white to-emerald-50/30 dark:from-gray-800 dark:to-emerald-900/10 z-0" />
-
-                                {/* تأثير لامع متحرك */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent dark:from-transparent dark:via-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 transform -translate-x-full group-hover:translate-x-full animate-shine" />
-
-                                {/* زخرفة زاوية */}
-                                <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 dark:bg-emerald-500/5 rounded-bl-full z-0" />
-
-                                <div className="relative z-10 p-8 flex flex-col items-center">
-                                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700 flex items-center justify-center text-white shadow-lg mb-5 transform transition-transform duration-500 group-hover:scale-110">
-                                        <FontAwesomeIcon icon={stat.icon} size="lg" />
+                                <div className="p-8 flex flex-col items-center">
+                                    <div className="w-14 h-14 rounded-2xl bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 flex items-center justify-center shadow-sm mb-5 transform transition-transform duration-500 group-hover:scale-110">
+                                        <FontAwesomeIcon icon={stat.icon} className="text-lg" />
                                     </div>
 
-                                    <div className="text-4xl font-extrabold bg-gradient-to-r from-gray-900 to-emerald-700 dark:from-white dark:to-emerald-300 bg-clip-text text-transparent mb-2 tracking-tight">
+                                    <div className="text-3xl font-black text-gray-900 dark:text-white mb-1.5 tracking-tight">
                                         {stat.value}
                                     </div>
 
-                                    <div className="text-sm font-medium text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                                    <div className="text-xs font-bold text-gray-450 dark:text-gray-500">
                                         {stat.label}
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
-
                 </div>
             </div>
 
-            {/* قسم الاقتباسات الإسلامية */}
-            <div ref={quotesRef} className="py-16 bg-gradient-to-br from-emerald-500 to-teal-600 dark:from-emerald-800 dark:to-teal-900">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-white mb-4">حكم واقتباسات إسلامية</h2>
-                        <p className="text-emerald-100 max-w-2xl mx-auto">كلمات من نور تهدئ القلب وتنير العقل</p>
-
+            {/* قسم الاقتباسات الإسلامية - بخلفية بيضاء ونمط مينيمال أنيق */}
+            <div ref={quotesRef} className="py-20 bg-white dark:bg-gray-950 border-t border-gray-50 dark:border-gray-900 relative">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-black text-gray-950 dark:text-white mb-3">حكم واقتباسات إسلامية</h2>
+                        <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">كلمات من نور تهدئ القلب وتنير العقل</p>
+                        <div className="flex justify-center items-center mt-6">
+                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                            <div className="mx-3 w-1.5 h-1.5 rounded-full bg-primary"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
                         {islamicQuotes.map((quote, index) => (
                             <div
                                 key={index}
-                                className={`quote-card bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 text-white ${quotesVisible ? 'visible' : ''}`}
-                                style={{ transitionDelay: `${quote.delay}ms` }}
+                                className={`bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-100 dark:border-gray-800/80 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 ${quotesVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                                style={{ transitionDelay: `${quote.delay}ms`, transitionDuration: '0.8s' }}
                             >
-                                <div className="flex items-start space-x-4 rtl:space-x-reverse">
-                                    <div className="flex-shrink-0 text-3xl text-emerald-200">
+                                <div className="flex items-start gap-4">
+                                    <div className="flex-shrink-0 text-2xl text-primary dark:text-lime-400">
                                         <FontAwesomeIcon icon={faQuoteRight} />
                                     </div>
-                                    <div>
-                                        <p className="text-xl font-medium mb-3 leading-relaxed">{quote.text}</p>
-                                        <p className="text-emerald-100 text-sm">{quote.source}</p>
+                                    <div className="text-right">
+                                        <p className="text-lg font-bold text-gray-850 dark:text-gray-200 mb-3 leading-relaxed">{quote.text}</p>
+                                        <p className="text-xs font-bold text-gray-400 dark:text-gray-500">{quote.source}</p>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* زخارف إسلامية في قسم الاقتباسات */}
-                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                        <div className="absolute top-10 left-10 text-white/10 float-animation">
+                    {/* زخارف إسلامية هادئة جداً */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5">
+                        <div className="absolute top-10 left-10 text-primary float-animation">
                             <FontAwesomeIcon icon={faStar} size="3x" />
                         </div>
-                        <div className="absolute bottom-20 right-20 text-white/10 float-animation" style={{ animationDelay: '1.5s' }}>
+                        <div className="absolute bottom-20 right-20 text-primary float-animation" style={{ animationDelay: '1.5s' }}>
                             <FontAwesomeIcon icon={faStar} size="2x" />
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* قسم المحتوى المميز */}
-            {/* <div className="py-16 bg-white dark:bg-gray-800">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">محتوى مميز</h2>
-                        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">اخترنا لك أبرز المحتويات التي قد تهمك</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {featuredContent.map((content, index) => (
-                            <div
-                                key={index}
-                                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                            >
-                                <div className="h-48 relative">
-                                    <Image
-                                        src={content.image}
-                                        alt={content.title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    <div className="absolute top-4 right-4 bg-emerald-500 text-white text-xs px-2 py-1 rounded">
-                                        {content.category}
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{content.title}</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mb-4">{content.description}</p>
-                                    <button className="text-emerald-600 dark:text-emerald-400 font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
-                                        اقرأ المزيد
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div> */}
-
-            {/* <SplashScreen /> */}
 
             <Categories />
         </>

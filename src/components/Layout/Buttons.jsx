@@ -48,13 +48,13 @@ function Buttons() {
     }, []);
 
     const btnVariants = {
-        hidden: { opacity: 0, y: 50, scale: 0.8 },
+        hidden: { opacity: 0, y: 30, scale: 0.9 },
         visible: { opacity: 1, y: 0, scale: 1 },
     };
 
     return (
         <>
-            {/* زر التمرير للأعلى */}
+            {/* زر التمرير للأعلى - بنمط زجاجي بلوري مينيمال فاخر */}
             <AnimatePresence>
                 {showBtn && (
                     <motion.button
@@ -64,41 +64,26 @@ function Buttons() {
                         animate="visible"
                         exit="hidden"
                         variants={btnVariants}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className={`
-                            fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center
-                            rounded-full shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2
-                            focus:ring-offset-2 focus:ring-opacity-60
-                            ${dark
-                                ? "bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 text-white hover:from-gray-800 hover:to-gray-600 focus:ring-emerald-400"
-                                : "bg-gradient-to-tr from-emerald-400 via-emerald-300 to-emerald-200 text-gray-900 hover:from-emerald-300 hover:to-emerald-100 focus:ring-emerald-500"
-                            }
-                        `}
+                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        className="fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md hover:shadow-lg border border-gray-150/60 dark:border-gray-800 text-primary hover:text-primary-alt hover:-translate-y-0.5 transition-all duration-200 focus:outline-none"
                     >
-                        <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
+                        <FontAwesomeIcon icon={faAngleUp} className="text-xl" />
                     </motion.button>
                 )}
             </AnimatePresence>
 
-            {/* زر تبديل الثيم */}
+            {/* زر تبديل الثيم - بنمط زجاجي بلوري مطابق للناف بار */}
             <motion.button
                 onClick={toggleTheme}
                 aria-label={dark ? "تبديل للوضع الفاتح" : "تبديل للوضع الداكن"}
-                whileHover={{ scale: 1.15, rotate: 10 }}
-                whileTap={{ scale: 0.95, rotate: -5 }}
-                className={`
-                    fixed bottom-6 left-6 z-50 w-14 h-14 flex items-center justify-center
-                    rounded-full shadow-xl hover:shadow-2xl focus:outline-none transition-colors duration-300
-                    ${dark
-                        ? "bg-gray-900 text-emerald-300 hover:bg-gray-800 focus:ring-emerald-400"
-                        : "bg-emerald-400 text-gray-900 hover:bg-emerald-300 focus:ring-emerald-500"
-                    }
-                `}
+                whileHover={{ scale: 1.06, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className="fixed bottom-6 left-6 z-50 w-12 h-12 flex items-center justify-center rounded-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md hover:shadow-lg border border-gray-150/60 dark:border-gray-800 focus:outline-none transition-all duration-200"
             >
                 {dark ? (
-                    <FontAwesomeIcon icon={faSun} className="text-2xl" />
+                    <FontAwesomeIcon icon={faSun} className="text-lg text-amber-500 animate-[spin_8s_linear_infinite]" />
                 ) : (
-                    <FontAwesomeIcon icon={faMoon} className="text-2xl" />
+                    <FontAwesomeIcon icon={faMoon} className="text-lg text-primary" />
                 )}
             </motion.button>
         </>
