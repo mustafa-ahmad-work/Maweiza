@@ -51,21 +51,32 @@ export const metadata = {
     description:
         "موقع موعظة الإسلامي يقدم محتوى شامل من القرآن الكريم وتفسيره، الأحاديث النبوية، الأدعية والأذكار، الخطب، الفتاوى، الكتب والمقالات، والمحاضرات الصوتية والمرئية — لتجربة معرفية وروحية متكاملة.",
 
+    applicationName: "موعظة",
+    generator: "Next.js",
+    publisher: "مصطفى أحمد",
+    category: "Islamic",
+    referrer: "origin-when-cross-origin",
+    formatDetection: {
+        telephone: false,
+        address: false,
+        email: false
+    },
     manifest: "/manifest.webmanifest",
+    appleWebApp: {
+        title: "موعظة",
+        statusBarStyle: "black-translucent",
+        capable: true
+    },
 
     keywords: [
         "موعظة",
+        "موقع موعظة",
+        "موعظة إسلامية",
         "القرآن الكريم",
         "تفسير القرآن",
         "أحاديث نبوية",
-        "أذكار",
-        "أدعية",
-        "كتب إسلامية",
-        "فتاوى",
-        "خطب",
-        "محاضرات إسلامية",
-        "اقتباسات إسلامية",
-        "مكتبة إسلامية",
+        "أذكار الصباح والمساء",
+        "مواقيت الصلاة",
         "Maweiza"
     ],
 
@@ -74,7 +85,7 @@ export const metadata = {
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon.ico",
-        apple: "/apple-touch-icon.png"
+        apple: "/icon-192x192.png"
     },
 
     openGraph: {
@@ -87,10 +98,10 @@ export const metadata = {
             "اكتشف كنوز العلم والإيمان في موقع موعظة — القرآن الكريم، التفسير، الأحاديث، الأدعية، الخطب، الكتب والمزيد.",
         images: [
             {
-                url: "/og-image.jpg",
+                url: "/logo.png",
                 width: 1200,
                 height: 630,
-                alt: "موعظة | موقع إسلامي شامل"
+                alt: "شعار موقع موعظة"
             }
         ]
     },
@@ -102,20 +113,28 @@ export const metadata = {
         title: "موعظة | موقع إسلامي شامل",
         description:
             "منصة موعظة — مرجعك الكامل للقرآن الكريم، الأحاديث، الأدعية، الفتاوى، الكتب والمحاضرات الإسلامية.",
-        images: ["/og-image.jpg"]
+        images: ["/logo.png"]
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1,
+        },
     },
 
     verification: {
         google: "google-site-verification-code",
-        yahoo: "yahoo-verification-code",
-        me: ["mailto:zn327855@gmail.com"]
     },
 
     alternates: {
-        canonical: "https://maweiza.com"
-    },
-
-    category: "Islamic"
+        canonical: "/"
+    }
 };
 
 
@@ -130,6 +149,48 @@ export default function RootLayout({ children }) {
                 <Script id="google-analytics" strategy="lazyOnload">
                     {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WBZJG335');`}
                 </Script>
+                {/* JSON-LD Structured Data: WebSite & SearchAction */}
+                <Script
+                    id="json-ld-website"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebSite",
+                            "name": "موعظة",
+                            "alternateName": ["موقع موعظة", "موعظة إسلامية", "Maweiza"],
+                            "url": "https://maweiza.com",
+                            "inLanguage": "ar",
+                            "description": "منصة إسلامية شاملة تقدم القرآن الكريم وتفسيره، الأحاديث النبوية، الأذكار، مواقيت الصلاة، الكتب والفتاوى الشرعية.",
+                            "potentialAction": {
+                                "@type": "SearchAction",
+                                "target": {
+                                    "@type": "EntryPoint",
+                                    "urlTemplate": "https://maweiza.com/search/{search_term_string}"
+                                },
+                                "query-input": "required name=search_term_string"
+                            }
+                        })
+                    }}
+                />
+                {/* JSON-LD Structured Data: Organization */}
+                <Script
+                    id="json-ld-organization"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "موعظة",
+                            "url": "https://maweiza.com",
+                            "logo": "https://maweiza.com/logo.png",
+                            "sameAs": [
+                                "https://facebook.com/maweiza",
+                                "https://twitter.com/maweiza"
+                            ]
+                        })
+                    }}
+                />
             </head>
             <SWRProvider>
                 <RamadanProvider>

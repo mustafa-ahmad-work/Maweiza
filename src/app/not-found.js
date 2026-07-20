@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+export const metadata = {
+    title: "الصفحة غير موجودة (404) | موقع موعظة",
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
+
 export default function NotFound() {
     return (
         <>

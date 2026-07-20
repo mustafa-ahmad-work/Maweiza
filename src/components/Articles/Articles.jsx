@@ -80,6 +80,7 @@ export default function Articles({ id }) {
                             {/* Article Image */}
                             <div className="h-48 overflow-hidden bg-gray-200 dark:bg-zinc-900 flex items-center justify-center">
                                 {item.image ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
                                     <img
                                         src={item.image}
                                         alt={item.title}

@@ -3,6 +3,17 @@ import SearchHadith from "@/components/Adith/SearchHadith";
 import { optimizeString } from "@/helpers/optimizeString";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+export function generateMetadata({ params }) {
+    const query = params.id;
+    return {
+        title: query && query !== "-" ? `نتائج البحث عن ${decodeURIComponent(query)} | موعظة` : "البحث في الحديث النبوي | موعظة",
+        robots: {
+            index: false,
+            follow: false,
+        },
+    };
+}
+
 export default async function HadithPage({ params }) {
     const id = params.id;
 

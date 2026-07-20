@@ -72,7 +72,7 @@ export default function Page({ params }) {
     }, [id]);
 
     // دالة موحدة لجلب بيانات الآية وتحديث الحالة
-    const fetchAyahData = async (ayahNumber) => {
+    const fetchAyahData = useCallback(async (ayahNumber) => {
         try {
             if (ayahNumber < 1 || ayahNumber > dataAyah.length) {
                 return; // لا تفعل شيئًا إذا كان رقم الآية خارج النطاق
@@ -90,7 +90,7 @@ export default function Page({ params }) {
         } catch (error) {
             console.error("Error in fetchAyahData:", error);
         }
-    };
+    }, [dataAyah.length, id, nameEn]);
 
     // استخدام useMemo لتحسين الأداء
     const ShowDataMap = useMemo(() => {
@@ -101,7 +101,7 @@ export default function Page({ params }) {
                 <Aya aya={aya} ayah={ayah} />
             </span>
         ));
-    }, [dataAyah, ayah, isLoading]);
+    }, [dataAyah, ayah, isLoading, fetchAyahData]);
 
     const handleEnded = () => {
         if (ayah < dataAyah.length) {

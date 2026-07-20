@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Landing from "@/components/Layout/Landing";
 import SplashScreen from "@/components/Layout/SplashScreen";
 
@@ -111,19 +111,19 @@ export default function Page() {
         localStorage.setItem("ramadanChecks", JSON.stringify(checks));
     }, [checks]);
 
-    const getCurrentRamadanDay = () => {
+    const getCurrentRamadanDay = useCallback(() => {
         if (!ramadanInfo.start) return 1;
         const today = new Date();
         const diff = today.getTime() - ramadanInfo.start.getTime();
         const day = Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
         return Math.max(1, Math.min(day, ramadanInfo.totalDays));
-    };
+    }, [ramadanInfo.start, ramadanInfo.totalDays]);
 
     const [currentRamadanDay, setCurrentRamadanDay] = useState(getCurrentRamadanDay());
 
     useEffect(() => {
         setCurrentRamadanDay(getCurrentRamadanDay());
-    }, [ramadanInfo.start]);
+    }, [getCurrentRamadanDay]);
 
     if (isLoading) return <SplashScreen />;
     if (!ramadan) return null;

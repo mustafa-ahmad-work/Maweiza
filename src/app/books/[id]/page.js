@@ -3,6 +3,33 @@ import { faAngleDoubleLeft, faAngleDoubleRight, faDownload, faBook, faUser, faFi
 import Landing from "@/components/Layout/Landing";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
+
+export async function generateMetadata({ params }) {
+    const pageNum = params.id || "1";
+    const title = `المكتبة الإسلامية والكتب الشرعية - صفحة ${pageNum} | موقع موعظة`;
+    const description = `تصفح وحمل آلاف الكتب الإسلامية النافعة والمجانية في الفقه، العقيدة، التفسير والحديث عبر موقع موعظة.`;
+    const canonicalUrl = `/books/${pageNum}`;
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: canonicalUrl,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `https://maweiza.com${canonicalUrl}`,
+            siteName: "موعظة | Maweiza",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+        },
+    };
+}
 
 export default async function Page({ params }) {
     let books = [];
@@ -50,8 +77,32 @@ export default async function Page({ params }) {
         }
     };
 
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "الرئيسية",
+                "item": "https://maweiza.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "المكتبة الإسلامية والكتب",
+                "item": `https://maweiza.com/books/${params.id || 1}`
+            }
+        ]
+    };
+
     return (
         <>
+            <Script
+                id="jsonld-breadcrumb-books"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <Landing
                 title="قسم الكتب الإسلامية"
                 text="مكتبة شاملة تضم أكثر من 4900 كتاب إسلامي تعليمي مفيد ونافع بإذن الله تعالى"

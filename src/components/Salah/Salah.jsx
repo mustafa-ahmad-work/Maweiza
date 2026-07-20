@@ -135,6 +135,7 @@ export default function Salah() {
             if (ramadan) setupRamadanCountdownTimer();
         }, 1000);
         return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [timings]);
 
     useEffect(() => {

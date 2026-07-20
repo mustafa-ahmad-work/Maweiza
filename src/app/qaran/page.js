@@ -4,14 +4,54 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphonesSimple, faMicrophoneLines, faBookQuran, faFilePen, faClipboardCheck, faMedal } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
+import Script from "next/script";
+
 export const metadata = {
-    title: "موقع موعظه | قسم القران الكريم",
-    description: "يحتوي هذا القسم علي جميع سور القران الكريم مع وضعين",
+    title: "القرآن الكريم تلاوة وحفظاً وتفسيراً | موقع موعظة",
+    description: "استمع إلى تلاوات خاشعة لجميع سور القرآن الكريم بأصوات كبار القراء، واستخدم أدوات التكرار والحفظ المتقدمة في موقع موعظة.",
+    alternates: {
+        canonical: "/qaran",
+    },
+    openGraph: {
+        title: "القرآن الكريم تلاوة وحفظاً وتفسيراً | موقع موعظة",
+        description: "سور القرآن الكريم كاملاً مع تلاوات متعددة وأدوات تفاعلية للحفظ والتفسير.",
+        url: "https://maweiza.com/qaran",
+        siteName: "موعظة | Maweiza",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "القرآن الكريم | موقع موعظة",
+        description: "استمع واحفظ القرآن الكريم عبر موقع موعظة.",
+    },
 };
 
 export default async function qaran() {
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "الرئيسية",
+                "item": "https://maweiza.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "القرآن الكريم",
+                "item": "https://maweiza.com/qaran"
+            }
+        ]
+    };
+
     return (
         <>
+            <Script
+                id="jsonld-breadcrumb-qaran"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <Landing
                 title="قسم القران الكريم"
                 text="اذا كنت تريد الاستماع الي تلاوه القران الكريم اختر وضع الاستماع لانه يحتوي علي عدد كبير من الشيوخ اما اذا كنت تريد الحفظ فختر وضع الحفظ لكي تتمكن من تحديد الايه التي تريد حفظها مع امكانيه التكرار وغيرها"
@@ -28,7 +68,7 @@ export default async function qaran() {
                                     src="/qaran/listen.jpeg"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    alt="listen qaran"
+                                    alt="استماع تلاوة القرآن الكريم - موقع موعظة"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 to-transparent opacity-80"></div>
                                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -59,7 +99,7 @@ export default async function qaran() {
                                     src="/qaran/memorizing.jpeg"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    alt="memorizing qaran"
+                                    alt="حفظ القرآن الكريم وتكرار الآيات - موقع موعظة"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-lime-900/80 to-transparent opacity-80"></div>
                                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
