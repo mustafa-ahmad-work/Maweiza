@@ -27,7 +27,7 @@ export default function AzkarPage({ params }) {
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.05 }}
-                                className="relative p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300"
+                                className="relative p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all duration-300"
                             >
                                 {/* خلفية زخرفية خفيفة */}
                                 <div className="absolute inset-0 opacity-[0.05] bg-[url('/patterns/islamic-pattern.svg')] bg-center bg-cover rounded-2xl pointer-events-none"></div>
@@ -46,7 +46,7 @@ export default function AzkarPage({ params }) {
                                         />
                                     </div>
 
-                                    <p className="text-gray-800 dark:text-gray-200 text-lg leading-relaxed text-justify">
+                                    <p className="text-gray-800 dark:text-zinc-200 text-lg leading-relaxed text-justify">
                                         {azkar.text}
                                     </p>
 

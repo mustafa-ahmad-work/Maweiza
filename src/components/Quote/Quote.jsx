@@ -107,6 +107,7 @@ export default function Quote() {
                     width={100}
                     height={100}
                     src="/img.png"
+                    style={{ width: "auto", height: "auto" }}
                     className="absolute w-32 bottom-96 right-0 -z-40 rotate-180"
                     alt="img"
                 />

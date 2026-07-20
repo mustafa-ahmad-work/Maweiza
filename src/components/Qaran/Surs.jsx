@@ -59,14 +59,14 @@ export default function Surs(props) {
     };
 
     return (
-        <div className="min-h-screen py-8 px-4 pt-28 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+        <div className="min-h-screen pb-8 px-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-950 dark:to-zinc-950">
             <div className="max-w-6xl mx-auto">
                 {/* عنوان القسم */}
                 <div className="text-center mb-10">
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
                         {props.type === "listen" ? `سور القارئ: ${reciterName}` : "سور القرآن الكريم"}
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-gray-600 dark:text-zinc-300 max-w-2xl mx-auto">
                         {props.type === "listen"
                             ? "اختر السورة التي ترغب في الاستماع إليها من تلاوات هذا القارئ"
                             : "اختر السورة التي ترغب في حفظها من القرآن الكريم"}
@@ -84,7 +84,7 @@ export default function Surs(props) {
                             value={searchTerm}
                             onChange={handleSearch}
                             placeholder="ابحث عن سورة..."
-                            className="w-full py-4 pr-10 pl-4 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent shadow-sm transition-all"
+                            className="w-full py-4 pr-10 pl-4 text-gray-700 dark:text-zinc-200 bg-white dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent shadow-sm transition-all"
                         />
                         {searchTerm && (
                             <button
@@ -99,12 +99,12 @@ export default function Surs(props) {
 
                 {/* رسالة عدم وجود نتائج */}
                 {massage ? (
-                    <div className="text-center py-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg max-w-2xl mx-auto">
+                    <div className="text-center py-16 bg-white dark:bg-zinc-900 rounded-2xl shadow-lg max-w-2xl mx-auto">
                         <div className="mb-4">
                             <FontAwesomeIcon icon={faSearch} className="text-4xl text-gray-400 dark:text-gray-500" />
                         </div>
                         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">لا توجد نتائج</h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-6">
+                        <p className="text-gray-600 dark:text-zinc-300 mb-6">
                             لم نتمكن من العثور على السورة التي تبحث عنها. حاول استخدام كلمات بحث مختلفة.
                         </p>
                         <button
@@ -118,17 +118,17 @@ export default function Surs(props) {
                     <>
                         {/* عداد النتائج */}
                         <div className="mb-6 flex justify-between items-center">
-                            <p className="text-gray-600 dark:text-gray-300">
+                            <p className="text-gray-600 dark:text-zinc-300">
                                 {isLoading ? "جاري البحث..." : `عدد السور: ${dataSurs.length}`}
                             </p>
                             <div className="flex items-center gap-4  text-sm">
                                 <div className="flex items-center">
                                     <FontAwesomeIcon icon={faKaaba} className="text-amber-500 ml-1" />
-                                    <span className="text-gray-600 dark:text-gray-300">مكية</span>
+                                    <span className="text-gray-600 dark:text-zinc-300">مكية</span>
                                 </div>
                                 <div className="flex items-center">
                                     <FontAwesomeIcon icon={faMosque} className="text-blue-500 ml-1" />
-                                    <span className="text-gray-600 dark:text-gray-300">مدنية</span>
+                                    <span className="text-gray-600 dark:text-zinc-300">مدنية</span>
                                 </div>
                             </div>
                         </div>
@@ -139,12 +139,12 @@ export default function Surs(props) {
                                 <Link
                                     key={key}
                                     href={`/qaran/${props.type}/${props.idRecitations}/${item.number}`}
-                                    className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700"
+                                    className="group bg-white dark:bg-zinc-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1 border border-gray-200 dark:border-zinc-800"
                                 >
                                     <div className="p-6">
                                         <div className="flex items-start justify-between mb-4">
                                             <div className="flex items-center">
-                                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center ml-1">
+                                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 dark:bg-zinc-900/30 flex items-center justify-center ml-1">
                                                     <FontAwesomeIcon
                                                         icon={props.type === "listen" ? faHeadphonesSimple : faBookQuran}
                                                         className="text-emerald-600 dark:text-emerald-400 text-xl"
@@ -167,8 +167,8 @@ export default function Surs(props) {
                                             </div>
                                         </div>
 
-                                        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex justify-between items-center">
-                                            <span className="text-sm text-gray-600 dark:text-gray-300">
+                                        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-zinc-700/80 flex justify-between items-center">
+                                            <span className="text-sm text-gray-600 dark:text-zinc-300">
                                                 رقم السورة: {item.number}
                                             </span>
                                             <span className="text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1 transition-transform">

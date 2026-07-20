@@ -18,7 +18,7 @@ function Footer() {
     ];
 
     return (
-        <footer className="relative bg-white dark:bg-gray-950 pt-20 pb-8 border-t border-gray-100 dark:border-gray-900 overflow-hidden">
+        <footer className="relative bg-white dark:bg-zinc-950 pt-20 pb-8 border-t border-gray-100 dark:border-zinc-700/80 overflow-hidden">
             {/* زخارف دائرية خافتة جداً في الخلفية لمطابقة الهوية */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
                 <div className="absolute top-10 left-10 w-64 h-64 border border-lime-100 dark:border-lime-950/10 rounded-full"></div>
@@ -37,10 +37,11 @@ function Footer() {
                                 height="32"
                                 src="/logo.png"
                                 alt="شعار موعظة"
+                                style={{ width: "auto", height: "auto" }}
                                 className="transition-transform duration-300 hover:scale-102"
                             />
                         </div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-semibold">
+                        <p className="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed font-semibold">
                             منصة إسلامية متكاملة تقدم القرآن الكريم وتفسيره، الأحاديث النبوية، الأذكار والأدعية، وأوقات الصلاة، وكل ما يحتاجه المسلم في حياته اليومية بأسلوب حديث ومبسط.
                         </p>
                     </div>
@@ -55,7 +56,7 @@ function Footer() {
                                 <li key={index}>
                                     <Link
                                         href={item.path}
-                                        className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-lime-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
+                                        className="text-sm font-semibold text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-lime-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
                                     >
                                         <span>{item.name}</span>
                                     </Link>
@@ -74,7 +75,7 @@ function Footer() {
                                 <li key={index}>
                                     <Link
                                         href={item.path}
-                                        className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-lime-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
+                                        className="text-sm font-semibold text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-lime-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
                                     >
                                         <span>{item.name}</span>
                                     </Link>
@@ -88,7 +89,7 @@ function Footer() {
                         <h3 className="text-sm font-black text-gray-950 dark:text-white mb-6 uppercase tracking-wider">
                             تطوير وبرمجة
                         </h3>
-                        <div className="bg-gray-50/50 dark:bg-gray-900/40 rounded-2xl p-5 border border-gray-100 dark:border-gray-800/80 transition-all duration-300">
+                        <div className="bg-gray-50/50 dark:bg-zinc-950/40 rounded-2xl p-5 border border-gray-100 dark:border-zinc-800 transition-all duration-300">
                             <div className="flex flex-col items-center text-center">
                                 {/* الصورة الشخصية للمطور */}
                                 <div className="relative w-20 h-20 mb-3.5">
@@ -96,6 +97,7 @@ function Footer() {
                                         src="/images/moustafa.jpg"
                                         alt="مطور الموقع"
                                         fill
+                                        sizes="80px"
                                         className="rounded-full object-cover border-2 border-primary/80 shadow-sm"
                                     />
                                 </div>
@@ -117,7 +119,7 @@ function Footer() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label={social.label}
-                                            className="w-8.5 h-8.5 rounded-xl bg-white dark:bg-gray-850 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white border border-gray-100 dark:border-gray-800/60 transition-all duration-200"
+                                            className="w-8.5 h-8.5 rounded-xl bg-white dark:bg-zinc-900 flex items-center justify-center text-gray-500 dark:text-zinc-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white border border-gray-100 dark:border-zinc-800 transition-all duration-200"
                                         >
                                             <FontAwesomeIcon icon={social.icon} className="text-sm" />
                                         </a>
@@ -129,7 +131,7 @@ function Footer() {
                 </div>
 
                 {/* حقوق النشر والتذييل */}
-                <div className="border-t border-gray-100 dark:border-gray-900 pt-8 pb-4">
+                <div className="border-t border-gray-100 dark:border-zinc-700/80 pt-8 pb-4">
                     <div className="flex flex-col md:flex-row justify-between items-center text-center gap-4">
                         <p className="text-xs font-bold text-gray-400 dark:text-gray-500">
                             جميع الحقوق محفوظة © {new Date().getFullYear()}

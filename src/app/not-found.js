@@ -12,7 +12,7 @@ export default function NotFound() {
                         <p className="mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
                             عفوا لقد حصل خطأ
                         </p>
-                        <p className="mb-3 text-lg font-light text-gray-500 dark:text-gray-400">
+                        <p className="mb-3 text-lg font-light text-gray-500 dark:text-zinc-400">
                             لم يتم العثور علي هذه الصفحه
                         </p>
                         <Link

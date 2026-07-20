@@ -9,13 +9,13 @@ export default async function _() {
             <div className="px-4 mx-auto max-w-screen-xl">
                 <div className="mx-auto max-w-screen-sm text-center">
                     <FontAwesomeIcon
-                        className="text-gray-500 text-4xl mb-3 dark:text-gray-400"
+                        className="text-gray-500 text-4xl mb-3 dark:text-zinc-400"
                         icon={faPenRuler}
                     />
                     <h1 className="text-3xl text-primary-600 dark:text-primary-500 mb-3 ">
                         جاري العمل علي هذا القسم
                     </h1>
-                    <p className="mb-3 text-lg font-light text-gray-500 dark:text-gray-400">
+                    <p className="mb-3 text-lg font-light text-gray-500 dark:text-zinc-400">
                         هذا القسم لم يتم الانتهاء منه بعد وسيتم الانتهاء منه
                         وفتحه قريبا
                     </p>

@@ -171,7 +171,7 @@ const QuizApp = ({ quizSettings }) => {
                 <h1 className="text-3xl md:text-4xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">
                     أسئلة في {topic.name}
                 </h1>
-                <div className="inline-flex items-center bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-medium">
+                <div className="inline-flex items-center bg-emerald-100 dark:bg-zinc-900/30 text-emerald-800 dark:text-zinc-300 px-4 py-2 rounded-full text-sm font-medium">
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -182,11 +182,11 @@ const QuizApp = ({ quizSettings }) => {
             {/* Progress Bar */}
             {!showResults && (
                 <div className="mb-8">
-                    <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    <div className="flex justify-between text-sm text-gray-600 dark:text-zinc-400 mb-2">
                         <span>السؤال {currentQuestion + 1} من {questions.length}</span>
                         <span>{Math.round(progress)}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                    <div className="w-full bg-gray-200 dark:bg-zinc-900 rounded-full h-2.5">
                         <motion.div
                             className="bg-emerald-600 h-2.5 rounded-full"
                             initial={{ width: `${((currentQuestion) / questions.length) * 100}%` }}
@@ -200,7 +200,7 @@ const QuizApp = ({ quizSettings }) => {
             {/* Question Card */}
             {!showResults ? (
                 <motion.div
-                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700"
+                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-zinc-800"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -210,10 +210,10 @@ const QuizApp = ({ quizSettings }) => {
                         {/* Timer */}
                         <div className="mb-6">
                             <div className="flex justify-between items-center mb-2">
-                                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">الوقت المتبقي</span>
+                                <span className="text-sm font-medium text-gray-600 dark:text-zinc-400">الوقت المتبقي</span>
                                 <span className={`text-lg font-bold ${getTimeColor()}`}>{timeLeft} ثانية</span>
                             </div>
-                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div className="w-full bg-gray-200 dark:bg-zinc-900 rounded-full h-2.5">
                                 <motion.div
                                     className={`${getTimerBarColor()} h-2.5 rounded-full`}
                                     initial={{ width: '100%' }}
@@ -224,7 +224,7 @@ const QuizApp = ({ quizSettings }) => {
                         </div>
 
                         <div className="mb-8">
-                            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 mb-4 mx-auto">
+                            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 dark:bg-zinc-900/30 text-emerald-600 dark:text-emerald-400 mb-4 mx-auto">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
@@ -243,11 +243,11 @@ const QuizApp = ({ quizSettings }) => {
                                         className={`p-4 md:p-5 rounded-xl text-lg font-quran text-right transition-all duration-300 flex items-start
                                             ${selectedAnswer !== null
                                                 ? index === questions[currentQuestion].correctAnswer
-                                                    ? 'bg-emerald-100 dark:bg-emerald-900/30 border-2 border-emerald-500 text-emerald-800 dark:text-emerald-200'
+                                                    ? 'bg-emerald-100 dark:bg-zinc-900/30 border-2 border-emerald-500 text-emerald-800 dark:text-emerald-200'
                                                     : selectedAnswer === index
                                                         ? 'bg-red-100 dark:bg-red-900/30 border-2 border-red-500 text-red-800 dark:text-red-200'
-                                                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                                                : 'bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-800 dark:text-white hover:border-emerald-400 hover:shadow-md'}
+                                                        : 'bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-zinc-300'
+                                                : 'bg-white dark:bg-zinc-900 border-2 border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-white hover:border-emerald-400 hover:shadow-md'}
                                             ${selectedAnswer === null && 'hover:scale-[1.02]'}
                                         `}
                                         disabled={selectedAnswer !== null || isAnimating}
@@ -262,8 +262,8 @@ const QuizApp = ({ quizSettings }) => {
                                                     ? 'bg-emerald-500 text-white'
                                                     : selectedAnswer === index
                                                         ? 'bg-red-500 text-white'
-                                                        : 'bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300'
-                                                : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300'}
+                                                        : 'bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-zinc-300'
+                                                : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-zinc-300'}
                                         `}>
                                             {/* {String.fromCharCode(1617 + index)} */}
                                         </div>
@@ -278,7 +278,7 @@ const QuizApp = ({ quizSettings }) => {
                             <motion.div
                                 className={`mt-6 p-4 rounded-lg text-center ${
                                     selectedAnswer === questions[currentQuestion].correctAnswer
-                                        ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200'
+                                        ? 'bg-emerald-100 dark:bg-zinc-900/30 text-emerald-800 dark:text-emerald-200'
                                         : selectedAnswer === -1
                                             ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200'
                                             : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200'
@@ -315,7 +315,7 @@ const QuizApp = ({ quizSettings }) => {
             ) : (
                 /* Results Screen */
                 <motion.div
-                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700"
+                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-zinc-800"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
@@ -333,12 +333,12 @@ const QuizApp = ({ quizSettings }) => {
 
                         <div className="mb-8">
                             <div className="text-5xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
-                                {score} <span className="text-2xl text-gray-500 dark:text-gray-400">من</span> {questions.length}
+                                {score} <span className="text-2xl text-gray-500 dark:text-zinc-400">من</span> {questions.length}
                             </div>
-                            <div className="text-xl text-gray-600 dark:text-gray-400">
+                            <div className="text-xl text-gray-600 dark:text-zinc-400">
                                 {scorePercentage}%
                             </div>
-                            <div className="mt-4 text-gray-600 dark:text-gray-400">
+                            <div className="mt-4 text-gray-600 dark:text-zinc-400">
                                 <div className="flex items-center justify-center">
                                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -351,7 +351,7 @@ const QuizApp = ({ quizSettings }) => {
                             </div>
                         </div>
 
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mb-8">
+                        <div className="w-full bg-gray-200 dark:bg-zinc-900 rounded-full h-4 mb-8">
                             <motion.div
                                 className="bg-gradient-to-r from-emerald-500 to-teal-500 h-4 rounded-full"
                                 initial={{ width: 0 }}
@@ -374,7 +374,7 @@ const QuizApp = ({ quizSettings }) => {
                             </motion.button>
 
                             <motion.button
-                                className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-800 dark:text-white px-8 py-3 rounded-xl font-medium transition-colors flex items-center justify-center"
+                                className="bg-white dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800 text-gray-800 dark:text-white px-8 py-3 rounded-xl font-medium transition-colors flex items-center justify-center"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >

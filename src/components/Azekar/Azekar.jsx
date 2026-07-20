@@ -58,7 +58,7 @@ export default function Azekar() {
     };
 
     const showData = azekar[0].array.map((item, index) => (
-        <div key={index} className="relative px-6 py-6 mb-3 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-gray-900 dark:border dark:border-gray-600 flex flex-col justify-between items-center">
+        <div key={index} className="relative px-6 py-6 mb-3 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-zinc-950 dark:border dark:border-zinc-700 flex flex-col justify-between items-center">
             <p className={expanded[index] ? "" : "line-clamp-3"}>
                 {item.text}
             </p>

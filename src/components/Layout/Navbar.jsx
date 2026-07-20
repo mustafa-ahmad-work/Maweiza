@@ -71,34 +71,35 @@ export default function Navbar() {
         <>
             {/* شريط التنقل الرئيسي */}
             <Headroom className="fixed z-50 top-0 left-0 right-0 transition-all duration-300">
-                <nav className={`relative backdrop-blur-xl transition-all duration-305 border-b ${scrolled ? 'bg-white/95 dark:bg-gray-950/95 shadow-sm border-gray-100 dark:border-gray-900 py-3' : 'bg-transparent border-transparent py-4'}`}>
+                <nav className={`relative transition-all duration-305 border-b ${scrolled ? 'backdrop-blur-xl bg-white/95 dark:bg-zinc-950/95 shadow-sm border-gray-100 dark:border-zinc-700/80 py-2 lg:py-3' : 'bg-transparent border-transparent py-2.5 lg:py-4'}`}>
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="flex justify-between items-center flex-row">
                             {/* الشعار - يمين في وضع RTL */}
                             <Link href="/" className="flex-shrink-0 flex items-center space-x-3 rtl:space-x-reverse">
-                                <div className="relative">
+                                <div className="relative w-[75px] sm:w-[90px] md:w-[105px] lg:w-[120px]">
                                     <Image
-                                        loading="lazy"
+                                        priority
                                         quality={95}
-                                        width="120"
-                                        height="35"
+                                        width={120}
+                                        height={35}
                                         src="/logo.png"
                                         alt="شعار موعظة"
-                                        className="transition-transform duration-300 hover:scale-102"
+                                        style={{ width: "auto", height: "auto" }}
+                                        className="w-full h-auto transition-transform duration-300 hover:scale-102"
                                     />
                                 </div>
                             </Link>
 
                             {/* قائمة سطح المكتب - وسط في وضع RTL */}
-                            <div className="hidden lg:flex items-center gap-6">
-                                <div className="flex items-center gap-1 flex-row">
+                            <div className="hidden lg:flex items-center gap-2 xl:gap-6">
+                                <div className="flex items-center gap-0.5 xl:gap-1 flex-row">
                                     {mainLinks.map((item, index) => {
                                         const isActive = pathname === item.path;
                                         return (
                                             <Link
                                                 key={index}
                                                 href={item.path}
-                                                className={`px-4 py-2 text-sm font-bold transition-colors duration-200 ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-lime-400'}`}
+                                                className={`px-1.5 xl:px-4 py-2 text-xs xl:text-sm font-bold transition-colors duration-200 whitespace-nowrap ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400'}`}
                                             >
                                                 <span>{item.name}</span>
                                             </Link>
@@ -109,16 +110,16 @@ export default function Navbar() {
                                     <div className="relative" ref={dropdownRef}>
                                         <button
                                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                            className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-xl transition-colors duration-200 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-lime-400 ${isDropdownOpen ? 'text-primary dark:text-lime-400' : ''}`}
+                                            className={`flex items-center gap-1 px-1.5 xl:px-4 py-2 text-xs xl:text-sm font-bold rounded-xl transition-colors duration-200 whitespace-nowrap text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 ${isDropdownOpen ? 'text-primary dark:text-lime-400' : ''}`}
                                         >
                                             <span>المزيد</span>
-                                            <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-primary dark:text-lime-400' : 'text-gray-400'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className={`w-3 h-3 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-primary dark:text-lime-400' : 'text-gray-400'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
                                             </svg>
                                         </button>
 
                                         {/* القائمة المنسدلة للأقسام الإضافية */}
-                                        <div className={`absolute right-0 mt-2 w-[400px] bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-100 dark:border-gray-800 rounded-2xl shadow-xl p-4 transition-all duration-200 z-50 origin-top-right ${isDropdownOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
+                                        <div className={`absolute right-0 mt-2 w-[400px] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-gray-100 dark:border-zinc-800/50 rounded-2xl shadow-xl p-4 transition-all duration-200 z-50 origin-top-right ${isDropdownOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
                                             <div className="grid grid-cols-2 gap-2 text-right">
                                                 {moreLinks.map((item, idx) => (
                                                     <Link
@@ -139,29 +140,25 @@ export default function Navbar() {
 
                             {/* أزرار البحث وتسجيل الدخول - يسار في وضع RTL */}
                             <div className="flex items-center gap-3">
-                                <Link href="/search/-" className="hidden lg:flex w-10 h-10 items-center justify-center text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-lime-400 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900 transition-all">
+                                <Link href="/search/-" className="hidden lg:flex w-10 h-10 items-center justify-center text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-lime-400 rounded-xl hover:bg-gray-50 dark:hover:bg-zinc-950 transition-all">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                     </svg>
                                 </Link>
-                                <Link 
-                                    href="/login"
-                                    className="hidden lg:flex px-5 py-2.5 text-sm font-bold text-white bg-primary hover:bg-primary-alt rounded-xl transition-all shadow-sm shadow-lime-600/10 hover:shadow-md"
-                                >
-                                    تسجيل الدخول
-                                </Link>
+
 
                                 {/* زر القائمة للهاتف - يسار في وضع RTL */}
                                 <button
                                     onClick={toggleMenu}
-                                    className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-lime-50 dark:bg-lime-950/30 border border-lime-100/40 dark:border-lime-900/20 text-primary dark:text-lime-400 hover:bg-lime-100/70 dark:hover:bg-lime-950/50 transition-all duration-200"
+                                    className="lg:hidden flex items-center gap-2.5 px-3.5 h-9 rounded-full bg-gradient-to-r from-lime-50/90 to-emerald-50/90 dark:from-lime-950/20 dark:to-emerald-950/20 border border-emerald-500/20 dark:border-emerald-500/30 text-primary dark:text-lime-400 shadow-sm shadow-emerald-500/5 hover:shadow-md transition-all duration-300 active:scale-95 font-bold text-xs"
                                     aria-label="Toggle navigation menu"
                                     aria-expanded={isOpen}
                                 >
-                                    <div className="w-5 h-4 relative flex flex-col justify-between">
-                                        <span className={`w-full h-[2.5px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`}></span>
-                                        <span className={`w-full h-[2.5px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'opacity-0 scale-0' : 'opacity-100'}`}></span>
-                                        <span className={`w-full h-[2.5px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`}></span>
+                                    <span className="transition-all duration-300">{isOpen ? "إغلاق" : "القائمة"}</span>
+                                    <div className="w-4 h-3 relative flex flex-col justify-between items-end">
+                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'w-4 rotate-45 translate-y-[5px]' : 'w-4'}`}></span>
+                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'w-0 opacity-0' : 'w-3'}`}></span>
+                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'w-4 -rotate-45 -translate-y-[5px]' : 'w-2'}`}></span>
                                     </div>
                                 </button>
                             </div>
@@ -176,24 +173,26 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
             >
                 <div
-                    className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                    className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white dark:bg-zinc-950 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="flex flex-col h-full text-right" dir="rtl">
                         {/* رأس القائمة الجانبية */}
-                        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800">
+                        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-zinc-700/80">
                             <div className="flex items-center gap-3">
                                 <Image
-                                    loading="lazy"
-                                    width="100"
-                                    height="30"
+                                    priority
+                                    width={100}
+                                    height={30}
                                     src="/logo.png"
                                     alt="موعظة"
+                                    style={{ height: "auto" }}
+                                    className="w-[80px] h-auto"
                                 />
                             </div>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-850 transition-colors duration-200"
+                                className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800/80 transition-colors duration-200"
                                 aria-label="Close menu"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -214,7 +213,7 @@ export default function Navbar() {
                                                 <Link
                                                     onClick={() => setIsOpen(false)}
                                                     href={item.path}
-                                                    className={`flex items-center px-4 py-2.5 text-base font-bold transition-colors duration-200 ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-lime-400'}`}
+                                                    className={`flex items-center px-4 py-2.5 text-base font-bold transition-colors duration-200 ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400'}`}
                                                 >
                                                     <span>{item.name}</span>
                                                 </Link>
@@ -234,7 +233,7 @@ export default function Navbar() {
                                                 <Link
                                                     onClick={() => setIsOpen(false)}
                                                     href={item.path}
-                                                    className={`flex items-center px-3.5 py-2 text-xs font-bold transition-colors duration-200 ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-600 dark:text-gray-405 hover:text-primary dark:hover:text-lime-400'}`}
+                                                    className={`flex items-center px-3.5 py-2 text-xs font-bold transition-colors duration-200 ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-600 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400'}`}
                                                 >
                                                     <span className="w-1.5 h-1.5 rounded-full bg-lime-500/60 ml-2 flex-shrink-0"></span>
                                                     <span>{item.name}</span>
@@ -246,16 +245,7 @@ export default function Navbar() {
                             </div>
                         </div>
 
-                        {/* تذييل القائمة الجانبية */}
-                        <div className="p-6 border-t border-gray-100 dark:border-gray-800 flex flex-col gap-3">
-                            <Link 
-                                onClick={() => setIsOpen(false)}
-                                href="/login" 
-                                className="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-primary-alt text-white font-bold text-center text-sm shadow-sm transition-all duration-200"
-                            >
-                                تسجيل الدخول
-                            </Link>
-                        </div>
+
                     </div>
                 </div>
             </div>

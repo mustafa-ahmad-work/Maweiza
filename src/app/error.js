@@ -14,7 +14,7 @@ export default function _() {
                         <p className="text-lg tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white mb-5">
                             خطا خادم
                         </p>
-                        <p className="font-light text-gray-500 dark:text-gray-400 mb-2">
+                        <p className="font-light text-gray-500 dark:text-zinc-400 mb-2">
                             تواصل مع مطور الموقع اذا استمرت هذه المشكله
                         </p>
                         <Link

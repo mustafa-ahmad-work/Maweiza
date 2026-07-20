@@ -28,7 +28,7 @@ export default async function HadithPage({ params }) {
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
-                            <div className="relative p-6 mb-6 font-quran bg-gradient-to-br from-white to-amber-50 dark:from-gray-800 dark:to-gray-900 shadow-xl rounded-xl overflow-hidden">
+                            <div className="relative p-6 mb-6 font-quran bg-gradient-to-br from-white to-amber-50 dark:from-zinc-900 dark:to-zinc-950 shadow-xl rounded-xl overflow-hidden">
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full -mr-12 -mt-12 blur-xl" />
                                 <div className="absolute bottom-0 left-0 w-16 h-16 bg-emerald-500/10 rounded-full -ml-8 -mb-8 blur-lg" />
 
@@ -48,7 +48,7 @@ export default async function HadithPage({ params }) {
                                     />
 
                                     <div className="flex items-center justify-between pt-4 border-t border-amber-100 dark:border-amber-900/30">
-                                        <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                                        <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-zinc-400">
                                             <FontAwesomeIcon icon={["fas", "star"]} className="text-amber-500" />
                                             <span>صحيح الإسناد</span>
                                         </div>
@@ -70,8 +70,8 @@ export default async function HadithPage({ params }) {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/20 text-red-500 dark:text-red-400 mb-4">
                         <FontAwesomeIcon icon={["fas", "exclamation-circle"]} className="w-8 h-8" />
                     </div>
-                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300">حدث خطأ أثناء البحث</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">يرجى المحاولة مرة أخرى لاحقًا</p>
+                    <p className="text-lg font-medium text-gray-700 dark:text-zinc-300">حدث خطأ أثناء البحث</p>
+                    <p className="text-sm text-gray-500 dark:text-zinc-400 mt-2">يرجى المحاولة مرة أخرى لاحقًا</p>
                 </div>
             );
         }
@@ -106,7 +106,7 @@ export default async function HadithPage({ params }) {
                                         <FontAwesomeIcon icon={["fas", "book"]} className="ml-3 text-amber-500" />
                                         نتائج البحث ({length} حديث)
                                     </h2>
-                                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                                    <div className="text-sm text-gray-500 dark:text-zinc-400">
                                         من مصادر موثوقة
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@ export default async function HadithPage({ params }) {
                                         <FontAwesomeIcon icon={["fas", "search"]} className="w-10 h-10" />
                                     </div>
                                     <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">لا توجد نتائج</h3>
-                                    <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto">
+                                    <p className="text-gray-600 dark:text-zinc-300 max-w-md mx-auto">
                                         لم يتم العثور على أي أحاديث تطابق بحثك. حاول استخدام كلمات مختلفة أو تحقق من التهجئة.
                                     </p>
                                 </div>

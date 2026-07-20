@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Landing({ title, text }) {
     return (
-        <section className="relative dark:from-gray-900 dark:to-gray-800 py-24 mt-20">
+        <section className="relative dark:from-zinc-950 dark:to-zinc-950 py-24">
             {/* خلفية زخرفية */}
             {/* <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-0 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
@@ -27,6 +27,7 @@ export default function Landing({ title, text }) {
                             height="50"
                             src="/logo.png"
                             alt="Website logo"
+                            style={{ width: "auto", height: "auto" }}
                             className="transition-transform duration-300 hover:rotate-12"
                         />
                     </div>
@@ -38,15 +39,15 @@ export default function Landing({ title, text }) {
                 </h1>
 
                 {/* النص */}
-                <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                <p className="text-lg text-gray-600 dark:text-zinc-300 max-w-2xl mx-auto">
                     {text}
                 </p>
 
                 {/* فاصل زخرفي */}
                 <div className="flex justify-center items-center mt-8">
-                    <div className="h-px bg-gray-300 dark:bg-gray-700 w-20"></div>
+                    <div className="h-px bg-gray-300 dark:bg-zinc-900 w-20"></div>
                     <div className="mx-3 w-3 h-3 rounded-full bg-emerald-500 shadow-sm"></div>
-                    <div className="h-px bg-gray-300 dark:bg-gray-700 w-20"></div>
+                    <div className="h-px bg-gray-300 dark:bg-zinc-900 w-20"></div>
                 </div>
             </div>
         </section>

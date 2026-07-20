@@ -14,7 +14,7 @@ export default function Name() {
 
                 <div className="text-center py-8">
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-600 mx-auto"></div>
-                    <p className="mt-4 text-gray-600 dark:text-gray-200">جارٍ تحميل بيانات اسماء الله الحسني...</p>
+                    <p className="mt-4 text-gray-600 dark:text-zinc-200">جارٍ تحميل بيانات اسماء الله الحسني...</p>
                 </div>
             </>
         );
@@ -43,9 +43,9 @@ export default function Name() {
                 {data.map((item, key) => (
                     <span
                         key={key}
-                        className="px-6 py-6 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-gray-900 dark:border dark:border-gray-600"
+                        className="px-6 py-6 shadow-[0_0_15px_rgb(0_0_0_/_5%)] border border-gray-200 rounded-md bg-white dark:bg-zinc-950 dark:border dark:border-zinc-700"
                     >
-                        <p className="pb-5 text-2xl block border-b mb-5 dark:border-gray-200">
+                        <p className="pb-5 text-2xl block border-b mb-5 dark:border-zinc-700/80">
                             {item.name}
                         </p>
                         <p className="text-xl">{item.text}</p>

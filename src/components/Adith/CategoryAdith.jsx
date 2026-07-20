@@ -14,23 +14,23 @@ export default function CategoryAdith({ category }) {
 
     if (isLoading) {
         return (
-            <div className="text-center py-12 pt-28">
+            <div className="text-center pb-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-600 mx-auto"></div>
-                <p className="mt-4 text-gray-600 dark:text-gray-200">جارٍ تحميل بيانات الأحاديث...</p>
+                <p className="mt-4 text-gray-600 dark:text-zinc-200">جارٍ تحميل بيانات الأحاديث...</p>
             </div>
         );
     }
 
     if (error || !data) {
         return (
-            <div className="text-center py-12 pt-28">
+            <div className="text-center pb-12">
                 <p className="text-red-600 dark:text-red-400">حدث خطأ أثناء تحميل البيانات.</p>
             </div>
         );
     }
 
     return (
-        <section className="py-10 relative px-6 pt-28 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
+        <section className="pb-10 relative px-6 bg-gradient-to-br from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-950 min-h-screen">
             <div className="container mx-auto">
                 <h2 className="text-3xl font-bold text-center mb-10 text-emerald-700 dark:text-emerald-400">
                     الأحاديث النبوية
@@ -46,7 +46,7 @@ export default function CategoryAdith({ category }) {
                         >
                             <Link
                                 href={`/adiths/${category}/${item.id}`}
-                                className="block group overflow-hidden relative bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:border-emerald-400 transition-all duration-300 p-5"
+                                className="block group overflow-hidden relative bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-md hover:shadow-lg hover:border-emerald-400 transition-all duration-300 p-5"
                             >
                                 <div className="flex flex-col justify-between h-full">
                                     <div>
@@ -54,13 +54,13 @@ export default function CategoryAdith({ category }) {
                                             {item.title}
                                         </h3>
                                         {item.explanation && (
-                                            <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 leading-relaxed">
+                                            <p className="text-sm text-gray-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
                                                 {item.explanation}
                                             </p>
                                         )}
                                     </div>
 
-                                    <div className="flex items-center justify-between mt-4 text-sm text-gray-500 dark:text-gray-400">
+                                    <div className="flex items-center justify-between mt-4 text-sm text-gray-500 dark:text-zinc-400">
                                         <div className="flex items-center gap-1">
                                             <FontAwesomeIcon icon={faBookOpen} className="text-emerald-500" />
                                             <span>حديث نبوي</span>

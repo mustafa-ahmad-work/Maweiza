@@ -9,7 +9,7 @@ export default async function _() {
                     <p className="mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
                         جاري الانتقال
                     </p>
-                    <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
+                    <p className="mb-4 text-lg font-light text-gray-500 dark:text-zinc-400">
                         هذه الصفحه غير موجوده ويتم الانتقال الان الي الصفحه
                         الجديده
                     </p>

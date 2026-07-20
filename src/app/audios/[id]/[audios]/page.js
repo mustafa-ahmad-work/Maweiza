@@ -89,7 +89,7 @@ export default function AudiosPage({ params }) {
                 {loading && (
                     <div className="flex flex-col items-center justify-center py-20">
                         <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
-                        <p className="mt-4 text-gray-600 dark:text-gray-300 font-medium">جاري تحميل البيانات...</p>
+                        <p className="mt-4 text-gray-600 dark:text-zinc-300 font-medium">جاري تحميل البيانات...</p>
                     </div>
                 )}
 
@@ -117,7 +117,7 @@ export default function AudiosPage({ params }) {
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-gray-200 dark:border-gray-700"
+                                        className="bg-white dark:bg-zinc-900 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-gray-200 dark:border-zinc-800"
                                     >
                                         <div className="relative h-48 overflow-hidden">
                                             {audio.image ? (
@@ -148,28 +148,28 @@ export default function AudiosPage({ params }) {
                                         </div>
 
                                         <div className="p-4">
-                                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+                                            <p className="text-sm text-gray-600 dark:text-zinc-300 mb-3 line-clamp-2">
                                                 {audio.description}
                                             </p>
 
-                                            <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
+                                            <div className="flex items-center text-xs text-gray-500 dark:text-zinc-400 mb-2">
                                                 <FontAwesomeIcon icon={faUser} className="ml-2 text-green-500" />
                                                 <span>{audio.prepared_by[0]?.title || "غير محدد"}</span>
                                             </div>
 
-                                            <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-3">
+                                            <div className="flex items-center text-xs text-gray-500 dark:text-zinc-400 mb-3">
                                                 <FontAwesomeIcon icon={faCalendarAlt} className="ml-2 text-green-500" />
                                                 <span>{formatDate(audio.add_date)}</span>
                                             </div>
 
-                                            <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-4">
+                                            <div className="flex items-center text-xs text-gray-500 dark:text-zinc-400 mb-4">
                                                 <FontAwesomeIcon icon={faFileAudio} className="ml-2 text-green-500" />
                                                 <span>{audio.num_attachments} ملفات صوتية</span>
                                             </div>
 
                                             <div className="space-y-3 mt-4">
                                                 {audio.attachments?.map((att, index) => (
-                                                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-zinc-800/70 rounded-lg">
                                                         <div className="flex items-center">
                                                             <FontAwesomeIcon icon={faVolumeUp} className="text-green-500 ml-2" />
                                                             <span className="text-sm font-medium mx-2">
@@ -197,7 +197,7 @@ export default function AudiosPage({ params }) {
                                                 ))}
 
                                                 {/* {audio.num_attachments > 3 && (
-                                                    <div className="text-center text-xs text-gray-500 dark:text-gray-400 mt-2">
+                                                    <div className="text-center text-xs text-gray-500 dark:text-zinc-400 mt-2">
                                                         +{audio.num_attachments - 3} ملفات أخرى
                                                     </div>
                                                 )} */}
@@ -215,15 +215,15 @@ export default function AudiosPage({ params }) {
                                 disabled={!links?.prev}
                                 className={`flex items-center px-5 py-3 rounded-xl font-medium transition-all ${
                                     links?.prev
-                                        ? "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 shadow-sm"
-                                        : "opacity-40 cursor-not-allowed bg-gray-100 dark:bg-gray-800 text-gray-400"
+                                        ? "bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-800 dark:text-zinc-200 hover:text-green-600 dark:hover:text-green-400 shadow-sm"
+                                        : "opacity-40 cursor-not-allowed bg-gray-100 dark:bg-zinc-800 text-gray-400"
                                 }`}
                             >
                                 <FontAwesomeIcon icon={faAngleDoubleRight} className="ml-2" />
                                 السابق
                             </button>
 
-                            <span className="text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
+                            <span className="text-sm font-medium text-gray-700 dark:text-zinc-300 bg-white dark:bg-zinc-900 px-4 py-2 rounded-lg border border-gray-200 dark:border-zinc-800 shadow-sm">
                                 الصفحة {page} من {links?.pages_number || "?"}
                             </span>
 
@@ -232,8 +232,8 @@ export default function AudiosPage({ params }) {
                                 disabled={!links?.next}
                                 className={`flex items-center px-5 py-3 rounded-xl font-medium transition-all ${
                                     links?.next
-                                        ? "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 shadow-sm"
-                                        : "opacity-40 cursor-not-allowed bg-gray-100 dark:bg-gray-800 text-gray-400"
+                                        ? "bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-800 dark:text-zinc-200 hover:text-green-600 dark:hover:text-green-400 shadow-sm"
+                                        : "opacity-40 cursor-not-allowed bg-gray-100 dark:bg-zinc-800 text-gray-400"
                                 }`}
                             >
                                 التالي
@@ -254,7 +254,7 @@ export default function AudiosPage({ params }) {
                         exit={{ opacity: 0 }}
                     >
                         <motion.div
-                            className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl w-full max-w-md overflow-hidden"
+                            className="bg-white dark:bg-zinc-950 rounded-2xl shadow-xl w-full max-w-md overflow-hidden"
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
@@ -267,7 +267,7 @@ export default function AudiosPage({ params }) {
                                     </h3>
                                     <button
                                         onClick={closePlayer}
-                                        className="text-gray-600 dark:text-gray-300 hover:text-red-500"
+                                        className="text-gray-600 dark:text-zinc-300 hover:text-red-500"
                                     >
                                         <FontAwesomeIcon icon={faTimes} size="lg" />
                                     </button>

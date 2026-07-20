@@ -1,46 +1,60 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "@/app/audio.css";
 
 import Landing from "@/components/Layout/Landing";
 
-export default async function ({ params }) {
+export default function ListenSuraPage({ params }) {
     const idRecitations = params.id_reciters;
     const id = params.id_sura;
 
-    let dataSuaruh = [];
-    let dataAyah = [];
+    const [dataSuaruh, setDataSuaruh] = useState({});
+    const [dataAyah, setDataAyah] = useState([]);
+    const [dataRecitations, setDataRecitations] = useState("");
+    const [dataAudio, setDataAudio] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
-    let dataRecitations = "";
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                setIsLoading(true);
+                const responseSuaruh = await fetch(`https://api.alquran.cloud/v1/surah/${id}`);
+                const dataSuaruhJson = await responseSuaruh.json();
+                const suaruhData = dataSuaruhJson.data;
 
-    let dataAudio = "";
+                setDataAyah(suaruhData.ayahs || []);
+                setDataSuaruh(suaruhData || {});
 
-    try {
-        const responseSuaruh = await fetch(`https://api.alquran.cloud/v1/surah/${id}`);
-        const dataSuaruhJson = await responseSuaruh.json();
-        const suaruhData = dataSuaruhJson.data;
+                const responseFileAudio = await fetch(
+                    `https://abdoahmed26.github.io/api/arabic.json`
+                );
+                const dataFileAudio = await responseFileAudio.json();
+                const dataFileAudioFilter = dataFileAudio.reciters.find((recitations) => recitations.id === idRecitations);
 
-        dataAyah = suaruhData.ayahs;
-        dataSuaruh = suaruhData;
+                if (dataFileAudioFilter) {
+                    setDataAudio(`${dataFileAudioFilter.Server}/${id.toString().padStart(3, "0")}.mp3`);
+                    setDataRecitations(dataFileAudioFilter.name);
+                }
+            } catch (error) {
+                console.error("Error fetching audio/surah data:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        fetchData();
+    }, [id, idRecitations]);
 
-        const responseFileAudio = await fetch(
-            `https://abdoahmed26.github.io/api/arabic.json`
-        );
-        const dataFileAudio = await responseFileAudio.json();
-        const dataFileAudioFilter = dataFileAudio.reciters.filter((recitations) => recitations.id === idRecitations)[0];
-
-        dataAudio = `${dataFileAudioFilter.Server}/${id.toString().padStart(3, "0")}.mp3`;
-        dataRecitations = dataFileAudioFilter.name;
-    } catch (error) {
-        console.log(error);
+    if (isLoading) {
+        return <div className="text-center py-20 text-gray-500 dark:text-zinc-400">جاري التحميل...</div>;
     }
 
     return (
         <>
             <Landing title={<span className="font-quran">{dataSuaruh.name}</span>} />
             <section className="py-10 relative px-4">
-                <div className="bg-white py-10 px-10 mb-20 dark:bg-black w-full">
+                <div className="bg-white py-10 px-10 mb-20 dark:bg-zinc-900 w-full rounded-2xl border border-gray-100 dark:border-zinc-800">
                     <h1 className="m-auto text-center my-5 text-2xl font-quran">
                         {dataSuaruh.name}
                     </h1>

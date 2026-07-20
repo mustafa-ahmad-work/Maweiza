@@ -8,7 +8,7 @@ export default function offline() {
                     <p className="mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
                         لا يتوفر اتصال انترنت
                     </p>
-                    <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
+                    <p className="mb-4 text-lg font-light text-gray-500 dark:text-zinc-400">
                         يبدو انك غير متصل بالانترنت تحقق من الاتصال واعد
                         المحاوله
                     </p>

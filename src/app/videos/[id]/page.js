@@ -129,7 +129,7 @@ export default function VideosPage({ params }) {
                     <div className="flex justify-center items-center h-64">
                         <div className="text-center">
                             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500 mx-auto"></div>
-                            <p className="mt-4 text-lg font-medium text-gray-700 dark:text-gray-300">جاري التحميل...</p>
+                            <p className="mt-4 text-lg font-medium text-gray-700 dark:text-zinc-300">جاري التحميل...</p>
                         </div>
                     </div>
                 ) : error ? (
@@ -153,10 +153,10 @@ export default function VideosPage({ params }) {
                             {videos.map((item, key) => (
                                 <div
                                     key={key}
-                                    className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full"
+                                    className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full"
                                 >
                                     {/* قسم الصورة أو الأيقونة */}
-                                    <div className="relative bg-gray-100 dark:bg-gray-700 h-40 md:h-48 flex items-center justify-center">
+                                    <div className="relative bg-gray-100 dark:bg-zinc-800 h-40 md:h-48 flex items-center justify-center">
                                         {isValidImageUrl(item.image) ? (
                                             <div className="relative w-full h-full">
                                                 <Image
@@ -176,13 +176,13 @@ export default function VideosPage({ params }) {
                                                         }
                                                     }}
                                                 />
-                                                <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 dark:text-gray-300 bg-gray-100 dark:bg-gray-800" style={{ display: 'none' }}>
+                                                <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 dark:text-zinc-300 bg-gray-100 dark:bg-zinc-800" style={{ display: 'none' }}>
                                                     <FontAwesomeIcon icon={faVideo} className="text-4xl mb-2" />
                                                     <span className="text-sm">فيديو</span>
                                                 </div>
                                             </div>
                                         ) : (
-                                            <div className="flex flex-col items-center justify-center text-gray-400 dark:text-gray-300 w-full h-full bg-gray-100 dark:bg-gray-800">
+                                            <div className="flex flex-col items-center justify-center text-gray-400 dark:text-zinc-300 w-full h-full bg-gray-100 dark:bg-zinc-800">
                                                 <FontAwesomeIcon icon={faVideo} className="text-4xl mb-2" />
                                                 <span className="text-sm">فيديو</span>
                                             </div>
@@ -198,33 +198,33 @@ export default function VideosPage({ params }) {
                                             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 line-clamp-2">
                                                 {item.title}
                                             </h3>
-                                            <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                                            <div className="flex items-center text-xs text-gray-500 dark:text-zinc-400">
                                                 <FontAwesomeIcon icon={faFile} className="ml-1" />
                                                 <span>{item.num_attachments} ملف</span>
                                             </div>
                                         </div>
 
                                         {/* قسم الوصف */}
-                                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+                                        <p className="text-sm text-gray-600 dark:text-zinc-300 mb-4 line-clamp-3 flex-grow">
                                             {item.description || 'لا يوجد وصف'}
                                         </p>
 
                                         {/* قسم التفاصيل */}
                                         <div className="space-y-2 mb-4 text-sm">
                                             {item.prepared_by.length > 0 && (
-                                                <div className="flex items-center text-gray-700 dark:text-gray-300">
+                                                <div className="flex items-center text-gray-700 dark:text-zinc-300">
                                                     <FontAwesomeIcon icon={faUserTie} className="ml-2 text-gray-400 w-4" />
                                                     <span className="truncate">{item.prepared_by[0].title}</span>
                                                 </div>
                                             )}
 
-                                            <div className="flex items-center text-gray-700 dark:text-gray-300">
+                                            <div className="flex items-center text-gray-700 dark:text-zinc-300">
                                                 <FontAwesomeIcon icon={faCalendar} className="ml-2 text-gray-400 w-4" />
                                                 <span>{formatDate(item.add_date)}</span>
                                             </div>
 
                                             {item.attachments.length > 0 && (
-                                                <div className="flex items-center text-gray-700 dark:text-gray-300">
+                                                <div className="flex items-center text-gray-700 dark:text-zinc-300">
                                                     <FontAwesomeIcon icon={faPlayCircle} className="ml-2 text-gray-400 w-4" />
                                                     <span>{formatFileSize(item.attachments[0].size)}</span>
                                                 </div>
@@ -259,7 +259,7 @@ export default function VideosPage({ params }) {
                                 <div className="w-full sm:w-auto"></div>
                             )}
 
-                            <span className="text-gray-700 dark:text-gray-300 font-medium px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                            <span className="text-gray-700 dark:text-zinc-300 font-medium px-4 py-2 bg-gray-100 dark:bg-zinc-800 rounded-lg">
                                 الصفحة {links.current_page} من {links.pages_number}
                             </span>
 
@@ -282,15 +282,15 @@ export default function VideosPage({ params }) {
             {/* موديل عرض الفيديو */}
             {isModalOpen && selectedVideo && (
                 <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" onClick={closeVideoModal}>
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                    <div className="bg-white dark:bg-zinc-900 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
                         {/* رأس الموديل */}
-                        <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
+                        <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-zinc-700/80">
                             <h3 className="text-xl font-bold text-gray-900 dark:text-white truncate">
                                 {selectedVideo.title}
                             </h3>
                             <button
                                 onClick={closeVideoModal}
-                                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+                                className="text-gray-500 hover:text-gray-700 dark:text-zinc-400 dark:hover:text-gray-300"
                             >
                                 <FontAwesomeIcon icon={faTimes} size="lg" />
                             </button>
@@ -302,13 +302,13 @@ export default function VideosPage({ params }) {
                             <div className="mb-6">
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {selectedVideo.prepared_by.length > 0 && (
-                                        <div className="flex items-center text-sm bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                                        <div className="flex items-center text-sm bg-gray-100 dark:bg-zinc-800 px-3 py-1 rounded-full">
                                             <FontAwesomeIcon icon={faUserTie} className="ml-2 text-gray-500" />
                                             <span>{selectedVideo.prepared_by[0].title}</span>
                                         </div>
                                     )}
 
-                                    <div className="flex items-center text-sm bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                                    <div className="flex items-center text-sm bg-gray-100 dark:bg-zinc-800 px-3 py-1 rounded-full">
                                         <FontAwesomeIcon icon={faCalendar} className="ml-2 text-gray-500" />
                                         <span>{formatDate(selectedVideo.add_date)}</span>
                                     </div>
@@ -316,7 +316,7 @@ export default function VideosPage({ params }) {
                                     {getImportanceBadge(selectedVideo.importance_level)}
                                 </div>
 
-                                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                                <p className="text-gray-700 dark:text-zinc-300 mb-6">
                                     {selectedVideo.description || 'لا يوجد وصف'}
                                 </p>
                             </div>
@@ -328,7 +328,7 @@ export default function VideosPage({ params }) {
                                 {selectedVideo.attachments.length > 0 ? (
                                     <div className="space-y-3">
                                         {selectedVideo.attachments.map((attachment, index) => (
-                                            <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                            <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-zinc-800/70 rounded-lg">
                                                 <div className="flex items-center">
                                                     <FontAwesomeIcon
                                                         icon={attachment.extension_type === 'MP4' ? faVideo : faHeadphones}
@@ -338,7 +338,7 @@ export default function VideosPage({ params }) {
                                                         <p className="font-medium text-gray-900 dark:text-white">
                                                             {attachment.description || `ملف ${index + 1}`}
                                                         </p>
-                                                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                                                        <p className="text-sm text-gray-500 dark:text-zinc-400">
                                                             {attachment.size} • {attachment.extension_type}
                                                         </p>
                                                     </div>
@@ -370,7 +370,7 @@ export default function VideosPage({ params }) {
                                         ))}
                                     </div>
                                 ) : (
-                                    <p className="text-gray-500 dark:text-gray-400 text-center py-4">
+                                    <p className="text-gray-500 dark:text-zinc-400 text-center py-4">
                                         لا توجد ملفات متاحة
                                     </p>
                                 )}
@@ -378,10 +378,10 @@ export default function VideosPage({ params }) {
                         </div>
 
                         {/* ذيل الموديل */}
-                        <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end">
+                        <div className="p-4 border-t border-gray-200 dark:border-zinc-700/80 flex justify-end">
                             <button
                                 onClick={closeVideoModal}
-                                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white rounded-lg transition-colors"
+                                className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-gray-800 dark:text-white rounded-lg transition-colors"
                             >
                                 إغلاق
                             </button>

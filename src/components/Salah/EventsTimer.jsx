@@ -73,7 +73,7 @@ export default function EventsTimer() {
         <>
             {/* <Landing title="المناسبات الإسلامية القادمة" text="يحتفل بعيد الفطر والاضحي فقط والاحتفال بغير ذالك بدعة تم ذكر المناسبات للمعرفة لا للاحتفال" /> */}
 
-            <div className="min-h-screen py-12 px-4 sm:px-6 relative overflow-hidden pt-20">
+            <div className="min-h-screen pb-12 px-4 sm:px-6 relative overflow-hidden">
                 {/* خلفية متدرجة */}
                 {/* <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-emerald-900 to-emerald-800 z-0"></div> */}
 

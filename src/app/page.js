@@ -160,7 +160,7 @@ export default function Home() {
     return (
         <>
             {/* قسم الهيرو الرئيسي - خلفية بيضاء نقية ونمط مينيمال حديث بنقاط شبكية */}
-            <section className="relative overflow-hidden min-h-screen pt-28 pb-12 flex items-center justify-center bg-white dark:bg-gray-950 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:32px_32px] dark:bg-[radial-gradient(#1e293b_1.5px,transparent_1.5px)]">
+            <section className="relative overflow-hidden min-h-screen -mt-26 lg:-mt-52 pt-14 lg:pt-0 pb-12 flex items-center justify-center bg-white dark:bg-zinc-950 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:32px_32px] dark:bg-[radial-gradient(#1e293b_1.5px,transparent_1.5px)]">
                 {/* خلفية زخرفية متحركة بسيطة */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -197,7 +197,7 @@ export default function Home() {
                             موقع <span className="text-primary dark:text-lime-400">موعظة</span>
                         </h1>
 
-                        <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
+                        <p className="text-base text-gray-500 dark:text-zinc-400 leading-relaxed max-w-xl">
                             منصة إسلامية متكاملة تهدف لنشر العلم الشرعي وتقريب الدين إلى القلوب بأسلوب سهل وميسر.
                         </p>
 
@@ -209,14 +209,14 @@ export default function Home() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: i * 0.15 + 0.3, duration: 0.6 }}
-                                    className="group flex items-start gap-3.5 p-4 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-100 dark:border-gray-800/80 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 transform hover:-translate-y-0.5"
+                                    className="group flex items-start gap-3.5 p-4 rounded-2xl bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 transform hover:-translate-y-0.5"
                                 >
                                     <div className="flex items-center justify-center w-11 h-11 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 rounded-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
                                         <FontAwesomeIcon icon={f.icon} className="text-base" />
                                     </div>
                                     <div className="text-right">
                                         <h3 className="text-sm font-black text-gray-900 dark:text-white mb-1 leading-tight group-hover:text-primary dark:group-hover:text-lime-400 transition-colors duration-200">{f.title}</h3>
-                                        <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-bold">{f.description}</p>
+                                        <p className="text-[11px] text-gray-500 dark:text-zinc-400 leading-relaxed font-bold">{f.description}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -228,7 +228,7 @@ export default function Home() {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold shadow-sm transition-all text-sm ${isInstalled
-                                    ? "bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200/50 dark:border-gray-800"
+                                    ? "bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200/50 dark:border-zinc-700/80"
                                     : "bg-primary hover:bg-primary-alt text-white hover:shadow-md"
                                     }`}
                                 onClick={installPWA}
@@ -309,15 +309,15 @@ export default function Home() {
             </section>
 
             {/* قسم الإحصائيات الـ 12 - بخلفية بيضاء ونمط مينيمال ناصع */}
-            <div className="py-20 bg-white dark:bg-gray-950 border-t border-gray-50 dark:border-gray-900">
+            <div className="py-20 bg-white dark:bg-zinc-950 border-t border-gray-50 dark:border-zinc-700/80">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-black text-gray-950 dark:text-white mb-3">موقع موعظة بالأرقام</h2>
-                        <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
+                        <p className="text-gray-500 dark:text-zinc-400 max-w-xl mx-auto text-sm leading-relaxed">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
                         <div className="flex justify-center items-center mt-6">
-                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
                             <div className="mx-3 w-1.5 h-1.5 rounded-full bg-primary"></div>
-                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
                         </div>
                     </div>
 
@@ -325,7 +325,7 @@ export default function Home() {
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 text-center transform transition-all duration-500 hover:shadow-md hover:border-primary/20 ${statsVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                className={`group relative overflow-hidden rounded-2xl bg-white dark:bg-zinc-950 border border-gray-100 dark:border-zinc-800 text-center transform transition-all duration-500 hover:shadow-md hover:border-primary/20 ${statsVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                     }`}
                                 style={{ transitionDelay: `${index * 50}ms` }}
                             >
@@ -349,15 +349,15 @@ export default function Home() {
             </div>
 
             {/* قسم الاقتباسات الإسلامية - بخلفية بيضاء ونمط مينيمال أنيق */}
-            <div ref={quotesRef} className="py-20 bg-white dark:bg-gray-950 border-t border-gray-50 dark:border-gray-900 relative">
+            <div ref={quotesRef} className="py-20 bg-white dark:bg-zinc-950 border-t border-gray-50 dark:border-zinc-700/80 relative">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-black text-gray-950 dark:text-white mb-3">حكم واقتباسات إسلامية</h2>
-                        <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">كلمات من نور تهدئ القلب وتنير العقل</p>
+                        <p className="text-gray-500 dark:text-zinc-400 max-w-xl mx-auto text-sm leading-relaxed">كلمات من نور تهدئ القلب وتنير العقل</p>
                         <div className="flex justify-center items-center mt-6">
-                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
                             <div className="mx-3 w-1.5 h-1.5 rounded-full bg-primary"></div>
-                            <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
                         </div>
                     </div>
 
@@ -365,7 +365,7 @@ export default function Home() {
                         {islamicQuotes.map((quote, index) => (
                             <div
                                 key={index}
-                                className={`bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-100 dark:border-gray-800/80 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 ${quotesVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                                className={`bg-white dark:bg-zinc-950 rounded-2xl p-8 border border-gray-100 dark:border-zinc-800 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 ${quotesVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                                 style={{ transitionDelay: `${quote.delay}ms`, transitionDuration: '0.8s' }}
                             >
                                 <div className="flex items-start gap-4">
@@ -373,7 +373,7 @@ export default function Home() {
                                         <FontAwesomeIcon icon={faQuoteRight} />
                                     </div>
                                     <div className="text-right">
-                                        <p className="text-lg font-bold text-gray-850 dark:text-gray-200 mb-3 leading-relaxed">{quote.text}</p>
+                                        <p className="text-lg font-bold text-gray-850 dark:text-zinc-200 mb-3 leading-relaxed">{quote.text}</p>
                                         <p className="text-xs font-bold text-gray-400 dark:text-gray-500">{quote.source}</p>
                                     </div>
                                 </div>

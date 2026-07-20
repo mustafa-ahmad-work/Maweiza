@@ -233,6 +233,7 @@ export default function Salah() {
                     width={100}
                     height={100}
                     src="/img.png"
+                    style={{ width: "auto", height: "auto" }}
                     className="absolute w-32 top-16 left-0 -z-40"
                     alt="img"
                 />

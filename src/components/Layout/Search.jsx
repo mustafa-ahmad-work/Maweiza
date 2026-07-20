@@ -15,7 +15,7 @@ export default function Search(props) {
                 <input
                     type="text"
                     onChange={props.handleChange}
-                    className="w-full pl-10 pr-4 py-3 text-lg rounded-2xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent transition-all duration-300"
+                    className="w-full pl-10 pr-4 py-3 text-lg rounded-2xl border border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent transition-all duration-300"
                     placeholder="بحث..."
                 />
                 <button className="absolute inset-y-0 left-3     flex items-center pr-3">

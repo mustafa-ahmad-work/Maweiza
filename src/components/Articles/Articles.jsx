@@ -24,7 +24,7 @@ export default function Articles({ id }) {
             <div className="min-h-screen flex items-center justify-center py-12">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-emerald-600 mx-auto"></div>
-                    <p className="mt-6 text-xl text-gray-700 dark:text-gray-300 font-medium">جارٍ تحميل بيانات المقالات...</p>
+                    <p className="mt-6 text-xl text-gray-700 dark:text-zinc-300 font-medium">جارٍ تحميل بيانات المقالات...</p>
                 </div>
             </div>
         );
@@ -75,10 +75,10 @@ export default function Articles({ id }) {
                     {data.data.map((item, key) => (
                         <div
                             key={key}
-                            className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                            className="bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-100 dark:border-zinc-800">
 
                             {/* Article Image */}
-                            <div className="h-48 overflow-hidden bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                            <div className="h-48 overflow-hidden bg-gray-200 dark:bg-zinc-900 flex items-center justify-center">
                                 {item.image ? (
                                     <img
                                         src={item.image}
@@ -88,7 +88,7 @@ export default function Articles({ id }) {
                                 ) : (
                                     <div className="text-center p-4">
                                         <FontAwesomeIcon icon={faImage} className="text-4xl text-gray-400 dark:text-gray-500 mb-2" />
-                                        <p className="text-gray-500 dark:text-gray-400">لا توجد صورة متاحة</p>
+                                        <p className="text-gray-500 dark:text-zinc-400">لا توجد صورة متاحة</p>
                                     </div>
                                 )}
                             </div>
@@ -108,7 +108,7 @@ export default function Articles({ id }) {
                                         </div>
                                     )}
 
-                                    {/* <div className="flex items-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full">
+                                    {/* <div className="flex items-center bg-emerald-50 dark:bg-zinc-900/30 text-emerald-700 dark:text-zinc-300 px-3 py-1 rounded-full">
                                         <FontAwesomeIcon icon={faFileAlt} className="ml-3" />
                                         <span>{item.type}</span>
                                     </div> */}
@@ -126,15 +126,15 @@ export default function Articles({ id }) {
 
                                 {/* Article Description */}
                                 <div className="mb-5">
-                                    <p className="text-gray-600 dark:text-gray-300 line-clamp-3 mb-3">
+                                    <p className="text-gray-600 dark:text-zinc-300 line-clamp-3 mb-3">
                                         {item.description || "لا يوجد وصف متاح لهذا المقال"}
                                     </p>
 
                                     {item.full_description && (
-                                        <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg border border-gray-200 dark:border-gray-600">
+                                        <div className="bg-gray-50 dark:bg-zinc-800/70 p-3 rounded-lg border border-gray-200 dark:border-zinc-700">
                                             <div className="flex items-start">
                                                 <FontAwesomeIcon icon={faInfoCircle} className="text-blue-500 mt-1 ml-2" />
-                                                <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-4">
+                                                <p className="text-gray-700 dark:text-zinc-300 text-sm line-clamp-4">
                                                     <div
                                                         dangerouslySetInnerHTML={{ __html: item.full_description }}
                                                     />
@@ -146,21 +146,21 @@ export default function Articles({ id }) {
 
                                 {/* Article Details */}
                                 <div className="grid grid-cols-2 gap-3 mb-5 text-sm">
-                                    {/* <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
-                                        <p className="text-gray-500 dark:text-gray-400">المعرف</p>
-                                        <p className="font-medium text-gray-800 dark:text-gray-200">#{item.id}</p>
+                                    {/* <div className="bg-gray-50 dark:bg-zinc-800/70 p-3 rounded-lg">
+                                        <p className="text-gray-500 dark:text-zinc-400">المعرف</p>
+                                        <p className="font-medium text-gray-800 dark:text-zinc-200">#{item.id}</p>
                                     </div> */}
-                                    <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
-                                        <p className="text-gray-500 dark:text-gray-400">الأهمية</p>
-                                        <p className="font-medium text-gray-800 dark:text-gray-200">{getImportanceArabic(item.importance_level)}</p>
+                                    <div className="bg-gray-50 dark:bg-zinc-800/70 p-3 rounded-lg">
+                                        <p className="text-gray-500 dark:text-zinc-400">الأهمية</p>
+                                        <p className="font-medium text-gray-800 dark:text-zinc-200">{getImportanceArabic(item.importance_level)}</p>
                                     </div>
-                                    <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
-                                        <p className="text-gray-500 dark:text-gray-400">التحديث</p>
-                                        <p className="font-medium text-gray-800 dark:text-gray-200">{formatDate(item.update_date)}</p>
+                                    <div className="bg-gray-50 dark:bg-zinc-800/70 p-3 rounded-lg">
+                                        <p className="text-gray-500 dark:text-zinc-400">التحديث</p>
+                                        <p className="font-medium text-gray-800 dark:text-zinc-200">{formatDate(item.update_date)}</p>
                                     </div>
-                                    <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
-                                        <p className="text-gray-500 dark:text-gray-400">المرفقات</p>
-                                        <p className="font-medium text-gray-800 dark:text-gray-200">{item.num_attachments}</p>
+                                    <div className="bg-gray-50 dark:bg-zinc-800/70 p-3 rounded-lg">
+                                        <p className="text-gray-500 dark:text-zinc-400">المرفقات</p>
+                                        <p className="font-medium text-gray-800 dark:text-zinc-200">{item.num_attachments}</p>
                                     </div>
                                 </div>
 
@@ -168,7 +168,7 @@ export default function Articles({ id }) {
                                 <div className="mt-auto">
                                     {item.attachments && item.attachments.length > 0 ? (
                                         <div className="space-y-3">
-                                            <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">تحميل المقال:</h4>
+                                            <h4 className="font-medium text-gray-700 dark:text-zinc-300 mb-2">تحميل المقال:</h4>
                                             {item.attachments.map((attachment, key2) => (
                                                 <a
                                                     key={key2}
@@ -186,7 +186,7 @@ export default function Articles({ id }) {
                                             ))}
                                         </div>
                                     ) : (
-                                        <div className="text-center py-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-gray-500 dark:text-gray-400">
+                                        <div className="text-center py-3 bg-gray-100 dark:bg-zinc-800 rounded-lg text-gray-500 dark:text-zinc-400">
                                             لا توجد مرفقات متاحة
                                         </div>
                                     )}
@@ -203,13 +203,13 @@ export default function Articles({ id }) {
                     ) : (
                         <Link
                             href={`/articles/${Number(id) - 1}`}
-                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300">
+                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-700 dark:text-zinc-300 hover:bg-emerald-50 dark:hover:bg-zinc-800/80/20 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300">
                             <FontAwesomeIcon className="ml-2" icon={faAngleDoubleRight} />
                             السابق
                         </Link>
                     )}
 
-                    <div className="flex items-center justify-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300">
+                    <div className="flex items-center justify-center px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-700 dark:text-zinc-300">
                         <span className="font-medium">صفحة {data.links.current_page} من {data.links.pages_number}</span>
                     </div>
 
@@ -218,7 +218,7 @@ export default function Articles({ id }) {
                     ) : (
                         <Link
                             href={`/articles/${Number(id) + 1}`}
-                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300">
+                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-700 dark:text-zinc-300 hover:bg-emerald-50 dark:hover:bg-zinc-800/80/20 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300">
                             التالي
                             <FontAwesomeIcon className="mr-2" icon={faAngleDoubleLeft} />
                         </Link>

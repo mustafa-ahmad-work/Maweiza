@@ -25,16 +25,18 @@ export default function SplashScreen() {
     if (!isLoading) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white dark:bg-gray-900 transition-colors duration-500">
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white dark:bg-zinc-950 transition-colors duration-500">
 
             {/* Logo */}
             <div className="relative mb-8">
                 <div className="relative p-3 rounded-full animate-bounce">
                     <Image
+                        priority
                         src="/logo.png"
                         width={140}
                         height={140}
                         alt="موقع موعظة"
+                        style={{ width: "auto", height: "auto" }}
                         className="rounded-full w-36 h-36"
                     />
                 </div>
@@ -46,23 +48,23 @@ export default function SplashScreen() {
             </h1>
 
             {/* Quranic Verse */}
-            <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 text-center animate-fade-in-up">
+            <p className="text-gray-700 dark:text-zinc-300 text-lg mb-6 text-center animate-fade-in-up">
                 الموعظة نور، يحيي القلوب ويضيء الحياة
             </p>
 
             {/* Progress Bar */}
-            <div className="w-64 h-3 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden mb-3 shadow-inner">
+            <div className="w-64 h-3 bg-gray-300 dark:bg-zinc-900 rounded-full overflow-hidden mb-3 shadow-inner">
                 <div
                     className="h-full bg-gray-800 dark:bg-white rounded-full transition-all duration-300"
                     style={{ width: `${progress}%` }}
                 ></div>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 text-sm font-medium animate-pulse">
+            <p className="text-gray-600 dark:text-zinc-300 text-sm font-medium animate-pulse">
                 جاري التحميل... {progress}%
             </p>
 
             {/* Footer */}
-            <div className="absolute bottom-6 text-gray-500 dark:text-gray-400 text-sm animate-fade-in text-center">
+            <div className="absolute bottom-6 text-gray-500 dark:text-zinc-400 text-sm animate-fade-in text-center">
                 تطبيق موثوق
             </div>
 

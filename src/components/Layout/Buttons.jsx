@@ -65,7 +65,7 @@ function Buttons() {
                         exit="hidden"
                         variants={btnVariants}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                        className="fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md hover:shadow-lg border border-gray-150/60 dark:border-gray-800 text-primary hover:text-primary-alt hover:-translate-y-0.5 transition-all duration-200 focus:outline-none"
+                        className="fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-xl bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-md hover:shadow-lg border border-gray-150/60 dark:border-zinc-700/80 text-primary hover:text-primary-alt hover:-translate-y-0.5 transition-all duration-200 focus:outline-none"
                     >
                         <FontAwesomeIcon icon={faAngleUp} className="text-xl" />
                     </motion.button>
@@ -78,7 +78,7 @@ function Buttons() {
                 aria-label={dark ? "تبديل للوضع الفاتح" : "تبديل للوضع الداكن"}
                 whileHover={{ scale: 1.06, y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                className="fixed bottom-6 left-6 z-50 w-12 h-12 flex items-center justify-center rounded-xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md hover:shadow-lg border border-gray-150/60 dark:border-gray-800 focus:outline-none transition-all duration-200"
+                className="fixed bottom-6 left-6 z-50 w-12 h-12 flex items-center justify-center rounded-xl bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-md hover:shadow-lg border border-gray-150/60 dark:border-zinc-700/80 focus:outline-none transition-all duration-200"
             >
                 {dark ? (
                     <FontAwesomeIcon icon={faSun} className="text-lg text-amber-500 animate-[spin_8s_linear_infinite]" />

@@ -70,7 +70,7 @@ export default function Categories() {
                 className={`group relative transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                 style={{ transitionDelay: `${key * 50}ms` }}
             >
-                <div className="relative h-full overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 flex flex-col p-5 text-right">
+                <div className="relative h-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-950 border border-gray-100 dark:border-zinc-800 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 flex flex-col p-5 text-right">
                     {/* تأثير إضاءة خلفية ناعم للغاية عند تمرير الفأرة */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
@@ -113,12 +113,12 @@ export default function Categories() {
                     </h3>
 
                     {/* وصف القسم */}
-                    <p className="text-xs text-gray-500 dark:text-gray-400 text-center leading-relaxed mb-4 flex-grow font-semibold">
+                    <p className="text-xs text-gray-500 dark:text-zinc-400 text-center leading-relaxed mb-4 flex-grow font-semibold">
                         {getDescription(item.name)}
                     </p>
 
                     {/* رابط تصفح القسم المينيمال */}
-                    <div className="mt-auto pt-3.5 border-t border-gray-50 dark:border-gray-800/60 flex justify-center">
+                    <div className="mt-auto pt-3.5 border-t border-gray-50 dark:border-zinc-800 flex justify-center">
                         <Link href={item.path} className="inline-flex items-center gap-1.5 text-xs font-black text-primary hover:text-primary-alt transition-colors duration-200">
                             <span>اكتشف القسم</span>
                             <svg
@@ -139,7 +139,7 @@ export default function Categories() {
     });
 
     return (
-        <section className="py-20 md:py-28 relative overflow-hidden bg-white dark:bg-gray-950" id="categories">
+        <section className="py-20 md:py-28 relative overflow-hidden bg-white dark:bg-zinc-950" id="categories">
             {/* زخارف خلفية دائرية ناعمة */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-10 left-10 w-64 h-64 border-4 border-lime-100/20 dark:border-lime-950/10 rounded-full opacity-30 dark:opacity-20"></div>
@@ -156,14 +156,14 @@ export default function Categories() {
                     <h2 className="text-3xl md:text-4xl font-black text-gray-950 dark:text-white mb-3">
                         أقسام الموقع
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
+                    <p className="text-gray-500 dark:text-zinc-400 max-w-xl mx-auto text-sm leading-relaxed">
                         استكشف مجموعتنا المتنوعة من المحتوى الإسلامي عالي الجودة، المصمم لتعزيز معرفتك وتقربك من الله عز وجل
                     </p>
 
                     <div className="flex justify-center items-center mt-6">
-                        <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                        <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
                         <div className="mx-3 w-1.5 h-1.5 rounded-full bg-primary"></div>
-                        <div className="h-px bg-gray-200 dark:bg-gray-800 w-16"></div>
+                        <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
                     </div>
                 </div>
 
@@ -182,7 +182,7 @@ export default function Categories() {
                             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                                 محتوى خاص بشهر رمضان
                             </h3>
-                            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-6 text-sm leading-relaxed">
+                            <p className="text-gray-500 dark:text-zinc-400 max-w-xl mx-auto mb-6 text-sm leading-relaxed">
                                 استمتع بمحتوى مخصص لشهر رمضان المبارك، بما في ذلك الإمساكية والجدول اليومي والأنشطة الرمضانية
                             </p>
                         </div>

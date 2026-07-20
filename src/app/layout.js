@@ -133,7 +133,7 @@ export default function RootLayout({ children }) {
             </head>
             <SWRProvider>
                 <RamadanProvider>
-                    <body cz-shortcut-listen="true" className="bg-[rgb(250,250,250)] text-sm header dark:bg-gray-950 dark:text-white transition-colors selection:bg-lime-600 selection:text-white">
+                    <body cz-shortcut-listen="true" className="bg-[rgb(250,250,250)] text-sm header dark:bg-zinc-950 dark:text-white transition-colors selection:bg-lime-600 selection:text-white">
                         <iframe
                             src="https://www.googletagmanager.com/ns.html?id=GTM-WBZJG335"
                             height="0"
@@ -141,7 +141,7 @@ export default function RootLayout({ children }) {
                             title="google tag manager"
                         >
                         </iframe>
-                        <main className={`${cairo.variable} relative font-cairo antialiased`}>
+                        <main className={`${cairo.variable} relative font-cairo antialiased pt-26 lg:pt-52`}>
                             <Navbar />
                             {children}
                             <Footer />

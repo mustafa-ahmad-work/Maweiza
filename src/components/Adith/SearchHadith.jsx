@@ -36,7 +36,7 @@ export default function SearchHadith(props) {
                         <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-500 rounded-full mix-blend-soft-light filter blur-xl" />
                     </div>
 
-                    <div className="relative flex items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                    <div className="relative flex items-center bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800">
                         {/* أيقونة الكتاب الإسلامية */}
                         <div className="pr-4 text-amber-600 dark:text-amber-400">
                             <FontAwesomeIcon icon={faBook} className="text-lg" />
@@ -80,7 +80,7 @@ export default function SearchHadith(props) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="mt-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                    className="mt-3 text-center text-sm text-gray-500 dark:text-zinc-400"
                 >
                     ابحث عن أي حديث نبوي باستخدام كلمة مفتاحية
                 </motion.p>

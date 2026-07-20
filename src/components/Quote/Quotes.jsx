@@ -81,7 +81,7 @@ export default function Quotes() {
             className={`group relative overflow-hidden rounded-xl border p-4 transition-all duration-300 hover:shadow-lg hover:border-transparent hover:scale-[1.02] active:scale-[0.98] ${
                 isFamous
                     ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20'
-                    : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800'
+                    : 'border-gray-200 dark:border-zinc-700/80 bg-white dark:bg-zinc-900'
             }`}
         >
             <div className="flex flex-row gap-5 text-xl items-center">
@@ -102,19 +102,19 @@ export default function Quotes() {
         return (
             <div className="container m-auto py-12 text-center">
                 <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
-                <p className="mt-4 text-gray-600 dark:text-gray-400">جاري تحميل البيانات...</p>
+                <p className="mt-4 text-gray-600 dark:text-zinc-400">جاري تحميل البيانات...</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 pt-28">
+        <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 pb-8">
             <div className="container m-auto px-4">
                 <div className="text-center mb-10">
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
                         مكتبة الاقتباسات الإسلامية
                     </h1>
-                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-gray-600 dark:text-zinc-400 max-w-2xl mx-auto">
                         اكتشف مجموعة واسعة من الاقتباسات والفتاوى من علماء ودعاة مسلمين مشهورين وناشئين
                     </p>
                 </div>
@@ -134,7 +134,7 @@ export default function Quotes() {
                             </svg>
                         </div>
                         <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">لا توجد نتائج</h3>
-                        <p className="text-gray-500 dark:text-gray-400">
+                        <p className="text-gray-500 dark:text-zinc-400">
                             حاول البحث باسم آخر أو تحقق من تهجئة الكلمات
                         </p>
                     </div>

@@ -132,7 +132,7 @@ const RamadanSchedule = () => {
         return (
             <div className="text-center py-8">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-600 mx-auto"></div>
-                <p className="mt-4 text-gray-600 dark:text-gray-200">جارٍ تحميل بيانات رمضان...</p>
+                <p className="mt-4 text-gray-600 dark:text-zinc-200">جارٍ تحميل بيانات رمضان...</p>
             </div>
         );
     }
@@ -164,7 +164,7 @@ const RamadanSchedule = () => {
                 </div>
             </div>
 
-            <div className="mt-8 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+            <div className="mt-8 overflow-x-auto rounded-lg border border-gray-200 dark:border-zinc-800">
                 <table className="w-full whitespace-nowrap">
                     <thead className="bg-emerald-600 text-white">
                         <tr>
@@ -176,7 +176,7 @@ const RamadanSchedule = () => {
                     <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                         {prayerTimes.map((day, i) => (
                             <tr key={i}
-                                className={`${day.isLast10 ? 'bg-yellow-400 hover:bg-yellow-300 dark:hover:bg-yellow-300 text-white' : 'hover:bg-emerald-50 dark:hover:bg-gray-800'}`}>
+                                className={`${day.isLast10 ? 'bg-yellow-400 hover:bg-yellow-300 dark:hover:bg-yellow-300 text-white' : 'hover:bg-emerald-50 dark:hover:bg-zinc-800/80'}`}>
                                 <td className="p-3 text-center font-medium">{day.dayNumber} رمضان</td>
                                 <td className="p-3 text-center">{day.gregorianDate.format('D MMMM YYYY')}</td>
                                 <td className="p-3 text-center">{day.hijriDate}</td>
@@ -189,9 +189,9 @@ const RamadanSchedule = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                 {["السحور", "الإفطار", "ليلة القدر", "العشر الأواخر", "رمضان كريم"].map((title, index) => (
-                    <div key={index} className="p-6 shadow-md border border-gray-200 rounded-md bg-white dark:bg-gray-900 dark:border dark:border-gray-600">
+                    <div key={index} className="p-6 shadow-md border border-gray-200 rounded-md bg-white dark:bg-zinc-950 dark:border dark:border-zinc-700">
                         <h4 className="text-xl text-emerald-600 text-center mb-4">دعاء {title}</h4>
-                        <p className="text-gray-600 dark:text-gray-200 text-center mb-4 text-sm leading-relaxed">
+                        <p className="text-gray-600 dark:text-zinc-200 text-center mb-4 text-sm leading-relaxed">
                             {title === "السحور" && "اللهم إني نويت صيام هذا اليوم فتقبله مني واغفر لي ما قدمت وما أخرت"}
                             {title === "الإفطار" && "اللهم لك صمت وعلى رزقك أفطرت، فتقبل مني إنك أنت السميع العليم"}
                             {title === "ليلة القدر" && "اللهم إنك عفو كريم تحب العفو فاعف عني وارحمني"}
