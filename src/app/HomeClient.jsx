@@ -1,6 +1,7 @@
 "use client";
 
 import Categories from "@/components/Home/Categories";
+import AppSection from "@/components/Home/AppSection";
 import SplashScreen from "@/components/Layout/SplashScreen";
 import { motion } from "framer-motion";
 import {
@@ -36,11 +37,18 @@ import {
     faLayerGroup,
     faCheckCircle,
     faArrowLeft,
-    faLaptopCode
+    faLaptopCode,
+    faChartLine,
+    faGlobe,
+    faEye,
+    faPodcast,
+    faHandsPraying,
+    faScroll
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function HomeClient() {
@@ -174,13 +182,28 @@ export default function HomeClient() {
         { label: "خطبة منبرية", count: statCount.khotab, icon: faMicrophone, path: "/khotab", color: "from-teal-500 to-emerald-700" },
         { label: "قصة وعبرة", count: statCount.stories, icon: faStar, path: "/stories", color: "from-violet-500 to-purple-700" },
         { label: "اسم الله الحسنى", count: statCount.names, icon: faHeart, path: "/names", color: "from-emerald-600 to-green-700" },
-        { label: "تفسير سورة", count: statCount.tafsir, icon: faFont, path: "/tafsir", color: "from-cyan-600 to-blue-700" }
+    ];
+
+    const stats = [
+        { icon: faChartLine, value: "50,000+", label: "زيارة صفحات" },
+        { icon: faGlobe, value: "45+", label: "دولة حول العالم" },
+        { icon: faEye, value: "20,000+", label: "مشاهدة سنوياً" },
+        { icon: faBook, value: "4900+", label: "كتاب إسلامي" },
+        { icon: faPodcast, value: "3900+", label: "محاضرة صوتية" },
+        { icon: faMicrophoneAlt, value: "3500+", label: "حديث شريف" },
+        { icon: faNewspaper, value: "1690+", label: "مقال إسلامي" },
+        { icon: faVideo, value: "1000+", label: "محاضرة فيديو" },
+        { icon: faHandsPraying, value: "140+", label: "قسم أدعية وأذكار" },
+        { icon: faQuoteRight, value: "100+", label: "اقتباس إسلامي" },
+        { icon: faScroll, value: "280+", label: "خطبة إسلامية" },
+        { icon: faQuestionCircle, value: "520+", label: "فتوى شرعية" },
     ];
 
     return (
         <>
             {/* قسم الهيرو الرئيسي */}
-            <section className="relative overflow-hidden min-h-screen -mt-26 lg:-mt-52 pt-14 lg:pt-0 pb-12 flex items-center justify-center bg-white dark:bg-zinc-950 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:32px_32px] dark:bg-[radial-gradient(#1e293b_1.5px,transparent_1.5px)]">
+            <section className="relative overflow-hidden min-h-screen -mt-26 lg:-mt-52 pt-14 lg:pt-12 pb-12 flex items-center justify-center bg-white dark:bg-zinc-950 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:32px_32px] dark:bg-[radial-gradient(#1e293b_1.5px,transparent_1.5px)]">
+                {/* خلفية زخرفية متحركة بسيطة */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 0.08 }}
@@ -192,66 +215,182 @@ export default function HomeClient() {
                         transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
                         className="absolute top-1/4 left-1/4 w-72 h-72 border border-lime-500/10 rounded-full"
                     ></motion.div>
+                    <motion.div
+                        animate={{ rotate: -360 }}
+                        transition={{ repeat: Infinity, duration: 70, ease: "linear" }}
+                        className="absolute bottom-1/4 right-1/4 w-96 h-96 border border-lime-650/10 rounded-full"
+                    ></motion.div>
                 </motion.div>
 
-                <div className="container relative z-10 mx-auto px-4 md:px-6">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-50 dark:bg-zinc-900 border border-lime-200 dark:border-zinc-800 text-lime-800 dark:text-lime-400 text-xs md:text-sm font-bold mb-8 shadow-sm"
-                        >
-                            <span className="w-2 h-2 rounded-full bg-lime-500 animate-pulse"></span>
-                            <span>موقع موعظة — المنصة الإسلامية الشاملة</span>
-                        </motion.div>
+                {/* المحتوى */}
+                <div className="relative z-10 w-full container mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 items-center gap-12 rtl">
+                    {/* النص - يشغل 7 أعمدة من أصل 12 لتوازن بصري رائع */}
+                    <motion.div
+                        initial={{ x: -40, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.8 }}
+                        className="lg:col-span-7 space-y-6 text-right"
+                    >
+                        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-450 rounded-full text-xs font-black tracking-wide border border-lime-100/40 dark:border-lime-900/20">
+                            مرحباً بك في منصة موعظة
+                        </div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 dark:text-white leading-tight tracking-tight mb-6"
-                        >
-                            مرجعك الإسلامي الشامل للقرآن الكريم، الأحاديث، والأذكار
-                        </motion.h1>
+                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-black text-gray-900 dark:text-white leading-tight">
+                            موقع <span className="text-primary dark:text-lime-400">موعظة</span>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-zinc-300 font-medium leading-relaxed max-w-2xl mx-auto mb-10"
-                        >
-                            تصفح أكثر من 18,000 مادة إسلامية موثوقة من التلاوات، الأحاديث، الأذكار، والمحاضرات لتجربة روحية ومعرفية متكاملة.
-                        </motion.p>
+                        <p className="text-base text-gray-500 dark:text-zinc-400 leading-relaxed max-w-xl">
+                            منصة إسلامية متكاملة تهدف لنشر العلم الشرعي وتقريب الدين إلى القلوب بأسلوب سهل وميسر.
+                        </p>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex flex-wrap items-center justify-center gap-4"
-                        >
-                            <Link
-                                href="/qaran"
-                                className="px-8 py-4 rounded-xl bg-lime-600 hover:bg-lime-700 text-white font-bold text-base shadow-lg shadow-lime-600/20 hover:shadow-lime-600/30 transition-all duration-300 flex items-center gap-3 group"
+                        {/* المميزات - التقسيمة السداسية الكلاسيكية كما كانت في الشكل القديم ولكن بلمسة عصرية */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 max-w-2xl">
+                            {features.map((f, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ y: 20, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: i * 0.15 + 0.3, duration: 0.6 }}
+                                    className="group flex items-start gap-3.5 p-4 rounded-2xl bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 transform hover:-translate-y-0.5"
+                                >
+                                    <div className="flex items-center justify-center w-11 h-11 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 rounded-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                                        <FontAwesomeIcon icon={f.icon} className="text-base" />
+                                    </div>
+                                    <div className="text-right">
+                                        <h3 className="text-sm font-black text-gray-900 dark:text-white mb-1 leading-tight group-hover:text-primary dark:group-hover:text-lime-400 transition-colors duration-200">{f.title}</h3>
+                                        <p className="text-[11px] text-gray-500 dark:text-zinc-400 leading-relaxed font-bold">{f.description}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* الأزرار التفاعلية */}
+                        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                            <motion.button
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold shadow-sm transition-all text-sm ${!isInstallable
+                                    ? "bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200/50 dark:border-zinc-700/80"
+                                    : "bg-primary hover:bg-primary-alt text-white hover:shadow-md"
+                                    }`}
+                                onClick={handleInstallClick}
+                                disabled={!isInstallable}
                             >
-                                <FontAwesomeIcon icon={faQuran} className="text-xl group-hover:scale-110 transition-transform" />
-                                <span>القرآن الكريم</span>
-                            </Link>
+                                <FontAwesomeIcon icon={faDownload} />
+                                {!isInstallable ? "مثبت بالفعل" : "تحميل كتطبيق للجوال"}
+                            </motion.button>
 
-                            <Link
-                                href="/azekar"
-                                className="px-8 py-4 rounded-xl bg-gray-900 hover:bg-black dark:bg-zinc-900 dark:hover:bg-zinc-800 text-white font-bold text-base border border-gray-800 dark:border-zinc-700 shadow-md transition-all duration-300 flex items-center gap-3"
+                            <motion.a
+                                href="#categories"
+                                whileHover={{ y: -2 }}
+                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold border border-lime-100 dark:border-lime-900/30 text-primary dark:text-lime-400 bg-primary/5 dark:bg-lime-950/10 hover:bg-lime-50 dark:hover:bg-lime-950/20 shadow-sm text-sm"
                             >
-                                <FontAwesomeIcon icon={faHands} className="text-xl text-lime-400" />
-                                <span>الأذكار والأدعية</span>
-                            </Link>
-                        </motion.div>
-                    </div>
+                                استكشف المحتوى
+                                <FontAwesomeIcon icon={faAngleDoubleDown} />
+                            </motion.a>
+                        </div>
+                    </motion.div>
+
+                    {/* الصورة - مسجد شفاف بخصم أكبر ودواير خلفية هندسية */}
+                    <motion.div
+                        initial={{ x: 40, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="lg:col-span-5 relative flex justify-center lg:justify-end"
+                    >
+                        <div className="relative w-full max-w-[560px] flex items-center justify-center mb-12 lg:mb-0">
+                            {/* خطوط هندسية إسلامية تدور بربطة لتعطي انطباعاً بالفخامة والتميز */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ repeat: Infinity, duration: 45, ease: "linear" }}
+                                className="absolute w-[420px] h-[420px] border border-dashed border-primary/15 dark:border-primary/5 rounded-full -z-10 pointer-events-none"
+                            />
+                            <motion.div
+                                animate={{ rotate: -360 }}
+                                transition={{ repeat: Infinity, duration: 65, ease: "linear" }}
+                                className="absolute w-[350px] h-[350px] border border-double border-lime-500/10 dark:border-lime-500/5 rounded-full -z-10 pointer-events-none"
+                            />
+
+                            {/* صورة المسجد الشفافة العائمة */}
+                            <motion.div
+                                animate={{ y: [0, -12, 0] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                className="relative z-10 w-full"
+                            >
+                                <Image
+                                    src="/images/muslim.png"
+                                    alt="موقع موعظة"
+                                    width={640}
+                                    height={640}
+                                    priority
+                                    className="object-contain w-full h-auto transition-transform duration-500 hover:scale-[1.02]"
+                                />
+                            </motion.div>
+                        </div>
+                    </motion.div>
                 </div>
+
+                {/* السهم السفلي */}
+                <motion.div
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute bottom-6 text-primary dark:text-lime-400"
+                >
+                    <a
+                        href="#categories"
+                        className="flex flex-col items-center text-xs font-bold hover:text-primary-alt dark:hover:text-lime-300 transition-colors tracking-wide"
+                    >
+                        <span className="mb-1.5">استكشف المزيد</span>
+                        <FontAwesomeIcon icon={faAngleDoubleDown} />
+                    </a>
+                </motion.div>
             </section>
 
             {/* الأقسام والمكونات التفاعلية */}
             <Categories />
+            <AppSection />
+
+            {/* قسم الإحصائيات الـ 12 - موقع موعظة بالأرقام */}
+            <div className="py-20 bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-900">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-black text-gray-950 dark:text-white mb-3">موقع موعظة بالأرقام</h2>
+                        <p className="text-gray-550 dark:text-zinc-450 max-w-xl mx-auto text-sm font-semibold leading-relaxed">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
+                        <div className="flex justify-center items-center mt-6">
+                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
+                            <div className="mx-3 w-1.5 h-1.5 rounded-full bg-primary"></div>
+                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {stats.map((stat, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 15 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: (index % 4) * 0.05, duration: 0.5 }}
+                                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-zinc-950 border border-gray-100 dark:border-zinc-900 text-center transform transition-all duration-350 hover:shadow-md hover:border-primary/20"
+                            >
+                                <div className="p-6 md:p-8 flex flex-col items-center">
+                                    <div className="w-14 h-14 rounded-2xl bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 flex items-center justify-center shadow-xs mb-5 transform transition-transform duration-500 group-hover:scale-110">
+                                        <FontAwesomeIcon icon={stat.icon} className="text-lg" />
+                                    </div>
+
+                                    <div className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-1.5 tracking-tight">
+                                        {stat.value}
+                                    </div>
+
+                                    <div className="text-xs font-bold text-gray-450 dark:text-gray-500">
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </>
     );
 }

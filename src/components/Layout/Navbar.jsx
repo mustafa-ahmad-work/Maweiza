@@ -52,6 +52,7 @@ export default function Navbar() {
     const mainLinks = links.slice(0, 5); // الصفحة الرئيسية، القرآن الكريم، تفسير القرآن، الحديث الشريف، الأدعية والأذكار
     
     const moreLinks = [
+        { name: "تطبيق مفاتيح الحفظ", path: "/application" },
         { name: "قسم الاقتباسات", path: "/quotes" },
         { name: "قسم الكتب", path: "/books/1" },
         { name: "قسم المقالات", path: "/articles/1" },
