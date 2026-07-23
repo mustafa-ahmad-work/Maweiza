@@ -19,6 +19,7 @@ import {
 
 import Landing from "@/components/Layout/Landing";
 import Image from "next/image";
+import { API } from "@/config/constants";
 
 const formatDate = (timestamp) => {
     const date = new Date(timestamp * 1000);
@@ -48,7 +49,7 @@ export default function AudiosPage({ params }) {
         setError(null);
         try {
             const response = await fetch(
-                `https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/audios/ar/ar/${pageNumber}/25/json`
+                API.islamhouse("audios", pageNumber)
             );
             const data = await response.json();
             setAudios(data.data);

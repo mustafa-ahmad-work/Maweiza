@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import Landing from "@/components/Layout/Landing";
-import Azekar from "@/components/Azekar/Azekars";
+import Azekar from "@/components/adhkar/Adhkars";
 import { Suspense } from "react";
 import Loader from "@/components/Layout/Loader";
 

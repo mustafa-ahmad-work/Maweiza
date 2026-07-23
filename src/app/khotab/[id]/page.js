@@ -22,6 +22,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Landing from "@/components/Layout/Landing";
 import Link from "next/link";
 import Image from "next/image";
+import { API } from "@/config/constants";
 
 export const metadata = {
     title: "موقع موعظه | خطب ",
@@ -59,7 +60,7 @@ export default async function KhotabCategoryPage({ params }) {
     let links = [];
 
     try {
-        const response = await fetch(`https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/khotab/ar/ar/${params.id}/25/json`);
+        const response = await fetch(API.islamhouse("khotab", params.id));
         const data = await response.json();
         khotab = data.data;
         links = data.links;

@@ -1,5 +1,5 @@
 import Landing from "@/components/Layout/Landing";
-import TafsirAyahs from "@/components/Tafsir/TafsirAyahs";
+import TafsirAyahs from "@/components/quran/TafsirAyahs";
 
 export default async function TafsirDetailPage({ params }) {
     return (

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Tafsir from "@/components/Tafsir/Tafsir";
+import Tafsir from "@/components/quran/Tafsir";
 
 export const metadata = {
     title: 'موقع موعظه | قسم تفسير القران الكريم',

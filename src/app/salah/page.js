@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Script from "next/script";
-import Salah from "@/components/Salah/Salah";
-import EventsTimer from "@/components/Salah/EventsTimer";
+import Salah from "@/components/worship/Salah";
+import EventsTimer from "@/components/worship/EventsTimer";
 
 export const metadata = {
     title: "مواقيت الصلاة اليوم واتجاه القبلة | موقع موعظة",

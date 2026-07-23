@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Landing from "@/components/Layout/Landing";
-import Quotes from "@/components/Quote/Quotes";
+import Quotes from "@/components/content/Quotes";
 
 export const metadata = {
     title: "موقع موعظه | قسم الاقتباسات",

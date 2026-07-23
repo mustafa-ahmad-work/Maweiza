@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Quran";
+    src: url("../font/ArbFONTS-Amiri-Quran.ttf");
+}
+
+.font-cairo {}
+
+.font-quran {
+    font-family: "Quran";
+}
+
+:root {
+    --main-color: #449C40;
+    --main-color-alt: #00703C;
+    --transition: 0.3s;
+}
+
+.bg-primary {
+    background-color: var(--main-color) !important;
+}
+
+.bg-primary-alt {
+    background-color: var(--main-color-alt) !important;
+}
+
+.text-primary {
+    color: var(--main-color) !important;
+}
+
+.border-primary {
+    border-color: var(--main-color) !important;
+}
+
+* {
+    font-family: var(--cairo);
+    outline: none !important;
+    -webkit-tap-highlight-color: rgba(136, 109, 109, 0);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f7f7f7;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-color-alt);
+}

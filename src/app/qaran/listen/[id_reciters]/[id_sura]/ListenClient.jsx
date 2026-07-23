@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
-import "@/app/audio.css";
+import "@/styles/audio-player.css";
 import Landing from "@/components/Layout/Landing";
 
 export default function ListenClient({ id, idRecitations }) {

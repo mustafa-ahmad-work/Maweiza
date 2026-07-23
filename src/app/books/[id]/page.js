@@ -4,6 +4,7 @@ import Landing from "@/components/Layout/Landing";
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
+import { API } from "@/config/constants";
 
 export async function generateMetadata({ params }) {
     const pageNum = params.id || "1";
@@ -35,7 +36,7 @@ export default async function Page({ params }) {
     let books = [];
     let links = [];
     try {
-        const response = await fetch(`https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/books/ar/ar/${params.id}/25/json`);
+        const response = await fetch(API.islamhouse("books", params.id));
         const data = await response.json();
         books = data.data;
         links = data.links;

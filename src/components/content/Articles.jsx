@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import useSWR from "swr";
+import { API } from "@/config/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faAngleDoubleLeft,
@@ -17,7 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Articles({ id }) {
-    const { data, error, isLoading } = useSWR(`https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/articles/ar/ar/${id}/25/json`);
+    const { data, error, isLoading } = useSWR(API.islamhouse("articles", id));
 
     if (isLoading) {
         return (

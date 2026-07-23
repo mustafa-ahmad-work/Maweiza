@@ -1,4 +1,4 @@
-import CategoryAdith from "@/components/Adith/CategoryAdith";
+import CategoryHadith from "@/components/hadith/CategoryHadith";
 import Landing from "@/components/Layout/Landing";
 
 export default async function AdithCategoryPage({ params }) {
@@ -7,7 +7,7 @@ export default async function AdithCategoryPage({ params }) {
     return (
         <>
             {/* <Landing title="قسم الحديث" text="" /> */}
-            <CategoryAdith category={category} />
+            <CategoryHadith category={category} />
         </>
     );
 }

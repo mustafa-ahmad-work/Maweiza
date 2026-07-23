@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import Headroom from "react-headroom";
-import { links } from "../../data/links";
+import { navLinks } from "@/data/links";
 import { useRamadan } from "@/context/ramadanContext";
 import { usePathname } from "next/navigation";
 
@@ -49,7 +49,7 @@ export default function Navbar() {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    const mainLinks = links.slice(0, 5); // الصفحة الرئيسية، القرآن الكريم، تفسير القرآن، الحديث الشريف، الأدعية والأذكار
+    const mainLinks = navLinks.slice(0, 5); // الصفحة الرئيسية، القرآن الكريم، تفسير القرآن، الحديث الشريف، الأدعية والأذكار
     
     const moreLinks = [
         { name: "تطبيق مفاتيح الحفظ", path: "/application" },

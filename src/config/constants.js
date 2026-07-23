@@ -1,9 +1,22 @@
-export const API = {
-    ALADHAN_BASE: "https://api.aladhan.com/v1",
+const API_BASE = {
+    ALADHAN: "https://api.aladhan.com/v1",
     QURAN_CLOUD: "https://api.alquran.cloud/v1",
-    ISLAMHOUSE_BASE: "https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main",
-    DORAR_BASE: "https://dorar.net/dorar_api.json",
-    RECITERS_JSON: "https://abdoahmed26.github.io/api/arabic.json",
+    ISLAMHOUSE: "https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main",
+    DORAR: "https://dorar.net/dorar_api.json",
+    RECITERS: "https://abdoahmed26.github.io/api/arabic.json",
+};
+
+export const API = {
+    ALADHAN_BASE: API_BASE.ALADHAN,
+    QURAN_CLOUD: API_BASE.QURAN_CLOUD,
+    ISLAMHOUSE_BASE: API_BASE.ISLAMHOUSE,
+    DORAR_BASE: API_BASE.DORAR,
+    RECITERS_JSON: API_BASE.RECITERS,
+    islamhouse: (section, page = 1) =>
+        `${API_BASE.ISLAMHOUSE}/${section}/ar/ar/${page}/25/json`,
+    aladhan: (endpoint) => `${API_BASE.ALADHAN}/${endpoint}`,
+    quranCloud: (endpoint) => `${API_BASE.QURAN_CLOUD}/${endpoint}`,
+    dorar: (query) => `${API_BASE.DORAR}?skey=${query}`,
 };
 
 export const PAGINATION = {

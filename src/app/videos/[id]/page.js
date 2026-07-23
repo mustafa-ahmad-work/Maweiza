@@ -24,6 +24,7 @@ import { useState, useEffect } from "react";
 import Landing from "@/components/Layout/Landing";
 import Link from "next/link";
 import Image from "next/image";
+import { API } from "@/config/constants";
 
 export default function VideosPage({ params }) {
     const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ export default function VideosPage({ params }) {
         const fetchVideos = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/videos/ar/ar/${params.id}/25/json`);
+                const response = await fetch(API.islamhouse("videos", params.id));
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch videos');

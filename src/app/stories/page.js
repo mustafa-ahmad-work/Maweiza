@@ -1,4 +1,4 @@
-import Stories from "@/components/Stories/Stories";
+import Stories from "@/components/content/Stories";
 import { faPenRuler } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";

@@ -25,6 +25,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 import Landing from "@/components/Layout/Landing";
 import Link from "next/link";
 import Image from "next/image";
+import { API } from "@/config/constants";
 
 export const metadata = {
     title: "موقع موعظه | المحاضرات الصوتيه ",
@@ -63,7 +64,7 @@ export default async function AudioCategoryPage({ params }) {
 
     try {
         const response = await fetch(
-            `https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/audios/ar/ar/${params.id}/25/json`
+            API.islamhouse("audios", params.id)
         );
         const data = await response.json();
         audios = data.data;

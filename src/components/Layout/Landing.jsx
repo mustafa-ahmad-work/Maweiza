@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function Landing({ title, text }) {
     return (
-        <section className="relative dark:from-zinc-950 dark:to-zinc-950 py-24">
-            <div className="relative z-10 container mx-auto px-6 text-center">
+        <section className="relative dark:from-zinc-950 dark:to-zinc-950 py-2">
+            <div className="relative z-10 container mx-auto px-2 text-center">
                 {/* أيقونة مزخرفة */}
-                <div className="flex justify-center mb-6">
+                {/* <div className="flex justify-center mb-6">
                     <div className="w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-lime-100 to-lime-200 dark:from-lime-900/40 dark:to-lime-800/60 shadow-lg border border-lime-200 dark:border-lime-800">
 
                         <Image
@@ -21,7 +21,7 @@ export default function Landing({ title, text }) {
                             className="transition-transform duration-300 hover:rotate-12"
                         />
                     </div>
-                </div>
+                </div> */}
 
                 {/* العنوان */}
                 <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
@@ -33,12 +33,6 @@ export default function Landing({ title, text }) {
                     {text}
                 </p>
 
-                {/* فاصل زخرفي */}
-                <div className="flex justify-center items-center mt-8">
-                    <div className="h-px bg-gray-300 dark:bg-zinc-900 w-20"></div>
-                    <div className="mx-3 w-3 h-3 rounded-full bg-emerald-500 shadow-sm"></div>
-                    <div className="h-px bg-gray-300 dark:bg-zinc-900 w-20"></div>
-                </div>
             </div>
         </section>
     );

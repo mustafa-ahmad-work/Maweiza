@@ -1,6 +1,6 @@
 import Script from "next/script";
 import Landing from "@/components/Layout/Landing";
-import Articles from "@/components/Articles/Articles";
+import Articles from "@/components/content/Articles";
 
 export async function generateMetadata({ params }) {
     const pageNum = params.id || "1";

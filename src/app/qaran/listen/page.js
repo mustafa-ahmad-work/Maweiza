@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Landing from "@/components/Layout/Landing";
 
-import Reciters from "@/components/Qaran/Reciters";
+import Reciters from "@/components/quran/Reciters";
 
 export default async function QaranListenPage() {
     return (

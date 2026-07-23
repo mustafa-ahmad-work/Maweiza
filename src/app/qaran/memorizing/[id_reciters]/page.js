@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Landing from "@/components/Layout/Landing";
-import Sur from "@/components/Qaran/Surs";
+import Sur from "@/components/quran/Surs";
 
 export default async function QaranMemorizingReciterPage({ params }) {
     return (

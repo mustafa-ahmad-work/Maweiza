@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { links1, links2 } from "@/data/links";
+import { footerQuranLinks, footerContentLinks } from "@/data/links";
 import { useState } from "react";
 
 function Footer() {
@@ -52,7 +52,7 @@ function Footer() {
                             الروابط الرئيسية
                         </h3>
                         <ul className="space-y-3.5">
-                            {links1.map((item, index) => (
+                            {footerQuranLinks.map((item, index) => (
                                 <li key={index}>
                                     <Link
                                         href={item.path}
@@ -71,7 +71,7 @@ function Footer() {
                             المحتوى التعليمي
                         </h3>
                         <ul className="space-y-3.5">
-                            {links2.map((item, index) => (
+                            {footerContentLinks.map((item, index) => (
                                 <li key={index}>
                                     <Link
                                         href={item.path}

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import useSWR from "swr";
 import Link from "next/link";
+import { API } from "@/config/constants";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,14 +23,14 @@ import {
     faVolumeUp,
     faLayerGroup,
     faShareAlt,
-    faSparkles
+    faStar
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function TafsirAyahs({ id }) {
     const surahId = parseInt(id, 10) || 1;
 
     // جلب البيانات من المراجع المعتمدة
-    const { data: surahRes, error: surahError } = useSWR(`https://api.alquran.cloud/v1/surah/${surahId}`);
+    const { data: surahRes, error: surahError } = useSWR(API.quranCloud(`surah/${surahId}`));
     const { data: tafsirRes, error: tafsirError } = useSWR(`https://quranenc.com/api/v1/translation/sura/arabic_moyassar/${surahId}`);
     const { data: albitaqatData, error: albitaqatError } = useSWR(
         `https://raw.githubusercontent.com/Alsarmad/albitaqat_quran/main/albitaqat.json`
@@ -318,7 +319,7 @@ export default function TafsirAyahs({ id }) {
                                 { label: "معنى اسم السورة", val: albitaqat.maeni_asamuha, icon: faInfoCircle, color: "blue" },
                                 { label: "سبب تسميتها", val: albitaqat.sabab_tasmiatiha, icon: faBookOpen, color: "amber" },
                                 { label: "أسماؤها المشهورة", val: albitaqat.asmawuha, icon: faQuran, color: "purple" },
-                                { label: "مقصدها العام", val: albitaqat.maqsiduha_aleamu, icon: faSparkles, color: "rose" },
+                                { label: "مقصدها العام", val: albitaqat.maqsiduha_aleamu, icon: faStar, color: "rose" },
                                 { label: "سبب نزولها", val: albitaqat.sabab_nuzuliha, icon: faInfoCircle, color: "teal" },
                             ].map((item, idx) => (
                                 <div
