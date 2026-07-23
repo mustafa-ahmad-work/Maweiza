@@ -5,6 +5,7 @@ const withPWA = require('next-pwa')({
     register: true,
     skipWaiting: true,
     runtimeCaching,
+    maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
 });
 
 module.exports = withPWA({
