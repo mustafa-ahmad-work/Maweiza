@@ -1,23 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Landing from "../Layout/Landing";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
+import { STORAGE_KEYS } from "@/config/constants";
 
 function Tasbih() {
-    let [tasbih, setTasbih] = useState(0);
+    const [tasbih, setTasbih] = useLocalStorage(STORAGE_KEYS.TASBIH, 0);
 
     const tasbihAdd = () => setTasbih(Number(tasbih) + 1);
     const tasbihRefresh = () => setTasbih(0);
-    const tasbihLocalStorage = () => localStorage.int = tasbih;
-
-    useEffect(() => {
-        if (!("int" in localStorage)) {
-            localStorage.int = 0;
-        } else {
-            setTasbih(localStorage.int);
-        }
-    }, []);
 
     return (
         <>
@@ -34,7 +26,7 @@ function Tasbih() {
                         <div className="buttons-wrapper">
                             <div className="wrapper-button">
                                 <div className="button">
-                                    <button onClick={tasbihLocalStorage} className="bg-white" />
+                                    <button onClick={() => setTasbih(tasbih)} className="bg-white" />
                                 </div>
                                 <span>حفظ</span>
                             </div>

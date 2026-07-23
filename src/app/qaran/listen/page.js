@@ -4,7 +4,7 @@ import Landing from "@/components/Layout/Landing";
 
 import Reciters from "@/components/Qaran/Reciters";
 
-export default async function _() {
+export default async function QaranListenPage() {
     return (
         <>
             {/* <Landing title="قسم الاستماع لتلاوه القران الكريم" text="اذا كنت تريد الاستماع الي قراة القران الكريم فانت في المكان المناسب يحتوي هذا القسم علي عدد كثير من الشيوخ اختر الشيخ الذي تريد الاستماع لتلاوته استخدم البحث لتوفير الوقت" /> */}

@@ -54,7 +54,7 @@ const getImportanceColor = (level) => {
     return level === 'high' ? 'bg-red-500' : 'bg-green-500';
 };
 
-export default async function _({ params }) {
+export default async function KhotabCategoryPage({ params }) {
     let khotab = [];
     let links = [];
 

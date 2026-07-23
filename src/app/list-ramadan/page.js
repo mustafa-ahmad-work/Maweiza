@@ -4,15 +4,19 @@ import { useState, useEffect, useCallback } from "react";
 import Landing from "@/components/Layout/Landing";
 import SplashScreen from "@/components/Layout/SplashScreen";
 
-// import moment from "moment";
 import moment from 'moment-hijri';
 import { useRamadan } from "@/context/ramadanContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faLock } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
+import { COORDINATES, STORAGE_KEYS } from "@/config/constants";
 
 export default function Page() {
     const { ramadan } = useRamadan();
 
+    const [savedLat, setSavedLat] = useLocalStorage(STORAGE_KEYS.LATITUDE, null);
+    const [savedLng, setSavedLng] = useLocalStorage(STORAGE_KEYS.LONGITUDE, null);
+    const [savedChecks, setSavedChecks] = useLocalStorage(STORAGE_KEYS.RAMADAN_CHECKS, {});
     const [checks, setChecks] = useState({});
 
     const [selectedDay, setSelectedDay] = useState("all");
@@ -26,41 +30,34 @@ export default function Page() {
     const [isLoading, setIsLoading] = useState(true);
 
     const [location, setLocation] = useState({
-        lat: "30.0444",
-        lng: "31.2357",
+        lat: COORDINATES.DEFAULT_LAT,
+        lng: COORDINATES.DEFAULT_LNG,
     });
 
     useEffect(() => {
-        const getLocation = () => {
-            const storedLat = localStorage.getItem("latitude");
-            const storedLng = localStorage.getItem("longitude");
+        if (savedLat && savedLng) {
+            setLocation({ lat: savedLat, lng: savedLng });
+            return;
+        }
 
-            if (storedLat && storedLng) {
-                setLocation({ lat: storedLat, lng: storedLng });
-                return;
-            }
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const newLocation = {
-                            lat: position.coords.latitude.toString(),
-                            lng: position.coords.longitude.toString(),
-                        };
-                        setLocation(newLocation);
-                        localStorage.setItem("latitude", newLocation.lat);
-                        localStorage.setItem("longitude", newLocation.lng);
-                    },
-                    () => {
-                        localStorage.setItem("latitude", location.lat);
-                        localStorage.setItem("longitude", location.lng);
-                    }
-                );
-            }
-        };
-
-        getLocation();
-    }, [location.lat, location.lng]);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const newLocation = {
+                        lat: position.coords.latitude.toString(),
+                        lng: position.coords.longitude.toString(),
+                    };
+                    setLocation(newLocation);
+                    setSavedLat(newLocation.lat);
+                    setSavedLng(newLocation.lng);
+                },
+                () => {
+                    setSavedLat(location.lat);
+                    setSavedLng(location.lng);
+                }
+            );
+        }
+    }, [savedLat, savedLng, setSavedLat, setSavedLng, location.lat, location.lng]);
 
     useEffect(() => {
         const fetchRamadanDates = async () => {
@@ -103,13 +100,16 @@ export default function Page() {
 
 
     useEffect(() => {
-        const savedChecks = localStorage.getItem("ramadanChecks");
-        if (savedChecks) setChecks(JSON.parse(savedChecks));
-    }, []);
+        if (savedChecks && Object.keys(savedChecks).length > 0) {
+            setChecks(savedChecks);
+        }
+    }, [savedChecks]);
 
     useEffect(() => {
-        localStorage.setItem("ramadanChecks", JSON.stringify(checks));
-    }, [checks]);
+        if (Object.keys(checks).length > 0) {
+            setSavedChecks(checks);
+        }
+    }, [checks, setSavedChecks]);
 
     const getCurrentRamadanDay = useCallback(() => {
         if (!ramadanInfo.start) return 1;

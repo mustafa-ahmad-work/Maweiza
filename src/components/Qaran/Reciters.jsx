@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import recitersJson from "@/data/reciters.json";
 import memorizingJson from "@/data/memorizingAll.json";
-import Search from "../Layout/Search";
 import { optimizeString } from "@/helpers/optimizeString";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphonesSimple, faBookQuran, faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";

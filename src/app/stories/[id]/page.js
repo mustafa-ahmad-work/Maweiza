@@ -1,6 +1,6 @@
 import Landing from "@/components/Layout/Landing";
 import stories from "@/data/stories.json";
-export default function _({ params }) {
+export default function StoryDetailPage({ params }) {
 
     const filterData = stories.filter((item) => item.id === Number(params.id))[0];
 

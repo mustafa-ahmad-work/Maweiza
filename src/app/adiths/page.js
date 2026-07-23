@@ -8,7 +8,7 @@ export const metadata = {
     description: "يحتوي هذا القسم علي اكتر من 3500 من الأحاديث النبوية مع عرض جميع معلومات الحديث",
 };
 
-export default async function _() {
+export default async function AdithsPage() {
     return (
         <>
             <Landing title="قسم الحديث" text="يحتوي هذا القسم علي اكتر من 3500 من الأحاديث النبوية مع عرض جميع معلومات الحديث" />

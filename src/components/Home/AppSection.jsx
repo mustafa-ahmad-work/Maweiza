@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faDownload, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -40,7 +39,7 @@ export default function AppSection() {
                                 <span className="text-primary dark:text-lime-400">بلا تفلت أو نسيان</span>
                             </h2>
 
-                            <p className="text-sm md:text-base text-gray-550 dark:text-zinc-450 leading-[1.8] md:leading-[1.85] font-semibold max-w-xl">
+                            <p className="text-sm md:text-base text-gray-600 dark:text-zinc-400 leading-[1.8] md:leading-[1.85] font-semibold max-w-xl">
                                 تطبيق &quot;مفاتيح حفظ القرآن&quot; يدمج بين التقنيات الذكية والمنهجية العلمية التراكمية ليرافقك يومياً في تثبيت أورادك وسردها غيباً بكل طمأنينة ويقين.
                             </p>
                         </div>
@@ -106,13 +105,13 @@ export default function AppSection() {
                                 )}
 
                                 <div className="space-y-3">
-                                    <span className="w-10 h-10 rounded-xl bg-primary/5 dark:bg-primary/10 text-primary dark:text-lime-400 border border-primary/20 font-black text-sm flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-transparent">
+                                    <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary-alt dark:bg-primary/20 dark:text-lime-400 border border-primary/20 dark:border-lime-400/30 font-black text-sm flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-lime-400 dark:group-hover:text-zinc-950 group-hover:border-transparent shadow-xs">
                                         {k.num}
                                     </span>
                                     <h4 className="text-xs md:text-sm font-black text-gray-900 dark:text-white leading-[1.5]">
                                         {k.title}
                                     </h4>
-                                    <p className="text-[11px] text-gray-550 dark:text-zinc-400 leading-[1.75] font-bold">
+                                    <p className="text-[11px] text-gray-600 dark:text-zinc-400 leading-[1.75] font-bold">
                                         {k.desc}
                                     </p>
                                 </div>

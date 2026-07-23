@@ -3,7 +3,7 @@ import Image from "next/image";
 import Landing from "@/components/Layout/Landing";
 import Reciters from "@/components/Qaran/Reciters";
 
-export default async function _() {
+export default async function QaranMemorizingPage() {
     return (
         <>
             {/* <Landing title="قسم حفظ القران الكريم" />

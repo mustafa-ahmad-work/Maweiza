@@ -5,20 +5,10 @@ import Image from "next/image";
 export default function Landing({ title, text }) {
     return (
         <section className="relative dark:from-zinc-950 dark:to-zinc-950 py-24">
-            {/* خلفية زخرفية */}
-            {/* <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-0 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
-                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-400/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4" />
-            </div> */}
-
             <div className="relative z-10 container mx-auto px-6 text-center">
                 {/* أيقونة مزخرفة */}
                 <div className="flex justify-center mb-6">
                     <div className="w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-lime-100 to-lime-200 dark:from-lime-900/40 dark:to-lime-800/60 shadow-lg border border-lime-200 dark:border-lime-800">
-                        {/* <FontAwesomeIcon
-                            icon={faMosque}
-                            className="text-amber-600 dark:text-amber-400 text-4xl"
-                        /> */}
 
                         <Image
                             loading="lazy"

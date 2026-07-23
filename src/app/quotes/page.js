@@ -8,7 +8,7 @@ export const metadata = {
     description: "يحتوي هذا القسم علي اقتباسات للائمه والعلماء",
 };
 
-export default function _() {
+export default function QuotesPage() {
     return (
         <>
             {/* <Landing title="قسم الاقتباسات الأسلامية" text="يحتوي هذا القسم علي اجمل الاقتباسات المقتبسه من اقوال الائمه والعلماء" /> */}

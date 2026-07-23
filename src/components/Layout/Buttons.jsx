@@ -5,15 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import Cookie from "cookie-universal";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
+import { STORAGE_KEYS } from "@/config/constants";
 
 function Buttons() {
-    const [dark, setDark] = useState(false);
+    const [theme, setTheme] = useLocalStorage(STORAGE_KEYS.THEME, "light");
     const [showBtn, setShowBtn] = useState(false);
     const cookies = Cookie();
 
-    // تهيئة الثيم عند تحميل المكون
     useEffect(() => {
-        const savedTheme = localStorage.theme || cookies.get("theme");
+        const savedTheme = theme === "dark" ? "dark" : (cookies.get("theme") || "light");
         if (savedTheme === "dark") enableDarkMode();
         else enableLightMode();
 
@@ -23,26 +24,24 @@ function Buttons() {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const enableDarkMode = useCallback(() => {
         document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.theme = "dark";
+        setTheme("dark");
         cookies.set("theme", "dark");
-        setDark(true);
-    }, [cookies]);
+    }, [setTheme, cookies]);
 
     const enableLightMode = useCallback(() => {
         document.documentElement.setAttribute("data-theme", "light");
-        localStorage.theme = "light";
+        setTheme("light");
         cookies.set("theme", "light");
-        setDark(false);
-    }, [cookies]);
+    }, [setTheme, cookies]);
 
     const toggleTheme = useCallback(() => {
-        dark ? enableLightMode() : enableDarkMode();
-    }, [dark, enableDarkMode, enableLightMode]);
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        isDark ? enableLightMode() : enableDarkMode();
+    }, [enableDarkMode, enableLightMode]);
 
     const scrollToTop = useCallback(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -55,7 +54,6 @@ function Buttons() {
 
     return (
         <>
-            {/* زر التمرير للأعلى - بنمط زجاجي بلوري مينيمال فاخر */}
             <AnimatePresence>
                 {showBtn && (
                     <motion.button
@@ -73,15 +71,14 @@ function Buttons() {
                 )}
             </AnimatePresence>
 
-            {/* زر تبديل الثيم - بنمط زجاجي بلوري مطابق للناف بار */}
             <motion.button
                 onClick={toggleTheme}
-                aria-label={dark ? "تبديل للوضع الفاتح" : "تبديل للوضع الداكن"}
+                aria-label={theme === "dark" ? "تبديل للوضع الفاتح" : "تبديل للوضع الداكن"}
                 whileHover={{ scale: 1.06, y: -2 }}
                 whileTap={{ scale: 0.96 }}
                 className="fixed bottom-6 left-6 z-50 w-12 h-12 flex items-center justify-center rounded-xl bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-md hover:shadow-lg border border-gray-150/60 dark:border-zinc-700/80 focus:outline-none transition-all duration-200"
             >
-                {dark ? (
+                {theme === "dark" ? (
                     <FontAwesomeIcon icon={faSun} className="text-lg text-amber-500 animate-[spin_8s_linear_infinite]" />
                 ) : (
                     <FontAwesomeIcon icon={faMoon} className="text-lg text-primary" />

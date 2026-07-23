@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-export default async function _() {
+export default async function ArticlesPage() {
     redirect("/articles/1");
     return (
         <section className="pt-52 pb-5">

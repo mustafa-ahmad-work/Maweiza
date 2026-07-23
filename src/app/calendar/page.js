@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment-hijri';
 import 'moment/locale/ar';
 import { useRamadan } from "@/context/ramadanContext";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
+import { COORDINATES, STORAGE_KEYS } from "@/config/constants";
 
 const RamadanSchedule = () => {
     const [prayerTimes, setPrayerTimes] = useState([]);
@@ -16,41 +18,34 @@ const RamadanSchedule = () => {
     });
     const [loading, setLoading] = useState(true);
     const [currentDay, setCurrentDay] = useState(1);
-    const [location, setLocation] = useState({ lat: "30.0444", lng: "31.2357" });
+    const [location, setLocation] = useState({ lat: COORDINATES.DEFAULT_LAT, lng: COORDINATES.DEFAULT_LNG });
+    const [savedLat, setSavedLat] = useLocalStorage(STORAGE_KEYS.LATITUDE, null);
+    const [savedLng, setSavedLng] = useLocalStorage(STORAGE_KEYS.LONGITUDE, null);
 
     useEffect(() => {
-        const initializeLocation = () => {
-            const storedLat = localStorage.getItem("latitude");
-            const storedLng = localStorage.getItem("longitude");
+        if (savedLat && savedLng) {
+            setLocation({ lat: savedLat, lng: savedLng });
+            return;
+        }
 
-            if (storedLat && storedLng) {
-                setLocation({ lat: storedLat, lng: storedLng });
-                return;
-            }
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    position => {
-                        const newLocation = {
-                            lat: position.coords.latitude.toFixed(4),
-                            lng: position.coords.longitude.toFixed(4)
-                        };
-                        setLocation(newLocation);
-                        localStorage.setItem("latitude", newLocation.lat);
-                        localStorage.setItem("longitude", newLocation.lng);
-                    },
-                    () => {
-                        setLocation({ lat: "30.0444", lng: "31.2357" });
-                        localStorage.setItem("latitude", "30.0444");
-                        localStorage.setItem("longitude", "31.2357");
-                    }
-                );
-            } else {
-                setLocation({ lat: "30.0444", lng: "31.2357" });
-            }
-        };
-        initializeLocation();
-    }, []);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    const newLocation = {
+                        lat: position.coords.latitude.toFixed(4),
+                        lng: position.coords.longitude.toFixed(4)
+                    };
+                    setLocation(newLocation);
+                    setSavedLat(newLocation.lat);
+                    setSavedLng(newLocation.lng);
+                },
+                () => {
+                    setSavedLat(COORDINATES.DEFAULT_LAT);
+                    setSavedLng(COORDINATES.DEFAULT_LNG);
+                }
+            );
+        }
+    }, [savedLat, savedLng, setSavedLat, setSavedLng]);
 
     useEffect(() => {
         const fetchRamadanData = async () => {

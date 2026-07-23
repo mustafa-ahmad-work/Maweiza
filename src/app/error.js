@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export default function _() {
+export default function ErrorPage() {
     return (
         <>
             <section className="py-5">

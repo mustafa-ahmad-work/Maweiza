@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/components/Layout/Loader";
 import Landing from "../Layout/Landing";
 import { useRamadan } from "@/context/ramadanContext";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
+import { COORDINATES, STORAGE_KEYS } from "@/config/constants";
 
 moment.locale("ar");
 
@@ -38,6 +40,9 @@ export default function Salah() {
         { key: "Imsak", css: "Imsak", displayName: "إمساك" },
         { key: "Sunset", css: "Aftar", displayName: "إفطار" },
     ];
+
+    const [savedLat, setSavedLat] = useLocalStorage(STORAGE_KEYS.LATITUDE, null);
+    const [savedLng, setSavedLng] = useLocalStorage(STORAGE_KEYS.LONGITUDE, null);
 
     const [remainingPrayerTime, setRemainingPrayerTime] = useState({
         h: "00",
@@ -169,8 +174,8 @@ export default function Salah() {
 
         function onSuccess(PositionCallback) {
             const { latitude, longitude } = PositionCallback.coords;
-            localStorage.setItem("latitude", latitude);
-            localStorage.setItem("longitude", longitude);
+            setSavedLat(latitude);
+            setSavedLng(longitude);
             getPlayer(latitude, longitude);
         }
 
@@ -200,22 +205,13 @@ export default function Salah() {
                     });
                     console.log(error);
                 }
-                setBtnError(<> {/* محتوى btnError هنا */} </>);
+                setBtnError(null);
                 setLoadingScreen(false);
             }
         }
 
-        function getPlayerLocalStorage() {
-            const latitude = localStorage.getItem("latitude");
-            const longitude = localStorage.getItem("longitude");
-            getPlayer(latitude, longitude);
-        }
-
-        if (
-            localStorage.getItem("latitude") !== null &&
-            localStorage.getItem("longitude") !== null
-        ) {
-            getPlayerLocalStorage();
+        if (savedLat && savedLng) {
+            getPlayer(savedLat, savedLng);
         } else {
             navigator.geolocation
                 ? navigator.geolocation.getCurrentPosition(onSuccess, onErrors)

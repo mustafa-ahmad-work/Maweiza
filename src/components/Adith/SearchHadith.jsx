@@ -2,23 +2,25 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import localStorage from 'local-storage';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBook, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
+import { STORAGE_KEYS } from "@/config/constants";
 
 export default function SearchHadith(props) {
-    const [id, setId] = useState((props.id != "-") ? (localStorage.get('id')) ?? "" : "");
+    const [savedId, setSavedId] = useLocalStorage(STORAGE_KEYS.SEARCH_ID, "");
+    const [id, setId] = useState(props.id !== "-" ? (savedId || "") : "");
     const [isFocused, setIsFocused] = useState(false);
 
     function handleChange(e) {
         setId(e.target.value);
-        localStorage.set('id', e.target.value);
+        setSavedId(e.target.value);
     }
 
     function clearSearch() {
         setId("");
-        localStorage.set('id', "");
+        setSavedId("");
     }
 
     return (
@@ -29,61 +31,39 @@ export default function SearchHadith(props) {
                 transition={{ duration: 0.5 }}
                 className="w-full max-w-2xl"
             >
-                <div className={`relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 ${isFocused ? 'ring-2 ring-amber-500 shadow-amber-200 dark:shadow-amber-900/30' : ''}`}>
-                    {/* خلفية زخرفية إسلامية */}
-                    <div className="absolute inset-0 opacity-5">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500 rounded-full mix-blend-soft-light filter blur-2xl" />
-                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-500 rounded-full mix-blend-soft-light filter blur-xl" />
-                    </div>
-
-                    <div className="relative flex items-center bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800">
-                        {/* أيقونة الكتاب الإسلامية */}
-                        <div className="pr-4 text-amber-600 dark:text-amber-400">
-                            <FontAwesomeIcon icon={faBook} className="text-lg" />
-                        </div>
-
-                        <input
-                            type="text"
-                            onChange={handleChange}
-                            onFocus={() => setIsFocused(true)}
-                            onBlur={() => setIsFocused(false)}
-                            className="px-4 py-4 bg-transparent block w-full focus:outline-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                            placeholder="ابحث في كنوز السنة النبوية..."
-                            value={id ?? ""}
-                        />
-
-                        {/* زر مسح البحث */}
-                        {id && (
-                            <motion.button
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.8 }}
-                                onClick={clearSearch}
-                                className="px-3 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                            >
-                                <FontAwesomeIcon icon={faTimes} />
-                            </motion.button>
-                        )}
-
-                        {/* زر البحث */}
-                        <Link
-                            href={"/search/" + id}
-                            className="flex items-center justify-center px-6 py-5 transition-colors bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white"
+                <div className={`relative flex items-center bg-white dark:bg-zinc-900 rounded-2xl shadow-lg border-2 transition-all duration-300 ${isFocused ? 'border-emerald-500 shadow-emerald-200 dark:shadow-emerald-900/30' : 'border-gray-200 dark:border-zinc-700'}`}>
+                    <input
+                        type="text"
+                        value={id}
+                        onChange={handleChange}
+                        onFocus={() => setIsFocused(true)}
+                        onBlur={() => setIsFocused(false)}
+                        onKeyDown={(e) => e.key === 'Enter' && (window.location.href = `/search/${id}`)}
+                        placeholder="ابحث في الحديث النبوي..."
+                        className="w-full p-4 pr-4 pl-12 text-lg bg-transparent text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none rounded-2xl"
+                    />
+                    {id && (
+                        <button
+                            onClick={clearSearch}
+                            className="absolute left-14 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                            aria-label="مسح البحث"
                         >
-                            <FontAwesomeIcon icon={faSearch} className="w-4 h-4" />
-                        </Link>
-                    </div>
+                            <FontAwesomeIcon icon={faTimes} className="text-lg" />
+                        </button>
+                    )}
+                    <Link
+                        href={id ? `/search/${id}` : '#'}
+                        className={`absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-xl transition-all duration-300 ${id ? 'bg-gradient-to-r from-emerald-500 to-lime-500 hover:from-emerald-600 hover:to-lime-600 text-white shadow-md hover:shadow-lg' : 'bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-zinc-500 cursor-not-allowed'}`}
+                        aria-label="بحث"
+                    >
+                        <FontAwesomeIcon icon={faSearch} className="text-lg" />
+                    </Link>
                 </div>
-
-                {/* نص توضيحي تحت حقل البحث */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-3 text-center text-sm text-gray-500 dark:text-zinc-400"
-                >
-                    ابحث عن أي حديث نبوي باستخدام كلمة مفتاحية
-                </motion.p>
+                <div className="text-center mt-3">
+                    <p className="text-xs text-gray-500 dark:text-zinc-400">
+                        اكتب كلمة أو جملة للبحث في الحديث النبوي الشريف
+                    </p>
+                </div>
             </motion.div>
         </div>
     );
