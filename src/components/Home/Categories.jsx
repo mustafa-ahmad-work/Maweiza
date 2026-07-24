@@ -33,32 +33,31 @@ export default function Categories() {
         setIsVisible(true);
     }, []);
 
-
     // دالة إرجاع الوصف المناسب لكل قسم
     const getDescription = (name) => {
         const descMap = {
-            "إمساكية شهر رمضان": "مواعيد الإفطار والإمساك والصلوات اليومية لشهر رمضان المبارك.",
-            "يومي في رمضان": "جدول تفاعلي لمتابعة طاعاتك وأعمالك الصالحة خلال اليوم الرمضاني.",
-            "أسئلة دينية": "اختبر معلوماتك الدينية وأجب عن أسئلة متنوعة لزيادة ثقافتك الشرعية.",
-            "أداة الباحث في الحديث": "ابحث عن صحة الأحاديث الشريفة ورواياتها بسهولة وموثوقية عالية.",
-            "أسماء الله الحسنى": "تدبر معاني أسماء الله الحسنى ودلالاتها الروحية والشرعية بوضوح.",
-            "قسم القرآن الكريم": "استمع واقرأ سور القرآن الكريم بتلاوات خاشعة لقرّاء متعددين.",
-            "قسم تفسير القرآن": "تأمل معاني الآيات والسور من خلال تفاسير شرعية موثوقة وميسرة.",
-            "قسم الحديث": "اقرأ أحاديث الرسول صلى الله عليه وسلم المشروحة لتعلم السنة النبوية.",
-            "أوقات الصلاة والمناسبات الإسلامية": "تابع مواقيت الصلاة بدقة لمختلف المدن مع تنبيهات المناسبات.",
-            "قسم الأدعية والأذكار": "أذكار الصباح والمساء والأدعية المأثورة لكل الأوقات والأحوال.",
-            "قسم التسبيح": "مسبحة إلكترونية تفاعلية لملازمة الذكر والاستغفار في يومك.",
-            "قسم الاقتباسات": "حكم ومأثورات واقتباسات إسلامية لتبادلها ونشر الفائدة والوعي.",
-            "قسم الكتب": "مكتبة إسلامية شاملة تضم كتباً قيمة في العقيدة والفقه والسيرة.",
-            "قسم المقالات": "مقالات إسلامية متنوعة تتناول قضايا معاصرة وتوجيهات دعوية قيمة.",
-            "قسم الخطب": "خطب منبرية مكتوبة ومعدة للإلقاء والاستفادة العلمية منها.",
-            "قسم الفتاوى": "أجوبة شرعية ميسرة على فتاوى تهم المسلم في حياته اليومية.",
-            "قسم المحاضرات الصوتية": "استمع لمحاضرات ودروس دينية لكبار العلماء والدعاة.",
-            "قسم المحاضرات المرئية": "شاهد دروساً مرئية ومحاضرات توجيهية هادفة بجودة عالية.",
-            "ما لا يسع أطفال المسلمين جهله": "محتوى مبسط لتعليم الصغار أساسيات العقيدة والعبادات والأخلاق.",
-            "زكاة المال": "حاسبة زكاة المال والذهب والفضة بطريقة شرعية سهلة ومبسطة.",
+            "إمساكية شهر رمضان": "دليلك الشامل لمواعيد الإفطار والإمساك ومواقيت الصلوات الخمس اليومية بدقة عالية لشهر رمضان المبارك.",
+            "يومي في رمضان": "جدول تفاعلي متكامل لمتابعة طاعاتك اليومية، وختمات القرآن الكريم، والأعمال الصالحة خلال أيام رمضان.",
+            "أسئلة دينية": "اختبر معلوماتك الشرعية وأجب عن أسئلة متنوعة وشيقة في العقيدة والفقه والسيرة لتعزيز ثقافتك الدينية.",
+            "أداة الباحث في الحديث": "محرك بحث متقدم وذكي للتحقق من صحة الأحاديث النبوية الشريفة ورواياتها وتخريجها بسهولة وموثوقية.",
+            "أسماء الله الحسنى": "تدبر معاني ودلالات أسماء الله الحسنى الروحية والشرعية، واكتشف الآثار الإيمانية لكل اسم في حياتك.",
+            "قسم القرآن الكريم": "استمع واقرأ المصحف الشريف بتلاوات خاشعة لقرّاء العالم الإسلامي مع مزايا السرد والاستماع الشامل.",
+            "قسم تفسير القرآن": "تأمل معاني القرآن العظيم عبر تفاسير شرعية موثوقة وميسرة توضح مقاصد الآيات وأسباب النزول.",
+            "قسم الحديث": "اقرأ أحاديث النبي صلى الله عليه وسلم المشروحة والمدعمة بالفوائد الفقهية والتربوية المعتمدة.",
+            "أوقات الصلاة والمناسبات الإسلامية": "مواقيت الصلاة الدقيقة لمختلف مدن العالم مع تنبيهات ومتابعة المناسبات والتقويم الهجري.",
+            "قسم الأدعية والأذكار": "حصن المسلم الشامل لأذكار الصباح والمساء، أذكار النوم والصلاة، والأدعية الجامعة لكل الأوقات والأحوال.",
+            "قسم التسبيح": "مسبحة إلكترونية ذكية وتفاعلية تساعدك على ملازمة الذكر والاستغفار وحفظ أعداد الأذكار اليومية.",
+            "قسم الاقتباسات": "حكم ومأثورات ودرر إسلامية من كلام السلف والعلماء مصممة بشكل جمالي سهل للمشاركة والنشر.",
+            "قسم الكتب": "مكتبة إسلامية شاملة ومجانية تتيح قراءة وتحميل أمهات الكتب في العقيدة والفقه والحديث والسيرة.",
+            "قسم المقالات": "مقالات ودراسات شرعية متنوعة تناقش القضايا الفكرية والمعاصرة وتقدم توجيهات إيمانية ودعوية قيمة.",
+            "قسم الخطب": "مجموعة واسعة من الخطب المنبرية المكتوبة والمصنفة موضوعياً والمعدة للإلقاء والاستفادة العلمية.",
+            "قسم الفتاوى": "مرجع إجابات شرعية موثوقة وميسرة على الفتاوى والأسئلة اليومية التي تهم المسلم في عباداته ومعاملاته.",
+            "قسم المحاضرات الصوتية": "مكتبة صوتية ضخمة تضم دروساً ومحاضرات والسلاسل العلمية لكبار العلماء والدعاة في مختلف العلوم.",
+            "قسم المحاضرات المرئية": "شاهد المحاضرات والدروس المرئية التوجيهية بجودة عالية لتطوير معارفك الشرعية والإيمانية.",
+            "ما لا يسع أطفال المسلمين جهله": "منهج مبسط وممتع لتعليم الناشئة والأطفال أساسيات العقيدة الصحيحة، الطهارة، الصلاة، والأخلاق الحميدة.",
+            "زكاة المال": "حاسبة شرعية دقيقة وسهلة لحساب زكاة الأموال والذهب والفضة وتحديد المستحقين طبقاً للشريعة الإسلامية.",
         };
-        return descMap[name] || "تصفح هذا القسم واستكشف المحتويات والدروس الإسلامية القيمة المتوفرة فيه.";
+        return descMap[name] || "استكشف هذا القسم وتصفح محتوياته الإسلامية القيمة للانتفاع بالعلم الشرعي النافع.";
     };
 
     const showData = categoriesLinks.map((item, key) => {
@@ -68,39 +67,40 @@ export default function Categories() {
                 key={key}
                 dir="rtl"
                 className={`group relative transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                style={{ transitionDelay: `${key * 50}ms` }}
+                style={{ transitionDelay: `${key * 40}ms` }}
             >
-                <div className="relative h-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-950 border border-gray-100 dark:border-zinc-800 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 flex flex-col p-5 text-right">
-                    {/* تأثير إضاءة خلفية ناعم للغاية عند تمرير الفأرة */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <Link
+                    href={item.path}
+                    className="relative h-full flex flex-col items-center p-5 text-center rounded-t-[3.5rem] rounded-b-2xl bg-white dark:bg-zinc-950 border border-gray-100 dark:border-zinc-800 hover:border-primary/40 dark:hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 block overflow-hidden group shadow-none"
+                >
+                    {/* تأثير لمعان أبيض شفاف ناصع يمر فوق الكارت والأيقونة عند تمرير الفأرة */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/45 dark:via-white/20 to-transparent transition-transform duration-1000 ease-in-out pointer-events-none z-20"></div>
 
-                    {/* الصورة وأيقونات التزيين */}
-                    <div className="relative flex justify-center mb-4 mt-1">
-                        <div className="relative w-28 h-28 ">
-                            <Image
-                                src={item.img}
-                                alt={item.name}
-                                width={112}
-                                height={112}
-                                className="object-cover w-full h-full rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                                quality={85}
-                                loading="lazy"
-                            />
-                        </div>
+                    {/* الصورة مباشرة بدون إطار قوس إضافي */}
+                    <div className="relative mb-4 mt-2 w-28 h-28 flex justify-center items-center">
+                        <Image
+                            src={item.img}
+                            alt={item.name}
+                            width={112}
+                            height={112}
+                            className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            quality={90}
+                            loading="lazy"
+                        />
 
-                        {/* شارة جديد يساراً */}
+                        {/* شارة جديد */}
                         {item.new && (
-                            <div className="absolute -top-1 -left-1 z-10">
-                                <span className="inline-flex items-center px-2 py-0.5 rounded-lg text-[9px] font-black bg-primary text-white shadow-sm">
+                            <div className="absolute -top-1 -right-1 z-10">
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] font-black bg-primary text-white">
                                     جديد
                                 </span>
                             </div>
                         )}
 
-                        {/* شارة رمضان يساراً */}
+                        {/* شارة رمضان */}
                         {item.ramadan && (
-                            <div className="absolute -top-1 -left-1 z-10">
-                                <span className="inline-flex items-center px-2 py-0.5 rounded-lg text-[9px] font-black bg-amber-500 text-white shadow-sm animate-pulse">
+                            <div className="absolute -top-1 -right-1 z-10">
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] font-black bg-amber-500 text-white animate-pulse">
                                     رمضان
                                 </span>
                             </div>
@@ -108,18 +108,18 @@ export default function Categories() {
                     </div>
 
                     {/* عنوان القسم */}
-                    <h3 className="text-base font-black text-center text-gray-900 dark:text-white mb-2 leading-tight group-hover:text-primary transition-colors duration-200">
+                    <h3 className="text-base font-black text-gray-900 dark:text-white mb-2 leading-tight group-hover:text-primary transition-colors duration-200">
                         {item.name}
                     </h3>
 
-                    {/* وصف القسم */}
-                    <p className="text-xs text-gray-500 dark:text-zinc-400 text-center leading-relaxed mb-4 flex-grow font-semibold">
+                    {/* وصف القسم المفصل والمعزز بالنصوص */}
+                    <p className="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow font-semibold">
                         {getDescription(item.name)}
                     </p>
 
-                    {/* رابط تصفح القسم المينيمال */}
-                    <div className="mt-auto pt-3.5 border-t border-gray-50 dark:border-zinc-800 flex justify-center">
-                        <Link href={item.path} className="inline-flex items-center gap-1.5 text-xs font-black text-primary hover:text-primary-alt transition-colors duration-200">
+                    {/* رابط تصفح القسم */}
+                    <div className="mt-auto pt-3.5 border-t border-gray-100 dark:border-zinc-900 w-full flex justify-center">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-black text-primary group-hover:text-primary-alt transition-colors duration-200">
                             <span>اكتشف القسم</span>
                             <svg
                                 className="w-3.5 h-3.5 transform group-hover:-translate-x-1 transition-transform duration-300"
@@ -131,9 +131,9 @@ export default function Categories() {
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
                             </svg>
-                        </Link>
+                        </span>
                     </div>
-                </div>
+                </Link>
             </div>
         );
     });

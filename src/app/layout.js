@@ -142,6 +142,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="ar" className="scroll-smooth" dir="rtl">
             <head>
+                <meta name="mobile-web-app-capable" content="yes" />
                 <meta
                     name="google-adsense-account"
                     content="ca-pub-2830940611983404"

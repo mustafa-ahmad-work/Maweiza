@@ -187,7 +187,7 @@ export default function Navbar() {
                                     height={30}
                                     src="/logo.png"
                                     alt="موعظة"
-                                    style={{ height: "auto" }}
+                                    style={{ width: "auto", height: "auto" }}
                                     className="w-[80px] h-auto"
                                 />
                             </div>

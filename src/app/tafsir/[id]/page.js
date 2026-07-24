@@ -1,11 +1,9 @@
-import Landing from "@/components/Layout/Landing";
-import TafsirAyahs from "@/components/quran/TafsirAyahs";
+import QuranUnifiedHub from "@/components/quran/QuranUnifiedHub";
 
 export default async function TafsirDetailPage({ params }) {
     return (
-        <>
-            {/* <Landing title="تفسير سوره" text="" /> */}
-            <TafsirAyahs id={params.id} />
-        </>
+        <main>
+            <QuranUnifiedHub initialMode="tafsir" surahId={params.id} />
+        </main>
     );
 }

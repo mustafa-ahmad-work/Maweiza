@@ -5,6 +5,7 @@
 @font-face {
     font-family: "Quran";
     src: url("../font/ArbFONTS-Amiri-Quran.ttf");
+    font-display: swap;
 }
 
 .font-cairo {}

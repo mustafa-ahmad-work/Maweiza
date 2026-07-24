@@ -185,24 +185,24 @@ export default function HomeClient() {
     ];
 
     const stats = [
-        { icon: faChartLine, value: "50,000+", label: "زيارة صفحات" },
-        { icon: faGlobe, value: "45+", label: "دولة حول العالم" },
-        { icon: faEye, value: "20,000+", label: "مشاهدة سنوياً" },
-        { icon: faBook, value: "4900+", label: "كتاب إسلامي" },
-        { icon: faPodcast, value: "3900+", label: "محاضرة صوتية" },
-        { icon: faMicrophoneAlt, value: "3500+", label: "حديث شريف" },
-        { icon: faNewspaper, value: "1690+", label: "مقال إسلامي" },
-        { icon: faVideo, value: "1000+", label: "محاضرة فيديو" },
-        { icon: faHandsPraying, value: "140+", label: "قسم أدعية وأذكار" },
-        { icon: faQuoteRight, value: "100+", label: "اقتباس إسلامي" },
-        { icon: faScroll, value: "280+", label: "خطبة إسلامية" },
-        { icon: faQuestionCircle, value: "520+", label: "فتوى شرعية" },
+        { icon: faChartLine, value: "50,000+", label: "زيارة صفحات", desc: "آلاف الزيارات اليومية من مستفيدين يبحثون عن العلم الشرعي والقرآن الكريم بأسلوب ميسر." },
+        { icon: faGlobe, value: "45+", label: "دولة حول العالم", desc: "تغطية دولية واسعة تصل للمسلمين في مختلف القارات لربط القلوب بالسنة والقرآن." },
+        { icon: faEye, value: "20,000+", label: "مشاهدة سنوياً", desc: "ملايين التفاعلات والمشاهدات السنوية للمحاضرات والدروس والمقالات الدينية الموثوقة." },
+        { icon: faBook, value: "4900+", label: "كتاب إسلامي", desc: "مكتبة إسلامية شاملة ومجانية تضم أمهات الكتب في العقيدة والفقه والسيرة والتربية." },
+        { icon: faPodcast, value: "3900+", label: "محاضرة صوتية", desc: "تسجيلات خاشعة ومحاضرات صوتية لكبار العلماء والدعاة متاحة للاستماع والتحميل المباشر." },
+        { icon: faMicrophoneAlt, value: "3500+", label: "حديث شريف", desc: "أحاديث نبوية شريفة مشروحة ومخرجة مع بيان درجة صحتها وتخريجها المعتمد." },
+        { icon: faNewspaper, value: "1690+", label: "مقال إسلامي", desc: "مقالات ودراسات شرعية تناقش القضايا المعاصرة وتوجه المسلم في حياته اليومية." },
+        { icon: faVideo, value: "1000+", label: "محاضرة فيديو", desc: "سلاسل ودروس مرئية عالية الجودة تتناول تفسير القرآن والسيرة النبوية العطرة." },
+        { icon: faHandsPraying, value: "140+", label: "قسم أدعية وأذكار", desc: "مجموعة متكاملة من أذكار الصباح والمساء والأدعية المأثورة الموثقة بالدليل." },
+        { icon: faQuoteRight, value: "100+", label: "اقتباس إسلامي", desc: "حكم ومأثورات ودرر إسلامية متجددة مصممة للمشاركة ونشر الخير بين المسلمين." },
+        { icon: faScroll, value: "280+", label: "خطبة إسلامية", desc: "خطب منبرية مكتوبة ومصنفة حسب الموضوعات والمناسبات الجاهزة للإلقاء والاستفادة." },
+        { icon: faQuestionCircle, value: "520+", label: "فتوى شرعية", desc: "إجابات ميسرة وموثوقة على الفتاوى الشرعية التي تهم المسلم في عباداته ومعاملاته." },
     ];
 
     return (
         <>
-            {/* قسم الهيرو الرئيسي */}
-            <section className="relative overflow-hidden min-h-screen -mt-26 lg:-mt-52 pt-14 lg:pt-12 pb-12 flex items-center justify-center bg-white dark:bg-zinc-950 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:32px_32px] dark:bg-[radial-gradient(#1e293b_1.5px,transparent_1.5px)]">
+            {/* قسم الهيرو الرئيسي - خلفية عادية بنقاط خفيفة جداً (يدوبك باينة) */}
+            <section className="relative overflow-hidden min-h-screen -mt-26 lg:-mt-52 pt-14 lg:pt-12 pb-12 flex items-center justify-center bg-white dark:bg-zinc-950 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)]">
                 {/* خلفية زخرفية متحركة بسيطة */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -350,16 +350,23 @@ export default function HomeClient() {
             <Categories />
             <AppSection />
 
-            {/* قسم الإحصائيات الـ 12 - موقع موعظة بالأرقام */}
-            <div className="py-20 bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-900">
-                <div className="container mx-auto px-6">
+            {/* قسم الإحصائيات الـ 12 - موقع موعظة بالأرقام (قسم بدون نقاط لتناوب الأقسام) */}
+            <section className="py-20 md:py-24 bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-900 relative">
+                {/* إضاءات ضوئية خلفية لتعزيز التباين الفخم */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 dark:bg-primary/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div className="container mx-auto px-6 relative z-10">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-black text-gray-950 dark:text-white mb-3">موقع موعظة بالأرقام</h2>
-                        <p className="text-gray-550 dark:text-zinc-450 max-w-xl mx-auto text-sm font-semibold leading-relaxed">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
+                        <span className="inline-block px-4 py-1.5 bg-primary/10 dark:bg-lime-950/40 text-primary dark:text-lime-400 rounded-full text-xs font-black tracking-wide border border-primary/20 dark:border-lime-900/30 mb-3 shadow-xs">
+                            أرقام وإنجازات
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-950 dark:text-white mb-3 tracking-tight">موقع موعظة بالأرقام</h2>
+                        <p className="text-gray-600 dark:text-zinc-400 max-w-xl mx-auto text-sm font-bold leading-relaxed">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
+                        
                         <div className="flex justify-center items-center mt-6">
-                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
-                            <div className="mx-3 w-1.5 h-1.5 rounded-full bg-primary"></div>
-                            <div className="h-px bg-gray-200 dark:bg-zinc-900 w-16"></div>
+                            <div className="h-px bg-primary/30 dark:bg-primary/40 w-16"></div>
+                            <div className="mx-3 w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                            <div className="h-px bg-primary/30 dark:bg-primary/40 w-16"></div>
                         </div>
                     </div>
 
@@ -371,26 +378,39 @@ export default function HomeClient() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: (index % 4) * 0.05, duration: 0.5 }}
-                                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-zinc-950 border border-gray-100 dark:border-zinc-900 text-center transform transition-all duration-350 hover:shadow-md hover:border-primary/20"
+                                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200/90 dark:border-zinc-800 text-center transform transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 dark:hover:border-primary/50 shadow-sm hover:shadow-md"
                             >
-                                <div className="p-6 md:p-8 flex flex-col items-center">
-                                    <div className="w-14 h-14 rounded-2xl bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 flex items-center justify-center shadow-xs mb-5 transform transition-transform duration-500 group-hover:scale-110">
-                                        <FontAwesomeIcon icon={stat.icon} className="text-lg" />
+                                {/* شريط لمعان شفاف عند التمرير */}
+                                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/50 dark:via-white/10 to-transparent transition-transform duration-1000 ease-in-out pointer-events-none z-20"></div>
+
+                                <div className="p-6 md:p-8 flex flex-col items-center relative z-10">
+                                    {/* أيقونة ثابتة التباين وتكبر بسلاسة عند الهوفر بدون اختفاء */}
+                                    <div className="w-14 h-14 rounded-2xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/25 dark:group-hover:bg-primary/35 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 shadow-xs">
+                                        <FontAwesomeIcon icon={stat.icon} className="text-xl text-primary dark:text-lime-400" />
                                     </div>
 
-                                    <div className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-1.5 tracking-tight">
+                                    {/* الرقم بتصميم فخم جداً وواضح بتدرج جذاب */}
+                                    <div className="text-3xl md:text-4xl font-black bg-gradient-to-r from-gray-900 via-primary to-emerald-600 dark:from-white dark:via-lime-300 dark:to-emerald-400 bg-clip-text text-transparent mb-1.5 tracking-tight group-hover:scale-105 transition-transform duration-300">
                                         {stat.value}
                                     </div>
 
-                                    <div className="text-xs font-bold text-gray-450 dark:text-gray-500">
+                                    {/* التسمية الرئيسية */}
+                                    <div className="text-sm font-black text-gray-900 dark:text-white mb-2">
                                         {stat.label}
                                     </div>
+
+                                    {/* تفاصيل ومعلومات غنية وإضافية لكل رقم */}
+                                    {stat.desc && (
+                                        <p className="text-xs font-semibold text-gray-500 dark:text-zinc-400 leading-relaxed max-w-xs">
+                                            {stat.desc}
+                                        </p>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 }
