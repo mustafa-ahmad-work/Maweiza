@@ -127,7 +127,7 @@ export default function Navbar() {
                                                         key={idx}
                                                         href={item.path}
                                                         onClick={() => setIsDropdownOpen(false)}
-                                                        className="px-2.5 py-2 text-xs font-bold text-gray-700 dark:text-gray-255 hover:text-primary dark:hover:text-lime-400 hover:bg-lime-50/50 dark:hover:bg-lime-950/20 rounded-xl transition-all duration-150 flex items-center gap-2 whitespace-nowrap"
+                                                        className="px-2.5 py-2 text-xs font-bold text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 hover:bg-lime-50/50 dark:hover:bg-lime-950/20 rounded-xl transition-all duration-150 flex items-center gap-2 whitespace-nowrap"
                                                     >
                                                         <span className="w-1.5 h-1.5 rounded-full bg-lime-500/60 flex-shrink-0"></span>
                                                         <span>{item.name}</span>
@@ -139,27 +139,29 @@ export default function Navbar() {
                                 </div>
                             </div>
 
-                            {/* أزرار البحث وتسجيل الدخول - يسار في وضع RTL */}
-                            <div className="flex items-center gap-3">
-                                <Link href="/search/-" className="hidden lg:flex w-10 h-10 items-center justify-center text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-lime-400 rounded-xl hover:bg-gray-50 dark:hover:bg-zinc-950 transition-all">
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            {/* أزرار البحث والتنقل للهاتف وصفحات الموقع */}
+                            <div className="flex items-center gap-2 sm:gap-3">
+                                <Link
+                                    href="/search/-"
+                                    className="flex w-9 h-9 sm:w-10 sm:h-10 items-center justify-center rounded-xl bg-lime-50/90 dark:bg-lime-950/30 border border-emerald-500/20 dark:border-emerald-500/30 text-primary dark:text-lime-400 shadow-xs hover:shadow-sm transition-all duration-200 active:scale-95"
+                                    aria-label="البحث"
+                                >
+                                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                     </svg>
                                 </Link>
 
-
-                                {/* زر القائمة للهاتف - يسار في وضع RTL */}
+                                {/* زر القائمة للهاتف - بنفس هوية وألوان الموقع */}
                                 <button
                                     onClick={toggleMenu}
-                                    className="lg:hidden flex items-center gap-2.5 px-3.5 h-9 rounded-full bg-gradient-to-r from-lime-50/90 to-emerald-50/90 dark:from-lime-950/20 dark:to-emerald-950/20 border border-emerald-500/20 dark:border-emerald-500/30 text-primary dark:text-lime-400 shadow-sm shadow-emerald-500/5 hover:shadow-md transition-all duration-300 active:scale-95 font-bold text-xs"
-                                    aria-label="Toggle navigation menu"
+                                    className="lg:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-lime-50/90 dark:bg-lime-950/30 border border-emerald-500/20 dark:border-emerald-500/30 text-primary dark:text-lime-400 shadow-xs hover:shadow-sm transition-all duration-200 active:scale-95"
+                                    aria-label="القائمة الرئيسية"
                                     aria-expanded={isOpen}
                                 >
-                                    <span className="transition-all duration-300">{isOpen ? "إغلاق" : "القائمة"}</span>
-                                    <div className="w-4 h-3 relative flex flex-col justify-between items-end">
-                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'w-4 rotate-45 translate-y-[5px]' : 'w-4'}`}></span>
-                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'w-0 opacity-0' : 'w-3'}`}></span>
-                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ${isOpen ? 'w-4 -rotate-45 -translate-y-[5px]' : 'w-2'}`}></span>
+                                    <div className="w-4 h-4 flex flex-col justify-center items-center gap-[4px] relative">
+                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ease-in-out ${isOpen ? 'w-4 rotate-45 translate-y-[6px]' : 'w-4'}`}></span>
+                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ease-in-out ${isOpen ? 'w-0 opacity-0' : 'w-3 self-end'}`}></span>
+                                        <span className={`h-[2px] bg-primary dark:bg-lime-400 rounded-full transition-all duration-300 ease-in-out ${isOpen ? 'w-4 -rotate-45 -translate-y-[6px]' : 'w-4'}`}></span>
                                     </div>
                                 </button>
                             </div>
@@ -168,19 +170,19 @@ export default function Navbar() {
                 </nav>
             </Headroom>
 
-            {/* القائمة الجانبية للهاتف - تفتح من اليمين بتغطية ضبابية للوضع RTL */}
+            {/* القائمة الجانبية للهاتف - تطابق هوية الموقع وألوانه والأخط الأصلية */}
             <div
-                className={`fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-all duration-300 lg:hidden ${isOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'}`}
+                className={`fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-all duration-300 lg:hidden ${isOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'}`}
                 onClick={() => setIsOpen(false)}
             >
                 <div
-                    className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white dark:bg-zinc-950 shadow-2xl transform transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                    className={`fixed top-0 right-0 h-[100dvh] w-full sm:w-80 max-w-full sm:max-w-[340px] bg-white dark:bg-zinc-950 shadow-2xl border-l border-gray-100 dark:border-zinc-700/80 transform transition-transform duration-300 ease-out flex flex-col ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="flex flex-col h-full text-right" dir="rtl">
                         {/* رأس القائمة الجانبية */}
-                        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-zinc-700/80">
-                            <div className="flex items-center gap-3">
+                        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-gray-100 dark:border-zinc-700/80">
+                            <div className="flex items-center gap-2.5">
                                 <Image
                                     priority
                                     width={100}
@@ -188,24 +190,25 @@ export default function Navbar() {
                                     src="/logo.png"
                                     alt="موعظة"
                                     style={{ width: "auto", height: "auto" }}
-                                    className="w-[80px] h-auto"
+                                    className="w-[80px] sm:w-[95px] h-auto"
                                 />
                             </div>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800/80 transition-colors duration-200"
-                                aria-label="Close menu"
+                                className="w-8 h-8 flex items-center justify-center rounded-xl text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white bg-gray-100/80 dark:bg-zinc-800/80 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors duration-200"
+                                aria-label="إغلاق القائمة"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
 
-                        {/* محتوى القائمة الجانبية للجوال */}
-                        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                        {/* محتوى القائمة الجانبية للجوال - ألوان وخيارات الموقع الأصلية بنفس الخط Cairo وبترتيب رأسي */}
+                        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5 custom-scrollbar">
+                            {/* القائمة الرئيسية */}
                             <div>
-                                <h3 className="text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2.5 px-3">القائمة الرئيسية</h3>
+                                <h3 className="text-[10px] font-black text-gray-400 dark:text-zinc-500 uppercase tracking-wider mb-2 px-2">القائمة الرئيسية</h3>
                                 <ul className="space-y-1">
                                     {mainLinks.map((item, index) => {
                                         const isActive = pathname === item.path;
@@ -214,9 +217,12 @@ export default function Navbar() {
                                                 <Link
                                                     onClick={() => setIsOpen(false)}
                                                     href={item.path}
-                                                    className={`flex items-center px-4 py-2.5 text-base font-bold transition-colors duration-200 ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400'}`}
+                                                    className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-bold rounded-xl transition-all duration-200 ${isActive ? 'text-primary dark:text-lime-400 bg-lime-50/60 dark:bg-lime-950/30 font-black' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 hover:bg-gray-50 dark:hover:bg-zinc-900/60'}`}
                                                 >
                                                     <span>{item.name}</span>
+                                                    <svg className={`w-3.5 h-3.5 transition-transform ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-400 dark:text-zinc-600'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                                                    </svg>
                                                 </Link>
                                             </li>
                                         );
@@ -224,9 +230,10 @@ export default function Navbar() {
                                 </ul>
                             </div>
 
+                            {/* أقسام موعظة مرتبة رأسياً تحت بعضها بنظام ألوان الموقع */}
                             <div>
-                                <h3 className="text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2.5 px-3">أقسام موقع موعظة</h3>
-                                <ul className="grid grid-cols-2 gap-1.5">
+                                <h3 className="text-[10px] font-black text-gray-400 dark:text-zinc-500 uppercase tracking-wider mb-2 px-2">أقسام موقع موعظة</h3>
+                                <ul className="space-y-1.5">
                                     {moreLinks.map((item, index) => {
                                         const isActive = pathname === item.path;
                                         return (
@@ -234,10 +241,15 @@ export default function Navbar() {
                                                 <Link
                                                     onClick={() => setIsOpen(false)}
                                                     href={item.path}
-                                                    className={`flex items-center px-3.5 py-2 text-xs font-bold transition-colors duration-200 ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-600 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400'}`}
+                                                    className={`flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-200 border ${isActive ? 'text-primary dark:text-lime-400 bg-lime-50/60 dark:bg-lime-950/30 border-emerald-500/20 dark:border-emerald-500/30 font-black' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 bg-gray-50/50 dark:bg-zinc-900/40 border-gray-100/80 dark:border-zinc-800/80 hover:bg-lime-50/40 dark:hover:bg-lime-950/20'}`}
                                                 >
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-lime-500/60 ml-2 flex-shrink-0"></span>
-                                                    <span>{item.name}</span>
+                                                    <div className="flex items-center gap-2.5">
+                                                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isActive ? 'bg-primary dark:bg-lime-400' : 'bg-lime-500/60'}`}></span>
+                                                        <span>{item.name}</span>
+                                                    </div>
+                                                    <svg className={`w-3.5 h-3.5 transition-transform ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-400 dark:text-zinc-600'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                                                    </svg>
                                                 </Link>
                                             </li>
                                         );
@@ -245,11 +257,11 @@ export default function Navbar() {
                                 </ul>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </>
     );
 }
+
+

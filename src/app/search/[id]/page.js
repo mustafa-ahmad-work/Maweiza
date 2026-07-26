@@ -15,7 +15,7 @@ export function generateMetadata({ params }) {
 
 export default function HadithPage({ params }) {
     return (
-        <main className="min-h-screen bg-slate-50/50 dark:bg-zinc-950 text-gray-900 dark:text-white pb-20" dir="rtl">
+        <main className="min-h-screen pb-20" dir="rtl">
             <Landing
                 title="مكتبة الحديث النبوي الشريف"
                 text="اكتشف كنوز السنة النبوية الصحيحة وابحث في آلاف الأحاديث المصنفة والموثقة"

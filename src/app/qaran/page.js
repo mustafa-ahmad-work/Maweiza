@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Landing from "@/components/Layout/Landing";
+import AppSection from "@/components/Home/AppSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphonesSimple, faMicrophoneLines, faBookQuran, faFilePen, faClipboardCheck, faMedal } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
@@ -123,35 +124,8 @@ export default async function qaran() {
                         </div>
                     </div>
 
-                    <div className="mt-16 text-center max-w-2xl mx-auto">
-                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">لماذا تختار قسم القرآن الكريم؟</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-                            <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl shadow-md">
-                                <div className="w-12 h-12 bg-emerald-100 dark:bg-zinc-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <FontAwesomeIcon icon={faHeadphonesSimple} className="text-emerald-600 dark:text-emerald-400 text-xl" />
-                                </div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white mb-2 whitespace-nowrap">مكتبة صوتية ضخمة</h3>
-                                <p className="text-gray-600 dark:text-zinc-300">استمع لتلاوات من أشهر القراء حول العالم</p>
-                            </div>
-
-                            <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl shadow-md">
-                                <div className="w-12 h-12 bg-lime-100 dark:bg-lime-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <FontAwesomeIcon icon={faMicrophoneLines} className="text-lime-600 dark:text-lime-400 text-xl" />
-                                </div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white mb-2">أدوات حفظ متقدمة</h3>
-                                <p className="text-gray-600 dark:text-zinc-300">حدد الآيات، كرر التلاوة، وتتبع تقدمك</p>
-                            </div>
-
-                            <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl shadow-md">
-                                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                    </svg>
-                                </div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white mb-2">تجربة آمنة</h3>
-                                <p className="text-gray-600 dark:text-zinc-300">جميع المحتويات موثوقة ومصادقة من علماء الأزهر</p>
-                            </div>
-                        </div>
+                    <div className="mt-12">
+                        <AppSection />
                     </div>
 
                     {/* <div className="mt-20">

@@ -30,7 +30,7 @@ export default function CategoryAdith({ category }) {
     }
 
     return (
-        <section className="pb-10 relative px-6 bg-gradient-to-br from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-950 min-h-screen">
+        <section className="pb-10 relative px-6 min-h-screen">
             <div className="container mx-auto">
                 <h2 className="text-3xl font-bold text-center mb-10 text-emerald-700 dark:text-emerald-400">
                     الأحاديث النبوية

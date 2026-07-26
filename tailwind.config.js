@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        thmanyah: ['CairoNumbers', 'var(--font-thmanyah)', 'sans-serif'],
+        cairo: ['CairoNumbers', 'var(--font-thmanyah)', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#449C40',

@@ -165,7 +165,7 @@ export default function ApplicationClient() {
     ];
 
     return (
-        <main className="min-h-screen bg-dotted text-gray-900 dark:text-white -mt-26 lg:-mt-52 pt-32 lg:pt-52 pb-12" dir="rtl">
+        <div className="min-h-screen bg-dotted text-gray-900 dark:text-white pb-12" dir="rtl">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
 
                 {/* 1. قسم الهيرو للمنتج */}
@@ -494,6 +494,6 @@ export default function ApplicationClient() {
                     </div>
                 </section>
             </div>
-        </main>
+        </div>
     );
 }

@@ -15,27 +15,50 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
-const cairo = localFont({
+const cairoFont = localFont({
     src: [
         {
-            path: "../font/Cairo-Light.woff2",
+            path: "../fonts/Cairo/Cairo-Light.woff2",
             weight: "300",
         },
         {
-            path: "../font/Cairo-Regular.woff2",
+            path: "../fonts/Cairo/Cairo-Regular.woff2",
             weight: "400",
         },
         {
-            path: "../font/Cairo-Bold.woff2",
+            path: "../fonts/Cairo/Cairo-Bold.woff2",
             weight: "700",
         },
         {
-            path: "../font/Cairo-Black.woff2",
+            path: "../fonts/Cairo/Cairo-Black.woff2",
             weight: "900",
         },
     ],
-    variable: "--cairo",
+    variable: "--font-cairo",
     weight: "300 400 700 900",
+    display: "swap",
+});
+
+const thmanyahFont = localFont({
+    src: [
+        {
+            path: "../fonts/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Regular.woff2",
+            weight: "400",
+        },
+        {
+            path: "../fonts/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Medium.woff2",
+            weight: "500",
+        },
+        {
+            path: "../fonts/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Bold.woff2",
+            weight: "700",
+        },
+        {
+            path: "../fonts/thmanyahserifdisplay/woff2/thmanyahserifdisplay-Black.woff2",
+            weight: "900",
+        },
+    ],
+    variable: "--font-thmanyah",
     display: "swap",
 });
 
@@ -203,7 +226,7 @@ export default function RootLayout({ children }) {
                             title="google tag manager"
                         >
                         </iframe>
-                        <main className={`${cairo.variable} relative font-cairo antialiased pt-26 lg:pt-52`}>
+                        <main className={`${cairoFont.variable} ${thmanyahFont.variable} relative antialiased pt-24 sm:pt-28 lg:pt-36`}>
                             <Navbar />
                             {children}
                             <Footer />

@@ -78,23 +78,20 @@ export default function Quotes() {
     const AuthorCard = ({ author, authorId, isFamous = false }) => (
         <Link
             href={`/quotes/${authorId}`}
-            className={`group relative overflow-hidden rounded-xl border p-4 transition-all duration-300 hover:shadow-lg hover:border-transparent hover:scale-[1.02] active:scale-[0.98] ${
-                isFamous
+            className={`group relative overflow-hidden rounded-xl border p-4 transition-all duration-300 hover:shadow-lg hover:border-transparent hover:scale-[1.02] active:scale-[0.98] ${isFamous
                     ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20'
                     : 'border-gray-200 dark:border-zinc-700/80 bg-white dark:bg-zinc-900'
-            }`}
+                }`}
         >
             <div className="flex flex-row gap-5 text-xl items-center">
-                <div className={`flex-shrink-0 w-3 h-3 rounded-full ${
-                    isFamous ? 'bg-amber-500' : 'bg-gray-400'
-                }`}></div>
+                <div className={`flex-shrink-0 w-3 h-3 rounded-full ${isFamous ? 'bg-amber-500' : 'bg-gray-400'
+                    }`}></div>
                 <p className="font-medium">{author}</p>
             </div>
-            <div className={`absolute bottom-0 left-0 w-full h-1 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ${
-                isFamous
+            <div className={`absolute bottom-0 left-0 w-full h-1 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ${isFamous
                     ? 'bg-gradient-to-r from-amber-500 to-amber-400'
                     : 'bg-gradient-to-r from-emerald-500 to-lime-400'
-            }`}></div>
+                }`}></div>
         </Link>
     );
 
@@ -108,7 +105,7 @@ export default function Quotes() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 pb-8">
+        <div className="min-h-screen pb-8">
             <div className="container m-auto px-4">
                 <div className="text-center mb-10">
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">

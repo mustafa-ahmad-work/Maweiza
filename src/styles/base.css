@@ -4,11 +4,38 @@
 
 @font-face {
     font-family: "Quran";
-    src: url("../font/ArbFONTS-Amiri-Quran.ttf");
+    src: url("../fonts/ArbFONTS-Amiri-Quran.ttf");
     font-display: swap;
 }
 
-.font-cairo {}
+/* تخصيص خط القاهرة (Cairo) للأرقام فقط على مستوى الموقع بالكامل عبر unicode-range */
+@font-face {
+    font-family: "CairoNumbers";
+    src: url("../fonts/Cairo/Cairo-Regular.woff2") format("woff2");
+    font-weight: 100 400;
+    font-display: swap;
+    unicode-range: U+0030-0039, U+0660-0669, U+06F0-06F9, U+0025, U+066A, U+002B, U+002D, U+002F, U+002C, U+066C;
+}
+
+@font-face {
+    font-family: "CairoNumbers";
+    src: url("../fonts/Cairo/Cairo-Bold.woff2") format("woff2");
+    font-weight: 500 700;
+    font-display: swap;
+    unicode-range: U+0030-0039, U+0660-0669, U+06F0-06F9, U+0025, U+066A, U+002B, U+002D, U+002F, U+002C, U+066C;
+}
+
+@font-face {
+    font-family: "CairoNumbers";
+    src: url("../fonts/Cairo/Cairo-Black.woff2") format("woff2");
+    font-weight: 800 900;
+    font-display: swap;
+    unicode-range: U+0030-0039, U+0660-0669, U+06F0-06F9, U+0025, U+066A, U+002B, U+002D, U+002F, U+002C, U+066C;
+}
+
+.font-cairo, .font-thmanyah {
+    font-family: "CairoNumbers", var(--font-thmanyah), sans-serif;
+}
 
 .font-quran {
     font-family: "Quran";
@@ -53,10 +80,13 @@ html.dark .bg-dotted,
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 * {
-    font-family: var(--cairo);
+    font-family: "CairoNumbers", var(--font-thmanyah), sans-serif;
     outline: none !important;
     -webkit-tap-highlight-color: rgba(136, 109, 109, 0);
 }

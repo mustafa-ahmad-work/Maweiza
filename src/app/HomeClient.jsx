@@ -3,7 +3,7 @@
 import Categories from "@/components/Home/Categories";
 import AppSection from "@/components/Home/AppSection";
 import SplashScreen from "@/components/Layout/SplashScreen";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     faAngleDoubleDown,
     faDownload,
@@ -43,7 +43,10 @@ import {
     faEye,
     faPodcast,
     faHandsPraying,
-    faScroll
+    faScroll,
+    faShareAlt,
+    faEllipsisV,
+    faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -53,7 +56,10 @@ import { useEffect, useState } from "react";
 
 export default function HomeClient() {
     const [deferredPrompt, setDeferredPrompt] = useState(null);
-    const [isInstallable, setIsInstallable] = useState(false);
+    const [isInstalled, setIsInstalled] = useState(false);
+    const [showInstallModal, setShowInstallModal] = useState(false);
+    const [isIOS, setIsIOS] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
     const [activeTab, setActiveTab] = useState("all");
     const [statCount, setStatCount] = useState({
         quran: 0,
@@ -71,60 +77,25 @@ export default function HomeClient() {
     });
 
     useEffect(() => {
-        // العدادات المتحركة للإحصائيات
-        const duration = 2000;
-        const steps = 50;
-        const stepTime = duration / steps;
+        // الفحص الذكي عما إذا كان المستخدم يفتح الموقع بالفعل من داخل تطبيق PWA مثبت
+        const checkInstalled = typeof window !== "undefined" && (
+            window.matchMedia('(display-mode: standalone)').matches ||
+            window.navigator.standalone ||
+            document.referrer.includes('android-app://')
+        );
+        setIsInstalled(Boolean(checkInstalled));
 
-        const targets = {
-            quran: 114,
-            audio: 3900,
-            hadith: 3500,
-            books: 4900,
-            azkar: 140,
-            articles: 1690,
-            videos: 1000,
-            fatwa: 520,
-            khotab: 280,
-            stories: 150,
-            names: 99,
-            tafsir: 114
-        };
+        // فحص نوع الجهاز (آيفون / كمبيوتر / أندرويد)
+        if (typeof window !== "undefined") {
+            const ua = window.navigator.userAgent.toLowerCase();
+            setIsIOS(/iphone|ipad|ipod/.test(ua));
+            const mobileCheck = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+            setIsDesktop(!mobileCheck);
+        }
 
-        let currentStep = 0;
-        const timer = setInterval(() => {
-            currentStep++;
-            const progress = currentStep / steps;
-
-            setStatCount({
-                quran: Math.floor(targets.quran * progress),
-                audio: Math.floor(targets.audio * progress),
-                hadith: Math.floor(targets.hadith * progress),
-                books: Math.floor(targets.books * progress),
-                azkar: Math.floor(targets.azkar * progress),
-                articles: Math.floor(targets.articles * progress),
-                videos: Math.floor(targets.videos * progress),
-                fatwa: Math.floor(targets.fatwa * progress),
-                khotab: Math.floor(targets.khotab * progress),
-                stories: Math.floor(targets.stories * progress),
-                names: Math.floor(targets.names * progress),
-                tafsir: Math.floor(targets.tafsir * progress)
-            });
-
-            if (currentStep >= steps) {
-                setStatCount(targets);
-                clearInterval(timer);
-            }
-        }, stepTime);
-
-        return () => clearInterval(timer);
-    }, []);
-
-    useEffect(() => {
         const handleBeforeInstallPrompt = (e) => {
             e.preventDefault();
             setDeferredPrompt(e);
-            setIsInstallable(true);
         };
 
         window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
@@ -135,15 +106,21 @@ export default function HomeClient() {
     }, []);
 
     const handleInstallClick = () => {
+        if (isInstalled) {
+            return;
+        }
+
         if (deferredPrompt) {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === "accepted") {
-                    console.log("User accepted the install prompt");
+                    setIsInstalled(true);
                 }
                 setDeferredPrompt(null);
-                setIsInstallable(false);
             });
+        } else {
+            // فتح نافذة الخطوات في حالة عدم توفر المنبثق التلقائي (iOS أو المتصفح لم يطلق المنبثق بعد)
+            setShowInstallModal(true);
         }
     };
 
@@ -202,7 +179,7 @@ export default function HomeClient() {
     return (
         <>
             {/* قسم الهيرو الرئيسي - خلفية عادية بنقاط خفيفة جداً (يدوبك باينة) */}
-            <section className="relative overflow-hidden min-h-screen -mt-26 lg:-mt-52 pt-14 lg:pt-12 pb-12 flex items-center justify-center bg-transparent">
+            <section className="relative overflow-hidden min-h-screen -mt-24 sm:-mt-28 lg:-mt-32 pt-14 lg:pt-12 pb-12 flex items-center justify-center bg-transparent">
                 {/* خلفية زخرفية متحركة بسيطة */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -264,26 +241,32 @@ export default function HomeClient() {
                             ))}
                         </div>
 
-                        {/* الأزرار التفاعلية */}
+                        {/* الأزرار التفاعلية - بدون شادو وعلى الكمبيوتر تظهر تثبيت على الكمبيوتر */}
                         <div className="flex flex-col sm:flex-row gap-4 mt-8">
                             <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold shadow-sm transition-all text-sm ${!isInstallable
-                                    ? "bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200/50 dark:border-zinc-700/80"
-                                    : "bg-primary hover:bg-primary-alt text-white hover:shadow-md"
+                                whileHover={{ scale: isInstalled ? 1 : 1.02 }}
+                                whileTap={{ scale: isInstalled ? 1 : 0.98 }}
+                                className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-black transition-all text-sm shadow-none ${isInstalled
+                                    ? "bg-lime-50 dark:bg-lime-950/30 text-primary dark:text-lime-400 border border-emerald-500/20 dark:border-emerald-500/30 cursor-default"
+                                    : "bg-primary hover:bg-primary-alt text-white border border-primary-alt/30 cursor-pointer"
                                     }`}
                                 onClick={handleInstallClick}
-                                disabled={!isInstallable}
                             >
-                                <FontAwesomeIcon icon={faDownload} />
-                                {!isInstallable ? "مثبت بالفعل" : "تحميل كتطبيق للجوال"}
+                                <FontAwesomeIcon icon={isInstalled ? faCheckCircle : (isDesktop ? faLaptopCode : faDownload)} className={isInstalled ? "text-primary dark:text-lime-400 text-base" : "text-white text-base"} />
+                                <span>
+                                    {isInstalled
+                                        ? "التطبيق مثبت لديك ومفتوح الآن"
+                                        : isDesktop
+                                            ? "تثبيت على الكمبيوتر"
+                                            : "تحميل كتطبيق للجوال"
+                                    }
+                                </span>
                             </motion.button>
 
                             <motion.a
                                 href="#categories"
                                 whileHover={{ y: -2 }}
-                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold border border-lime-100 dark:border-lime-900/30 text-primary dark:text-lime-400 bg-primary/5 dark:bg-lime-950/10 hover:bg-lime-50 dark:hover:bg-lime-950/20 shadow-sm text-sm"
+                                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold border border-lime-100 dark:border-lime-900/30 text-primary dark:text-lime-400 bg-primary/5 dark:bg-lime-950/10 hover:bg-lime-50 dark:hover:bg-lime-950/20 text-sm shadow-none"
                             >
                                 استكشف المحتوى
                                 <FontAwesomeIcon icon={faAngleDoubleDown} />
@@ -413,6 +396,90 @@ export default function HomeClient() {
                     </div>
                 </div>
             </section>
+
+            {/* نافذة تثبيت التطبيق الإرشادية - PWA Install Guide Modal */}
+            <AnimatePresence>
+                {showInstallModal && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm rtl" onClick={() => setShowInstallModal(false)}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative w-full max-w-md bg-white dark:bg-zinc-950 rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 dark:border-zinc-800 text-right overflow-hidden"
+                        >
+                            {/* زر الإغلاق */}
+                            <button
+                                onClick={() => setShowInstallModal(false)}
+                                className="absolute top-4 left-4 w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-500 hover:text-gray-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+                                aria-label="إغلاق"
+                            >
+                                <FontAwesomeIcon icon={faTimes} className="text-sm" />
+                            </button>
+
+                            {/* العنوان والمعلومات */}
+                            <div className="flex items-center gap-3.5 mb-5">
+                                <div className="w-12 h-12 rounded-2xl bg-lime-50 dark:bg-lime-950/40 text-primary dark:text-lime-400 flex items-center justify-center text-xl shrink-0 border border-emerald-500/20">
+                                    <FontAwesomeIcon icon={isDesktop ? faLaptopCode : faMobileAlt} />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-black text-gray-900 dark:text-white">
+                                        {isDesktop ? "تثبيت موعظة على الكمبيوتر" : "تثبيت تطبيق موعظة"}
+                                    </h3>
+                                    <p className="text-xs text-gray-500 dark:text-zinc-400 font-bold">تصفح أسرع وبدون حاجة لمتجر التطبيقات</p>
+                                </div>
+                            </div>
+
+                            {/* خطوات التثبيت حسب جهاز المستخدم */}
+                            {isIOS ? (
+                                <div className="space-y-4 my-5 bg-lime-50/50 dark:bg-lime-950/20 p-4 rounded-2xl border border-lime-100 dark:border-lime-900/30">
+                                    <p className="text-xs font-black text-primary dark:text-lime-400">خطوات التثبيت على آيفون / آيباد (iOS):</p>
+                                    <ol className="space-y-3 text-xs font-bold text-gray-700 dark:text-zinc-300">
+                                        <li className="flex items-center gap-2.5">
+                                            <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">١</span>
+                                            <span>اضغط على زر <strong className="text-primary dark:text-lime-400">المشاركة</strong> (<FontAwesomeIcon icon={faShareAlt} className="text-primary dark:text-lime-400 mx-1" />) بأسفل متصفح Safari.</span>
+                                        </li>
+                                        <li className="flex items-center gap-2.5">
+                                            <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٢</span>
+                                            <span>اختر <strong className="text-primary dark:text-lime-400">&quot;الإضافة إلى الشاشة الرئيسية&quot;</strong>.</span>
+                                        </li>
+                                        <li className="flex items-center gap-2.5">
+                                            <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٣</span>
+                                            <span>اضغط <strong className="text-primary dark:text-lime-400">&quot;إضافة&quot;</strong> بالزاوية العلوية.</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            ) : (
+                                <div className="space-y-4 my-5 bg-lime-50/50 dark:bg-lime-950/20 p-4 rounded-2xl border border-lime-100 dark:border-lime-900/30">
+                                    <p className="text-xs font-black text-primary dark:text-lime-400">خطوات التثبيت (أندرويد / الكمبيوتر):</p>
+                                    <ol className="space-y-3 text-xs font-bold text-gray-700 dark:text-zinc-300">
+                                        <li className="flex items-center gap-2.5">
+                                            <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">١</span>
+                                            <span>افتح قائمة المتصفح (<FontAwesomeIcon icon={faEllipsisV} className="text-primary dark:text-lime-400 mx-1" /> النقاط الثلاث).</span>
+                                        </li>
+                                        <li className="flex items-center gap-2.5">
+                                            <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٢</span>
+                                            <span>اختر <strong className="text-primary dark:text-lime-400">&quot;تثبيت التطبيق&quot;</strong> (Install App) أو إضافة للشاشة.</span>
+                                        </li>
+                                        <li className="flex items-center gap-2.5">
+                                            <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٣</span>
+                                            <span>أكّد التثبيت ليعمل كأيقونة مستقلة فوراً.</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            )}
+
+                            <button
+                                onClick={() => setShowInstallModal(false)}
+                                className="w-full py-3.5 rounded-xl bg-primary hover:bg-primary-alt text-white font-black text-xs md:text-sm shadow-md shadow-primary/20 transition-all text-center cursor-pointer"
+                            >
+                                حسناً، فهمت ذلك
+                            </button>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </>
     );
 }
+
