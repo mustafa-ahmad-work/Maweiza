@@ -139,7 +139,7 @@ export default function Categories() {
     });
 
     return (
-        <section className="py-20 md:py-28 relative overflow-hidden bg-white dark:bg-zinc-950" id="categories">
+        <section className="py-20 md:py-28 relative overflow-hidden bg-transparent" id="categories">
             {/* زخارف خلفية دائرية ناعمة */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-10 left-10 w-64 h-64 border-4 border-lime-100/20 dark:border-lime-950/10 rounded-full opacity-30 dark:opacity-20"></div>

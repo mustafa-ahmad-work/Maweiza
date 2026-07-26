@@ -54,7 +54,7 @@ export default function Tafsir() {
     }
 
     return (
-        <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 pb-12 px-4">
+        <div className="min-h-screen pb-12 px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">

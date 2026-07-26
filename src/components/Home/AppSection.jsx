@@ -22,7 +22,7 @@ export default function AppSection() {
     ];
 
     return (
-        <section className="py-20 md:py-28 relative overflow-hidden bg-white dark:bg-zinc-950 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] border-t border-gray-100 dark:border-zinc-900" id="application-section">
+        <section className="py-20 md:py-28 relative overflow-hidden bg-transparent border-t border-gray-100 dark:border-zinc-900" id="application-section">
             <div className="container mx-auto px-6 relative z-10">
 
                 {/* الجزء الأول: شبكة العرض التفاعلية المحمسة */}

@@ -20,6 +20,20 @@
     --transition: 0.3s;
 }
 
+body, .bg-dotted {
+    background-color: #ffffff;
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+html.dark body,
+html.dark .bg-dotted,
+[data-theme="dark"] body,
+[data-theme="dark"] .bg-dotted {
+    background-color: #09090b;
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
+}
+
 .bg-primary {
     background-color: var(--main-color) !important;
 }
@@ -34,6 +48,11 @@
 
 .border-primary {
     border-color: var(--main-color) !important;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 * {

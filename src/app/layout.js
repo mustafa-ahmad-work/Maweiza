@@ -195,7 +195,7 @@ export default function RootLayout({ children }) {
             </head>
             <SWRProvider>
                 <RamadanProvider>
-                    <body cz-shortcut-listen="true" className="bg-[rgb(250,250,250)] text-sm header dark:bg-zinc-950 dark:text-white transition-colors selection:bg-lime-600 selection:text-white">
+                    <body cz-shortcut-listen="true" className="bg-dotted text-sm dark:text-white transition-colors selection:bg-lime-600 selection:text-white min-h-screen">
                         <iframe
                             src="https://www.googletagmanager.com/ns.html?id=GTM-WBZJG335"
                             height="0"

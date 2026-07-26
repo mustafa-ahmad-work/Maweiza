@@ -165,7 +165,7 @@ export default function ApplicationClient() {
     ];
 
     return (
-        <main className="min-h-screen bg-white dark:bg-zinc-950 bg-[radial-gradient(#e2e8f0_1.2px,transparent_1.2px)] [background-size:32px_32px] dark:bg-[radial-gradient(#1e293b_1.2px,transparent_1.2px)] text-gray-900 dark:text-white -mt-26 lg:-mt-52 pt-32 lg:pt-52 pb-12" dir="rtl">
+        <main className="min-h-screen bg-dotted text-gray-900 dark:text-white -mt-26 lg:-mt-52 pt-32 lg:pt-52 pb-12" dir="rtl">
             <div className="container mx-auto px-4 md:px-6 relative z-10">
 
                 {/* 1. قسم الهيرو للمنتج */}
