@@ -100,7 +100,7 @@ export default function Navbar() {
                                             <Link
                                                 key={index}
                                                 href={item.path}
-                                                className={`px-1.5 xl:px-4 py-2 text-xs xl:text-sm font-bold transition-colors duration-200 whitespace-nowrap ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400'}`}
+                                                className={`px-1.5 xl:px-4 py-2 text-xs xl:text-sm font-bold transition-colors duration-200 whitespace-nowrap ${isActive ? 'text-primary dark:text-primary-400' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-primary-400'}`}
                                             >
                                                 <span>{item.name}</span>
                                             </Link>
@@ -111,10 +111,10 @@ export default function Navbar() {
                                     <div className="relative" ref={dropdownRef}>
                                         <button
                                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                            className={`flex items-center gap-1 px-1.5 xl:px-4 py-2 text-xs xl:text-sm font-bold rounded-xl transition-colors duration-200 whitespace-nowrap text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 ${isDropdownOpen ? 'text-primary dark:text-lime-400' : ''}`}
+                                            className={`flex items-center gap-1 px-1.5 xl:px-4 py-2 text-xs xl:text-sm font-bold rounded-xl transition-colors duration-200 whitespace-nowrap text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-primary-400 ${isDropdownOpen ? 'text-primary dark:text-primary-400' : ''}`}
                                         >
                                             <span>المزيد</span>
-                                            <svg className={`w-3 h-3 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-primary dark:text-lime-400' : 'text-gray-400'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <svg className={`w-3 h-3 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-primary dark:text-primary-400' : 'text-gray-400'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
                                             </svg>
                                         </button>
@@ -127,7 +127,7 @@ export default function Navbar() {
                                                         key={idx}
                                                         href={item.path}
                                                         onClick={() => setIsDropdownOpen(false)}
-                                                        className="px-2.5 py-2 text-xs font-bold text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 hover:bg-lime-50/50 dark:hover:bg-lime-950/20 rounded-xl transition-all duration-150 flex items-center gap-2 whitespace-nowrap"
+                                                        className="px-2.5 py-2 text-xs font-bold text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-primary-400 hover:bg-lime-50/50 dark:hover:bg-lime-950/20 rounded-xl transition-all duration-150 flex items-center gap-2 whitespace-nowrap"
                                                     >
                                                         <span className="w-1.5 h-1.5 rounded-full bg-lime-500/60 flex-shrink-0"></span>
                                                         <span>{item.name}</span>
@@ -143,7 +143,7 @@ export default function Navbar() {
                             <div className="flex items-center gap-2 sm:gap-3">
                                 <Link
                                     href="/search/-"
-                                    className="flex w-9 h-9 sm:w-10 sm:h-10 items-center justify-center rounded-xl bg-lime-50/90 dark:bg-lime-950/30 border border-emerald-500/20 dark:border-emerald-500/30 text-primary dark:text-lime-400 shadow-xs hover:shadow-sm transition-all duration-200 active:scale-95"
+                                    className="flex w-9 h-9 sm:w-10 sm:h-10 items-center justify-center rounded-xl bg-lime-50/90 dark:bg-lime-950/30 border border-primary/20 dark:border-primary/30 text-primary dark:text-primary-400 shadow-xs hover:shadow-sm transition-all duration-200 active:scale-95"
                                     aria-label="البحث"
                                 >
                                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +154,7 @@ export default function Navbar() {
                                 {/* زر القائمة للهاتف - بنفس هوية وألوان الموقع */}
                                 <button
                                     onClick={toggleMenu}
-                                    className="lg:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-lime-50/90 dark:bg-lime-950/30 border border-emerald-500/20 dark:border-emerald-500/30 text-primary dark:text-lime-400 shadow-xs hover:shadow-sm transition-all duration-200 active:scale-95"
+                                    className="lg:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-lime-50/90 dark:bg-lime-950/30 border border-primary/20 dark:border-primary/30 text-primary dark:text-primary-400 shadow-xs hover:shadow-sm transition-all duration-200 active:scale-95"
                                     aria-label="القائمة الرئيسية"
                                     aria-expanded={isOpen}
                                 >
@@ -217,10 +217,10 @@ export default function Navbar() {
                                                 <Link
                                                     onClick={() => setIsOpen(false)}
                                                     href={item.path}
-                                                    className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-bold rounded-xl transition-all duration-200 ${isActive ? 'text-primary dark:text-lime-400 bg-lime-50/60 dark:bg-lime-950/30 font-black' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 hover:bg-gray-50 dark:hover:bg-zinc-900/60'}`}
+                                                    className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-bold rounded-xl transition-all duration-200 ${isActive ? 'text-primary dark:text-primary-400 bg-lime-50/60 dark:bg-lime-950/30 font-black' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-zinc-900/60'}`}
                                                 >
                                                     <span>{item.name}</span>
-                                                    <svg className={`w-3.5 h-3.5 transition-transform ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-400 dark:text-zinc-600'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                                    <svg className={`w-3.5 h-3.5 transition-transform ${isActive ? 'text-primary dark:text-primary-400' : 'text-gray-400 dark:text-zinc-600'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                                                     </svg>
                                                 </Link>
@@ -241,13 +241,13 @@ export default function Navbar() {
                                                 <Link
                                                     onClick={() => setIsOpen(false)}
                                                     href={item.path}
-                                                    className={`flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-200 border ${isActive ? 'text-primary dark:text-lime-400 bg-lime-50/60 dark:bg-lime-950/30 border-emerald-500/20 dark:border-emerald-500/30 font-black' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 bg-gray-50/50 dark:bg-zinc-900/40 border-gray-100/80 dark:border-zinc-800/80 hover:bg-lime-50/40 dark:hover:bg-lime-950/20'}`}
+                                                    className={`flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-200 border ${isActive ? 'text-primary dark:text-primary-400 bg-lime-50/60 dark:bg-lime-950/30 border-primary/20 dark:border-primary/30 font-black' : 'text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-primary-400 bg-gray-50/50 dark:bg-zinc-900/40 border-gray-100/80 dark:border-zinc-800/80 hover:bg-lime-50/40 dark:hover:bg-lime-950/20'}`}
                                                 >
                                                     <div className="flex items-center gap-2.5">
                                                         <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isActive ? 'bg-primary dark:bg-lime-400' : 'bg-lime-500/60'}`}></span>
                                                         <span>{item.name}</span>
                                                     </div>
-                                                    <svg className={`w-3.5 h-3.5 transition-transform ${isActive ? 'text-primary dark:text-lime-400' : 'text-gray-400 dark:text-zinc-600'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                                    <svg className={`w-3.5 h-3.5 transition-transform ${isActive ? 'text-primary dark:text-primary-400' : 'text-gray-400 dark:text-zinc-600'}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                                                     </svg>
                                                 </Link>

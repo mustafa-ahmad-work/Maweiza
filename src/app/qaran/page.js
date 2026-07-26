@@ -71,23 +71,23 @@ export default async function qaran() {
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     alt="استماع تلاوة القرآن الكريم - موقع موعظة"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 to-transparent opacity-80"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 to-transparent opacity-80"></div>
                                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                                     <h3 className="text-2xl font-bold mb-2">وضع الاستماع</h3>
-                                    <p className="text-emerald-100">استمع لتلاوات القرآن الكريم بمجموعة متنوعة من الشيوخ</p>
+                                    <p className="text-primary-100">استمع لتلاوات القرآن الكريم بمجموعة متنوعة من الشيوخ</p>
                                 </div>
                             </div>
 
                             <div className="p-6">
                                 <Link
                                     href={`/qaran/listen`}
-                                    className="flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r from-emerald-600 to-lime-500 hover:from-emerald-700 hover:to-lime-600 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-lg hover:shadow-xl">
+                                    className="flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r from-primary-600 to-primary-alt hover:from-primary-700 hover:to-lime-600 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-lg hover:shadow-xl">
                                     <span>ابدأ الاستماع الآن</span>
                                     <FontAwesomeIcon className="mr-3 text-xl" icon={faHeadphonesSimple} />
                                 </Link>
                             </div>
 
-                            <div className="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
                                 جديد
                             </div>
                         </div>
@@ -112,7 +112,7 @@ export default async function qaran() {
                             <div className="p-6">
                                 <Link
                                     href={`/qaran/memorizing`}
-                                    className="flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r from-lime-600 to-emerald-500 hover:from-lime-700 hover:to-emerald-600 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-lg hover:shadow-xl">
+                                    className="flex items-center justify-center w-full py-4 px-6 bg-gradient-to-r from-lime-600 to-primary hover:from-lime-700 hover:to-primary-600 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-lg hover:shadow-xl">
                                     <span>ابدأ الحفظ الآن</span>
                                     <FontAwesomeIcon className="mr-3 text-xl" icon={faMicrophoneLines} />
                                 </Link>

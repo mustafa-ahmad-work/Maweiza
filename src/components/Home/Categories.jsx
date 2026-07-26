@@ -150,7 +150,7 @@ export default function Categories() {
             <div className="container mx-auto px-6 relative z-10">
                 {/* عنوان القسم */}
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-1.5 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 rounded-full text-xs font-black tracking-wide border border-lime-100/30 dark:border-lime-900/10 mb-4">
+                    <span className="inline-block px-4 py-1.5 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-primary-400 rounded-full text-xs font-black tracking-wide border border-lime-100/30 dark:border-lime-900/10 mb-4">
                         اكتشف محتوانا
                     </span>
                     <h2 className="text-3xl md:text-4xl font-black text-gray-950 dark:text-white mb-3">

@@ -5,6 +5,8 @@ const withPWA = require('next-pwa')({
     register: true,
     skipWaiting: true,
     runtimeCaching,
+    buildExcludes: [/app-build-manifest\.json$/],
+    fallbacks: false,
     maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
 });
 

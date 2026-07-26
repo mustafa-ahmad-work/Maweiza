@@ -34,14 +34,14 @@ export default function SplashScreen() {
                 <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
-                    className="absolute w-36 h-36 border border-dashed border-primary/30 dark:border-lime-400/30 rounded-full pointer-events-none"
+                    className="absolute w-36 h-36 border border-dashed border-primary/30 dark:border-primary-400/30 rounded-full pointer-events-none"
                 />
 
                 {/* حلقة داخلية معاكسة خفيفة */}
                 <motion.div
                     animate={{ rotate: -360 }}
                     transition={{ repeat: Infinity, duration: 28, ease: "linear" }}
-                    className="absolute w-28 h-28 border border-primary/10 dark:border-lime-400/10 rounded-full pointer-events-none"
+                    className="absolute w-28 h-28 border border-primary/10 dark:border-primary-400/10 rounded-full pointer-events-none"
                 />
 
                 {/* الشعار العائم */}
@@ -71,7 +71,7 @@ export default function SplashScreen() {
                 className="text-center space-y-1.5 mb-10"
             >
                 <h1 className="text-3xl md:text-4xl font-black text-gray-950 dark:text-white tracking-tight">
-                    موقع <span className="text-primary dark:text-lime-400">موعظة</span>
+                    موقع <span className="text-primary dark:text-primary-400">موعظة</span>
                 </h1>
                 <p className="text-xs md:text-sm text-gray-500 dark:text-zinc-400 font-bold tracking-wide">
                     المنصة الإسلامية الشاملة للقرآن والسنة
@@ -92,7 +92,7 @@ export default function SplashScreen() {
                         transition={{ ease: "easeOut" }}
                     />
                 </div>
-                <div className="text-[11px] font-black text-primary dark:text-lime-400 tracking-widest">
+                <div className="text-[11px] font-black text-primary dark:text-primary-400 tracking-widest">
                     {progress}%
                 </div>
             </motion.div>

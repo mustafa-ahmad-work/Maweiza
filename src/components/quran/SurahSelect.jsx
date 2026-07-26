@@ -29,10 +29,10 @@ export default function SurahSelect({ selectedSurahId, onSelectSurah, className 
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-emerald-500 rounded-2xl px-4 py-2.5 shadow-xs transition-all flex items-center justify-between gap-3 text-right"
+                className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-primary rounded-2xl px-4 py-2.5 shadow-xs transition-all flex items-center justify-between gap-3 text-right"
             >
                 <div className="flex items-center gap-3 truncate">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-xl bg-primary text-white font-black text-xs flex items-center justify-center shrink-0">
                         {selectedSurah.number}
                     </div>
                     <div className="truncate">
@@ -63,7 +63,7 @@ export default function SurahSelect({ selectedSurahId, onSelectSurah, className 
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="ابحث برقم السورة أو اسمها..."
-                                className="w-full bg-slate-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-xl py-2 pr-9 pl-3 text-xs font-semibold focus:outline-none focus:border-emerald-500"
+                                className="w-full bg-slate-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-xl py-2 pr-9 pl-3 text-xs font-semibold focus:outline-none focus:border-primary"
                             />
                             <FontAwesomeIcon icon={faSearch} className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400" />
                         </div>
@@ -84,7 +84,7 @@ export default function SurahSelect({ selectedSurahId, onSelectSurah, className 
                                             }}
                                             className={`w-full p-2.5 rounded-xl text-right transition-all flex items-center justify-between text-xs font-bold ${
                                                 isSelected
-                                                    ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-lime-400 border border-emerald-200 dark:border-emerald-800/40"
+                                                    ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary border border-primary/20 dark:border-primary/30"
                                                     : "text-gray-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800/60"
                                             }`}
                                         >
@@ -99,7 +99,7 @@ export default function SurahSelect({ selectedSurahId, onSelectSurah, className 
                                                 <span className="text-[10px] text-gray-400 font-normal">
                                                     {surah.numberOfAyahs} آية
                                                 </span>
-                                                {isSelected && <FontAwesomeIcon icon={faCheck} className="text-emerald-500" />}
+                                                {isSelected && <FontAwesomeIcon icon={faCheck} className="text-primary" />}
                                             </div>
                                         </button>
                                     );

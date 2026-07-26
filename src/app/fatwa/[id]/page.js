@@ -172,7 +172,7 @@ export default async function page({ params }) {
                             key={key2}
                             href={attachment.url}
                             download
-                            className="flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg hover:opacity-90 transition-opacity"
+                            className="flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-green-500 to-primary rounded-lg hover:opacity-90 transition-opacity"
                         >
                             <FontAwesomeIcon icon={getFileIcon(attachment.extension_type)} className="ml-2" />
                             <span>{attachment.extension_type.toUpperCase()}</span>
@@ -186,7 +186,7 @@ export default async function page({ params }) {
                 <a
                     href={item.attachments?.[0]?.url || '#'}
                     download
-                    className="w-full flex items-center justify-center py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg hover:opacity-90 transition-opacity"
+                    className="w-full flex items-center justify-center py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-green-600 to-primary-600 rounded-lg hover:opacity-90 transition-opacity"
                 >
                     <FontAwesomeIcon icon={faDownload} className="ml-2" />
                     <span>تحميل الفتوى</span>

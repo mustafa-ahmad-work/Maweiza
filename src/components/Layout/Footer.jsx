@@ -56,7 +56,7 @@ function Footer() {
                                 <li key={index}>
                                     <Link
                                         href={item.path}
-                                        className="text-sm font-semibold text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-lime-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
+                                        className="text-sm font-semibold text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-primary-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
                                     >
                                         <span>{item.name}</span>
                                     </Link>
@@ -75,7 +75,7 @@ function Footer() {
                                 <li key={index}>
                                     <Link
                                         href={item.path}
-                                        className="text-sm font-semibold text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-lime-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
+                                        className="text-sm font-semibold text-gray-500 dark:text-zinc-400 hover:text-primary dark:hover:text-primary-400 transition-all duration-200 transform hover:-translate-x-1.5 inline-block"
                                     >
                                         <span>{item.name}</span>
                                     </Link>

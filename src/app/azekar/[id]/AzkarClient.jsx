@@ -32,7 +32,7 @@ export default function AzkarClient({ id }) {
 
                                 <div className="relative z-10">
                                     <div className="flex items-center justify-between mb-3">
-                                        <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+                                        <div className="flex items-center gap-2 text-primary-600 dark:text-primary-400">
                                             <FontAwesomeIcon icon={faPray} />
                                             <span className="font-semibold text-sm">
                                                 الذكر رقم {index + 1}
@@ -40,7 +40,7 @@ export default function AzkarClient({ id }) {
                                         </div>
                                         <FontAwesomeIcon
                                             icon={faLeaf}
-                                            className="text-lime-500 dark:text-lime-400"
+                                            className="text-lime-500 dark:text-primary-400"
                                         />
                                     </div>
 
@@ -49,7 +49,7 @@ export default function AzkarClient({ id }) {
                                     </p>
 
                                     {/* خط زخرفي سفلي */}
-                                    <div className="mt-4 h-1 w-1/3 bg-gradient-to-r from-emerald-500 to-lime-400 rounded-full"></div>
+                                    <div className="mt-4 h-1 w-1/3 bg-gradient-to-r from-primary to-primary-400 rounded-full"></div>
                                 </div>
                             </motion.div>
                         ))}

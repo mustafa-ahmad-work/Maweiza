@@ -45,10 +45,10 @@ export default function ReciterSelect({ selectedReciterId, onSelectReciter, clas
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-emerald-500 rounded-2xl px-4 py-2.5 shadow-xs transition-all flex items-center justify-between gap-3 text-right"
+                className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-primary rounded-2xl px-4 py-2.5 shadow-xs transition-all flex items-center justify-between gap-3 text-right"
             >
                 <div className="flex items-center gap-3 truncate">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-lime-400 flex items-center justify-center text-xs shrink-0">
+                    <div className="w-8 h-8 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary flex items-center justify-center text-xs shrink-0">
                         <FontAwesomeIcon icon={faHeadphones} />
                     </div>
                     <div className="truncate">
@@ -67,7 +67,7 @@ export default function ReciterSelect({ selectedReciterId, onSelectReciter, clas
                 />
             </button>
 
-            {/* القائمة المنسدلة للبحث واختيار القارئ */}
+            {/* القائمة المنسدلة للبحث وااختيار القارئ */}
             {isOpen && (
                 <>
                     <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
@@ -79,7 +79,7 @@ export default function ReciterSelect({ selectedReciterId, onSelectReciter, clas
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="ابحث باسم القارئ..."
-                                className="w-full bg-slate-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-xl py-2 pr-9 pl-3 text-xs font-semibold focus:outline-none focus:border-emerald-500"
+                                className="w-full bg-slate-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-xl py-2 pr-9 pl-3 text-xs font-semibold focus:outline-none focus:border-primary"
                             />
                             <FontAwesomeIcon icon={faSearch} className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400" />
                         </div>
@@ -100,12 +100,12 @@ export default function ReciterSelect({ selectedReciterId, onSelectReciter, clas
                                             }}
                                             className={`w-full p-2.5 rounded-xl text-right transition-all flex items-center justify-between text-xs font-bold ${
                                                 isSelected
-                                                    ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-lime-400 border border-emerald-200 dark:border-emerald-800/40"
+                                                    ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary border border-primary/20 dark:border-primary/30"
                                                     : "text-gray-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800/60"
                                             }`}
                                         >
                                             <span>الشيخ {reciter.name}</span>
-                                            {isSelected && <FontAwesomeIcon icon={faCheck} className="text-emerald-500" />}
+                                            {isSelected && <FontAwesomeIcon icon={faCheck} className="text-primary" />}
                                         </button>
                                     );
                                 })

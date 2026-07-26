@@ -91,7 +91,7 @@ export default async function AudioCategoryPage({ params }) {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-500 to-emerald-700">
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-500 to-primary-700">
                         <FontAwesomeIcon icon={faMicrophone} className="text-5xl text-white/80" />
                     </div>
                 )}
@@ -175,7 +175,7 @@ export default async function AudioCategoryPage({ params }) {
                             key={key2}
                             href={attachment.url}
                             download
-                            className="flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg hover:opacity-90 transition-opacity"
+                            className="flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-green-500 to-primary rounded-lg hover:opacity-90 transition-opacity"
                         >
                             <FontAwesomeIcon icon={getFileIcon(attachment.extension_type)} className="ml-2" />
                             <span>{attachment.extension_type.toUpperCase()}</span>
@@ -188,7 +188,7 @@ export default async function AudioCategoryPage({ params }) {
             <div className="px-6 pb-4 flex gap-2">
                 <Link
                     href={`/audios/${params.id}/${item.id}`}
-                    className="flex-1 flex items-center justify-center py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg hover:opacity-90 transition-opacity"
+                    className="flex-1 flex items-center justify-center py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-green-600 to-primary-600 rounded-lg hover:opacity-90 transition-opacity"
                 >
                     <FontAwesomeIcon icon={faPlayCircle} className="ml-2" />
                     <span>فتح الحزمة</span>
@@ -196,7 +196,7 @@ export default async function AudioCategoryPage({ params }) {
                 <a
                     href={item.attachments?.[0]?.url || '#'}
                     download
-                    className="flex items-center justify-center px-4 py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-emerald-600 to-lime-500 rounded-lg hover:opacity-90 transition-opacity"
+                    className="flex items-center justify-center px-4 py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-primary-600 to-primary-alt rounded-lg hover:opacity-90 transition-opacity"
                 >
                     <FontAwesomeIcon icon={faDownload} />
                 </a>

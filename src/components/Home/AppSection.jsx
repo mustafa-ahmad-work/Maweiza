@@ -31,14 +31,14 @@ export default function AppSection() {
                     {/* الجانب الأيمن: النص المشوق والدعوة للتحميل */}
                     <div className="lg:col-span-6 space-y-8">
                         <div>
-                            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 text-primary dark:text-lime-400 text-xs font-black mb-4 shadow-xs">
+                            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 text-primary dark:text-primary-400 text-xs font-black mb-4 shadow-xs">
                                 <FontAwesomeIcon icon={faRocket} className="text-xs" />
                                 <span>الحل الذكي والنهائي لتثبيت حفظ القرآن الكريم</span>
                             </span>
 
                             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-950 dark:text-white leading-snug md:leading-snug mb-4">
                                 رحلتك نحو الحفظ المتقن تبدأ هنا!
-                                <span className="text-primary dark:text-lime-400 block mt-1">احفظ القرآن بلا تفلت أو نسيان</span>
+                                <span className="text-primary dark:text-primary-400 block mt-1">احفظ القرآن بلا تفلت أو نسيان</span>
                             </h2>
 
                             <p className="text-sm text-gray-600 dark:text-zinc-300 leading-relaxed font-semibold max-w-xl">
@@ -50,7 +50,7 @@ export default function AppSection() {
                         <ul className="space-y-3.5 pt-1">
                             {highlights.map((text, idx) => (
                                 <li key={idx} className="flex items-start gap-3 text-xs md:text-sm text-gray-800 dark:text-zinc-200 font-bold leading-relaxed">
-                                    <FontAwesomeIcon icon={faCheckCircle} className="text-primary dark:text-lime-400 text-base shrink-0 mt-0.5" />
+                                    <FontAwesomeIcon icon={faCheckCircle} className="text-primary dark:text-primary-400 text-base shrink-0 mt-0.5" />
                                     <span>{text}</span>
                                 </li>
                             ))}
@@ -70,7 +70,7 @@ export default function AppSection() {
                                 href="/application#download"
                                 className="px-6 py-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-gray-900 dark:text-zinc-100 font-black text-xs md:text-sm border border-gray-200 dark:border-zinc-800 transition-all flex items-center gap-2"
                             >
-                                <FontAwesomeIcon icon={faDownload} className="text-primary dark:text-lime-400" />
+                                <FontAwesomeIcon icon={faDownload} className="text-primary dark:text-primary-400" />
                                 <span>تحميل التطبيق مجاناً</span>
                             </Link>
                         </div>
@@ -100,7 +100,7 @@ export default function AppSection() {
                 {/* الجزء الثاني: خريطة الطريق التشويقية للمفاتيح الخمسة */}
                 <div className="border-t border-gray-100 dark:border-zinc-900 pt-16">
                     <div className="text-center mb-14">
-                        <span className="inline-block px-4 py-1 bg-primary/10 dark:bg-lime-950/40 text-primary dark:text-lime-400 rounded-full text-xs font-black border border-primary/20 dark:border-lime-900/30 mb-3">
+                        <span className="inline-block px-4 py-1 bg-primary/10 dark:bg-lime-950/40 text-primary dark:text-primary-400 rounded-full text-xs font-black border border-primary/20 dark:border-lime-900/30 mb-3">
                             خطة الإتقان الأبدي
                         </span>
                         <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white">كيف ينقل التطبيق حفظك إلى الإتقان التام؟</h3>
@@ -116,7 +116,7 @@ export default function AppSection() {
                                 )}
 
                                 <div className="space-y-3">
-                                    <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary-alt dark:bg-primary/20 dark:text-lime-400 border border-primary/20 dark:border-lime-400/30 font-black text-sm flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-lime-400 dark:group-hover:text-zinc-950 group-hover:border-transparent shadow-xs">
+                                    <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary-alt dark:bg-primary/20 dark:text-primary-400 border border-primary/20 dark:border-primary-400/30 font-black text-sm flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-lime-400 dark:group-hover:text-zinc-950 group-hover:border-transparent shadow-xs">
                                         {k.num}
                                     </span>
                                     <h4 className="text-xs md:text-sm font-black text-gray-900 dark:text-white leading-[1.5]">

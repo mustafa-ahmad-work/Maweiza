@@ -80,7 +80,7 @@ export default function HomeClient() {
         // الفحص الذكي عما إذا كان المستخدم يفتح الموقع بالفعل من داخل تطبيق PWA مثبت
         const checkInstalled = typeof window !== "undefined" && (
             window.matchMedia('(display-mode: standalone)').matches ||
-            window.navigator.standalone ||
+            /** @type {any} */ (window.navigator).standalone ||
             document.referrer.includes('android-app://')
         );
         setIsInstalled(Boolean(checkInstalled));
@@ -148,17 +148,17 @@ export default function HomeClient() {
     ];
 
     const statsGrid = [
-        { label: "سورة قرآنية", count: statCount.quran, icon: faQuran, path: "/qaran", color: "from-emerald-500 to-teal-600" },
+        { label: "سورة قرآنية", count: statCount.quran, icon: faQuran, path: "/qaran", color: "from-primary to-teal-600" },
         { label: "محاضرة صوتية", count: statCount.audio, icon: faVolumeUp, path: "/audios", color: "from-blue-500 to-cyan-600" },
         { label: "حديث شريف", count: statCount.hadith, icon: faBookOpen, path: "/adiths", color: "from-amber-500 to-orange-600" },
         { label: "كتاب إسلامي", count: statCount.books, icon: faBook, path: "/books", color: "from-purple-500 to-indigo-600" },
-        { label: "قسم أذكار", count: statCount.azekar, icon: faHands, path: "/azekar", color: "from-rose-500 to-pink-600" },
-        { label: "مقال شرعي", count: statCount.articles, icon: faNewspaper, path: "/articles", color: "from-lime-500 to-emerald-600" },
+        { label: "قسم أذكار", count: statCount.azkar, icon: faHands, path: "/azekar", color: "from-rose-500 to-pink-600" },
+        { label: "مقال شرعي", count: statCount.articles, icon: faNewspaper, path: "/articles", color: "from-primary-alt to-primary-600" },
         { label: "مقطع مرئي", count: statCount.videos, icon: faVideo, path: "/videos", color: "from-red-500 to-rose-600" },
         { label: "فتوى شرعية", count: statCount.fatwa, icon: faComments, path: "/fatwa", color: "from-sky-500 to-blue-600" },
-        { label: "خطبة منبرية", count: statCount.khotab, icon: faMicrophone, path: "/khotab", color: "from-teal-500 to-emerald-700" },
+        { label: "خطبة منبرية", count: statCount.khotab, icon: faMicrophone, path: "/khotab", color: "from-teal-500 to-primary-700" },
         { label: "قصة وعبرة", count: statCount.stories, icon: faStar, path: "/stories", color: "from-violet-500 to-purple-700" },
-        { label: "اسم الله الحسنى", count: statCount.names, icon: faHeart, path: "/names", color: "from-emerald-600 to-green-700" },
+        { label: "اسم الله الحسنى", count: statCount.names, icon: faHeart, path: "/names", color: "from-primary-600 to-green-700" },
     ];
 
     const stats = [
@@ -213,7 +213,7 @@ export default function HomeClient() {
                         </div>
 
                         <h1 className="text-4xl md:text-5xl xl:text-6xl font-black text-gray-900 dark:text-white leading-tight">
-                            موقع <span className="text-primary dark:text-lime-400">موعظة</span>
+                            موقع <span className="text-primary dark:text-primary-400">موعظة</span>
                         </h1>
 
                         <p className="text-base text-gray-500 dark:text-zinc-400 leading-relaxed max-w-xl">
@@ -230,11 +230,11 @@ export default function HomeClient() {
                                     transition={{ delay: i * 0.15 + 0.3, duration: 0.6 }}
                                     className="group flex items-start gap-3.5 p-4 rounded-2xl bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 shadow-sm hover:shadow hover:border-primary/20 transition-all duration-300 transform hover:-translate-y-0.5"
                                 >
-                                    <div className="flex items-center justify-center w-11 h-11 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-lime-400 rounded-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                                    <div className="flex items-center justify-center w-11 h-11 bg-lime-50 dark:bg-lime-950/20 text-primary dark:text-primary-400 rounded-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
                                         <FontAwesomeIcon icon={f.icon} className="text-base" />
                                     </div>
                                     <div className="text-right">
-                                        <h3 className="text-sm font-black text-gray-900 dark:text-white mb-1 leading-tight group-hover:text-primary dark:group-hover:text-lime-400 transition-colors duration-200">{f.title}</h3>
+                                        <h3 className="text-sm font-black text-gray-900 dark:text-white mb-1 leading-tight group-hover:text-primary dark:group-hover:text-primary-400 transition-colors duration-200">{f.title}</h3>
                                         <p className="text-[11px] text-gray-500 dark:text-zinc-400 leading-relaxed font-bold">{f.description}</p>
                                     </div>
                                 </motion.div>
@@ -247,12 +247,12 @@ export default function HomeClient() {
                                 whileHover={{ scale: isInstalled ? 1 : 1.02 }}
                                 whileTap={{ scale: isInstalled ? 1 : 0.98 }}
                                 className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-black transition-all text-sm shadow-none ${isInstalled
-                                    ? "bg-lime-50 dark:bg-lime-950/30 text-primary dark:text-lime-400 border border-emerald-500/20 dark:border-emerald-500/30 cursor-default"
+                                    ? "bg-lime-50 dark:bg-lime-950/30 text-primary dark:text-primary-400 border border-primary/20 dark:border-primary/30 cursor-default"
                                     : "bg-primary hover:bg-primary-alt text-white border border-primary-alt/30 cursor-pointer"
                                     }`}
                                 onClick={handleInstallClick}
                             >
-                                <FontAwesomeIcon icon={isInstalled ? faCheckCircle : (isDesktop ? faLaptopCode : faDownload)} className={isInstalled ? "text-primary dark:text-lime-400 text-base" : "text-white text-base"} />
+                                <FontAwesomeIcon icon={isInstalled ? faCheckCircle : (isDesktop ? faLaptopCode : faDownload)} className={isInstalled ? "text-primary dark:text-primary-400 text-base" : "text-white text-base"} />
                                 <span>
                                     {isInstalled
                                         ? "التطبيق مثبت لديك ومفتوح الآن"
@@ -266,7 +266,7 @@ export default function HomeClient() {
                             <motion.a
                                 href="#categories"
                                 whileHover={{ y: -2 }}
-                                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold border border-lime-100 dark:border-lime-900/30 text-primary dark:text-lime-400 bg-primary/5 dark:bg-lime-950/10 hover:bg-lime-50 dark:hover:bg-lime-950/20 text-sm shadow-none"
+                                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold border border-lime-100 dark:border-lime-900/30 text-primary dark:text-primary-400 bg-primary/5 dark:bg-lime-950/10 hover:bg-lime-50 dark:hover:bg-lime-950/20 text-sm shadow-none"
                             >
                                 استكشف المحتوى
                                 <FontAwesomeIcon icon={faAngleDoubleDown} />
@@ -317,11 +317,11 @@ export default function HomeClient() {
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute bottom-6 text-primary dark:text-lime-400"
+                    className="absolute bottom-6 text-primary dark:text-primary-400"
                 >
                     <a
                         href="#categories"
-                        className="flex flex-col items-center text-xs font-bold hover:text-primary-alt dark:hover:text-lime-300 transition-colors tracking-wide"
+                        className="flex flex-col items-center text-xs font-bold hover:text-primary-alt dark:hover:text-primary-300 transition-colors tracking-wide"
                     >
                         <span className="mb-1.5">استكشف المزيد</span>
                         <FontAwesomeIcon icon={faAngleDoubleDown} />
@@ -340,7 +340,7 @@ export default function HomeClient() {
 
                 <div className="container mx-auto px-4 sm:px-6 relative z-10">
                     <div className="text-center mb-12 sm:mb-16">
-                        <span className="inline-block px-3.5 py-1.5 bg-primary/10 dark:bg-lime-950/40 text-primary dark:text-lime-400 rounded-full text-xs font-black tracking-wide border border-primary/20 dark:border-lime-900/30 mb-3 shadow-xs">
+                        <span className="inline-block px-3.5 py-1.5 bg-primary/10 dark:bg-lime-950/40 text-primary dark:text-primary-400 rounded-full text-xs font-black tracking-wide border border-primary/20 dark:border-lime-900/30 mb-3 shadow-xs">
                             أرقام وإنجازات
                         </span>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-950 dark:text-white mb-3 tracking-tight">موقع موعظة بالأرقام</h2>
@@ -370,11 +370,11 @@ export default function HomeClient() {
                                     <div className="flex flex-col items-center w-full">
                                         {/* أيقونة ثابتة التباين متناسبة للموبايل والديسكتوب */}
                                         <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/25 dark:group-hover:bg-primary/35 flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 group-hover:scale-110 shadow-xs">
-                                            <FontAwesomeIcon icon={stat.icon} className="text-lg sm:text-xl text-primary dark:text-lime-400" />
+                                            <FontAwesomeIcon icon={stat.icon} className="text-lg sm:text-xl text-primary dark:text-primary-400" />
                                         </div>
 
                                         {/* الرقم بتصميم واضح وتدرج مريح */}
-                                        <div className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-gray-900 via-primary to-emerald-600 dark:from-white dark:via-lime-300 dark:to-emerald-400 bg-clip-text text-transparent mb-1 tracking-tight group-hover:scale-105 transition-transform duration-300">
+                                        <div className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-gray-900 via-primary to-primary-600 dark:from-white dark:via-lime-300 dark:to-primary-400 bg-clip-text text-transparent mb-1 tracking-tight group-hover:scale-105 transition-transform duration-300">
                                             {stat.value}
                                         </div>
 
@@ -419,7 +419,7 @@ export default function HomeClient() {
 
                             {/* العنوان والمعلومات */}
                             <div className="flex items-center gap-3.5 mb-5">
-                                <div className="w-12 h-12 rounded-2xl bg-lime-50 dark:bg-lime-950/40 text-primary dark:text-lime-400 flex items-center justify-center text-xl shrink-0 border border-emerald-500/20">
+                                <div className="w-12 h-12 rounded-2xl bg-lime-50 dark:bg-lime-950/40 text-primary dark:text-primary-400 flex items-center justify-center text-xl shrink-0 border border-primary/20">
                                     <FontAwesomeIcon icon={isDesktop ? faLaptopCode : faMobileAlt} />
                                 </div>
                                 <div>
@@ -433,33 +433,33 @@ export default function HomeClient() {
                             {/* خطوات التثبيت حسب جهاز المستخدم */}
                             {isIOS ? (
                                 <div className="space-y-4 my-5 bg-lime-50/50 dark:bg-lime-950/20 p-4 rounded-2xl border border-lime-100 dark:border-lime-900/30">
-                                    <p className="text-xs font-black text-primary dark:text-lime-400">خطوات التثبيت على آيفون / آيباد (iOS):</p>
+                                    <p className="text-xs font-black text-primary dark:text-primary-400">خطوات التثبيت على آيفون / آيباد (iOS):</p>
                                     <ol className="space-y-3 text-xs font-bold text-gray-700 dark:text-zinc-300">
                                         <li className="flex items-center gap-2.5">
                                             <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">١</span>
-                                            <span>اضغط على زر <strong className="text-primary dark:text-lime-400">المشاركة</strong> (<FontAwesomeIcon icon={faShareAlt} className="text-primary dark:text-lime-400 mx-1" />) بأسفل متصفح Safari.</span>
+                                            <span>اضغط على زر <strong className="text-primary dark:text-primary-400">المشاركة</strong> (<FontAwesomeIcon icon={faShareAlt} className="text-primary dark:text-primary-400 mx-1" />) بأسفل متصفح Safari.</span>
                                         </li>
                                         <li className="flex items-center gap-2.5">
                                             <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٢</span>
-                                            <span>اختر <strong className="text-primary dark:text-lime-400">&quot;الإضافة إلى الشاشة الرئيسية&quot;</strong>.</span>
+                                            <span>اختر <strong className="text-primary dark:text-primary-400">&quot;الإضافة إلى الشاشة الرئيسية&quot;</strong>.</span>
                                         </li>
                                         <li className="flex items-center gap-2.5">
                                             <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٣</span>
-                                            <span>اضغط <strong className="text-primary dark:text-lime-400">&quot;إضافة&quot;</strong> بالزاوية العلوية.</span>
+                                            <span>اضغط <strong className="text-primary dark:text-primary-400">&quot;إضافة&quot;</strong> بالزاوية العلوية.</span>
                                         </li>
                                     </ol>
                                 </div>
                             ) : (
                                 <div className="space-y-4 my-5 bg-lime-50/50 dark:bg-lime-950/20 p-4 rounded-2xl border border-lime-100 dark:border-lime-900/30">
-                                    <p className="text-xs font-black text-primary dark:text-lime-400">خطوات التثبيت (أندرويد / الكمبيوتر):</p>
+                                    <p className="text-xs font-black text-primary dark:text-primary-400">خطوات التثبيت (أندرويد / الكمبيوتر):</p>
                                     <ol className="space-y-3 text-xs font-bold text-gray-700 dark:text-zinc-300">
                                         <li className="flex items-center gap-2.5">
                                             <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">١</span>
-                                            <span>افتح قائمة المتصفح (<FontAwesomeIcon icon={faEllipsisV} className="text-primary dark:text-lime-400 mx-1" /> النقاط الثلاث).</span>
+                                            <span>افتح قائمة المتصفح (<FontAwesomeIcon icon={faEllipsisV} className="text-primary dark:text-primary-400 mx-1" /> النقاط الثلاث).</span>
                                         </li>
                                         <li className="flex items-center gap-2.5">
                                             <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٢</span>
-                                            <span>اختر <strong className="text-primary dark:text-lime-400">&quot;تثبيت التطبيق&quot;</strong> (Install App) أو إضافة للشاشة.</span>
+                                            <span>اختر <strong className="text-primary dark:text-primary-400">&quot;تثبيت التطبيق&quot;</strong> (Install App) أو إضافة للشاشة.</span>
                                         </li>
                                         <li className="flex items-center gap-2.5">
                                             <span className="w-6 h-6 rounded-full bg-primary text-white text-[11px] font-black flex items-center justify-center shrink-0">٣</span>

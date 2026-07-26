@@ -78,7 +78,7 @@ export default function SearchHadith(props) {
                 <form onSubmit={handleSubmit} className="relative w-full">
                     <div
                         className={`relative flex items-center bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md rounded-full border shadow-sm transition-all duration-300 ${isFocused
-                                ? "border-emerald-500 ring-4 ring-emerald-500/15 shadow-md"
+                                ? "border-primary ring-4 ring-primary/15 shadow-md"
                                 : "border-gray-200 dark:border-zinc-800 hover:border-gray-300 dark:hover:border-zinc-700"
                             }`}
                     >
@@ -116,7 +116,7 @@ export default function SearchHadith(props) {
                                 type="submit"
                                 disabled={!id.trim() || isPending}
                                 className={`px-5 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all flex items-center gap-2 shadow-sm ${id.trim() && !isPending
-                                        ? "bg-gradient-to-r from-emerald-600 to-lime-500 hover:from-emerald-700 hover:to-lime-600 text-white shadow-emerald-500/20 hover:scale-[1.02] active:scale-[0.98]"
+                                        ? "bg-primary hover:bg-primary-alt text-white shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]"
                                         : "bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-zinc-500 cursor-not-allowed"
                                     }`}
                                 aria-label="بحث"
@@ -143,7 +143,7 @@ export default function SearchHadith(props) {
                             type="button"
                             onClick={() => handleTagClick(tag)}
                             disabled={isPending}
-                            className="px-3 py-1 rounded-full text-xs font-semibold bg-white/70 dark:bg-zinc-900/70 border border-gray-200/80 dark:border-zinc-800 text-gray-600 dark:text-zinc-300 hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-400 hover:border-emerald-300 dark:hover:border-emerald-800 transition-all shadow-2xs"
+                            className="px-3 py-1 rounded-full text-xs font-semibold bg-white/70 dark:bg-zinc-900/70 border border-gray-200/80 dark:border-zinc-800 text-gray-600 dark:text-zinc-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary hover:border-primary/30 dark:hover:border-primary/50 transition-all shadow-2xs"
                         >
                             {tag}
                         </button>

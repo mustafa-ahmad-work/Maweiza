@@ -103,7 +103,7 @@ export default function ApplicationClient() {
             title: "ميزان الرسوخ الذكي (IQ)",
             desc: "نظام لوني متطور يرسم خريطة حرارية لقوة حفظك؛ الألوان الدافئة تنبهك للسور التي تحتاج مراجعة عاجلة، بينما تضيء السور الراسخة بالألوان الباردة والمستقرة.",
             icon: faBrain,
-            color: "text-emerald-500"
+            color: "text-primary"
         },
         {
             title: "مزامنة 5 طبعات مصحف عالمية",
@@ -172,12 +172,12 @@ export default function ApplicationClient() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 text-right">
                     {/* الجانب الأيمن: النص والعناوين والتحميل */}
                     <div className="lg:col-span-7 space-y-6">
-                        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-lime-400 text-xs font-black">
+                        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-primary-400 text-xs font-black">
                             تطبيق الهاتف المحمول الرسمي
                         </span>
 
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 dark:text-white leading-[1.45] md:leading-[1.4]">
-                            تطبيق <span className="text-primary dark:text-lime-400">مفاتيح حفظ القرآن</span>
+                            تطبيق <span className="text-primary dark:text-primary-400">مفاتيح حفظ القرآن</span>
                         </h1>
 
                         <p className="text-sm md:text-base text-gray-600 dark:text-zinc-400 leading-[1.8] md:leading-[1.85] max-w-2xl font-semibold">
@@ -221,7 +221,7 @@ export default function ApplicationClient() {
                 {/* 2. قسم المنهجية العلمية (الأركان الخمسة بالتفصيل التفاعلي) */}
                 <section id="methodology" className="py-16 border-t border-gray-100 dark:border-zinc-900">
                     <div className="max-w-3xl mx-auto text-center mb-12">
-                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-lime-400 text-xs font-black">
+                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-primary-400 text-xs font-black">
                             الدراسة التراكمية
                         </span>
                         <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mt-3 mb-4 leading-tight">
@@ -248,7 +248,7 @@ export default function ApplicationClient() {
                                             }`}
                                     >
                                         <div className="flex items-center gap-3">
-                                            <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black ${isActive ? "bg-white/20 text-white" : "bg-primary/10 dark:bg-primary/20 text-primary-alt dark:text-lime-400"
+                                            <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black ${isActive ? "bg-white/20 text-white" : "bg-primary/10 dark:bg-primary/20 text-primary-alt dark:text-primary-400"
                                                 }`}>
                                                 {k.num}
                                             </span>
@@ -278,14 +278,14 @@ export default function ApplicationClient() {
                                 >
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-3 border-b border-gray-100 dark:border-zinc-800 pb-4">
-                                            <div className="w-12 h-12 rounded-2xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-lime-400 flex items-center justify-center text-xl shrink-0">
+                                            <div className="w-12 h-12 rounded-2xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-400 flex items-center justify-center text-xl shrink-0">
                                                 <FontAwesomeIcon icon={keysDetail[activeKey].icon} />
                                             </div>
                                             <div>
                                                 <h3 className="text-lg md:text-xl font-black text-gray-900 dark:text-white">
                                                     {keysDetail[activeKey].title}
                                                 </h3>
-                                                <p className="text-xs font-bold text-primary dark:text-lime-400 mt-0.5">
+                                                <p className="text-xs font-bold text-primary dark:text-primary-400 mt-0.5">
                                                     {keysDetail[activeKey].subtitle}
                                                 </p>
                                             </div>
@@ -294,7 +294,7 @@ export default function ApplicationClient() {
                                         <ul className="space-y-3">
                                             {keysDetail[activeKey].details.map((detail, idx) => (
                                                 <li key={idx} className="flex items-start gap-3 text-xs md:text-sm text-gray-700 dark:text-zinc-300 leading-[1.8] font-semibold">
-                                                    <FontAwesomeIcon icon={faCheckCircle} className="text-primary dark:text-lime-400 shrink-0 mt-1" />
+                                                    <FontAwesomeIcon icon={faCheckCircle} className="text-primary dark:text-primary-400 shrink-0 mt-1" />
                                                     <span>{detail}</span>
                                                 </li>
                                             ))}
@@ -304,9 +304,9 @@ export default function ApplicationClient() {
                                     {/* نصائح ذهبية لكل مفتاح */}
                                     <div className="mt-8 p-4 rounded-2xl bg-lime-50/50 dark:bg-lime-950/20 border border-lime-100 dark:border-lime-900/30">
                                         <div className="flex gap-2.5 items-start">
-                                            <FontAwesomeIcon icon={faInfoCircle} className="text-primary dark:text-lime-400 mt-0.5 text-sm shrink-0" />
+                                            <FontAwesomeIcon icon={faInfoCircle} className="text-primary dark:text-primary-400 mt-0.5 text-sm shrink-0" />
                                             <div>
-                                                <h5 className="text-xs font-black text-primary dark:text-lime-400">نصيحة المفتاح:</h5>
+                                                <h5 className="text-xs font-black text-primary dark:text-primary-400">نصيحة المفتاح:</h5>
                                                 <p className="text-[11px] md:text-xs text-primary/95 dark:text-lime-200/90 mt-1 font-semibold leading-[1.75]">
                                                     {keysDetail[activeKey].tips}
                                                 </p>
@@ -322,7 +322,7 @@ export default function ApplicationClient() {
                 {/* 3. قسم الروتين اليومي المقترح في المنهجية */}
                 <section className="py-16 border-t border-gray-100 dark:border-zinc-900">
                     <div className="max-w-3xl mx-auto text-center mb-16">
-                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-lime-400 text-xs font-black">
+                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-primary-400 text-xs font-black">
                             جدولة الأوراد
                         </span>
                         <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mt-3 mb-4 leading-tight">
@@ -345,7 +345,7 @@ export default function ApplicationClient() {
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     <h4 className="text-sm md:text-base font-black text-gray-900 dark:text-white">{item.time}</h4>
-                                    <div className="w-9 h-9 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-lime-400 flex items-center justify-center">
+                                    <div className="w-9 h-9 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-400 flex items-center justify-center">
                                         <FontAwesomeIcon icon={item.icon} className="text-sm" />
                                     </div>
                                 </div>
@@ -360,7 +360,7 @@ export default function ApplicationClient() {
                 {/* 4. قسم المميزات التقنية والذكية للتطبيق */}
                 <section className="py-16 border-t border-gray-100 dark:border-zinc-900">
                     <div className="max-w-3xl mx-auto text-center mb-16">
-                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-lime-400 text-xs font-black">
+                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-primary-400 text-xs font-black">
                             ميزات ذكية
                         </span>
                         <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mt-3 mb-4 leading-tight">
@@ -379,11 +379,11 @@ export default function ApplicationClient() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.05 }}
-                                className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-2xl p-5 shadow-xs hover:border-primary/30 dark:hover:border-lime-400/30 transition-all"
+                                className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-2xl p-5 shadow-xs hover:border-primary/30 dark:hover:border-primary-400/30 transition-all"
                             >
                                 <div className="flex items-center gap-3.5 mb-3.5">
                                     <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center shrink-0">
-                                        <FontAwesomeIcon icon={feat.icon} className="text-primary dark:text-lime-400 text-lg" />
+                                        <FontAwesomeIcon icon={feat.icon} className="text-primary dark:text-primary-400 text-lg" />
                                     </div>
                                     <h4 className="text-sm md:text-base font-black text-gray-900 dark:text-white">{feat.title}</h4>
                                 </div>
@@ -398,7 +398,7 @@ export default function ApplicationClient() {
                 {/* 5. قسم التقنيات المستخدمة (Tech Stack) */}
                 <section className="py-16 border-t border-gray-100 dark:border-zinc-900">
                     <div className="max-w-3xl mx-auto text-center mb-16">
-                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-lime-400 text-xs font-black">
+                        <span className="px-3 py-1.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/15 text-primary dark:text-primary-400 text-xs font-black">
                             الهيكل البرمجي
                         </span>
                         <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mt-3 mb-4 leading-tight">
@@ -421,7 +421,7 @@ export default function ApplicationClient() {
                             >
                                 <div>
                                     <div className="flex justify-between items-center mb-3">
-                                        <h4 className="text-base font-black text-primary dark:text-lime-400">{tech.name}</h4>
+                                        <h4 className="text-base font-black text-primary dark:text-primary-400">{tech.name}</h4>
                                         <span className="w-2.5 h-2.5 rounded-full bg-primary dark:bg-lime-400"></span>
                                     </div>
                                     <h5 className="text-xs font-bold text-gray-800 dark:text-zinc-200 mb-1">{tech.role}</h5>

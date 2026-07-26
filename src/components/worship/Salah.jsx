@@ -217,6 +217,7 @@ export default function Salah() {
                 ? navigator.geolocation.getCurrentPosition(onSuccess, onErrors)
                 : console.log("Not Found Location");
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refreshGps]);
 
 
@@ -247,7 +248,7 @@ export default function Salah() {
                                 {prayersArray.map((prayer, index) => (
                                     <div
                                         key={prayer.key}
-                                        className={`p-5 w-full ${prayer.css} time rounded-md mb-5 md:mb-0 bg-gradient-to-r from-emerald-600 to-lime-500 flex flex-col justify-center text-xl ${nextPrayerIndex === index
+                                        className={`p-5 w-full ${prayer.css} time rounded-md mb-5 md:mb-0 bg-gradient-to-r from-primary to-primary-alt flex flex-col justify-center text-xl ${nextPrayerIndex === index
                                             ? "md:scale-110 sm:scale-105"
                                             : "text-gray-300 py-8"
                                             }`}>

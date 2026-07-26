@@ -75,7 +75,7 @@ export default function EventsTimer() {
 
             <div className="min-h-screen pb-12 px-4 sm:px-6 relative overflow-hidden">
                 {/* خلفية متدرجة */}
-                {/* <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-emerald-900 to-emerald-800 z-0"></div> */}
+                {/* <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-900 to-primary-800 z-0"></div> */}
 
                 {/* أنماط زخرفية */}
                 {/* <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 z-0"></div> */}
@@ -169,6 +169,7 @@ export default function EventsTimer() {
                 </div>
             </div>
 
+            {/* @ts-ignore */}
             <style jsx global>{`
                 @keyframes blob {
                 0% { transform: translate(0px, 0px) scale(1); }

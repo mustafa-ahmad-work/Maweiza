@@ -9,9 +9,9 @@ export default function Adith({ id }) {
 
     if (isLoading) {
         return (
-            <section className="py-16 px-4 bg-gradient-to-br from-white to-emerald-50 dark:from-zinc-950 dark:to-zinc-950 min-h-screen flex items-center justify-center">
+            <section className="py-16 px-4 bg-gradient-to-br from-white to-primary/10 dark:from-zinc-950 dark:to-zinc-950 min-h-screen flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-emerald-600 mx-auto"></div>
+                    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary mx-auto"></div>
                     <p className="mt-6 text-gray-600 dark:text-zinc-200 text-lg">جارٍ تحميل بيانات الحديث...</p>
                 </div>
             </section>
@@ -20,7 +20,7 @@ export default function Adith({ id }) {
 
     if (error) {
         return (
-            <section className="py-16 px-4 bg-gradient-to-br from-white to-emerald-50 dark:from-zinc-950 dark:to-zinc-950 min-h-screen flex items-center justify-center">
+            <section className="py-16 px-4 bg-gradient-to-br from-white to-primary/10 dark:from-zinc-950 dark:to-zinc-950 min-h-screen flex items-center justify-center">
                 <div className="text-center max-w-md mx-auto p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl">
                     <div className="text-red-500 text-5xl mb-4">⚠️</div>
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">حدث خطأ</h3>
@@ -36,7 +36,7 @@ export default function Adith({ id }) {
             <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-[url('/patterns/islamic.svg')] bg-repeat"></div>
 
             {/* زخرفة إضافية */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-200 rounded-full filter blur-3xl opacity-20 dark:bg-zinc-900"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full filter blur-3xl opacity-20 dark:bg-zinc-900"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-200 rounded-full filter blur-3xl opacity-20 dark:bg-teal-900"></div>
 
             <div className="container mx-auto relative max-w-4xl">
@@ -45,16 +45,11 @@ export default function Adith({ id }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl overflow-hidden mb-8 border border-emerald-100 dark:border-zinc-700/80"
+                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl overflow-hidden mb-8 border border-primary/20 dark:border-zinc-700/80"
                 >
                     <div className="p-6 md:p-8">
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                             <div className="flex items-center">
-                                {/* <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-zinc-900/30 flex items-center justify-center ml-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                                    </svg>
-                                </div> */}
                                 <div>
                                     <span className="text-gray-500 dark:text-zinc-400 text-sm">الإسناد</span>
                                     <div className="text-lg font-semibold text-gray-800 dark:text-white">{data.attribution}</div>
@@ -62,11 +57,6 @@ export default function Adith({ id }) {
                             </div>
 
                             <div className="flex items-center">
-                                {/* <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-zinc-900/30 flex items-center justify-center ml-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div> */}
                                 <div>
                                     <span className="text-gray-500 dark:text-zinc-400 text-sm">الدرجة</span>
                                     <div className="text-lg font-semibold text-gray-800 dark:text-white">{data.grade}</div>
@@ -81,21 +71,15 @@ export default function Adith({ id }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="bg-gradient-to-r from-emerald-50 to-white dark:from-zinc-900 dark:to-zinc-950 rounded-2xl shadow-xl p-6 md:p-8 mb-8 border border-emerald-100 dark:border-zinc-700/80 relative overflow-hidden"
+                    className="bg-gradient-to-r from-primary/10 to-white dark:from-zinc-900 dark:to-zinc-950 rounded-2xl shadow-xl p-6 md:p-8 mb-8 border border-primary/20 dark:border-zinc-700/80 relative overflow-hidden"
                 >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-200 rounded-full filter blur-3xl opacity-30 dark:bg-zinc-900"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full filter blur-3xl opacity-30 dark:bg-zinc-900"></div>
 
                     <div className="relative z-10">
                         <div className="flex items-center mb-4">
-                            {/* <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center ml-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                                </svg>
-                            </div> */}
-                            <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-400">نص الحديث</h3>
                         </div>
 
-                        <div className="text-xl md:text-2xl text-gray-800 dark:text-white leading-relaxed bg-white/70 dark:bg-zinc-900 p-6 rounded-xl border border-emerald-100 dark:border-zinc-700/80">
+                        <div className="text-xl md:text-2xl text-gray-800 dark:text-white leading-relaxed bg-white/70 dark:bg-zinc-900 p-6 rounded-xl border border-primary-100 dark:border-zinc-700/80">
                             {data.hadeeth}
                         </div>
                     </div>
@@ -106,7 +90,7 @@ export default function Adith({ id }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl p-6 md:p-8 mb-8 border border-emerald-100 dark:border-zinc-700/80"
+                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl p-6 md:p-8 mb-8 border border-primary-100 dark:border-zinc-700/80"
                 >
                     <div className="flex items-center mb-4">
                         {/* <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center ml-3">
@@ -127,7 +111,7 @@ export default function Adith({ id }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl p-6 md:p-8 mb-8 border border-emerald-100 dark:border-zinc-700/80"
+                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl p-6 md:p-8 mb-8 border border-primary-100 dark:border-zinc-700/80"
                 >
                     <div className="flex items-center mb-4">
                         {/* <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center ml-3">
@@ -158,7 +142,7 @@ export default function Adith({ id }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl p-6 md:p-8 border border-emerald-100 dark:border-zinc-700/80"
+                    className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl p-6 md:p-8 border border-primary-100 dark:border-zinc-700/80"
                 >
                     <div className="flex items-center mb-4">
                         {/* <div className="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center ml-3">

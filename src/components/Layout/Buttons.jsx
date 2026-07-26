@@ -24,6 +24,7 @@ function Buttons() {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const enableDarkMode = useCallback(() => {

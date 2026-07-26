@@ -112,7 +112,7 @@ export default async function Page({ params }) {
             <section className="pt-5 pb-20 container px-3 m-auto">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl font-bold text-gray-800 dark:text-white flex items-center">
-                        <FontAwesomeIcon icon={faBook} className="ml-3 text-emerald-600 text-2xl" />
+                        <FontAwesomeIcon icon={faBook} className="ml-3 text-primary-600 text-2xl" />
                         المكتبة الإسلامية
                     </h2>
                     <div className="text-base text-gray-600 dark:text-zinc-300 bg-gray-100 dark:bg-zinc-800 px-4 py-2 rounded-lg">
@@ -127,7 +127,7 @@ export default async function Page({ params }) {
                             className="flex flex-col h-full bg-white rounded-2xl shadow-lg overflow-hidden dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
                         >
                             {/* صورة الكتاب */}
-                            <div className="relative h-48 bg-gradient-to-br from-emerald-50 to-lime-50 dark:from-gray-700 dark:to-zinc-900 flex items-center justify-center">
+                            <div className="relative h-48 bg-gradient-to-br from-primary-50 to-lime-50 dark:from-gray-700 dark:to-zinc-900 flex items-center justify-center">
                                 {item.image ? (
                                     <Image
                                         src={item.image}
@@ -155,7 +155,7 @@ export default async function Page({ params }) {
                             {/* محتوى الكتاب */}
                             <div className="flex flex-col flex-grow p-5">
                                 <a href={item.attachments[0]?.url || '#'} className="block">
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 hover:text-emerald-600 transition-colors">
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 hover:text-primary-600 transition-colors">
                                         {item.title}
                                     </h3>
                                 </a>
@@ -166,20 +166,20 @@ export default async function Page({ params }) {
 
                                 <div className="mt-auto space-y-3">
                                     <div className="flex items-center text-sm text-gray-600 dark:text-zinc-400">
-                                        <FontAwesomeIcon icon={faUser} className="ml-2 text-emerald-500" />
+                                        <FontAwesomeIcon icon={faUser} className="ml-2 text-primary" />
                                         <span className="font-medium">المؤلف:</span>
                                         <span className="mr-2 truncate">{item.prepared_by[0]?.title || 'غير محدد'}</span>
                                     </div>
 
                                     <div className="flex justify-between text-sm">
                                         <div className="flex items-center text-gray-600 dark:text-zinc-400">
-                                            <FontAwesomeIcon icon={faFileAlt} className="ml-2 text-emerald-500" />
+                                            <FontAwesomeIcon icon={faFileAlt} className="ml-2 text-primary" />
                                             <span className="font-medium">الحجم:</span>
                                             <span className="mr-2">{item.attachments[0]?.size || 'غير محدد'}</span>
                                         </div>
 
                                         <div className="flex items-center text-gray-600 dark:text-zinc-400">
-                                            <FontAwesomeIcon icon={faCalendar} className="ml-2 text-emerald-500" />
+                                            <FontAwesomeIcon icon={faCalendar} className="ml-2 text-primary" />
                                             <span className="font-medium">الصيغة:</span>
                                             <span className="mr-2">{item.attachments[0]?.extension_type || 'غير محدد'}</span>
                                         </div>
@@ -188,7 +188,7 @@ export default async function Page({ params }) {
                                     <a
                                         href={item.attachments[0]?.url || '#'}
                                         download
-                                        className="flex justify-center items-center w-full py-3 text-sm font-bold text-center text-white bg-gradient-to-r from-emerald-600 to-lime-500 rounded-lg hover:from-emerald-700 hover:to-lime-600 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                                        className="flex justify-center items-center w-full py-3 text-sm font-bold text-center text-white bg-gradient-to-r from-primary-600 to-primary-alt rounded-lg hover:from-primary-700 hover:to-lime-600 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                                     >
                                         <FontAwesomeIcon icon={faDownload} className="ml-2" />
                                         تحميل الكتاب
@@ -205,14 +205,14 @@ export default async function Page({ params }) {
                     ) : (
                         <Link
                             href={`/books/${Number(params.id) - 1}`}
-                            className="flex items-center justify-center w-32 px-4 py-3 text-sm font-bold text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-50 hover:text-emerald-600 hover:border-emerald-600 dark:bg-zinc-900 dark:border-zinc-700/80 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white transition-all duration-300"
+                            className="flex items-center justify-center w-32 px-4 py-3 text-sm font-bold text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-50 hover:text-primary-600 hover:border-primary-600 dark:bg-zinc-900 dark:border-zinc-700/80 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white transition-all duration-300"
                         >
                             <FontAwesomeIcon className="ml-2" icon={faAngleDoubleRight} />
                             السابق
                         </Link>
                     )}
 
-                    <div className="flex items-center px-6 py-3 bg-gradient-to-r from-emerald-50 to-lime-50 dark:from-zinc-900 dark:to-gray-700 rounded-xl border border-emerald-100 dark:border-zinc-700">
+                    <div className="flex items-center px-6 py-3 bg-gradient-to-r from-primary-50 to-lime-50 dark:from-zinc-900 dark:to-gray-700 rounded-xl border border-primary-100 dark:border-zinc-700">
                         <span className="text-gray-700 dark:text-zinc-300 font-bold">
                             الصفحة {links.current_page} من {links.pages_number}
                         </span>
@@ -223,7 +223,7 @@ export default async function Page({ params }) {
                     ) : (
                         <Link
                             href={`/books/${Number(params.id) + 1}`}
-                            className="flex items-center justify-center w-32 px-4 py-3 text-sm font-bold text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-50 hover:text-emerald-600 hover:border-emerald-600 dark:bg-zinc-900 dark:border-zinc-700/80 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white transition-all duration-300"
+                            className="flex items-center justify-center w-32 px-4 py-3 text-sm font-bold text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-50 hover:text-primary-600 hover:border-primary-600 dark:bg-zinc-900 dark:border-zinc-700/80 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white transition-all duration-300"
                         >
                             التالي
                             <FontAwesomeIcon className="mr-2" icon={faAngleDoubleLeft} />

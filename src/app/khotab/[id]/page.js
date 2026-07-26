@@ -93,7 +93,7 @@ export default async function KhotabCategoryPage({ params }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex items-center justify-between">
-                        <span className="inline-block px-3 py-1 text-xs font-semibold text-white bg-emerald-600 rounded-full">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold text-white bg-primary-600 rounded-full">
                             خطبة جمعة
                         </span>
                         <div className="bg-black/30 backdrop-blur-sm px-2 py-1 rounded-full flex items-center">
@@ -133,7 +133,7 @@ export default async function KhotabCategoryPage({ params }) {
 
                 {/* عنوان الخطبة */}
                 <a href={item.attachments?.[0]?.url || '#'} className="block mb-3">
-                    <h5 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    <h5 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                         {item.title}
                     </h5>
                 </a>
@@ -170,7 +170,7 @@ export default async function KhotabCategoryPage({ params }) {
                             key={key2}
                             href={attachment.url}
                             download
-                            className="flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg hover:opacity-90 transition-opacity"
+                            className="flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-primary to-teal-500 rounded-lg hover:opacity-90 transition-opacity"
                         >
                             <FontAwesomeIcon icon={getFileIcon(attachment.extension_type)} className="ml-2" />
                             <span>{attachment.extension_type.toUpperCase()}</span>
@@ -184,7 +184,7 @@ export default async function KhotabCategoryPage({ params }) {
                 <a
                     href={item.attachments?.[0]?.url || '#'}
                     download
-                    className="w-full flex items-center justify-center py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-emerald-600 to-lime-500 rounded-lg hover:opacity-90 transition-opacity"
+                    className="w-full flex items-center justify-center py-3 text-sm font-medium text-center text-white bg-gradient-to-r from-primary-600 to-primary-alt rounded-lg hover:opacity-90 transition-opacity"
                 >
                     <FontAwesomeIcon icon={faDownload} className="ml-2" />
                     <span>تحميل الخطبة</span>
@@ -211,13 +211,13 @@ export default async function KhotabCategoryPage({ params }) {
                     ) : (
                         <Link
                             href={`/khotab/${Number(params.id) - 1}`}
-                            className="flex items-center justify-center w-32 py-3 px-4 bg-gray-100 dark:bg-zinc-800 rounded-lg hover:bg-emerald-100 dark:hover:bg-zinc-800/80 transition-colors group"
+                            className="flex items-center justify-center w-32 py-3 px-4 bg-gray-100 dark:bg-zinc-800 rounded-lg hover:bg-primary-100 dark:hover:bg-zinc-800/80 transition-colors group"
                         >
                             <FontAwesomeIcon
-                                className="ml-2 text-gray-600 dark:text-zinc-300 group-hover:text-emerald-600"
+                                className="ml-2 text-gray-600 dark:text-zinc-300 group-hover:text-primary-600"
                                 icon={faAngleDoubleRight}
                             />
-                            <span className="font-medium text-gray-700 dark:text-zinc-300 group-hover:text-emerald-600">السابق</span>
+                            <span className="font-medium text-gray-700 dark:text-zinc-300 group-hover:text-primary-600">السابق</span>
                         </Link>
                     )}
 
@@ -232,11 +232,11 @@ export default async function KhotabCategoryPage({ params }) {
                     ) : (
                         <Link
                             href={`/khotab/${Number(params.id) + 1}`}
-                            className="flex items-center justify-center w-32 py-3 px-4 bg-gray-100 dark:bg-zinc-800 rounded-lg hover:bg-emerald-100 dark:hover:bg-zinc-800/80 transition-colors group"
+                            className="flex items-center justify-center w-32 py-3 px-4 bg-gray-100 dark:bg-zinc-800 rounded-lg hover:bg-primary-100 dark:hover:bg-zinc-800/80 transition-colors group"
                         >
-                            <span className="font-medium text-gray-700 dark:text-zinc-300 group-hover:text-emerald-600">التالي</span>
+                            <span className="font-medium text-gray-700 dark:text-zinc-300 group-hover:text-primary-600">التالي</span>
                             <FontAwesomeIcon
-                                className="mr-2 text-gray-600 dark:text-zinc-300 group-hover:text-emerald-600"
+                                className="mr-2 text-gray-600 dark:text-zinc-300 group-hover:text-primary-600"
                                 icon={faAngleDoubleLeft}
                             />
                         </Link>

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMosque } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
-export default function Landing({ title, text }) {
+export default function Landing({ title, text = "" }) {
     return (
         <section className="relative dark:from-zinc-950 dark:to-zinc-950 pt-4 pb-6 sm:py-8">
             <div className="relative z-10 container mx-auto px-2 text-center">

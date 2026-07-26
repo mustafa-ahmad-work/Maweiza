@@ -1,4 +1,4 @@
-export default function Search({ handleChange, value, placeholder = "بحث..." }) {
+export default function Search({ handleChange, value = "", placeholder = "بحث..." }) {
     return (
         <div className="font-sans px-5 text-black flex dark:text-white items-center justify-center my-5">
             <div className="relative w-full max-w-2xl">
@@ -10,7 +10,7 @@ export default function Search({ handleChange, value, placeholder = "بحث..." 
                     placeholder={placeholder}
                 />
                 <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
-                    <div className="p-1.5 rounded-full bg-gradient-to-r from-lime-500 to-emerald-500 text-white shadow-md">
+                    <div className="p-1.5 rounded-full bg-primary text-white shadow-md">
                         <svg
                             className="h-5 w-5"
                             fill="currentColor"

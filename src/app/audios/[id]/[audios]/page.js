@@ -33,12 +33,12 @@ const formatDate = (timestamp) => {
 const getImportanceColor = (level) => {
     return level === "high"
         ? { bg: "bg-gradient-to-r from-yellow-500 to-amber-500", text: "عالية الأهمية", icon: "" }
-        : { bg: "bg-gradient-to-r from-green-500 to-emerald-500", text: "عادية", icon: "" };
+        : { bg: "bg-gradient-to-r from-green-500 to-primary", text: "عادية", icon: "" };
 };
 
 export default function AudiosPage({ params }) {
     const [audios, setAudios] = useState([]);
-    const [links, setLinks] = useState({});
+    const [links, setLinks] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(Number(params.id) || 1);
@@ -129,7 +129,7 @@ export default function AudiosPage({ params }) {
                                                     className="object-cover transition-transform duration-500 hover:scale-110"
                                                 />
                                             ) : (
-                                                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-600 to-emerald-800">
+                                                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-600 to-primary-800">
                                                     <FontAwesomeIcon icon={faHeadphones} className="text-6xl text-white/80" />
                                                 </div>
                                             )}
@@ -274,7 +274,7 @@ export default function AudiosPage({ params }) {
                                     </button>
                                 </div>
 
-                                <div className="mb-6 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-8 flex items-center justify-center">
+                                <div className="mb-6 bg-gradient-to-r from-green-500 to-primary-600 rounded-xl p-8 flex items-center justify-center">
                                     <FontAwesomeIcon icon={faHeadphones} className="text-6xl text-white/80" />
                                 </div>
 

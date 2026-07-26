@@ -17,7 +17,7 @@ export default function Tafsir() {
             href={`/tafsir/${item.number}`}
             className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 transition-all duration-300 hover:shadow-lg hover:border-transparent hover:scale-[1.02] active:scale-[0.98]"
         >
-            {/* <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-lime-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div> */}
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div> */}
             <div className="relative z-10 flex flex-col items-center justify-center text-center">
                 <span className="text-lg font-bold text-gray-800 dark:text-zinc-200 dark:group-hover:text-white transition-colors duration-300">
                     {optimizeString(item.name)}
@@ -26,7 +26,7 @@ export default function Tafsir() {
                     سورة {item.number}
                 </span>
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-lime-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-alt transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
         </Link>
     ));
 
@@ -100,7 +100,7 @@ export default function Tafsir() {
                             </p>
                             <button
                                 onClick={clearSearch}
-                                className="mt-6 px-6 py-2 bg-gradient-to-r from-emerald-500 to-lime-400 text-white font-medium rounded-lg hover:shadow-md transition-all duration-300"
+                                className="mt-6 px-6 py-2 bg-primary hover:bg-primary-alt text-white font-medium rounded-lg hover:shadow-md transition-all duration-300"
                             >
                                 عرض جميع السور
                             </button>

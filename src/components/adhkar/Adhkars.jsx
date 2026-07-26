@@ -17,7 +17,7 @@ export default function Azekar() {
             key={key}
             className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 transition-all duration-300 hover:shadow-lg hover:border-transparent hover:scale-[1.02] active:scale-[0.98]">
             {item.category}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-lime-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
         </Link>
     ));
 

@@ -24,7 +24,7 @@ export default function Articles({ id }) {
         return (
             <div className="min-h-screen flex items-center justify-center py-12">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-emerald-600 mx-auto"></div>
+                    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-600 mx-auto"></div>
                     <p className="mt-6 text-xl text-gray-700 dark:text-zinc-300 font-medium">جارٍ تحميل بيانات المقالات...</p>
                 </div>
             </div>
@@ -110,7 +110,7 @@ export default function Articles({ id }) {
                                         </div>
                                     )}
 
-                                    {/* <div className="flex items-center bg-emerald-50 dark:bg-zinc-900/30 text-emerald-700 dark:text-zinc-300 px-3 py-1 rounded-full">
+                                    {/* <div className="flex items-center bg-primary-50 dark:bg-zinc-900/30 text-primary-700 dark:text-zinc-300 px-3 py-1 rounded-full">
                                         <FontAwesomeIcon icon={faFileAlt} className="ml-3" />
                                         <span>{item.type}</span>
                                     </div> */}
@@ -176,7 +176,7 @@ export default function Articles({ id }) {
                                                     key={key2}
                                                     href={attachment.url}
                                                     download
-                                                    className="flex items-center justify-between w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-lg transition-all duration-300 hover:shadow-md">
+                                                    className="flex items-center justify-between w-full px-4 py-3 bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-lg transition-all duration-300 hover:shadow-md">
                                                     <div className="flex items-center">
                                                         <FontAwesomeIcon icon={faDownload} className="ml-2" />
                                                         <span>تحميل المقال</span>
@@ -205,7 +205,7 @@ export default function Articles({ id }) {
                     ) : (
                         <Link
                             href={`/articles/${Number(id) - 1}`}
-                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-700 dark:text-zinc-300 hover:bg-emerald-50 dark:hover:bg-zinc-800/80/20 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300">
+                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-700 dark:text-zinc-300 hover:bg-primary-50 dark:hover:bg-zinc-800/80/20 hover:border-primary hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300">
                             <FontAwesomeIcon className="ml-2" icon={faAngleDoubleRight} />
                             السابق
                         </Link>
@@ -220,7 +220,7 @@ export default function Articles({ id }) {
                     ) : (
                         <Link
                             href={`/articles/${Number(id) + 1}`}
-                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-700 dark:text-zinc-300 hover:bg-emerald-50 dark:hover:bg-zinc-800/80/20 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300">
+                            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg text-gray-700 dark:text-zinc-300 hover:bg-primary-50 dark:hover:bg-zinc-800/80/20 hover:border-primary hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300">
                             التالي
                             <FontAwesomeIcon className="mr-2" icon={faAngleDoubleLeft} />
                         </Link>

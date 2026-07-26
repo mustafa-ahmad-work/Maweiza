@@ -30,7 +30,7 @@ export default function VideosPage({ params }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [videos, setVideos] = useState([]);
-    const [links, setLinks] = useState({});
+    const [links, setLinks] = useState(null);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -129,7 +129,7 @@ export default function VideosPage({ params }) {
                 {loading ? (
                     <div className="flex justify-center items-center h-64">
                         <div className="text-center">
-                            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500 mx-auto"></div>
+                            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
                             <p className="mt-4 text-lg font-medium text-gray-700 dark:text-zinc-300">جاري التحميل...</p>
                         </div>
                     </div>
@@ -169,9 +169,9 @@ export default function VideosPage({ params }) {
                                                     priority={false}
                                                     onError={(e) => {
                                                         // في حالة فشل تحميل الصورة، إخفاء الصورة وإظهار الأيقونة البديلة
-                                                        e.target.style.display = 'none';
-                                                        const parent = e.target.parentNode;
-                                                        const fallback = parent.nextElementSibling;
+                                                        /** @type {any} */ (e.target).style.display = 'none';
+                                                        const parent = /** @type {any} */ (e.target).parentNode;
+                                                        const fallback = parent?.nextElementSibling;
                                                         if (fallback) {
                                                             fallback.style.display = 'flex';
                                                         }
@@ -235,7 +235,7 @@ export default function VideosPage({ params }) {
                                         {item.attachments.length > 0 && (
                                             <button
                                                 onClick={() => openVideoModal(item)}
-                                                className="mt-auto flex items-center justify-center w-full py-2.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white text-sm font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                                                className="mt-auto flex items-center justify-center w-full py-2.5 px-4 bg-gradient-to-r from-primary-600 to-teal-500 hover:from-primary-700 hover:to-teal-600 text-white text-sm font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                                             >
                                                 <FontAwesomeIcon icon={faPlay} className="ml-2" />
                                                 فتح
@@ -333,7 +333,7 @@ export default function VideosPage({ params }) {
                                                 <div className="flex items-center">
                                                     <FontAwesomeIcon
                                                         icon={attachment.extension_type === 'MP4' ? faVideo : faHeadphones}
-                                                        className="text-emerald-600 ml-3"
+                                                        className="text-primary-600 ml-3"
                                                     />
                                                     <div>
                                                         <p className="font-medium text-gray-900 dark:text-white">
@@ -361,7 +361,7 @@ export default function VideosPage({ params }) {
 
                                                     <button
                                                         onClick={() => downloadFile(attachment.url, attachment.description || `ملف_${index + 1}`)}
-                                                        className="p-2 bg-emerald-700 w-10 h-10 text-white rounded-lg transition-colors"
+                                                        className="p-2 bg-primary-700 w-10 h-10 text-white rounded-lg transition-colors"
                                                         title="تحميل"
                                                     >
                                                         <FontAwesomeIcon icon={faDownload} />

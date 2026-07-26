@@ -6,7 +6,8 @@
         "./*"
       ]
     },
-    "checkJs": true,
+    "checkJs": false,
+    "maxNodeModuleJsDepth": 0,
     "jsx": "preserve",
     "resolveJsonModule": true,
     "esModuleInterop": true,

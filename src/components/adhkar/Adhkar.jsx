@@ -105,7 +105,7 @@ export default function Azekar() {
                             </button>
                             <button
                                 onClick={() => handleCopy(item.text)}
-                                className="p-3 bg-emerald-500 text-white rounded-md flex items-center">
+                                className="p-3 bg-primary text-white rounded-md flex items-center">
                                 <FontAwesomeIcon icon={faCopy} className="ml-2" />
                                 نسخ
                             </button>

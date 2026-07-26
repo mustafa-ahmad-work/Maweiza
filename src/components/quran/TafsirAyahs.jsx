@@ -170,7 +170,7 @@ export default function TafsirAyahs({ id }) {
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-8 bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-gray-200/80 dark:border-zinc-800 shadow-xs">
                     <Link
                         href="/tafsir"
-                        className="inline-flex items-center gap-2 text-xs md:text-sm font-bold text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-lime-400 transition-colors"
+                        className="inline-flex items-center gap-2 text-xs md:text-sm font-bold text-gray-700 dark:text-zinc-300 hover:text-primary dark:hover:text-primary-400 transition-colors"
                     >
                         <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
                         <span>فهرس سور التفسير</span>
@@ -180,7 +180,7 @@ export default function TafsirAyahs({ id }) {
                         {prevSurahId ? (
                             <Link
                                 href={`/tafsir/${prevSurahId}`}
-                                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-lime-400 text-xs font-bold transition-all flex items-center gap-1.5"
+                                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-primary-400 text-xs font-bold transition-all flex items-center gap-1.5"
                             >
                                 <FontAwesomeIcon icon={faChevronRight} className="text-[10px]" />
                                 <span>السورة السابقة</span>
@@ -194,7 +194,7 @@ export default function TafsirAyahs({ id }) {
                         {nextSurahId ? (
                             <Link
                                 href={`/tafsir/${nextSurahId}`}
-                                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-lime-400 text-xs font-bold transition-all flex items-center gap-1.5"
+                                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-primary-400 text-xs font-bold transition-all flex items-center gap-1.5"
                             >
                                 <span>السورة التالية</span>
                                 <FontAwesomeIcon icon={faChevronLeft} className="text-[10px]" />
@@ -208,7 +208,7 @@ export default function TafsirAyahs({ id }) {
                 </div>
 
                 {/* 2. هيرو السورة والمعلومات الأساسية */}
-                <div className="relative rounded-3xl bg-gradient-to-br from-primary via-primary-alt to-emerald-900 text-white p-6 md:p-10 mb-10 overflow-hidden shadow-lg border border-primary/20">
+                <div className="relative rounded-3xl bg-gradient-to-br from-primary via-primary-alt to-primary-900 text-white p-6 md:p-10 mb-10 overflow-hidden shadow-lg border border-primary/20">
                     <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
                     <div className="absolute -top-12 -left-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
 
@@ -234,7 +234,7 @@ export default function TafsirAyahs({ id }) {
                                 نوع السورة: {surahData?.revelationType === "Meccan" ? "مكّية" : "مدنيّة"}
                             </span>
                             {albitaqat.maqsiduha_aleamu && (
-                                <span className="px-3.5 py-1.5 rounded-xl bg-lime-400/20 text-lime-200 text-xs font-bold border border-lime-400/30">
+                                <span className="px-3.5 py-1.5 rounded-xl bg-lime-400/20 text-lime-200 text-xs font-bold border border-primary-400/30">
                                     مقصدها: {albitaqat.maqsiduha_aleamu}
                                 </span>
                             )}
@@ -288,7 +288,7 @@ export default function TafsirAyahs({ id }) {
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="بحث برقم الآية أو الكلمة..."
-                                className="w-full pl-4 pr-10 py-2.5 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 text-xs md:text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none focus:border-primary dark:focus:border-lime-400 transition-all shadow-xs"
+                                className="w-full pl-4 pr-10 py-2.5 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 text-xs md:text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none focus:border-primary dark:focus:border-primary-400 transition-all shadow-xs"
                             />
                             <FontAwesomeIcon
                                 icon={faSearch}
@@ -324,17 +324,17 @@ export default function TafsirAyahs({ id }) {
                             ].map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 shadow-xs space-y-3 relative overflow-hidden group hover:border-primary/30 dark:hover:border-lime-400/30 transition-all"
+                                    className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 shadow-xs space-y-3 relative overflow-hidden group hover:border-primary/30 dark:hover:border-primary-400/30 transition-all"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-2xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-lime-400 flex items-center justify-center shrink-0">
+                                        <div className="w-10 h-10 rounded-2xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-400 flex items-center justify-center shrink-0">
                                             <FontAwesomeIcon icon={item.icon} className="text-lg" />
                                         </div>
                                         <h3 className="text-base font-black text-gray-900 dark:text-white">
                                             {item.label}
                                         </h3>
                                     </div>
-                                    <p className="text-xs md:text-sm text-gray-700 dark:text-zinc-300 leading-[1.85] font-semibold pr-2 border-r-2 border-primary/20 dark:border-lime-400/20">
+                                    <p className="text-xs md:text-sm text-gray-700 dark:text-zinc-300 leading-[1.85] font-semibold pr-2 border-r-2 border-primary/20 dark:border-primary-400/20">
                                         {item.val || "لم تذكر رواية مخصصة أو معلومة محددة."}
                                     </p>
                                 </div>
@@ -353,7 +353,7 @@ export default function TafsirAyahs({ id }) {
                         {/* ترويسة البسملة */}
                         {surahId !== 9 && (
                             <div className="text-center mb-10 pb-6 border-b border-gray-100 dark:border-zinc-800">
-                                <h3 className="font-quran text-2xl md:text-3xl text-primary dark:text-lime-400 leading-normal">
+                                <h3 className="font-quran text-2xl md:text-3xl text-primary dark:text-primary-400 leading-normal">
                                     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                                 </h3>
                             </div>
@@ -380,19 +380,19 @@ export default function TafsirAyahs({ id }) {
                                                 whileHover={{ scale: 1.04 }}
                                                 whileTap={{ scale: 0.96 }}
                                                 onClick={() => setSelectedAyahIndex(actualIndex)}
-                                                className="cursor-pointer select-none transition-all font-quran !text-gray-900 dark:!text-gray-100 hover:!text-emerald-600 dark:hover:!text-emerald-400"
+                                                className="cursor-pointer select-none transition-all font-quran !text-gray-900 dark:!text-gray-100 hover:!text-primary dark:hover:!text-primary-400"
                                             >
                                                 {aya.arabic_text}
                                                 <span
                                                     className="inline-flex items-center font-cairo justify-center mx-2 text-base md:text-lg font-quran font-bold
-                                                !text-emerald-800 dark:!text-emerald-400
-                                                !border-2 !border-emerald-600 dark:!border-emerald-500
+                                                !text-primary dark:!text-primary-400
+                                                !border-2 !border-primary dark:!border-primary
                                                 !rounded-full min-w-[2.7rem] min-h-[2.7rem] px-2 py-1
-                                                !bg-emerald-50 dark:!bg-emerald-900/40
-                                                !shadow-md dark:!shadow-emerald-950/30
+                                                !bg-primary/10 dark:!bg-primary/20
+                                                !shadow-md
                                                 relative
                                                 after:content-['۝'] after:absolute after:inset-0 after:flex after:items-center after:justify-center
-                                                after:!text-emerald-700 dark:after:!text-emerald-600 after:!opacity-15"
+                                                after:!text-primary dark:after:!text-primary after:!opacity-15"
                                                 >
                                                     <span className="relative z-10">{aya.aya}</span>
                                                 </span>{" "}
@@ -422,7 +422,7 @@ export default function TafsirAyahs({ id }) {
                                 return (
                                     <div
                                         key={idx}
-                                        className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-xs space-y-5 hover:border-primary/30 dark:hover:border-lime-400/30 transition-all"
+                                        className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-xs space-y-5 hover:border-primary/30 dark:hover:border-primary-400/30 transition-all"
                                     >
                                         {/* رأس الآية والخيارات */}
                                         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 dark:border-zinc-800 pb-4">
@@ -438,7 +438,7 @@ export default function TafsirAyahs({ id }) {
                                             <div className="flex items-center gap-2">
                                                 <button
                                                     onClick={() => playAudio(aya.id)}
-                                                    className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-lime-400 text-xs font-bold transition-all flex items-center gap-1.5"
+                                                    className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-primary-400 text-xs font-bold transition-all flex items-center gap-1.5"
                                                     title="استماع للآية"
                                                 >
                                                     <FontAwesomeIcon icon={isPlaying && currentAudioUrl?.endsWith(`${aya.id}.mp3`) ? faPause : faVolumeUp} />
@@ -447,16 +447,16 @@ export default function TafsirAyahs({ id }) {
 
                                                 <button
                                                     onClick={() => handleCopy(aya.arabic_text, `ayah-${aya.aya}`)}
-                                                    className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-lime-400 text-xs font-bold transition-all flex items-center gap-1.5"
+                                                    className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-zinc-200 hover:text-primary dark:hover:text-primary-400 text-xs font-bold transition-all flex items-center gap-1.5"
                                                     title="نسخ نص الآية"
                                                 >
-                                                    <FontAwesomeIcon icon={copiedType === `ayah-${aya.aya}` ? faCheck : faCopy} className={copiedType === `ayah-${aya.aya}` ? "text-emerald-500" : ""} />
+                                                    <FontAwesomeIcon icon={copiedType === `ayah-${aya.aya}` ? faCheck : faCopy} className={copiedType === `ayah-${aya.aya}` ? "text-primary" : ""} />
                                                     <span>{copiedType === `ayah-${aya.aya}` ? "تم النسخ" : "نسخ الآية"}</span>
                                                 </button>
 
                                                 <button
                                                     onClick={() => setSelectedAyahIndex(actualIndex)}
-                                                    className="px-3.5 py-1.5 rounded-xl bg-primary/10 text-primary dark:text-lime-400 text-xs font-bold hover:bg-primary hover:text-white dark:hover:bg-lime-400 dark:hover:text-zinc-950 transition-all"
+                                                    className="px-3.5 py-1.5 rounded-xl bg-primary/10 text-primary dark:text-primary-400 text-xs font-bold hover:bg-primary hover:text-white dark:hover:bg-lime-400 dark:hover:text-zinc-950 transition-all"
                                                 >
                                                     تكبير التفسير
                                                 </button>
@@ -469,14 +469,14 @@ export default function TafsirAyahs({ id }) {
                                                 {aya.arabic_text}
                                                 <span
                                                     className="inline-flex items-center font-cairo justify-center mx-2 text-base md:text-lg font-quran font-bold
-                                                !text-emerald-800 dark:!text-emerald-400
-                                                !border-2 !border-emerald-600 dark:!border-emerald-500
+                                                !text-primary dark:!text-primary-400
+                                                !border-2 !border-primary dark:!border-primary
                                                 !rounded-full min-w-[2.7rem] min-h-[2.7rem] px-2 py-1
-                                                !bg-emerald-50 dark:!bg-emerald-900/40
-                                                !shadow-md dark:!shadow-emerald-950/30
+                                                !bg-primary/10 dark:!bg-primary/20
+                                                !shadow-md
                                                 relative
                                                 after:content-['۝'] after:absolute after:inset-0 after:flex after:items-center after:justify-center
-                                                after:!text-emerald-700 dark:after:!text-emerald-600 after:!opacity-15"
+                                                after:!text-primary dark:after:!text-primary after:!opacity-15"
                                                 >
                                                     <span className="relative z-10">{aya.aya}</span>
                                                 </span>
@@ -485,7 +485,7 @@ export default function TafsirAyahs({ id }) {
 
                                         {/* التفسير الميسر */}
                                         <div className="space-y-1.5">
-                                            <h5 className="text-xs font-black text-primary dark:text-lime-400 flex items-center gap-1.5">
+                                            <h5 className="text-xs font-black text-primary dark:text-primary-400 flex items-center gap-1.5">
                                                 <FontAwesomeIcon icon={faBookOpen} />
                                                 <span>التفسير الميسر:</span>
                                             </h5>
@@ -555,14 +555,14 @@ export default function TafsirAyahs({ id }) {
                                             {activeAyah.arabic_text}
                                             <span
                                                 className="inline-flex items-center font-cairo justify-center mx-2 text-base md:text-lg font-quran font-bold
-                                            !text-emerald-800 dark:!text-emerald-400
-                                            !border-2 !border-emerald-600 dark:!border-emerald-500
+                                            !text-primary dark:!text-primary-400
+                                            !border-2 !border-primary dark:!border-primary
                                             !rounded-full min-w-[2.7rem] min-h-[2.7rem] px-2 py-1
-                                            !bg-emerald-50 dark:!bg-emerald-900/40
-                                            !shadow-md dark:!shadow-emerald-950/30
+                                            !bg-primary/10 dark:!bg-primary/20
+                                            !shadow-md
                                             relative
                                             after:content-['۝'] after:absolute after:inset-0 after:flex after:items-center after:justify-center
-                                            after:!text-emerald-700 dark:after:!text-emerald-600 after:!opacity-15"
+                                            after:!text-primary dark:after:!text-primary after:!opacity-15"
                                             >
                                                 <span className="relative z-10">{activeAyah.aya}</span>
                                             </span>
@@ -583,17 +583,17 @@ export default function TafsirAyahs({ id }) {
 
                                             <button
                                                 onClick={() => handleCopy(activeAyah.arabic_text, "modal-ayah")}
-                                                className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 hover:text-primary dark:hover:text-lime-400 text-xs font-bold transition-all flex items-center gap-2 shadow-2xs"
+                                                className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 hover:text-primary dark:hover:text-primary-400 text-xs font-bold transition-all flex items-center gap-2 shadow-2xs"
                                             >
-                                                <FontAwesomeIcon icon={copiedType === "modal-ayah" ? faCheck : faCopy} className={copiedType === "modal-ayah" ? "text-emerald-500" : ""} />
+                                                <FontAwesomeIcon icon={copiedType === "modal-ayah" ? faCheck : faCopy} className={copiedType === "modal-ayah" ? "text-primary" : ""} />
                                                 <span>{copiedType === "modal-ayah" ? "تم نسخ الآية" : "نسخ الآية"}</span>
                                             </button>
 
                                             <button
                                                 onClick={() => handleCopy(`${activeAyah.arabic_text}\n\nالتفسير الميسر:\n${activeAyah.translation}`, "modal-full")}
-                                                className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 hover:text-primary dark:hover:text-lime-400 text-xs font-bold transition-all flex items-center gap-2 shadow-2xs"
+                                                className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 hover:text-primary dark:hover:text-primary-400 text-xs font-bold transition-all flex items-center gap-2 shadow-2xs"
                                             >
-                                                <FontAwesomeIcon icon={copiedType === "modal-full" ? faCheck : faShareAlt} className={copiedType === "modal-full" ? "text-emerald-500" : ""} />
+                                                <FontAwesomeIcon icon={copiedType === "modal-full" ? faCheck : faShareAlt} className={copiedType === "modal-full" ? "text-primary" : ""} />
                                                 <span>{copiedType === "modal-full" ? "تم نسخ الآية والتفسير" : "مشاركة الآية والتفسير"}</span>
                                             </button>
                                         </div>
@@ -601,7 +601,7 @@ export default function TafsirAyahs({ id }) {
 
                                     {/* نص التفسير الميسر */}
                                     <div className="space-y-2">
-                                        <h4 className="text-sm font-black text-primary dark:text-lime-400 flex items-center gap-2">
+                                        <h4 className="text-sm font-black text-primary dark:text-primary-400 flex items-center gap-2">
                                             <FontAwesomeIcon icon={faBookOpen} />
                                             <span>التفسير الميسر للآية:</span>
                                         </h4>
@@ -621,7 +621,7 @@ export default function TafsirAyahs({ id }) {
                                             setSelectedAyahIndex(selectedAyahIndex - 1);
                                             setIsPlaying(false);
                                         }}
-                                        className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-xs font-bold text-gray-700 dark:text-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-lime-400 transition-all flex items-center gap-1.5"
+                                        className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-xs font-bold text-gray-700 dark:text-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary-400 transition-all flex items-center gap-1.5"
                                     >
                                         <FontAwesomeIcon icon={faChevronRight} className="text-xs" />
                                         <span>الآية السابقة</span>
@@ -637,7 +637,7 @@ export default function TafsirAyahs({ id }) {
                                             setSelectedAyahIndex(selectedAyahIndex + 1);
                                             setIsPlaying(false);
                                         }}
-                                        className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-xs font-bold text-gray-700 dark:text-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-lime-400 transition-all flex items-center gap-1.5"
+                                        className="px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 text-xs font-bold text-gray-700 dark:text-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary-400 transition-all flex items-center gap-1.5"
                                     >
                                         <span>الآية التالية</span>
                                         <FontAwesomeIcon icon={faChevronLeft} className="text-xs" />

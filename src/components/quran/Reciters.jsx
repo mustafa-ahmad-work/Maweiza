@@ -73,7 +73,7 @@ export default function Reciters(props) {
                             value={searchTerm}
                             onChange={handleSearch}
                             placeholder='ابحث عن قارئ...'
-                            className="w-full py-4 pr-10 pl-4 text-gray-700 dark:text-zinc-200 bg-white dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent shadow-sm transition-all"
+                            className="w-full py-4 pr-10 pl-4 text-gray-700 dark:text-zinc-200 bg-white dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm transition-all"
                         />
                         {searchTerm && (
                             <button
@@ -98,7 +98,7 @@ export default function Reciters(props) {
                         </p>
                         <button
                             onClick={clearSearch}
-                            className="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full transition-colors"
+                            className="px-6 py-2 bg-primary hover:bg-primary-alt text-white rounded-full transition-colors"
                         >
                             عرض الكل
                         </button>
@@ -122,10 +122,10 @@ export default function Reciters(props) {
                                 >
                                     <div className="p-6">
                                         <div className="flex items-center mb-4">
-                                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 dark:bg-zinc-900/30 flex items-center justify-center ml-4">
+                                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center ml-4">
                                                 <FontAwesomeIcon
                                                     icon={props.type === "listen" ? faHeadphonesSimple : faBookQuran}
-                                                    className="text-emerald-600 dark:text-emerald-400 text-xl"
+                                                    className="text-primary dark:text-primary text-xl"
                                                 />
                                             </div>
                                             <h3 className="text-lg font-bold text-gray-800 dark:text-white">
@@ -142,10 +142,10 @@ export default function Reciters(props) {
                                         )}
 
                                         <div className="mt-6 flex items-center justify-between">
-                                            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-zinc-900/30 dark:text-zinc-300">
+                                            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-primary/10 text-primary dark:bg-zinc-900/30 dark:text-zinc-300">
                                                 قارئ
                                             </span>
-                                            <span className="text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1 transition-transform">
+                                            <span className="text-primary dark:text-primary group-hover:translate-x-1 transition-transform">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                                 </svg>

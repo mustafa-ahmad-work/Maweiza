@@ -165,7 +165,7 @@ export default function QuranUnifiedHub({
                                 onClick={() => setMode(tab.id)}
                                 className={`py-3 px-2 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-bold text-xs md:text-sm ${
                                     mode === tab.id
-                                        ? "bg-white dark:bg-zinc-900 text-emerald-600 dark:text-lime-400 shadow-md scale-[1.02]"
+                                        ? "bg-white dark:bg-zinc-900 text-primary dark:text-primary-400 shadow-md scale-[1.02]"
                                         : "text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white"
                                 }`}
                             >
@@ -197,7 +197,7 @@ export default function QuranUnifiedHub({
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     placeholder="ابحث برقم الآية أو كلماتها..."
-                                    className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-2xl py-2.5 pr-9 pl-3 text-xs font-semibold focus:outline-none focus:border-emerald-500 h-[46px]"
+                                    className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-2xl py-2.5 pr-9 pl-3 text-xs font-semibold focus:outline-none focus:border-primary h-[46px]"
                                 />
                                 <FontAwesomeIcon icon={faSearch} className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400" />
                             </div>
@@ -208,7 +208,7 @@ export default function QuranUnifiedHub({
                 {/* تحميل البيانات */}
                 {isSurahLoading && (
                     <div className="text-center py-20 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800 p-8">
-                        <FontAwesomeIcon icon={faSpinner} className="animate-spin text-3xl text-emerald-500 mb-3" />
+                        <FontAwesomeIcon icon={faSpinner} className="animate-spin text-3xl text-primary mb-3" />
                         <p className="text-sm font-bold text-gray-500">جاري تحميل آيات السورة...</p>
                     </div>
                 )}
@@ -230,7 +230,7 @@ export default function QuranUnifiedHub({
                                         onClick={() => setViewMode(v.id)}
                                         className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                                             viewMode === v.id
-                                                ? "bg-emerald-600 text-white shadow-xs"
+                                                ? "bg-primary text-white shadow-xs"
                                                 : "bg-slate-100 dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-gray-200"
                                         }`}
                                     >
@@ -254,7 +254,7 @@ export default function QuranUnifiedHub({
                             >
                                 {currentSurahId !== 9 && (
                                     <div className="text-center mb-10 pb-6 border-b border-gray-100 dark:border-zinc-800">
-                                        <h3 className="font-quran text-2xl md:text-3xl text-emerald-700 dark:text-lime-400">
+                                        <h3 className="font-quran text-2xl md:text-3xl text-primary dark:text-primary-400">
                                             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                                         </h3>
                                     </div>
@@ -265,19 +265,19 @@ export default function QuranUnifiedHub({
                                         <span
                                             key={idx}
                                             onClick={() => setActiveModalAyah(aya)}
-                                            className="cursor-pointer hover:text-emerald-600 dark:hover:text-lime-400 transition-colors"
+                                            className="cursor-pointer hover:text-primary dark:hover:text-primary-400 transition-colors"
                                         >
                                             {aya.arabic_text}
                                             <span
                                                 className="inline-flex items-center font-cairo justify-center mx-2 text-base md:text-lg font-quran font-bold
-                                                !text-emerald-800 dark:!text-emerald-400
-                                                !border-2 !border-emerald-600 dark:!border-emerald-500
+                                                !text-primary dark:!text-primary-400
+                                                !border-2 !border-primary dark:!border-primary
                                                 !rounded-full min-w-[2.7rem] min-h-[2.7rem] px-2 py-1
-                                                !bg-emerald-50 dark:!bg-emerald-900/40
-                                                !shadow-md dark:!shadow-emerald-950/30
+                                                !bg-primary/10 dark:!bg-primary/20
+                                                !shadow-md
                                                 relative
                                                 after:content-['۝'] after:absolute after:inset-0 after:flex after:items-center after:justify-center
-                                                after:!text-emerald-700 dark:after:!text-emerald-600 after:!opacity-15"
+                                                after:!text-primary dark:after:!text-primary after:!opacity-15"
                                             >
                                                 <span className="relative z-10">{aya.numberInSurah}</span>
                                             </span>{" "}
@@ -293,17 +293,17 @@ export default function QuranUnifiedHub({
                                 {filteredAyahs.map((aya, idx) => (
                                     <div
                                         key={idx}
-                                        className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 shadow-xs space-y-4 hover:border-emerald-500/30 transition-all"
+                                        className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 shadow-xs space-y-4 hover:border-primary/30 transition-all"
                                     >
                                         <div className="flex items-center justify-between border-b border-gray-100 dark:border-zinc-800 pb-3">
-                                            <span className="w-8 h-8 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center">
+                                            <span className="w-8 h-8 rounded-xl bg-primary-600 text-white font-black text-xs flex items-center justify-center">
                                                 {aya.numberInSurah}
                                             </span>
                                             <button
                                                 onClick={() => handleCopy(aya.arabic_text, idx)}
-                                                className="px-3 py-1 rounded-xl bg-slate-100 dark:bg-zinc-800 text-xs font-bold text-gray-700 dark:text-zinc-300 hover:text-emerald-600 transition-all flex items-center gap-1.5"
+                                                className="px-3 py-1 rounded-xl bg-slate-100 dark:bg-zinc-800 text-xs font-bold text-gray-700 dark:text-zinc-300 hover:text-primary-600 transition-all flex items-center gap-1.5"
                                             >
-                                                <FontAwesomeIcon icon={copiedIndex === idx ? faCheck : faCopy} className={copiedIndex === idx ? "text-emerald-500" : ""} />
+                                                <FontAwesomeIcon icon={copiedIndex === idx ? faCheck : faCopy} className={copiedIndex === idx ? "text-primary" : ""} />
                                                 <span>{copiedIndex === idx ? "تم النسخ" : "نسخ الآية"}</span>
                                             </button>
                                         </div>
@@ -315,7 +315,7 @@ export default function QuranUnifiedHub({
                                         </div>
 
                                         <div className="space-y-1">
-                                            <h5 className="text-xs font-black text-emerald-600 dark:text-lime-400 flex items-center gap-1.5">
+                                            <h5 className="text-xs font-black text-primary-600 dark:text-primary-400 flex items-center gap-1.5">
                                                 <FontAwesomeIcon icon={faBookOpen} />
                                                 <span>التفسير الميسر:</span>
                                             </h5>
@@ -332,7 +332,7 @@ export default function QuranUnifiedHub({
                         {viewMode === "info" && albitaqatData && (
                             <div className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-xs space-y-6">
                                 <div className="text-center pb-6 border-b border-gray-100 dark:border-zinc-800">
-                                    <h3 className="text-2xl font-black text-emerald-600 dark:text-lime-400">
+                                    <h3 className="text-2xl font-black text-primary-600 dark:text-primary-400">
                                         بطاقة التعريف بسورة {surahData?.name}
                                     </h3>
                                 </div>
@@ -347,7 +347,7 @@ export default function QuranUnifiedHub({
                                     ].map((item, i) => (
                                         <div key={i} className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-gray-100 dark:border-zinc-800/80 space-y-1.5">
                                             <h4 className="text-xs font-bold text-gray-500 dark:text-zinc-400 flex items-center gap-2">
-                                                <FontAwesomeIcon icon={item.icon} className="text-emerald-500" />
+                                                <FontAwesomeIcon icon={item.icon} className="text-primary" />
                                                 <span>{item.label}:</span>
                                             </h4>
                                             <p className="text-sm font-black text-gray-900 dark:text-white leading-relaxed">
@@ -366,18 +366,18 @@ export default function QuranUnifiedHub({
                 {!isSurahLoading && mode === "listen" && (
                     <div className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 md:p-10 shadow-xs space-y-8 text-center">
 
-                        <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-lime-50 dark:from-zinc-950 dark:to-zinc-900 border border-emerald-200/60 dark:border-zinc-800 space-y-4">
+                        <div className="p-6 rounded-2xl bg-gradient-to-br from-primary-50 to-lime-50 dark:from-zinc-950 dark:to-zinc-900 border border-primary-200/60 dark:border-zinc-800 space-y-4">
                             <h2 className="text-2xl font-black text-gray-900 dark:text-white font-quran">
                                 تلاوة سورة {surahData?.name}
                             </h2>
-                            <p className="text-sm font-bold text-emerald-700 dark:text-lime-400">
+                            <p className="text-sm font-bold text-primary-700 dark:text-primary-400">
                                 بصوت الشيخ {selectedReciter.name}
                             </p>
 
                             <div className="flex items-center justify-center gap-4 pt-2">
                                 <button
                                     onClick={handlePlayPause}
-                                    className="px-8 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all flex items-center gap-3"
+                                    className="px-8 py-3.5 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm shadow-md transition-all flex items-center gap-3"
                                 >
                                     <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
                                     <span>{isPlaying ? "إيقاف مؤقت" : "تشغيل التلاوة الكاملة"}</span>
@@ -387,7 +387,7 @@ export default function QuranUnifiedHub({
 
                         <div className="text-right space-y-6 pt-4">
                             {currentSurahId !== 9 && (
-                                <h4 className="text-center font-quran text-2xl text-emerald-700 dark:text-lime-400">
+                                <h4 className="text-center font-quran text-2xl text-primary-700 dark:text-primary-400">
                                     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                                 </h4>
                             )}
@@ -397,14 +397,14 @@ export default function QuranUnifiedHub({
                                         {aya.arabic_text}
                                         <span
                                             className="inline-flex items-center font-cairo justify-center mx-2 text-base md:text-lg font-quran font-bold
-                                            !text-emerald-800 dark:!text-emerald-400
-                                            !border-2 !border-emerald-600 dark:!border-emerald-500
+                                            !text-primary-800 dark:!text-primary-400
+                                            !border-2 !border-primary-600 dark:!border-primary
                                             !rounded-full min-w-[2.7rem] min-h-[2.7rem] px-2 py-1
-                                            !bg-emerald-50 dark:!bg-emerald-900/40
-                                            !shadow-md dark:!shadow-emerald-950/30
+                                            !bg-primary-50 dark:!bg-primary-900/40
+                                            !shadow-md dark:!shadow-primary-950/30
                                             relative
                                             after:content-['۝'] after:absolute after:inset-0 after:flex after:items-center after:justify-center
-                                            after:!text-emerald-700 dark:after:!text-emerald-600 after:!opacity-15"
+                                            after:!text-primary-700 dark:after:!text-primary-600 after:!opacity-15"
                                         >
                                             <span className="relative z-10">{aya.numberInSurah}</span>
                                         </span>{" "}
@@ -425,7 +425,7 @@ export default function QuranUnifiedHub({
                         <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-gray-200/60 dark:border-zinc-800">
                             <div className="flex items-center gap-3">
                                 <span className="text-xs font-bold text-gray-500 dark:text-zinc-400 flex items-center gap-1.5">
-                                    <FontAwesomeIcon icon={faRedo} className="text-emerald-500" />
+                                    <FontAwesomeIcon icon={faRedo} className="text-primary" />
                                     <span>تكرار الآية:</span>
                                 </span>
                                 <div className="flex items-center gap-1 bg-white dark:bg-zinc-900 p-1 rounded-xl border border-gray-200 dark:border-zinc-800">
@@ -435,7 +435,7 @@ export default function QuranUnifiedHub({
                                             onClick={() => setRepeatCount(cnt)}
                                             className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
                                                 repeatCount === cnt
-                                                    ? "bg-emerald-600 text-white"
+                                                    ? "bg-primary-600 text-white"
                                                     : "text-gray-600 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-800"
                                             }`}
                                         >
@@ -459,8 +459,8 @@ export default function QuranUnifiedHub({
                         </div>
 
                         {combinedAyahs.length > 0 && (
-                            <div className="p-8 rounded-3xl bg-emerald-50/40 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/30 text-center space-y-6">
-                                <div className="flex items-center justify-between text-xs font-bold text-emerald-700 dark:text-lime-400 border-b border-emerald-200/40 pb-3">
+                            <div className="p-8 rounded-3xl bg-primary-50/40 dark:bg-primary-950/20 border border-primary-200/60 dark:border-primary-900/30 text-center space-y-6">
+                                <div className="flex items-center justify-between text-xs font-bold text-primary-700 dark:text-primary-400 border-b border-primary-200/40 pb-3">
                                     <span>الآية الحالية: {currentAyahIndex + 1} من {combinedAyahs.length}</span>
                                     <span>التكرار الحالي: {playedTimes + 1} من {repeatCount}</span>
                                 </div>
@@ -484,7 +484,7 @@ export default function QuranUnifiedHub({
 
                                     <button
                                         onClick={handlePlayPause}
-                                        className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-all flex items-center gap-2 shadow-xs"
+                                        className="px-6 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs transition-all flex items-center gap-2 shadow-xs"
                                     >
                                         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
                                         <span>{isPlaying ? "إيقاف" : "استماع وترديد"}</span>
@@ -526,7 +526,7 @@ export default function QuranUnifiedHub({
                             className="relative w-full max-w-2xl bg-white dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl p-6 space-y-5 z-10"
                         >
                             <div className="flex items-center justify-between border-b border-gray-100 dark:border-zinc-800 pb-3">
-                                <h3 className="font-bold text-sm text-emerald-600 dark:text-lime-400">
+                                <h3 className="font-bold text-sm text-primary-600 dark:text-primary-400">
                                     الآية {activeModalAyah.numberInSurah} من سورة {surahData?.name}
                                 </h3>
                                 <button
@@ -544,7 +544,7 @@ export default function QuranUnifiedHub({
                             </div>
 
                             <div className="space-y-2">
-                                <h4 className="text-xs font-bold text-emerald-600 dark:text-lime-400">التفسير الميسر:</h4>
+                                <h4 className="text-xs font-bold text-primary-600 dark:text-primary-400">التفسير الميسر:</h4>
                                 <p className="text-xs md:text-sm text-gray-700 dark:text-zinc-300 font-semibold leading-relaxed">
                                     {activeModalAyah.translation}
                                 </p>

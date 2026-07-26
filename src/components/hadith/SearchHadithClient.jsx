@@ -140,10 +140,10 @@ export default function SearchHadithClient({ rawQuery }) {
                 {searchQuery && (
                     <div className="mb-6 flex items-center justify-between border-b border-gray-200 dark:border-zinc-800 pb-4">
                         <h2 className="text-xl md:text-2xl font-black text-gray-900 dark:text-white flex items-center gap-3">
-                            <FontAwesomeIcon icon={faBook} className="text-primary dark:text-lime-400" />
+                            <FontAwesomeIcon icon={faBook} className="text-primary dark:text-primary-400" />
                             <span>نتائج البحث عن &quot;{searchQuery}&quot;</span>
                             {!isLoading && (
-                                <span className="text-xs font-bold px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-lime-400">
+                                <span className="text-xs font-bold px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-primary-400">
                                     {results.length} حديث
                                 </span>
                             )}
@@ -157,7 +157,7 @@ export default function SearchHadithClient({ rawQuery }) {
                 {/* حالة التحميل */}
                 {isLoading && (
                     <div className="text-center py-16 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800 p-8 shadow-xs">
-                        <div className="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <div className="w-16 h-16 rounded-2xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary flex items-center justify-center mx-auto mb-4 text-2xl">
                             <FontAwesomeIcon icon={faSpinner} className="animate-spin text-3xl" />
                         </div>
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">جاري البحث في مصادر السنة النبوية...</h3>
@@ -199,12 +199,12 @@ export default function SearchHadithClient({ rawQuery }) {
                         {results.map((item, idx) => (
                             <article
                                 key={idx}
-                                className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-xs space-y-4 hover:border-primary/30 dark:hover:border-lime-400/30 transition-all relative overflow-hidden group"
+                                className="bg-white dark:bg-zinc-900 border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-xs space-y-4 hover:border-primary/30 dark:hover:border-primary-400/30 transition-all relative overflow-hidden group"
                             >
                                 {/* ترويسة الحديث */}
                                 <div className="flex items-center justify-between border-b border-gray-100 dark:border-zinc-800 pb-3.5">
                                     <div className="flex items-center gap-2.5">
-                                        <span className="w-8 h-8 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-lime-400 font-black text-xs flex items-center justify-center">
+                                        <span className="w-8 h-8 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-400 font-black text-xs flex items-center justify-center">
                                             {idx + 1}
                                         </span>
                                         <span className="text-xs font-bold text-gray-800 dark:text-zinc-200">
@@ -217,12 +217,12 @@ export default function SearchHadithClient({ rawQuery }) {
                                             onClick={() => handleCopy(item.text, idx)}
                                             className="px-3 py-1 rounded-xl bg-slate-100 dark:bg-zinc-800 hover:bg-primary/10 text-gray-700 dark:text-zinc-300 hover:text-primary text-xs font-bold transition-all flex items-center gap-1.5"
                                         >
-                                            <FontAwesomeIcon icon={copiedIndex === idx ? faCheck : faCopy} className={copiedIndex === idx ? "text-emerald-500" : ""} />
+                                            <FontAwesomeIcon icon={copiedIndex === idx ? faCheck : faCopy} className={copiedIndex === idx ? "text-primary" : ""} />
                                             <span>{copiedIndex === idx ? "تم النسخ" : "نسخ الحديث"}</span>
                                         </button>
 
-                                        <span className="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold border border-emerald-200/60 dark:border-emerald-800/40 flex items-center gap-1.5">
-                                            <FontAwesomeIcon icon={faCheckCircle} className="text-emerald-500" />
+                                        <span className="px-3 py-1 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary text-[11px] font-bold border border-primary/20 dark:border-primary/40 flex items-center gap-1.5">
+                                            <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
                                             <span>{item.source}</span>
                                         </span>
                                     </div>
@@ -231,7 +231,7 @@ export default function SearchHadithClient({ rawQuery }) {
                                 {/* نص الحديث النبوي */}
                                 <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/60 border border-gray-100 dark:border-zinc-800/80">
                                     <div className="flex gap-3">
-                                        <FontAwesomeIcon icon={faQuoteRight} className="text-primary/40 dark:text-lime-400/40 text-xl shrink-0 mt-1" />
+                                        <FontAwesomeIcon icon={faQuoteRight} className="text-primary/40 dark:text-primary-400/40 text-xl shrink-0 mt-1" />
                                         <div
                                             className="font-quran text-lg md:text-xl text-gray-900 dark:text-white !leading-[2.8rem] md:!leading-[3.4rem] text-right font-semibold [&_p]:mb-3 [&_span]:py-1"
                                             dangerouslySetInnerHTML={{ __html: item.text }}
