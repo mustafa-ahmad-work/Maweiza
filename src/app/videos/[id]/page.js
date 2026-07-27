@@ -93,7 +93,7 @@ export default function VideosPage({ params }) {
         <>
             <Landing
                 title="قسم المرئيات والدروس المصورة"
-                text="شاهد وحمل مقاطع الفيديو والدروس العلمية المرئية النافعة"
+                text={`شاهد وحمل أكثر من ${links?.total_items ? links.total_items.toLocaleString('ar-EG') : '840'} مادة وسلسلة مرئية تشتمل على آلاف المقاطع المصورة النافعة`}
             />
 
             <section className="pt-5 pb-20 container px-3 m-auto">

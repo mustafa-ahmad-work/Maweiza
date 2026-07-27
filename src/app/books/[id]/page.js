@@ -76,7 +76,7 @@ export default async function Page({ params }) {
             />
             <Landing
                 title="قسم الكتب الإسلامية"
-                text="مكتبة شاملة تضم أكثر من 4900 كتاب إسلامي تعليمي مفيد ونافع بإذن الله تعالى"
+                text={`مكتبة شاملة تضم أكثر من ${links?.total_items ? links.total_items.toLocaleString('ar-EG') : '5,000'} كتاب إسلامي تعليمي مفيد ونافع بإذن الله تعالى`}
             />
 
             <BooksClient

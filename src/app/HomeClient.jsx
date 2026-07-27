@@ -39,6 +39,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useEffect, useState } from "react";
+import { useCategoryStats } from "@/helpers/stats";
 
 export default function HomeClient() {
     const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -46,6 +47,19 @@ export default function HomeClient() {
     const [showInstallModal, setShowInstallModal] = useState(false);
     const [isIOS, setIsIOS] = useState(false);
     const [isDesktop, setIsDesktop] = useState(false);
+
+    const {
+        stats: apiStats,
+        totalAllMedia,
+        totalAllItems,
+        grandTotalPlatformMedia,
+        hadithCount,
+        adhkarCategoriesCount,
+        adhkarItemsCount,
+        quotesCount,
+        recitersCount,
+        quizQuestionsCount,
+    } = useCategoryStats();
 
     useEffect(() => {
         const checkInstalled = typeof window !== "undefined" && (
@@ -96,38 +110,98 @@ export default function HomeClient() {
         {
             icon: faQuran,
             title: "القرآن الكريم وعلومه",
-            description: "سور القرآن بتلاوات متعددة، مع تفسير شامل لكل آية ومعلومات السور مقاصدها وفضائلها."
+            description: `سور القرآن (114 سورة) بتلاوات لـ ${recitersCount.toLocaleString('ar-EG')} قارئاً معتمداً، مع تفسير شامل لكل آية وفضائل السور.`
         },
         {
             icon: faMicrophoneAlt,
             title: "الحديث والأذكار",
-            description: "أكثر من 3500 حديث شريف مشروح، و140 قسماً للأدعية والأذكار اليومية الصحيحة."
+            description: `أكثر من ${hadithCount.toLocaleString('ar-EG')} حديث شريف مشروح، و${adhkarCategoriesCount.toLocaleString('ar-EG')} قسماً للأدعية والأذكار تضم ${adhkarItemsCount.toLocaleString('ar-EG')} ذكراً مأثوراً.`
         },
         {
             icon: faBook,
             title: "المكتبة والمعارف",
-            description: "ما يزيد عن 4900 كتاب و1690 مقالاً و520 فتوى شرعية و280 خطبة قيمة."
+            description: `ما يزيد عن ${apiStats.books.totalItems.toLocaleString('ar-EG')} كتاب و${apiStats.articles.totalItems.toLocaleString('ar-EG')} مقالاً و${apiStats.fatwa.totalItems.toLocaleString('ar-EG')} فتوى شرعية و${apiStats.khotab.totalItems.toLocaleString('ar-EG')} خطبة قيمة.`
         },
         {
             icon: faVideo,
             title: "الوسائط التفاعلية",
-            description: "أكثر من 1000 محاضرة مرئية و3900 محاضرة صوتية واقتباسات إسلامية متجددة."
+            description: `أكثر من ${apiStats.videos.totalMedia.toLocaleString('ar-EG')} درس مرئي و${apiStats.audios.totalMedia.toLocaleString('ar-EG')} تسجيل صوتاً و${quotesCount.toLocaleString('ar-EG')} اقتباس إسلامي متجدد.`
         }
     ];
 
     const stats = [
-        { icon: faChartLine, value: "50,000+", label: "زيارة صفحات", desc: "آلاف الزيارات اليومية من مستفيدين يبحثون عن العلم الشرعي والقرآن الكريم بأسلوب ميسر." },
-        { icon: faGlobe, value: "45+", label: "دولة حول العالم", desc: "تغطية دولية واسعة تصل للمسلمين في مختلف القارات لربط القلوب بالسنة والقرآن." },
-        { icon: faEye, value: "20,000+", label: "مشاهدة سنوياً", desc: "ملايين التفاعلات والمشاهدات السنوية للمحاضرات والدروس والمقالات الدينية الموثوقة." },
-        { icon: faBook, value: "4900+", label: "كتاب إسلامي", desc: "مكتبة إسلامية شاملة ومجانية تضم أمهات الكتب في العقيدة والفقه والسيرة والتربية." },
-        { icon: faPodcast, value: "3900+", label: "محاضرة صوتية", desc: "تسجيلات خاشعة ومحاضرات صوتية لكبار العلماء والدعاة متاحة للاستماع والتحميل المباشر." },
-        { icon: faMicrophoneAlt, value: "3500+", label: "حديث شريف", desc: "أحاديث نبوية شريفة مشروحة ومخرجة مع بيان درجة صحتها وتخريجها المعتمد." },
-        { icon: faNewspaper, value: "1690+", label: "مقال إسلامي", desc: "مقالات ودراسات شرعية تناقش القضايا المعاصرة وتوجه المسلم في حياته اليومية." },
-        { icon: faVideo, value: "1000+", label: "محاضرة فيديو", desc: "سلاسل ودروس مرئية عالية الجودة تتناول تفسير القرآن والسيرة النبوية العطرة." },
-        { icon: faHandsPraying, value: "140+", label: "قسم أدعية وأذكار", desc: "مجموعة متكاملة من أذكار الصباح والمساء والأدعية المأثورة الموثقة بالدليل." },
-        { icon: faQuoteRight, value: "100+", label: "اقتباس إسلامي", desc: "حكم ومأثورات ودرر إسلامية متجددة مصممة للمشاركة ونشر الخير بين المسلمين." },
-        { icon: faScroll, value: "280+", label: "خطبة إسلامية", desc: "خطب منبرية مكتوبة ومصنفة حسب الموضوعات والمناسبات الجاهزة للإلقاء والاستفادة." },
-        { icon: faQuestionCircle, value: "520+", label: "فتوى شرعية", desc: "إجابات ميسرة وموثوقة على الفتاوى الشرعية التي تهم المسلم في عباداته ومعاملاته." },
+        {
+            icon: faGlobe,
+            value: `${grandTotalPlatformMedia.toLocaleString('ar-EG')}+`,
+            label: "إجمالي المحتوى الإسلامي",
+            desc: `مجموع الملفات والتسجيلات والأسئلة والمواد العلمية المتاحة عبر المنصة في كافّة الأقسام (${totalAllItems.toLocaleString('ar-EG')} مادة رئيسية).`
+        },
+        {
+            icon: faPodcast,
+            value: `${apiStats.audios.totalMedia.toLocaleString('ar-EG')}+`,
+            label: "تسجيل ومحاضرة صوتية",
+            desc: `تسجيلات خاشعة ومحاضرات صوتية لكبار العلماء (${apiStats.audios.totalItems.toLocaleString('ar-EG')} مادة تضم ${apiStats.audios.totalMedia.toLocaleString('ar-EG')} مقطع صوتاً).`
+        },
+        {
+            icon: faBook,
+            value: `${apiStats.books.totalItems.toLocaleString('ar-EG')}+`,
+            label: "كتاب إسلامي",
+            desc: `مكتبة إسلامية شاملة ومجانية تضم ${apiStats.books.totalMedia.toLocaleString('ar-EG')} ملفاً وجزءاً في العقيدة والفقه والسيرة.`
+        },
+        {
+            icon: faVideo,
+            value: `${apiStats.videos.totalMedia.toLocaleString('ar-EG')}+`,
+            label: "محاضرة ودرس مرئي",
+            desc: `سلاسل ودروس مرئية عالية الجودة (${apiStats.videos.totalItems.toLocaleString('ar-EG')} سلسلة تضم ${apiStats.videos.totalMedia.toLocaleString('ar-EG')} فيديو مصور).`
+        },
+        {
+            icon: faQuestionCircle,
+            value: `${quizQuestionsCount.toLocaleString('ar-EG')}+`,
+            label: "سؤال واختبار ديني",
+            desc: "بنك أسئلة واختبارات تفاعلية شاملة في التفسير والعقيدة والفقه والسيرة النبوية."
+        },
+        {
+            icon: faNewspaper,
+            value: `${apiStats.articles.totalItems.toLocaleString('ar-EG')}+`,
+            label: "مقال ودراسة إسلامية",
+            desc: `مقالات ودراسات شرعية وتربوية (${apiStats.articles.totalMedia.toLocaleString('ar-EG')} ملف ومقال) تناقش القضايا المعاصرة.`
+        },
+        {
+            icon: faMicrophoneAlt,
+            value: `${hadithCount.toLocaleString('ar-EG')}+`,
+            label: "حديث شريف",
+            desc: "أحاديث نبوية شريفة مشروحة ومخرجة مع بيان درجة صحتها وتخريجها المعتمد."
+        },
+        {
+            icon: faHandsPraying,
+            value: `${adhkarCategoriesCount.toLocaleString('ar-EG')}+`,
+            label: "قسم أدعية وأذكار",
+            desc: `تضم ${adhkarItemsCount.toLocaleString('ar-EG')} ذكراً ودعاءً مأثوراً مصنفة حسب الأوقات والأحوال.`
+        },
+        {
+            icon: faQuoteRight,
+            value: `${quotesCount.toLocaleString('ar-EG')}+`,
+            label: "اقتباس إسلامي",
+            desc: "حكم ومأثورات ودرر إسلامية متجددة مصممة للمشاركة ونشر الخير بين المسلمين."
+        },
+        {
+            icon: faScroll,
+            value: `${apiStats.khotab.totalItems.toLocaleString('ar-EG')}+`,
+            label: "خطبة إسلامية",
+            desc: `خطب منبرية مكتوبة ومفرغة (${apiStats.khotab.totalMedia.toLocaleString('ar-EG')} خطبة وملف) مصنفة حسب الموضوعات.`
+        },
+        {
+            icon: faHands,
+            value: `${apiStats.fatwa.totalItems.toLocaleString('ar-EG')}+`,
+            label: "فتوى شرعية",
+            desc: `إجابات ميسرة وموثوقة (${apiStats.fatwa.totalMedia.toLocaleString('ar-EG')} فتوى ومستند) على الفتاوى الشرعية.`
+        },
+        {
+            icon: faQuran,
+            value: `${recitersCount.toLocaleString('ar-EG')}+`,
+            label: "قارئ ومقرئ للقرآن",
+            desc: "مكتبة تلاوات لأشهر قراء العالم الإسلامي مع السرد والاستماع الشامل."
+        }
     ];
 
     return (

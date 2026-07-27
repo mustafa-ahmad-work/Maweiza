@@ -28,8 +28,8 @@ export default async function KhotabCategoryPage({ params }) {
     return (
         <>
             <Landing
-                title="قسم الخطب"
-                text="يحتوي هذا القسم علي اكثر من 280 خطبه نافعة"
+                title="قسم الخطب والمنبريات"
+                text={`يحتوي هذا القسم على أكثر من ${links?.total_items ? links.total_items.toLocaleString('ar-EG') : '280'} خطبة منبرية مكتوبة ومفرغة`}
             />
             <KhotabClient
                 initialKhotab={khotab}

@@ -29,7 +29,7 @@ export default async function AudiosCategoryPage({ params }) {
         <>
             <Landing
                 title="قسم الصوتيات الإسلامية"
-                text="استمع وحمل المحاضرات والتلاوات والتسجيلات الصوتية النافعة"
+                text={`تصفح واستمع لأكثر من ${links?.total_items ? links.total_items.toLocaleString('ar-EG') : '3,800'} مادة صوتية تضم آلاف المحاضرات والتلاوات النافعة`}
             />
             <AudiosClient
                 initialAudios={audios}

@@ -28,8 +28,8 @@ export default async function page({ params }) {
     return (
         <>
             <Landing
-                title="قسم الفتاوي"
-                text="يحتوي هذا القسم علي اكثر من 1850 فتوي نافعة"
+                title="قسم الفتاوى الشرعية"
+                text={`يحتوي هذا القسم على أكثر من ${links?.total_items ? links.total_items.toLocaleString('ar-EG') : '480'} فتوى شرعية موثوقة وميسرة`}
             />
             <FatwaClient
                 initialFatwa={fatwa}
