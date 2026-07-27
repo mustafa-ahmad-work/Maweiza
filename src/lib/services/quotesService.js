@@ -22,7 +22,7 @@ export function getApiToken() {
 export async function getQuoteOfToday() {
     const token = getApiToken();
     try {
-        const res = await fetch(`${BASE_URL}/quotes/today?token=${encodeURIComponent(token)}`, /** @type {any} */ ({
+        const res = await fetch(`${BASE_URL}/quotes/today?token=${encodeURIComponent(token)}`, /** @type {any} */({
             next: { revalidate: 1800 }
         }));
         if (res.ok) {
@@ -55,7 +55,7 @@ export async function getQuoteOfToday() {
 export async function getKalimatQuotes() {
     const token = getApiToken();
     try {
-        const res = await fetch(`${BASE_URL}/quotes?token=${encodeURIComponent(token)}`, /** @type {any} */ ({
+        const res = await fetch(`${BASE_URL}/quotes?token=${encodeURIComponent(token)}`, /** @type {any} */({
             next: { revalidate: 1800 }
         }));
         if (res.ok) {
