@@ -295,7 +295,7 @@ export default function HomeClient() {
                         </span>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-950 dark:text-white mb-3 tracking-tight">موقع موعظة بالأرقام</h2>
                         <p className="text-gray-600 dark:text-zinc-400 max-w-xl mx-auto text-xs sm:text-sm font-bold leading-relaxed px-2">نحن فخورون بتقديم محتوى إسلامي عالي الجودة يصل لملايين المستخدمين حول العالم</p>
-                        
+
                         <div className="flex justify-center items-center mt-5 sm:mt-6">
                             <div className="h-px bg-[#449C40]/30 w-12 sm:w-16"></div>
                             <div className="mx-2.5 w-2 h-2 rounded-full bg-[#449C40] animate-pulse"></div>
@@ -313,7 +313,7 @@ export default function HomeClient() {
                                 transition={{ delay: (index % 4) * 0.04, duration: 0.4 }}
                                 className="group relative overflow-hidden rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200/90 dark:border-zinc-800 text-center transform transition-all duration-300 hover:-translate-y-1.5 hover:border-[#449C40]/40 shadow-xs hover:shadow-md flex flex-col h-full"
                             >
-                                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/50 dark:via-white/10 to-transparent transition-transform duration-1000 ease-in-out pointer-events-none z-20"></div>
+                                {/* <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/50 dark:via-white/10 to-transparent transition-transform duration-1000 ease-in-out pointer-events-none z-20"></div> */}
 
                                 <div className="p-5 sm:p-6 flex flex-col items-center justify-between h-full relative z-10">
                                     <div className="flex flex-col items-center w-full">
