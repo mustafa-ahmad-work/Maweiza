@@ -396,53 +396,54 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
     };
 
     return (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-xs flex items-center justify-center z-50 p-2 sm:p-4" onClick={onClose}>
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-xs flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto" onClick={onClose}>
             <div
-                className="bg-white dark:bg-zinc-950 rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden border border-gray-200 dark:border-zinc-800 flex flex-col"
+                className="bg-white dark:bg-zinc-950 rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[94vh] my-auto overflow-hidden border border-gray-200 dark:border-zinc-800 flex flex-col shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Modal Header */}
-                <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100 dark:border-zinc-800 bg-white dark:bg-zinc-950">
-                    <div className="flex items-center gap-3 truncate">
+                <div className="flex justify-between items-center px-4 sm:px-6 py-3.5 sm:py-4 border-b border-gray-100 dark:border-zinc-800 bg-white dark:bg-zinc-950 shrink-0">
+                    <div className="flex items-center gap-2 sm:gap-3 truncate pr-1">
                         <CategoryBadge label={categoryTitle} />
-                        <h3 className="text-base font-bold text-gray-900 dark:text-white truncate max-w-md">
+                        <h3 className="text-xs sm:text-base font-black text-gray-900 dark:text-white truncate max-w-[200px] sm:max-w-md">
                             {itemDetail.title || item.title}
                         </h3>
                     </div>
                     <button
                         onClick={onClose}
-                        className="w-9 h-9 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-600 dark:text-zinc-300 rounded-full flex items-center justify-center transition-colors"
+                        aria-label="إغلاق"
+                        className="w-8 h-8 sm:w-9 sm:h-9 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-600 dark:text-zinc-300 rounded-full flex items-center justify-center transition-colors shrink-0"
                     >
-                        <FontAwesomeIcon icon={faTimes} className="text-base" />
+                        <FontAwesomeIcon icon={faTimes} className="text-sm sm:text-base" />
                     </button>
                 </div>
 
                 {/* Modal Content */}
-                <div className="p-6 overflow-y-auto space-y-6 flex-grow bg-white dark:bg-zinc-950">
+                <div className="p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 flex-grow bg-white dark:bg-zinc-950">
                     {fetchingDetail && (
                         <div className="flex items-center gap-2 text-xs font-bold text-[#449C40] bg-emerald-50 dark:bg-zinc-900 p-2.5 rounded-xl border border-emerald-100 dark:border-zinc-800">
                             <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
-                            <span>جارٍ تحديث وجلب جميع مرفقات الحزمة والسلسلة من السيرفر...</span>
+                            <span>جارٍ جلب وتحديث المرفقات من السيرفر...</span>
                         </div>
                     )}
 
                     {/* Active Player */}
                     {fileUrl && (
-                        <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-900">
+                        <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-900">
                             {isPdf ? (
                                 <div className="w-full">
-                                    <div className="bg-emerald-50 dark:bg-zinc-900 px-4 py-2 text-xs font-bold text-[#449C40] dark:text-emerald-400 flex items-center justify-between border-b border-emerald-100 dark:border-zinc-800">
-                                        <span className="flex items-center gap-1.5">
+                                    <div className="bg-emerald-50 dark:bg-zinc-900 px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold text-[#449C40] dark:text-emerald-400 flex items-center justify-between border-b border-emerald-100 dark:border-zinc-800">
+                                        <span className="flex items-center gap-1.5 truncate">
                                             <FontAwesomeIcon icon={faFilePdf} />
-                                            مستعرض ملف الـ PDF المباشر ({activeAttachment?.description || 'مستعرض الملفات'})
+                                            <span className="truncate">مستعرض الـ PDF ({activeAttachment?.description || 'الملف المباشر'})</span>
                                         </span>
-                                        <a href={fileUrl} target="_blank" rel="noreferrer" className="underline text-xs">
-                                            فتح في نافذة مستقلة
+                                        <a href={fileUrl} target="_blank" rel="noreferrer" className="underline shrink-0 text-[11px]">
+                                            فتح نافذة مستقلة
                                         </a>
                                     </div>
                                     <iframe
                                         src={`https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`}
-                                        className="w-full h-[480px] border-0"
+                                        className="w-full h-[320px] sm:h-[480px] border-0"
                                         title={item.title}
                                     />
                                 </div>
@@ -464,11 +465,11 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                     </video>
                                 </div>
                             ) : isAudio ? (
-                                <div className="p-6 text-center bg-emerald-50/50 dark:bg-zinc-900 border-b border-emerald-100 dark:border-zinc-800">
-                                    <div className="w-16 h-16 bg-[#449C40] text-white rounded-full flex items-center justify-center mx-auto mb-3">
-                                        <FontAwesomeIcon icon={faHeadphones} className="text-2xl" />
+                                <div className="p-4 sm:p-6 text-center bg-emerald-50/50 dark:bg-zinc-900 border-b border-emerald-100 dark:border-zinc-800">
+                                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#449C40] text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
+                                        <FontAwesomeIcon icon={faHeadphones} className="text-xl sm:text-2xl" />
                                     </div>
-                                    <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-2">
+                                    <h4 className="text-xs sm:text-sm font-black text-gray-900 dark:text-white mb-2">
                                         {activeAttachment?.description || item.title}
                                     </h4>
                                     <audio controls autoPlay key={fileUrl} className="w-full max-w-md mx-auto">
@@ -482,16 +483,15 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
 
                     {/* Full Attachment Playlist */}
                     {attachments.length > 0 && (
-                        <div className="bg-gray-50 dark:bg-zinc-900 p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 space-y-3">
+                        <div className="bg-gray-50 dark:bg-zinc-900 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-zinc-800 space-y-3">
                             <div className="flex items-center justify-between border-b border-gray-200 dark:border-zinc-800 pb-2">
                                 <h4 className="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
                                     <FontAwesomeIcon icon={faListUl} className="text-[#449C40]" />
-                                    <span>قائمة مقاطع وملفات الحزمة ({attachments.length} عنصر)</span>
+                                    <span>قائمة المرفقات والمقاطع ({attachments.length})</span>
                                 </h4>
-                                <span className="text-[11px] text-gray-500 font-medium">اضغط على أي مقطع للمعاينة والتحميل</span>
                             </div>
 
-                            <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+                            <div className="space-y-2 max-h-52 sm:max-h-60 overflow-y-auto pr-1">
                                 {attachments.map((att, idx) => {
                                     const attSingleUrl = getSingleFileUrl(att);
                                     const isSelected = selectedAttachmentIndex === idx;
@@ -503,14 +503,14 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                         <div
                                             key={idx}
                                             onClick={() => setSelectedAttachmentIndex(idx)}
-                                            className={`flex items-center justify-between p-3 rounded-xl border transition-all cursor-pointer ${
+                                            className={`flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl border transition-all cursor-pointer gap-2 ${
                                                 isSelected
                                                     ? "bg-white dark:bg-zinc-800 border-[#449C40] text-gray-900 dark:text-white"
                                                     : "bg-white dark:bg-zinc-950 border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-emerald-50/50 dark:hover:bg-zinc-900"
                                             }`}
                                         >
                                             <div className="flex items-center gap-3 truncate">
-                                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold ${
+                                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
                                                     isSelected ? "bg-[#449C40] text-white" : "bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-300"
                                                 }`}>
                                                     {isAttAudio ? <FontAwesomeIcon icon={faVolumeUp} /> : isAttVideo ? <FontAwesomeIcon icon={faVideo} /> : <FontAwesomeIcon icon={faFilePdf} />}
@@ -526,13 +526,13 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                                 </div>
                                             </div>
 
-                                            <div className="flex items-center gap-2">
+                                            <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
                                                 <button
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         setSelectedAttachmentIndex(idx);
                                                     }}
-                                                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors flex items-center gap-1 ${
+                                                    className={`px-3 py-1.5 text-[11px] font-bold rounded-lg transition-colors flex items-center gap-1 ${
                                                         isSelected
                                                             ? "bg-[#449C40] text-white"
                                                             : "bg-gray-100 dark:bg-zinc-800 hover:bg-emerald-100 dark:hover:bg-zinc-700 text-gray-700 dark:text-zinc-200"
@@ -547,7 +547,7 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                                         href={attSingleUrl}
                                                         download
                                                         onClick={(e) => e.stopPropagation()}
-                                                        className="w-8 h-8 bg-gray-100 dark:bg-zinc-800 hover:bg-[#449C40] hover:text-white rounded-lg flex items-center justify-center text-gray-600 dark:text-zinc-300 transition-colors"
+                                                        className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-100 dark:bg-zinc-800 hover:bg-[#449C40] hover:text-white rounded-lg flex items-center justify-center text-gray-600 dark:text-zinc-300 transition-colors"
                                                         title="تحميل هذا الملف"
                                                     >
                                                         <FontAwesomeIcon icon={faDownload} className="text-xs" />
@@ -563,9 +563,9 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
 
                     {/* Text Details */}
                     {(itemDetail.full_description || itemDetail.description) && (
-                        <div className="space-y-3">
+                        <div className="space-y-2.5">
                             <div className="flex items-center justify-between">
-                                <h4 className="text-sm font-bold text-gray-900 dark:text-white">النص الكامل والتفاصيل:</h4>
+                                <h4 className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white">التفاصيل والنص الكامل:</h4>
                                 <button
                                     onClick={copyFatwaText}
                                     className="flex items-center gap-1.5 px-3 py-1 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 text-xs font-bold rounded-lg transition-colors text-gray-700 dark:text-zinc-300"
@@ -575,7 +575,7 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                 </button>
                             </div>
 
-                            <div className="p-5 bg-gray-50 dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 text-xs sm:text-sm text-gray-800 dark:text-zinc-200 leading-relaxed font-sans overflow-x-auto">
+                            <div className="p-4 sm:p-5 bg-gray-50 dark:bg-zinc-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-zinc-800 text-xs sm:text-sm text-gray-800 dark:text-zinc-200 leading-relaxed font-sans overflow-x-auto">
                                 {itemDetail.full_description ? (
                                     <div dangerouslySetInnerHTML={{ __html: itemDetail.full_description }} />
                                 ) : (
@@ -586,23 +586,23 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                     )}
 
                     {itemDetail.prepared_by && itemDetail.prepared_by.length > 0 && (
-                        <div className="p-3.5 bg-emerald-50/50 dark:bg-zinc-900 rounded-2xl border border-emerald-100 dark:border-zinc-800 text-xs flex items-center justify-between">
-                            <span className="text-gray-600 dark:text-zinc-400 font-medium">المؤلف / المفتي / المحاضر:</span>
+                        <div className="p-3 bg-emerald-50/50 dark:bg-zinc-900 rounded-xl border border-emerald-100 dark:border-zinc-800 text-xs flex items-center justify-between">
+                            <span className="text-gray-600 dark:text-zinc-400 font-medium">المؤلف / المحاضر:</span>
                             <span className="font-bold text-gray-900 dark:text-zinc-100">{itemDetail.prepared_by[0].title}</span>
                         </div>
                     )}
                 </div>
 
                 {/* Modal Footer */}
-                <div className="px-6 py-4 border-t border-gray-100 dark:border-zinc-800 flex justify-between items-center bg-gray-50 dark:bg-zinc-950">
+                <div className="px-4 sm:px-6 py-3.5 border-t border-gray-100 dark:border-zinc-800 flex flex-col-reverse sm:flex-row justify-between items-center gap-2.5 bg-gray-50 dark:bg-zinc-950 shrink-0">
                     {fileUrl ? (
                         <a
                             href={fileUrl}
                             download
-                            className="px-5 py-2.5 bg-[#449C40] hover:bg-[#00703C] text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-2 active:scale-[0.99]"
+                            className="w-full sm:w-auto px-5 py-2.5 bg-[#449C40] hover:bg-[#00703C] text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-2 active:scale-95 shadow-sm"
                         >
                             <FontAwesomeIcon icon={faDownload} />
-                            <span>تحميل الملف المحدد الآن ({activeAttachment?.extension_type || 'تحميل'})</span>
+                            <span>تحميل الملف المحدد ({activeAttachment?.extension_type || 'تحميل'})</span>
                         </a>
                     ) : (
                         <div></div>
@@ -610,7 +610,7 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
 
                     <button
                         onClick={onClose}
-                        className="px-5 py-2.5 bg-gray-200 dark:bg-zinc-800 hover:bg-gray-300 dark:hover:bg-zinc-700 text-gray-800 dark:text-zinc-200 text-xs font-bold rounded-xl transition-colors"
+                        className="w-full sm:w-auto px-5 py-2.5 bg-gray-200 dark:bg-zinc-800 hover:bg-gray-300 dark:hover:bg-zinc-700 text-gray-800 dark:text-zinc-200 text-xs font-bold rounded-xl transition-colors"
                     >
                         إغلاق
                     </button>
