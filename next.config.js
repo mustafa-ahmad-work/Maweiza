@@ -1,6 +1,6 @@
 const withPWA = require('next-pwa')({
     dest: 'public',
-    disable: false,
+    disable: (process.env.ENABLE_PWA_DEV ?? 'true') !== 'true',
     register: true,
     skipWaiting: true,
     customWorkerDir: 'src/worker',
