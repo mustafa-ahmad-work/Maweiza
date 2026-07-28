@@ -17,6 +17,7 @@ import {
     faSpinner,
     faTimes,
     faFilePdf,
+    faFileAlt,
     faHeadphones,
     faVideo,
     faBook,
@@ -375,9 +376,10 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
     const ext = activeAttachment?.extension_type?.toLowerCase() || "";
 
     const isPdf = ext === "pdf" || fileUrl.toLowerCase().includes(".pdf");
+    const isDoc = ext === "doc" || ext === "docx" || fileUrl.toLowerCase().includes(".doc") || fileUrl.toLowerCase().includes(".docx");
     const isYouTube = fileUrl.includes("youtube.com") || fileUrl.includes("youtu.be");
     const isVideo = ext === "mp4" || categoryType === "videos" || fileUrl.toLowerCase().includes(".mp4") || isYouTube;
-    const isAudio = !isVideo && !isPdf && (ext === "mp3" || categoryType === "audios" || fileUrl.toLowerCase().includes(".mp3"));
+    const isAudio = !isVideo && !isPdf && !isDoc && (ext === "mp3" || categoryType === "audios" || fileUrl.toLowerCase().includes(".mp3"));
 
     const categoryTitle =
         categoryType === "books" ? "معاينة الكتاب" :
@@ -427,23 +429,39 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                         </div>
                     )}
 
-                    {/* Active Player */}
+                    {/* Active Player / Document Viewer */}
                     {fileUrl && (
                         <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-900">
-                            {isPdf ? (
+                            {isPdf || isDoc ? (
                                 <div className="w-full">
                                     <div className="bg-emerald-50 dark:bg-zinc-900 px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-bold text-[#449C40] dark:text-emerald-400 flex items-center justify-between border-b border-emerald-100 dark:border-zinc-800">
                                         <span className="flex items-center gap-1.5 truncate">
-                                            <FontAwesomeIcon icon={faFilePdf} />
-                                            <span className="truncate">مستعرض الـ PDF ({activeAttachment?.description || 'الملف المباشر'})</span>
+                                            <FontAwesomeIcon icon={isDoc ? faFileAlt : faFilePdf} />
+                                            <span className="truncate">
+                                                {isDoc ? 'مستعرض مستندات الوورد (DOCX / DOC)' : 'مستعرض الـ PDF'} ({activeAttachment?.description || 'الملف المباشر'})
+                                            </span>
                                         </span>
-                                        <a href={fileUrl} target="_blank" rel="noreferrer" className="underline shrink-0 text-[11px]">
-                                            فتح نافذة مستقلة
-                                        </a>
+                                        <div className="flex items-center gap-2 shrink-0">
+                                            <a
+                                                href={`https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="underline text-[11px]"
+                                            >
+                                                فتح نافذة مستقلة
+                                            </a>
+                                            <a
+                                                href={fileUrl}
+                                                download
+                                                className="px-2.5 py-1 bg-[#449C40] hover:bg-[#00703C] text-white rounded-lg text-[10px] no-underline font-bold transition-colors"
+                                            >
+                                                تحميل {isDoc ? 'Word DOCX' : 'PDF'}
+                                            </a>
+                                        </div>
                                     </div>
                                     <iframe
                                         src={`https://docs.google.com/gview?url=${encodeURIComponent(fileUrl)}&embedded=true`}
-                                        className="w-full h-[320px] sm:h-[480px] border-0"
+                                        className="w-full h-[340px] sm:h-[480px] border-0 bg-white"
                                         title={item.title}
                                     />
                                 </div>
@@ -496,6 +514,7 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                     const attSingleUrl = getSingleFileUrl(att);
                                     const isSelected = selectedAttachmentIndex === idx;
                                     const isAttPdf = att.extension_type?.toLowerCase() === "pdf" || attSingleUrl.toLowerCase().includes(".pdf");
+                                    const isAttDoc = att.extension_type?.toLowerCase() === "doc" || att.extension_type?.toLowerCase() === "docx" || attSingleUrl.toLowerCase().includes(".doc") || attSingleUrl.toLowerCase().includes(".docx");
                                     const isAttAudio = att.extension_type?.toLowerCase() === "mp3" || attSingleUrl.toLowerCase().includes(".mp3");
                                     const isAttVideo = att.extension_type?.toLowerCase() === "mp4" || attSingleUrl.toLowerCase().includes(".mp4");
 
@@ -513,7 +532,7 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
                                                     isSelected ? "bg-[#449C40] text-white" : "bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-300"
                                                 }`}>
-                                                    {isAttAudio ? <FontAwesomeIcon icon={faVolumeUp} /> : isAttVideo ? <FontAwesomeIcon icon={faVideo} /> : <FontAwesomeIcon icon={faFilePdf} />}
+                                                    {isAttAudio ? <FontAwesomeIcon icon={faVolumeUp} /> : isAttVideo ? <FontAwesomeIcon icon={faVideo} /> : isAttDoc ? <FontAwesomeIcon icon={faFileAlt} /> : <FontAwesomeIcon icon={faFilePdf} />}
                                                 </div>
 
                                                 <div className="truncate">
@@ -538,8 +557,8 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                                             : "bg-gray-100 dark:bg-zinc-800 hover:bg-emerald-100 dark:hover:bg-zinc-700 text-gray-700 dark:text-zinc-200"
                                                     }`}
                                                 >
-                                                    <FontAwesomeIcon icon={isAttPdf ? faBook : faPlayCircle} />
-                                                    <span>{isSelected ? "يعمل الآن" : "تشغيل / قراءة"}</span>
+                                                    <FontAwesomeIcon icon={(isAttPdf || isAttDoc) ? faBook : faPlayCircle} />
+                                                    <span>{isSelected ? "يعمل الآن" : (isAttDoc ? "قراءة المستند" : "تشغيل / قراءة")}</span>
                                                 </button>
 
                                                 {attSingleUrl && (

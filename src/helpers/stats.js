@@ -10,13 +10,27 @@ import questionsData from "@/data/questions.json";
 // Local Datasets Dynamic Counts
 export const HADITH_COUNT = Array.isArray(adithData) ? adithData.length : Object.keys(adithData).length;
 
-export const ADHKAR_CATEGORIES_COUNT = Object.keys(azekarData).length;
+export const ADHKAR_CATEGORIES_COUNT = Array.isArray(azekarData) ? azekarData.length : Object.keys(azekarData).length;
 
-export const ADHKAR_ITEMS_COUNT = Object.values(azekarData).reduce((acc, cat) => {
-    if (Array.isArray(cat)) return acc + cat.length;
-    if (typeof cat === "object" && cat !== null) return acc + Object.keys(cat).length;
-    return acc;
-}, 0);
+// Accurately sum all inner Athkar and Duas inside category arrays
+export const ADHKAR_ITEMS_COUNT = (() => {
+    if (Array.isArray(azekarData)) {
+        return azekarData.reduce((acc, cat) => {
+            if (cat && Array.isArray(cat.array)) {
+                return acc + cat.array.length;
+            }
+            return acc + 1;
+        }, 0);
+    }
+    if (typeof azekarData === "object" && azekarData !== null) {
+        return Object.values(azekarData).reduce((acc, cat) => {
+            if (Array.isArray(cat)) return acc + cat.length;
+            if (cat && Array.isArray(cat.array)) return acc + cat.array.length;
+            return acc + 1;
+        }, 0);
+    }
+    return 348;
+})();
 
 export const QUOTES_COUNT = quotesData.result?.length || quotesData.quotes?.length || 284;
 
@@ -40,7 +54,7 @@ export const QUIZ_QUESTIONS_COUNT = (() => {
     return count || 5820;
 })();
 
-// Default API stats before live fetch completes
+// Default API stats before live fetch completes (totalItems = entry containers, totalMedia = total inner audio tracks, pdf parts, video files)
 export const DEFAULT_STATS = {
     books: { totalItems: 5058, totalMedia: 7284 },
     audios: { totalItems: 3843, totalMedia: 13374 },
@@ -117,7 +131,7 @@ export function useCategoryStats() {
                 sections: DEFAULT_STATS,
                 totalAllItems: 12183,
                 totalAllMedia: 30017,
-                grandTotalPlatformMedia: 37377,
+                grandTotalPlatformMedia: 30017 + HADITH_COUNT + ADHKAR_ITEMS_COUNT + QUOTES_COUNT + RECITERS_COUNT + QUIZ_QUESTIONS_COUNT,
             },
         }
     );
@@ -125,7 +139,7 @@ export function useCategoryStats() {
     const stats = data?.sections || DEFAULT_STATS;
     const totalAllItems = data?.totalAllItems || 12183;
     const totalAllMedia = data?.totalAllMedia || 30017;
-    const grandTotalPlatformMedia = data?.grandTotalPlatformMedia || 37377;
+    const grandTotalPlatformMedia = data?.grandTotalPlatformMedia || (30017 + HADITH_COUNT + ADHKAR_ITEMS_COUNT + QUOTES_COUNT + RECITERS_COUNT + QUIZ_QUESTIONS_COUNT);
 
     return {
         stats,

@@ -115,17 +115,17 @@ export default function HomeClient() {
         {
             icon: faMicrophoneAlt,
             title: "الحديث والأذكار",
-            description: `أكثر من ${hadithCount.toLocaleString('ar-EG')} حديث شريف مشروح، و${adhkarCategoriesCount.toLocaleString('ar-EG')} قسماً للأدعية والأذكار تضم ${adhkarItemsCount.toLocaleString('ar-EG')} ذكراً مأثوراً.`
+            description: `أكثر من ${hadithCount.toLocaleString('ar-EG')} حديث شريف مشروح، و${adhkarItemsCount.toLocaleString('ar-EG')} ذكراً ودعاءً مأثوراً في ${adhkarCategoriesCount.toLocaleString('ar-EG')} قسماً.`
         },
         {
             icon: faBook,
             title: "المكتبة والمعارف",
-            description: `ما يزيد عن ${apiStats.books.totalItems.toLocaleString('ar-EG')} كتاب و${apiStats.articles.totalItems.toLocaleString('ar-EG')} مقالاً و${apiStats.fatwa.totalItems.toLocaleString('ar-EG')} فتوى شرعية و${apiStats.khotab.totalItems.toLocaleString('ar-EG')} خطبة قيمة.`
+            description: `ما يزيد عن ${apiStats.books.totalMedia.toLocaleString('ar-EG')} جزءاً ومجلداً و${apiStats.articles.totalMedia.toLocaleString('ar-EG')} مقالاً و${apiStats.fatwa.totalMedia.toLocaleString('ar-EG')} فتوى شرعية و${apiStats.khotab.totalMedia.toLocaleString('ar-EG')} خطبة قيمة.`
         },
         {
             icon: faVideo,
             title: "الوسائط التفاعلية",
-            description: `أكثر من ${apiStats.videos.totalMedia.toLocaleString('ar-EG')} درس مرئي و${apiStats.audios.totalMedia.toLocaleString('ar-EG')} تسجيل صوتاً و${quotesCount.toLocaleString('ar-EG')} اقتباس إسلامي متجدد.`
+            description: `أكثر من ${apiStats.videos.totalMedia.toLocaleString('ar-EG')} درس مرئي و${apiStats.audios.totalMedia.toLocaleString('ar-EG')} مقطع صوتاً و${quotesCount.toLocaleString('ar-EG')} اقتباس إسلامي متجدد.`
         }
     ];
 
@@ -133,26 +133,26 @@ export default function HomeClient() {
         {
             icon: faGlobe,
             value: `${grandTotalPlatformMedia.toLocaleString('ar-EG')}+`,
-            label: "إجمالي المحتوى الإسلامي",
-            desc: `مجموع الملفات والتسجيلات والأسئلة والمواد العلمية المتاحة عبر المنصة في كافّة الأقسام (${totalAllItems.toLocaleString('ar-EG')} مادة رئيسية).`
+            label: "إجمالي المحتوى الإسلامي الجوهري",
+            desc: `مجموع الملفات والتسجيلات والمقاطع والأسئلة والمواد العلمية الجوهرية المتاحة عبر المنصة في كافّة الأقسام.`
         },
         {
             icon: faPodcast,
             value: `${apiStats.audios.totalMedia.toLocaleString('ar-EG')}+`,
-            label: "تسجيل ومحاضرة صوتية",
-            desc: `تسجيلات خاشعة ومحاضرات صوتية لكبار العلماء (${apiStats.audios.totalItems.toLocaleString('ar-EG')} مادة تضم ${apiStats.audios.totalMedia.toLocaleString('ar-EG')} مقطع صوتاً).`
+            label: "مقطع وتسجيل صوتاً",
+            desc: `تسجيلات ومحاضرات صوتية لكبار العلماء (${apiStats.audios.totalMedia.toLocaleString('ar-EG')} مقطع صوتاً جوهرياً في ${apiStats.audios.totalItems.toLocaleString('ar-EG')} ألبوم وسلسلة).`
         },
         {
             icon: faBook,
-            value: `${apiStats.books.totalItems.toLocaleString('ar-EG')}+`,
-            label: "كتاب إسلامي",
-            desc: `مكتبة إسلامية شاملة ومجانية تضم ${apiStats.books.totalMedia.toLocaleString('ar-EG')} ملفاً وجزءاً في العقيدة والفقه والسيرة.`
+            value: `${apiStats.books.totalMedia.toLocaleString('ar-EG')}+`,
+            label: "مجلد وجزء كتاب إسلامي",
+            desc: `مكتبة إسلامية شاملة ومجانية تضم ${apiStats.books.totalMedia.toLocaleString('ar-EG')} جزءاً ومجلداً PDF في ${apiStats.books.totalItems.toLocaleString('ar-EG')} عنوان كتاب.`
         },
         {
             icon: faVideo,
             value: `${apiStats.videos.totalMedia.toLocaleString('ar-EG')}+`,
-            label: "محاضرة ودرس مرئي",
-            desc: `سلاسل ودروس مرئية عالية الجودة (${apiStats.videos.totalItems.toLocaleString('ar-EG')} سلسلة تضم ${apiStats.videos.totalMedia.toLocaleString('ar-EG')} فيديو مصور).`
+            label: "فيديو ودرس مرئي مصور",
+            desc: `سلاسل ودروس مرئية عالية الجودة (${apiStats.videos.totalMedia.toLocaleString('ar-EG')} فيديو مصور في ${apiStats.videos.totalItems.toLocaleString('ar-EG')} سلسلة مرئية).`
         },
         {
             icon: faQuestionCircle,
@@ -161,22 +161,22 @@ export default function HomeClient() {
             desc: "بنك أسئلة واختبارات تفاعلية شاملة في التفسير والعقيدة والفقه والسيرة النبوية."
         },
         {
-            icon: faNewspaper,
-            value: `${apiStats.articles.totalItems.toLocaleString('ar-EG')}+`,
-            label: "مقال ودراسة إسلامية",
-            desc: `مقالات ودراسات شرعية وتربوية (${apiStats.articles.totalMedia.toLocaleString('ar-EG')} ملف ومقال) تناقش القضايا المعاصرة.`
+            icon: faHandsPraying,
+            value: `${adhkarItemsCount.toLocaleString('ar-EG')}+`,
+            label: "ذكر ودعاء مأثور",
+            desc: `إجمالي الأدعية والأذكار المأثورة الجوهرية الموزعة على ${adhkarCategoriesCount.toLocaleString('ar-EG')} قسماً رئيسياً.`
         },
         {
             icon: faMicrophoneAlt,
             value: `${hadithCount.toLocaleString('ar-EG')}+`,
-            label: "حديث شريف",
+            label: "حديث نبوي شريف",
             desc: "أحاديث نبوية شريفة مشروحة ومخرجة مع بيان درجة صحتها وتخريجها المعتمد."
         },
         {
-            icon: faHandsPraying,
-            value: `${adhkarCategoriesCount.toLocaleString('ar-EG')}+`,
-            label: "قسم أدعية وأذكار",
-            desc: `تضم ${adhkarItemsCount.toLocaleString('ar-EG')} ذكراً ودعاءً مأثوراً مصنفة حسب الأوقات والأحوال.`
+            icon: faNewspaper,
+            value: `${apiStats.articles.totalMedia.toLocaleString('ar-EG')}+`,
+            label: "مقال ودراسة إسلامية",
+            desc: `مقالات ودراسات شرعية وتربوية مفرغة وموثوقة.`
         },
         {
             icon: faQuoteRight,
@@ -186,15 +186,15 @@ export default function HomeClient() {
         },
         {
             icon: faScroll,
-            value: `${apiStats.khotab.totalItems.toLocaleString('ar-EG')}+`,
-            label: "خطبة إسلامية",
-            desc: `خطب منبرية مكتوبة ومفرغة (${apiStats.khotab.totalMedia.toLocaleString('ar-EG')} خطبة وملف) مصنفة حسب الموضوعات.`
+            value: `${apiStats.khotab.totalMedia.toLocaleString('ar-EG')}+`,
+            label: "خطبة ومستند منبري",
+            desc: `خطب منبرية مكتوبة ومفرغة (${apiStats.khotab.totalMedia.toLocaleString('ar-EG')} خطبة ومستند مفرغ).`
         },
         {
             icon: faHands,
-            value: `${apiStats.fatwa.totalItems.toLocaleString('ar-EG')}+`,
-            label: "فتوى شرعية",
-            desc: `إجابات ميسرة وموثوقة (${apiStats.fatwa.totalMedia.toLocaleString('ar-EG')} فتوى ومستند) على الفتاوى الشرعية.`
+            value: `${apiStats.fatwa.totalMedia.toLocaleString('ar-EG')}+`,
+            label: "فتوى شرعية معتمدة",
+            desc: `إجابات ميسرة وموثوقة (${apiStats.fatwa.totalMedia.toLocaleString('ar-EG')} فتوى شرعية ومستند مسبب).`
         },
         {
             icon: faQuran,
