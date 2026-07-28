@@ -88,6 +88,7 @@ export default function AppSection() {
                                 alt="تطبيق مفاتيح حفظ القرآن"
                                 width={600}
                                 height={375}
+                                style={{ width: "100%", height: "auto" }}
                                 className="w-full h-auto object-contain rounded-xl transform group-hover:scale-[1.03] transition-transform duration-700 relative z-10"
                                 priority
                                 quality={95}

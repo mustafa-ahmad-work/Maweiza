@@ -211,6 +211,7 @@ export default function ApplicationClient() {
                             alt="غلاف شاشات تطبيق مفاتيح حفظ القرآن"
                             width={600}
                             height={375}
+                            style={{ width: "100%", height: "auto" }}
                             className="w-full h-auto object-contain transition-transform duration-700 hover:scale-[1.015]"
                             priority
                             quality={95}

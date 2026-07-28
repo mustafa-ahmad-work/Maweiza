@@ -25,9 +25,23 @@ const STAGE_3_ROUTES = [
 
 export default function OfflinePrefetcher() {
     useEffect(() => {
-        if (typeof window === "undefined" || !("navigator" in window) || !navigator.onLine) {
+        if (typeof window === "undefined" || !("navigator" in window)) {
             return;
         }
+
+        // التسجيل الصريح للـ Service Worker لضمان تفعيله فوراً
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+                .register("/sw.js")
+                .then((reg) => {
+                    console.log("[SW] Service Worker registered with scope:", reg.scope);
+                })
+                .catch((err) => {
+                    console.error("[SW] Service Worker registration error:", err);
+                });
+        }
+
+        if (!navigator.onLine) return;
 
         // فحص وضع توفير البيانات أو الاتصال الضعيف
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;

@@ -1,13 +1,11 @@
 const withPWA = require('next-pwa')({
     dest: 'public',
-    disable: process.env.NODE_ENV === 'development',
+    disable: false,
     register: true,
     skipWaiting: true,
     customWorkerDir: 'src/worker',
     buildExcludes: [/app-build-manifest\.json$/],
-    fallbacks: {
-        document: '/offline',
-    },
+    fallbacks: false,
     maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
     runtimeCaching: [
         // 1. الخطوط والأصول الثابتة
