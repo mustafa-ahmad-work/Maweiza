@@ -112,7 +112,7 @@ export default function VideosPage({ params }) {
                 ) : error ? (
                     <ModernErrorState message={error} onRetry={() => window.location.reload()} />
                 ) : displayVideos.length === 0 ? (
-                    <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "المفضلة" : "المرئيات"} />
+                    <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "تم الاطلاع" : "المرئيات"} />
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {displayVideos.map((item, key) => (

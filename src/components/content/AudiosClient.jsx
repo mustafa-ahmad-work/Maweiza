@@ -75,7 +75,7 @@ export default function AudiosClient({ initialAudios = [], links = {}, pageId = 
             />
 
             {displayAudios.length === 0 ? (
-                <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "المفضلة" : "الصوتيات"} />
+                <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "تم الاطلاع" : "الصوتيات"} />
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {displayAudios.map((item, key) => (

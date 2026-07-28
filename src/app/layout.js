@@ -10,9 +10,11 @@ import Script from "next/script";
 
 import { SWRProvider } from "@/components/Layout/SWRProvider";
 import { RamadanProvider } from "@/context/ramadanContext";
-
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { ToastContainer } from "react-toastify";
+import OfflinePrefetcher from "@/components/shared/OfflinePrefetcher";
+import BroadcastUpdateListener from "@/components/shared/BroadcastUpdateListener";
 config.autoAddCss = false;
 
 const cairoFont = localFont({
@@ -275,12 +277,15 @@ export default function RootLayout({ children }) {
                             title="google tag manager"
                         >
                         </iframe>
+                        <OfflinePrefetcher />
+                        <BroadcastUpdateListener />
                         <main className={`${cairoFont.variable} ${thmanyahFont.variable} relative antialiased pt-24 sm:pt-28 lg:pt-36`}>
                             <Navbar />
                             {children}
                             <Footer />
                             <Buttons />
                         </main>
+                        <ToastContainer position="bottom-left" limit={1} autoClose={2500} hideProgressBar style={{ zIndex: 99999999 }} />
                     </body>
                 </RamadanProvider>
             </SWRProvider>

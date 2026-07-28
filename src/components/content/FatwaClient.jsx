@@ -75,7 +75,7 @@ export default function FatwaClient({ initialFatwa = [], links = {}, pageId = "1
             />
 
             {displayFatwa.length === 0 ? (
-                <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "المفضلة" : "الفتاوى"} />
+                <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "تم الاطلاع" : "الفتاوى"} />
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {displayFatwa.map((item, key) => (

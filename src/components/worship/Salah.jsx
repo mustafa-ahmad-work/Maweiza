@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import moment from "moment";
 import "moment/dist/locale/ar-dz";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/components/Layout/Loader";
 import Landing from "../Layout/Landing";
@@ -225,7 +225,6 @@ export default function Salah() {
     return (
         <>
             <Landing title="أوقات الصلاة" />
-            <ToastContainer />
             <section className="pt-15 mt-4 salah pb-5 relative">
                 <Image
                     width={100}

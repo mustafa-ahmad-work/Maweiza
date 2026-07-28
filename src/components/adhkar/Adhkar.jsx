@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Landing from "../Layout/Landing";
@@ -121,7 +121,6 @@ export default function Azekar() {
             <Landing title="اذكار الصباح والمساء" text="اذكار الصباح والمساء مع عداد التكرار استخدم ايقونه الكتاب لعرض النص بالكامل" />
             <div className="container m-auto gap-5 mt-4 flex flex-col px-3 md:grid md:gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {showData}
-                <ToastContainer />
             </div>
             <Image
                 width={100}

@@ -77,7 +77,7 @@ export default function BooksClient({ initialBooks = [], links = {}, pageId = "1
 
             {/* Expressive Grid */}
             {displayBooks.length === 0 ? (
-                <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "المفضلة" : "الكتب"} />
+                <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "تم الاطلاع" : "الكتب"} />
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {displayBooks.map((item, key) => (

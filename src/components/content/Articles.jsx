@@ -93,7 +93,7 @@ export default function Articles({ id = "1" }) {
                 />
 
                 {displayArticles.length === 0 ? (
-                    <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "المفضلة" : "المقالات"} />
+                    <EmptySavedState typeName={activeTab === "saved" ? "المحفوظات" : activeTab === "liked" ? "تم الاطلاع" : "المقالات"} />
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {displayArticles.map((item, key) => (

@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBookmark as faBookmarkSolid,
-    faHeart as faHeartSolid,
     faRotateRight,
     faAngleDoubleRight,
     faAngleDoubleLeft,
@@ -24,12 +23,12 @@ import {
     faListUl,
     faCopy,
     faCheck,
+    faCheckCircle,
     faPlayCircle,
     faVolumeUp
 } from "@fortawesome/free-solid-svg-icons";
 import {
-    faBookmark as faBookmarkRegular,
-    faHeart as faHeartRegular
+    faBookmark as faBookmarkRegular
 } from "@fortawesome/free-regular-svg-icons";
 import { isSaved, toggleSave, isLiked, toggleLike } from "@/helpers/savedItems";
 
@@ -54,25 +53,12 @@ const getYouTubeEmbedUrl = (url) => {
     return url;
 };
 
-// دالة إظهار إشعار فريد واحد باللون الأخضر وبدون أي ظلال
+// دالة إظهار إشعار أخضر فريد ومؤكد
 const showSingleGreenToast = (msg, isSuccess = true) => {
     toast.dismiss(); // مسح وإلغاء أي إشعارات سابقة فوراً
     toast(msg, {
         position: "bottom-left",
-        autoClose: 2200,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        style: {
-            backgroundColor: isSuccess ? "#449C40" : "#2d692a",
-            color: "#ffffff",
-            boxShadow: "none",
-            borderRadius: "14px",
-            fontSize: "12px",
-            fontWeight: "bold",
-            border: "1px solid rgba(255,255,255,0.2)"
-        }
+        backgroundColor: isSuccess ? "#449C40" : "#2d692a",
     });
 };
 
@@ -81,16 +67,14 @@ const showSingleGreenToast = (msg, isSuccess = true) => {
 // ===================================
 export function FilterTabs({ activeTab, setActiveTab, totalCount = 0, savedCount = 0, likedCount = 0 }) {
     return (
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 bg-white dark:bg-zinc-900 p-2.5 rounded-2xl border border-gray-200 dark:border-zinc-800">
-            <ToastContainer limit={1} style={{ boxShadow: "none" }} />
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 bg-white dark:bg-zinc-900 p-2.5 rounded-2xl border border-gray-200 dark:border-zinc-800 relative z-30">
             <div className="flex items-center gap-2">
                 <button
                     onClick={() => setActiveTab("all")}
-                    className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${
-                        activeTab === "all"
-                            ? "bg-[#449C40] text-white"
-                            : "text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800"
-                    }`}
+                    className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${activeTab === "all"
+                        ? "bg-[#449C40] text-white"
+                        : "text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800"
+                        }`}
                 >
                     <FontAwesomeIcon icon={faFolderOpen} className="text-xs" />
                     <span>الكل ({totalCount})</span>
@@ -98,11 +82,10 @@ export function FilterTabs({ activeTab, setActiveTab, totalCount = 0, savedCount
 
                 <button
                     onClick={() => setActiveTab("saved")}
-                    className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${
-                        activeTab === "saved"
-                            ? "bg-[#449C40] text-white"
-                            : "text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800"
-                    }`}
+                    className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${activeTab === "saved"
+                        ? "bg-[#449C40] text-white"
+                        : "text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800"
+                        }`}
                 >
                     <FontAwesomeIcon icon={faBookmarkSolid} className="text-xs" />
                     <span>المحفوظات ({savedCount})</span>
@@ -110,26 +93,25 @@ export function FilterTabs({ activeTab, setActiveTab, totalCount = 0, savedCount
 
                 <button
                     onClick={() => setActiveTab("liked")}
-                    className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${
-                        activeTab === "liked"
-                            ? "bg-[#449C40] text-white"
-                            : "text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800"
-                    }`}
+                    className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all ${activeTab === "liked"
+                        ? "bg-[#449C40] text-white"
+                        : "text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800"
+                        }`}
                 >
-                    <FontAwesomeIcon icon={faHeartSolid} className="text-xs text-red-500" />
-                    <span>المفضلة ({likedCount})</span>
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-xs text-[#449C40]" />
+                    <span>تم الاطلاع ({likedCount})</span>
                 </button>
             </div>
 
             <div className="text-xs text-gray-600 dark:text-zinc-400 font-semibold px-3 hidden sm:block">
-                تصفح ومعاينة المواد الإسلامية
+                تصفح ومتابعة المواد التي تم الاطلاع عليها
             </div>
         </div>
     );
 }
 
 // ===================================
-// 2. أزرار التفضيل والحفظ مع إشعار أخضر فريد
+// 2. أزرار وضع علامة "تم الاطلاع" والحفظ مع الإشعار المباشر
 // ===================================
 export function CardActions({ item, categoryType, onUpdate }) {
     const [saved, setSaved] = useState(false);
@@ -164,37 +146,43 @@ export function CardActions({ item, categoryType, onUpdate }) {
         if (onUpdate) onUpdate();
 
         if (newState) {
-            showSingleGreenToast("تم إضافة المادة إلى قائمة المفضلة", true);
+            showSingleGreenToast("تم وضع علامة: تم الاطلاع بنجاح", true);
         } else {
-            showSingleGreenToast("تم إزالة المادة من المفضلة", false);
+            showSingleGreenToast("تم إزالة علامة الاطلاع", false);
         }
     };
 
     return (
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 relative">
             <button
                 onClick={handleSave}
                 title={saved ? "محفوظ في مكتبتك" : "حفظ المادة"}
-                className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-                    saved
-                        ? "bg-[#449C40] text-white"
-                        : "bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-600 dark:text-zinc-400"
-                }`}
+                className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${saved
+                    ? "bg-[#449C40] text-white shadow-xs"
+                    : "bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-600 dark:text-zinc-400"
+                    }`}
             >
                 <FontAwesomeIcon icon={saved ? faBookmarkSolid : faBookmarkRegular} className="text-xs" />
             </button>
 
-            <button
-                onClick={handleLike}
-                title={liked ? "مفضل لديك" : "إعجاب"}
-                className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-                    liked
-                        ? "bg-red-50 text-red-600 dark:bg-red-950/40 dark:text-red-400 border border-red-200 dark:border-red-800"
-                        : "bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-600 dark:text-zinc-400"
-                }`}
-            >
-                <FontAwesomeIcon icon={liked ? faHeartSolid : faHeartRegular} className={`text-xs ${liked ? "text-red-500" : ""}`} />
-            </button>
+            {liked ? (
+                <button
+                    onClick={handleLike}
+                    title="تم الاطلاع (انقر لإلغاء العلامة)"
+                    className="flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-[#449C40] dark:text-emerald-400 border border-[#449C40]/40 rounded-lg text-[11px] font-bold transition-all hover:bg-emerald-100"
+                >
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-xs text-[#449C40]" />
+                    <span>تم الاطلاع</span>
+                </button>
+            ) : (
+                <button
+                    onClick={handleLike}
+                    title="تعليم كـ تم الاطلاع"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center transition-all bg-gray-100 hover:bg-emerald-50 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-gray-600 dark:text-zinc-400 hover:text-[#449C40]"
+                >
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-xs" />
+                </button>
+            )}
         </div>
     );
 }
@@ -323,7 +311,7 @@ export function EmptySavedState({ typeName = "المحفوظات" }) {
                     لا توجد عناصر في {typeName} حالياً
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-zinc-400">
-                    يمكنك إضافة المواد لقائمة {typeName} بالضغط على أيقونة الحفظ أو الإعجاب على أي كرت.
+                    يمكنك إضافة المواد لقائمة {typeName} بالضغط على أيقونة الحفظ أو علامة (تم الاطلاع) على أي كرت.
                 </p>
             </div>
         </div>
@@ -370,7 +358,7 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
 
     const attachments = itemDetail?.attachments || item?.attachments || [];
     const activeAttachment = attachments[selectedAttachmentIndex] || attachments[0];
-    
+
     const rawFileUrl = getSingleFileUrl(activeAttachment);
     const fileUrl = typeof rawFileUrl === "string" ? rawFileUrl : "";
     const ext = activeAttachment?.extension_type?.toLowerCase() || "";
@@ -383,10 +371,10 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
 
     const categoryTitle =
         categoryType === "books" ? "معاينة الكتاب" :
-        categoryType === "articles" ? "معاينة المقال" :
-        categoryType === "khotab" ? "معاينة الخطبة" :
-        categoryType === "fatwa" ? "معاينة الفتوى" :
-        categoryType === "audios" ? "مشغل الصوتيات والسلسلة" : "مشاهدة المرئيات والدروس";
+            categoryType === "articles" ? "معاينة المقال" :
+                categoryType === "khotab" ? "معاينة الخطبة" :
+                    categoryType === "fatwa" ? "معاينة الفتوى" :
+                        categoryType === "audios" ? "مشغل الصوتيات والسلسلة" : "مشاهدة المرئيات والدروس";
 
     const copyFatwaText = () => {
         const textToCopy = itemDetail?.full_description || itemDetail?.description || itemDetail?.title || "";
@@ -522,16 +510,14 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                         <div
                                             key={idx}
                                             onClick={() => setSelectedAttachmentIndex(idx)}
-                                            className={`flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl border transition-all cursor-pointer gap-2 ${
-                                                isSelected
-                                                    ? "bg-white dark:bg-zinc-800 border-[#449C40] text-gray-900 dark:text-white"
-                                                    : "bg-white dark:bg-zinc-950 border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-emerald-50/50 dark:hover:bg-zinc-900"
-                                            }`}
+                                            className={`flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl border transition-all cursor-pointer gap-2 ${isSelected
+                                                ? "bg-white dark:bg-zinc-800 border-[#449C40] text-gray-900 dark:text-white"
+                                                : "bg-white dark:bg-zinc-950 border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-emerald-50/50 dark:hover:bg-zinc-900"
+                                                }`}
                                         >
                                             <div className="flex items-center gap-3 truncate">
-                                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${
-                                                    isSelected ? "bg-[#449C40] text-white" : "bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-300"
-                                                }`}>
+                                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${isSelected ? "bg-[#449C40] text-white" : "bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-300"
+                                                    }`}>
                                                     {isAttAudio ? <FontAwesomeIcon icon={faVolumeUp} /> : isAttVideo ? <FontAwesomeIcon icon={faVideo} /> : isAttDoc ? <FontAwesomeIcon icon={faFileAlt} /> : <FontAwesomeIcon icon={faFilePdf} />}
                                                 </div>
 
@@ -551,11 +537,10 @@ export function UniversalPreviewModal({ item, categoryType, onClose }) {
                                                         e.stopPropagation();
                                                         setSelectedAttachmentIndex(idx);
                                                     }}
-                                                    className={`px-3 py-1.5 text-[11px] font-bold rounded-lg transition-colors flex items-center gap-1 ${
-                                                        isSelected
-                                                            ? "bg-[#449C40] text-white"
-                                                            : "bg-gray-100 dark:bg-zinc-800 hover:bg-emerald-100 dark:hover:bg-zinc-700 text-gray-700 dark:text-zinc-200"
-                                                    }`}
+                                                    className={`px-3 py-1.5 text-[11px] font-bold rounded-lg transition-colors flex items-center gap-1 ${isSelected
+                                                        ? "bg-[#449C40] text-white"
+                                                        : "bg-gray-100 dark:bg-zinc-800 hover:bg-emerald-100 dark:hover:bg-zinc-700 text-gray-700 dark:text-zinc-200"
+                                                        }`}
                                                 >
                                                     <FontAwesomeIcon icon={(isAttPdf || isAttDoc) ? faBook : faPlayCircle} />
                                                     <span>{isSelected ? "يعمل الآن" : (isAttDoc ? "قراءة المستند" : "تشغيل / قراءة")}</span>

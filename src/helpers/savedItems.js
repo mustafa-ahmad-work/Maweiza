@@ -56,7 +56,7 @@ export const toggleSave = (item, type) => {
 };
 
 // ========================
-// خدمات المفضلة (Likes)
+// خدمات تم الاطلاع / تم القراءة (Read / Viewed Items)
 // ========================
 
 export const getLikedItems = (type = null) => {
@@ -83,3 +83,8 @@ export const toggleLike = (item, type) => {
     setStorageData(LIKED_ITEMS_KEY, items);
     return existingIndex < 0; // return true if liked, false if unliked
 };
+
+// أسماء وإلياس مباشرة لخدمة تم الاطلاع / تمت القراءة
+export const getReadItems = getLikedItems;
+export const isRead = isLiked;
+export const toggleRead = toggleLike;
