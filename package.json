@@ -31,9 +31,11 @@
     "swr": "^2.4.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
     "@types/node": "20.8.3",
     "@types/react": "18.2.25",
     "autoprefixer": "^10.5.4",
+    "babel-loader": "^8.4.1",
     "baseline-browser-mapping": "^2.11.1",
     "eslint": "^8.57.1",
     "eslint-config-next": "^13.5.8",
